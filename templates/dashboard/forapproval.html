@@ -47,9 +47,11 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
+
                     <center>
                             <h4> For Approval</h4>
                          </center>
+
             </div>
 
             <ul class="nav">
@@ -59,6 +61,7 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+
 
             <li>
                     <a href="{% url "approved" %}">
@@ -72,6 +75,7 @@
                         <p>Rejected</p>
                      </a>
                 </li>
+
                 
 
                 <!--<li>
@@ -158,6 +162,7 @@
                         </li>
                     </ul>
 
+
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                            <a href="#">
@@ -197,9 +202,11 @@
             <div class="container-fluid">
                 <div class="row">
 
+
                     
                     {% for post in posts %}
                     <div class="col-md-4" style="cursor: pointer;" onclick="window.location='{% url "detailform" post.id %}';">
+
                         <div class="card">
                             <div class="header">
                                 <h4 class="title"><b>Requester: {{ post.requester }}</b></h4>
@@ -211,7 +218,18 @@
                                     <br>
                                     <i class="fa fa-circle text-info"></i> Project Name: {{ post.project_name }} <br>
                                     <i class="fa fa-circle text-info"></i> Application Name: {{ post.application_name }}<br>
+
+                                    <i class="fa fa-circle text-info"></i> Application Status: {{ post.status }}<br>
+
+                                    <br>
+                                    
+                                    
+                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "forapproval1" post.id %}';" name="approvebtn">
+                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "forapproval2" post.id %}';" name="rejectbtn">
+                                    <br>
+
                                     <br><br>
+
                             </div>
                             <!--<div class="content">
                                 <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>

@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import login_required
 
 
 from .models import RequestForm
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -53,6 +56,51 @@ def forapproval(request):
      posts = Project.objects.all()
      return render(request, "dashboard/forapproval.html", {'posts': posts })
 
+def forapproval1(request, id):
+    
+    currpost = Project.objects.get(id=id)
+    currpost.status = 'Approved'
+    currpost.save()
+    posts = Project.objects.all()
+
+    #mail functionality
+    subject = "Approval Request"
+    message = "Congratulations your stack request has been approved"
+    from_email = settings.EMAIL_HOST_USER
+    to_list = ["mehtamudit1804@gmail.com"]
+    send_mail(subject, message, from_email, to_list, fail_silently=False)
+
+   # posts.status = 'Approved'
+    #posts.save()
+    return render(request, "dashboard/forapproval.html", {'posts': posts })
+
+def forapproval2(request, id):
+    
+    currpost = Project.objects.get(id=id)
+    currpost.status = 'Rejected'
+    currpost.save()
+    posts = Project.objects.all()
+
+     #mail functionality
+    subject = "Approval Request"
+    message = "Sorry your stack request has been rejected"
+    from_email = settings.EMAIL_HOST_USER
+    to_list = ["mehtamudit1804@gmail.com"]
+    send_mail(subject, message, from_email, to_list, fail_silently=False)
+
+    #posts.status = newstatus
+    #posts = Project.objects.get(pk=id)
+    #posts.status = 'Rejected'
+    #posts.save()
+    return render(request, "dashboard/forapproval.html", {'posts': posts })
+
+
+
+
+
+
+
+
 @login_required(login_url='/login/')
 def detailform(request,id):
 #   today = datetime.datetime.now().date()
@@ -71,6 +119,7 @@ def rejected(request):
      uname = request.user.get_username()
      posts = Project.objects.all()
      return render(request, "dashboard/rejected.html", {'posts': posts })
+
 
 
 
