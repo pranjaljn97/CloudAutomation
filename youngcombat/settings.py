@@ -81,23 +81,23 @@ WSGI_APPLICATION = 'youngcombat.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#   }
-#}
 DATABASES = {
-        'default': {
-        'ENGINE': os.environ['DB_ENGINE'], # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.environ['DB_NAME'],                       # Or path to database file if using sqlite3.
-        'USER': os.environ['DB_USER'],                      # Not used with sqlite3.
-        'PASSWORD': os.environ['DB_PASSWORD'],                  # Not used with sqlite3.
-        'HOST': os.environ['DB_HOST'],                         # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': os.environ['DB_PORT'],
-
-    }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+   }
 }
+#DATABASES = {
+#        'default': {
+#        'ENGINE': os.environ['DB_ENGINE'], # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#        'NAME': os.environ['DB_NAME'],                       # Or path to database file if using sqlite3.
+#        'USER': os.environ['DB_USER'],                      # Not used with sqlite3.
+#        'PASSWORD': os.environ['DB_PASSWORD'],                  # Not used with sqlite3.
+#        'HOST': os.environ['DB_HOST'],                         # Set to empty string for localhost. Not used with sqlite3.
+#        'PORT': os.environ['DB_PORT'],
+#
+#    }
+#}
 
 
 # Password validation
