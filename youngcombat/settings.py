@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'dashboard'     #GoogleSignin
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES= [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -75,30 +75,56 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'youngcombat.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-   }
-}
 #DATABASES = {
-#        'default': {
-#        'ENGINE': os.environ['DB_ENGINE'], # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#        'NAME': os.environ['DB_NAME'],                       # Or path to database file if using sqlite3.
-#        'USER': os.environ['DB_USER'],                      # Not used with sqlite3.
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#   }
+#}
+#DATABASES = {
+#       'default': {
+#       'ENGINE': os.environ['DB_ENGINE'], # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#       'NAME': os.environ['DB_NAME'],                       # Or path to database file if using sqlite3.
+#       'USER': os.environ['DB_USER'],                      # Not used with sqlite3.
 #        'PASSWORD': os.environ['DB_PASSWORD'],                  # Not used with sqlite3.
-#        'HOST': os.environ['DB_HOST'],                         # Set to empty string for localhost. Not used with sqlite3.
+#       'HOST': os.environ['DB_HOST'],                         # Set to empty string for localhost. Not used with sqlite3.
 #        'PORT': os.environ['DB_PORT'],
 #
 #    }
 #}
+DATABASES = {
+        'default': {
+        #'ENGINE': os.environ['DB_ENGINE'], # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        #'NAME': os.environ['DB_NAME'],                       # Or path to database file if using sqlite3.
+        #'USER': os.environ['DB_USER'],                      # Not used with sqlite3.
+        #'PASSWORD': os.environ['DB_PASSWORD'],                  # Not used with sqlite3.
+        #'HOST': os.environ['DB_HOST'],                         # Set to empty string for localhost. Not used with sqlite3.
+        #'PORT': os.environ['DB_PORT'],
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'myproject',
+        'USER': 'root',
+        'PASSWORD': 'mehta123',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+        
+    }
+}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'first',
+#         'USER': 'root',
+#         'PASSWORD': '1234',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#    }
+# }
 
+WSGI_APPLICATION = 'youngcombat.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -146,6 +172,15 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+#for email use
+from .mail_info import EMAIL_USE_TLS, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT
+EMAIL_USE_TLS = EMAIL_USE_TLS
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_PORT = EMAIL_PORT
+
 
 
 #Custom Settings Done by Prashant Vats 

@@ -47,9 +47,11 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <center>
-                   <h4> DashBoard</h4>
-                </center>
+
+                    <center>
+                            <h4> For Approval</h4>
+                         </center>
+
             </div>
 
             <ul class="nav">
@@ -59,40 +61,21 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-		  <li>
-                    <a href="{% url "dashboard" %}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Submitted</p>
-                    </a>
-                </li>
-		{% if perms.login.view_content %}
-		  <li>
-                    <a href="{% url "forapproval" %}">
+
+
+            <li>
+                    <a href="{% url "approved" %}">
                         <i class="pe-7s-graph"></i>
-                        <p>For Approval</p>
+                        <p>Approved</p>
                     </a>
                 </li>
-		{% endif %}
-
-                <li>
-
-                <li>
-
-                <li>
-                    <a href="{% url "userprofile" %}">
-                        <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                
-
-                <li>
-                    <a href="{% url "cprovider" %}">
+            <li>
+                    <a href="{% url "rejected" %}">
                         <i class="pe-7s-note2"></i>
-                        <p>Cloud Provider</p>
-                    </a>
+                        <p>Rejected</p>
+                     </a>
                 </li>
-                
+
                 
 
                 <!--<li>
@@ -179,6 +162,7 @@
                         </li>
                     </ul>
 
+
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                            <a href="#">
@@ -219,23 +203,34 @@
                 <div class="row">
 
 
-
                     
+                    {% for post in posts %}
+                    <div class="col-md-4" style="cursor: pointer;" onclick="window.location='{% url "detailform" post.id %}';">
 
-
-
-                    <div class="col-md-4" style="cursor: pointer;" onclick="window.location='{% url "drupalform" %}';">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title"><b>Drupal Application</b></h4>
+                                <h4 class="title"><b>Requester: {{ post.requester }}</b></h4>
                                     <br>
-                                    <p class="category">Template for deploying Drupal Application</p>
-                                    <br>
-                                    <i class="fa fa-circle text-info"></i> Build Tool: Drupal <br>
-                                    <i class="fa fa-circle text-info"></i> Database: MySQL<br>
-                                    <br><br>
-                            </div>
+                                    
 
+
+                                    <p class="category"></p>
+                                    <br>
+                                    <i class="fa fa-circle text-info"></i> Project Name: {{ post.project_name }} <br>
+                                    <i class="fa fa-circle text-info"></i> Application Name: {{ post.application_name }}<br>
+
+                                    <i class="fa fa-circle text-info"></i> Application Status: {{ post.status }}<br>
+
+                                    <br>
+                                    
+                                    
+                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "forapproval1" post.id %}';" name="approvebtn">
+                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "forapproval2" post.id %}';" name="rejectbtn">
+                                    <br>
+
+                                    <br><br>
+
+                            </div>
                             <!--<div class="content">
                                 <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
                                 <div class="footer">
@@ -252,6 +247,11 @@
                             </div>-->
                         </div>
                     </div>
+                    {% endfor %}
+
+
+
+
 
                     <!--<div class="col-md-8">
                         <div class="card">
