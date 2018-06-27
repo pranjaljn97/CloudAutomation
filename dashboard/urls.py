@@ -12,7 +12,8 @@ urlpatterns = [
     url(r'^thanks/', views.thanks, name='thanks'),
     url(r'^forapproval/', views.forapproval, name='forapproval'),
     url(r'^forapproval1/(?P<id>[0-9]+)', views.forapproval1, name='forapproval1'),
-     url(r'^forapproval2/(?P<id>[0-9]+)', views.forapproval2, name='forapproval2'),
-    
-
+    url(r'^forapproval2/(?P<id>[0-9]+)', views.forapproval2, name='forapproval2'),
+    url(r'^approved/', views.approved, name='approved'),
+    url(r'^rejected/', views.rejected, name='rejected'),
+    url(r'^detailform/?(?P<id>[0-9]+)', views.detailform, name='detailform'),
 ]

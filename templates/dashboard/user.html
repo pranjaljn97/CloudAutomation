@@ -42,30 +42,25 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="{% url "userprofile" %}" class="simple-text">
-                    UserProfile
+                <h4><center>UserProfile</center></h4>
+                    
                 </a>
             </div>
 
             <ul class="nav">
-                <li>
+                <li class="active">
                     <a href="{% url "dashboard" %}">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="{% url "userprofile" %}">
                         <i class="pe-7s-user"></i>
                         <p>User Profile</p>
                     </a>
                 </li>
-                 <li>
-                    <a href="{% url "cprovider" %}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Cloud Provider</p>
-                    </a>
-                </li>
+                
                 <!--<li>
                     <a href="table.html">
                         <i class="pe-7s-note2"></i>

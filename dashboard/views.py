@@ -37,11 +37,10 @@ def thanks(request):
 @login_required(login_url='/login/')
 def cloudprovider(request):
     uname = request.user.get_username()
-    if uname == 'admin':
+   
 #   today = datetime.datetime.now().date()
-        return render(request, "dashboard/cloud-provider.html")
-    else:
-        return render(request, "dashboard/noauth.html")
+    return render(request, "dashboard/cloud-provider.html")
+    
 
 @login_required(login_url='/login/')
 def userdata(request):
@@ -100,6 +99,26 @@ def forapproval2(request, id):
 
 
 
+
+
+@login_required(login_url='/login/')
+def detailform(request,id):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = Project.objects.get(pk=id)
+     return render(request, "dashboard/detailform.html", {'posts': posts })
+@login_required(login_url='/login/')
+def approved(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = Project.objects.all()
+     return render(request, "dashboard/approved.html", {'posts': posts })
+@login_required(login_url='/login/')
+def rejected(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = Project.objects.all()
+     return render(request, "dashboard/rejected.html", {'posts': posts })
 
 
 
