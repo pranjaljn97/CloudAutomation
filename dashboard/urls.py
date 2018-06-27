@@ -10,4 +10,8 @@ urlpatterns = [
     url(r'^test/', views.userdata, name='userdata'),
     url(r'^cprovider/', views.cloudprovider, name='cprovider'),
     url(r'^thanks/', views.thanks, name='thanks'),
+    url(r'^forapproval/', views.forapproval, name='forapproval'),
+    url(r'^approved/', views.approved, name='approved'),
+    url(r'^rejected/', views.rejected, name='rejected'),
+    url(r'^detailform/?(?P<id>[0-9]+)', views.detailform, name='detailform'),
 ]

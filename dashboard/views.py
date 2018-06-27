@@ -13,7 +13,6 @@ from django.shortcuts import render
 from .models import Project
 from django.contrib.auth.models import User
 
-
 import datetime
 
 
@@ -35,11 +34,10 @@ def thanks(request):
 @login_required(login_url='/login/')
 def cloudprovider(request):
     uname = request.user.get_username()
-    if uname == 'admin':
+   
 #   today = datetime.datetime.now().date()
-        return render(request, "dashboard/cloud-provider.html")
-    else:
-        return render(request, "dashboard/noauth.html")
+    return render(request, "dashboard/cloud-provider.html")
+    
 
 @login_required(login_url='/login/')
 def userdata(request):
@@ -47,6 +45,32 @@ def userdata(request):
     posts = Project.objects.all().filter(requester='admin')
 
     return render(request, 'dashboard/post_list.html', {'posts': posts })
+
+@login_required(login_url='/login/')
+def forapproval(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = Project.objects.all()
+     return render(request, "dashboard/forapproval.html", {'posts': posts })
+
+@login_required(login_url='/login/')
+def detailform(request,id):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = Project.objects.get(pk=id)
+     return render(request, "dashboard/detailform.html", {'posts': posts })
+@login_required(login_url='/login/')
+def approved(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = Project.objects.all()
+     return render(request, "dashboard/approved.html", {'posts': posts })
+@login_required(login_url='/login/')
+def rejected(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = Project.objects.all()
+     return render(request, "dashboard/rejected.html", {'posts': posts })
 
 
 
@@ -70,7 +94,10 @@ def drupalform(request):
         if form.is_valid():
             form.save()
             #pass
+         
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
+        else:
+            print(form.errors)   
     else:
         form = RequestForm()
     return render(request, 'dashboard/drupal-home.html', {'form': form})
