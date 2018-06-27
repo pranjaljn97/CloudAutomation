@@ -1,0 +1,34 @@
+.main {
+    /*background-color: powderblue;*/
+    background-repeat: no-repeat !important;
+    background-image: url("../images/background.png");
+    min-height: 500px;
+}
+
+li a {
+    color: green;
+}
+
+.myButton {
+	background-color:#b40a65;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #b40a65;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	padding:20px 31px;
+	text-decoration:none;
+	align-items: center;
+    justify-content: center;
+}
+.myButton:hover {
+	background-color:#b40a65;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}

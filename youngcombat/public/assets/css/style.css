@@ -1,0 +1,78 @@
+.login-logo h1 {
+  margin: 0;
+  padding: 15px;
+  background-color: #353535;
+  color: #ffffff;
+  border-radius: 6px 6px 0 0;
+  font-size: 30px;
+  font-weight: 700; }
+
+.btn-submit {
+  transition: all 0.4s ease; }
+  .btn-submit:hover {
+    background-color: #353535; }
+
+.register-logo h1 {
+  margin: 0;
+  padding: 15px;
+  background-color: #353535;
+  color: #ffffff;
+  border-radius: 6px 6px 0 0;
+  font-size: 30px;
+  font-weight: 700; }
+
+.btn-submit {
+  transition: all 0.4s ease; }
+  .btn-submit:hover {
+    background-color: #353535; }
+
+.btn-create,
+.save,
+.add-project {
+  background-color: #3c8dbc;
+  padding: 10px;
+  color: white;
+  border-radius: 4px;
+  transition: all 0.2s ease; }
+  .btn-create:hover,
+  .save:hover,
+  .add-project:hover {
+    background-color: #367fa9;
+    color: #ffffff; }
+
+.check {
+  width: 40px; }
+
+.form-horizontal .control-label {
+  text-align: left; }
+
+/* Project Form */
+.save,
+.add-project {
+  margin-right: 20px;
+  border: none;
+  width: 150px; }
+
+.add-project {
+  margin-right: 20px; }
+
+* {
+  box-sizing: border-box; }
+
+a {
+  cursor: pointer; }
+  a:hover {
+    outline: none; }
+
+.pdr10 {
+  padding-right: 10px; }
+
+.mgt10 {
+  margin-top: 10px; }
+
+textarea {
+  resize: none;
+  width: 100%;
+  height: 110px; }
+
+/*# sourceMappingURL=style.css.map */

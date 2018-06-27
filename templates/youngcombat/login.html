@@ -1,0 +1,17 @@
+{% block title %}{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <meta http-equiv="refresh" content="0; url=http://test1.com:8000/home/" />
+    {% else %}
+        <h2>Login</h2>
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+        </form>
+        <br>
+        <p><strong>-- OR --</strong></p>
+        <a href="{% url "social:begin" "google-oauth2" %}">Google+</a>
+    {% endif %}
+{% endblock %}
