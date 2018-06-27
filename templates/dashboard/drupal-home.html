@@ -197,19 +197,19 @@
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Requester</label>
-                                                <input type="text" class="form-control" disabled placeholder="{{ user.username }}" value="{{ user.username }}">
+                                                <input type="text" class="form-control" placeholder="Required" >
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Platform</label>
-                                                <input type="text" class="form-control" disabled placeholder="Drupal" value="Drupal">
+                                                <input type="text" class="form-control"  placeholder="Drupal" value="Drupal">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Environment Type</label>
-                                                <input type="text" class="form-control" disabled  placeholder="Docker" value="Docker" >
+                                                <input type="text" class="form-control"  placeholder="Docker" value="Docker" >
                                             </div>
                                         </div>
                                     </div>
@@ -222,6 +222,13 @@
                                                 <input type="text" class="form-control"   placeholder="Name of your project" name='project_name'>
                                             </div>
                                         </div>
+					<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Status</label>
+                                                <input type="text" class="form-control"   placeholder="Status" name='status' value="submitted">
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Application Name</label>
@@ -244,26 +251,40 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Drupal Version</label>
+                                                <label>Ubuntu Version</label>
                                                     <br>
                                                     
-                                                <input type="radio" name="platform_version" value="Drupal7" checked> Drupal7 </br>
-                                                <input type="radio" name="platform_version" value="Drupal8"> Drupal8  
-                                                        
+                                                <select name="UBUNTU_VERSION">
+    							<option value="14.04">14.04</option>
+    							<option value="16.04">16.04</option>
+	   						<option value="16.10">16.10</option>
+   							 <option value="18.04">18.04</option>				
+						 </select>
+  							<br>
 
                                             </div>
                                         </div>
                                         
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>CPU</label>
-                                                <input type="number" class="form-control"  placeholder="Desired Core of Virtual CPU" min="1" max="4">
+                                                <label>PHP Version</label>
+						<select name="PHP_VERSION">
+                                                        <option value="7.0">7.0</option>
+                                                        <option value="7.1">7.1</option>
+                                                        <option value="7.2">7.2</option>
+                                                 </select>
+                                               
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Memeory</label>
-                                                <input type="number" class="form-control"  placeholder="Desired Memory" min="256" max="2048">
+                                                <label>PHP Modules Required</label>
+                                                <select name="PHP_MODULES" multiple>
+                                                        <option value="mysql">Mysql </option>
+                                                        <option value="curl">Curl</option>
+                                                        <option value="json">Json</option>
+                                                         <option value="mongo">Mongo</option>
+                                                 </select>
                                             </div>
                                         </div>
 
@@ -279,12 +300,6 @@
                                                  
                                             </div>
                                         </div>-->
-                                         <div class="col-md-4 col-md-offset-4">
-                                            <div class="form-group">
-                                                <label>MySql Password</label>
-                                                <input type="text" class="form-control"  placeholder="MySql Password">
-                                            </div>
-                                        </div>
                                         <!--<div class="col-md-4">
                                             <div class="form-group" >
                                                 <label>Mongo Password</label>
@@ -303,13 +318,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Key #1</label>
-                                                <input type="text" class="form-control"   placeholder="Environment Key" name='project_name'>
+                                                <input type="text" class="form-control"   value="NGINX_BACKEND_HOST" name='NGINX_BACKEND_HOST' disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Value #1</label>
-                                                <input type="text" class="form-control" placeholder="Environment V"  name='application_name'>
+                                                <input type="text" class="form-control" placeholder="9000"  name='NGINX_BACKEND_HOST_VALUE'>
                                             </div>
                                         </div>
                                         
@@ -319,13 +334,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Key #2</label>
-                                                <input type="text" class="form-control"   placeholder="Environment Key" name='project_name'>
+                                                <input type="text" class="form-control"   value="NGINX_SERVER_NAME" name='NGINX_SERVER_NAME' disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Value #2</label>
-                                                <input type="text" class="form-control" placeholder="Environment V"  name='application_name'>
+                                                <input type="text" class="form-control" placeholder="drupal"  name='NGINX_SERVER_NAME_VALUE'>
                                             </div>
                                         </div>
                                         
@@ -335,13 +350,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Key #3</label>
-                                                <input type="text" class="form-control"   placeholder="Environment Key" name='project_name'>
+                                                <input type="text" class="form-control"   value="NGINX_SERVER_ROOT" name='NGINX_SERVER_ROOT' disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Value #3</label>
-                                                <input type="text" class="form-control" placeholder="Environment V"  name='application_name'>
+                                                <input type="text" class="form-control" placeholder="/var/www/html"  name='NGINX_SERVER_ROOT_VALUE'>
                                             </div>
                                         </div>
                                         
@@ -351,13 +366,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Key #4</label>
-                                                <input type="text" class="form-control"   placeholder="Environment Key" name='project_name'>
+                                                <input type="text" class="form-control"   value="NGINX_STATIC_CONTENT_ACCESS_LOG"  name='NGINX_STATIC_CONTENT_ACCESS_LOG' disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Value #4</label>
-                                                <input type="text" class="form-control" placeholder="Environment V"  name='application_name'>
+                                                <input type="text" class="form-control" placeholder="off"  name='NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE'>
                                             </div>
                                         </div>
                                         
@@ -367,13 +382,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Key #5</label>
-                                                <input type="text" class="form-control"   placeholder="Environment Key" name='project_name'>
+                                                <input type="text" class="form-control"   value="NGINX_STATIC_CONTENT_EXPIRES" name='NGINX_STATIC_CONTENT_EXPIRES' disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Value #5</label>
-                                                <input type="text" class="form-control" placeholder="Environment V"  name='application_name'>
+                                                <input type="text" class="form-control" placeholder="30d"  name='NGINX_STATIC_CONTENT_EXPIRES_VALUE'>
                                             </div>
                                         </div>
                                         
@@ -383,82 +398,17 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Key #6</label>
-                                                <input type="text" class="form-control"   placeholder="Environment Key" name='project_name'>
+                                                <input type="text" class="form-control"  value="NGINX_DRUPAL_FILE_PROXY_URL" name='NGINX_DRUPAL_FILE_PROXY_URL' disabled>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Value #6</label>
-                                                <input type="text" class="form-control" placeholder="Environment V"  name='application_name'>
+                                                <input type="text" class="form-control" placeholder="none"  name='NGINX_DRUPAL_FILE_PROXY_URL_VALUE'>
                                             </div>
                                         </div>
                                         
                                     </div>
-                                     <div class="row">
-                                        <span style="color: red">{{form.project_name.errors}}</span>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Key #7</label>
-                                                <input type="text" class="form-control"   placeholder="Environment Key" name='project_name'>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Value #7</label>
-                                                <input type="text" class="form-control" placeholder="Environment V"  name='application_name'>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                     <div class="row">
-                                        <span style="color: red">{{form.project_name.errors}}</span>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Key #8</label>
-                                                <input type="text" class="form-control"   placeholder="Environment Key" name='project_name'>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Value #8</label>
-                                                <input type="text" class="form-control" placeholder="Environment V"  name='application_name'>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                     <div class="row">
-                                        <span style="color: red">{{form.project_name.errors}}</span>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Key #9</label>
-                                                <input type="text" class="form-control"   placeholder="Environment Key" name='project_name'>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Value #9</label>
-                                                <input type="text" class="form-control" placeholder="Environment V"  name='application_name'>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                     <div class="row">
-                                        <span style="color: red">{{form.project_name.errors}}</span>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Key #10</label>
-                                                <input type="text" class="form-control"   placeholder="Environment Key" name='project_name'>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Value #10</label>
-                                                <input type="text" class="form-control" placeholder="Environment V"  name='application_name'>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-
 
                                     <!--<div class="row">
                                         <div class="col-md-12">
