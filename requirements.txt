@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 adium-theme-ubuntu==0.3.4
 astroid==1.6.5
 awscli==1.15.29
 backports.functools-lru-cache==1.5
 backports.ssl-match-hostname==3.5.0.1
 botocore==1.10.29
+=======
+backports.ssl-match-hostname==3.5.0.1
+>>>>>>> dev
 certifi==2017.7.27.1
 chardet==3.0.4
 colorama==0.3.9
@@ -16,6 +20,7 @@ django-rest-swagger==2.1.2
 djangorestframework==3.7.0
 docker==3.4.0
 docker-pycreds==0.3.0
+<<<<<<< HEAD
 docutils==0.14
 enum34==1.1.6
 futures==3.2.0
@@ -23,6 +28,11 @@ gunicorn==19.7.1
 idna==2.6
 ipaddress==1.0.22
 isort==4.3.4
+=======
+gunicorn==19.7.1
+idna==2.6
+ipaddress==1.0.22
+>>>>>>> dev
 itypes==1.1.0
 jenkins==1.0.2
 jenkinsapi==0.3.4
@@ -63,9 +73,12 @@ stevedore==1.28.0
 unity-lens-photos==1.0
 uritemplate==3.0.0
 urllib3==1.22
+<<<<<<< HEAD
 virtualenv==16.0.0
 virtualenv-clone==0.3.0
 virtualenvwrapper==4.8.2
+=======
+>>>>>>> dev
 websocket-client==0.48.0
 whitenoise==3.3.1
 wrapt==1.10.11
