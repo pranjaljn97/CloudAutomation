@@ -9,6 +9,9 @@
 
                     
                     {% for post in posts %}
+
+                    <!-- onclick="window.location='{% url "detailform" post.id %}';"-->
+
                     <div class="col-md-4" style="cursor: pointer;">
 
                         <div class="card">
@@ -27,12 +30,13 @@
 
                                     <br>
                                     
-                                    <br>
-                                    <center>
-                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "forapproval1" post.id %}';" name="approvebtn">
-                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "forapproval2" post.id %}';" name="rejectbtn">
-                                    <input type="submit" id="detailbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';">
-                                    </center>
+
+
+                                    
+                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "approvedsuccessfully" post.id %}';" name="approvebtn">
+                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "rejectedsuccessfully" post.id %}';" name="rejectbtn">
+                                    <input type="submit" id="detailsbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';" name="rejectbtn">
+
                                     <br>
 
                             
