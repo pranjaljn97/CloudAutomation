@@ -2,528 +2,859 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-	<title>Self Service Portal | To The New</title>
-
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Self Service Portal | To The New
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-
-
+    <!-- CSS for regForm -->
+    <link href="{% static "dashboard/assets/css/regForm.css" %}" rel="stylesheet"/>
     <!-- Bootstrap core CSS     -->
     <link href="{% static "dashboard/assets/css/bootstrap.min.css" %}" rel="stylesheet" />
-
     <!-- Animation library for notifications   -->
     <link href="{% static "dashboard/assets/css/animate.min.css" %}" rel="stylesheet"/>
-
     <!--  Light Bootstrap Table core CSS    -->
     <link href="{% static "dashboard/assets/css/light-bootstrap-dashboard.css" %}" rel="stylesheet"/>
-
-
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="{% static "dashboard/assets/css/demo.css" %}" rel="stylesheet" />
-
-
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="{% static "dashboard/assets/css/pe-icon-7-stroke.css" %}" rel="stylesheet" />
-</head>
-<body>
 
-<div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
-
-    <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
-
-
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="{% url "userprofile" %}" class="simple-text">
-                    UserProfile
-                </a>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+        <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+        <div class="sidebar-wrapper">
+          <div class="logo">
+            <a href="{% url "userprofile" %}" class="simple-text">
+              UserProfile
+            </a>
+          </div>
+          <ul class="nav">
+            <li>
+              <a href="{% url "dashboard" %}">
+                <i class="pe-7s-graph">
+                </i>
+                <p>Dashboard
+                </p>
+              </a>
+            </li>
+            <li class="active">
+              <a href="{% url "userprofile" %}">
+                <i class="pe-7s-user">
+                </i>
+                <p>User Profile
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                <span class="sr-only">Toggle navigation
+                </span>
+                <span class="icon-bar">
+                </span>
+                <span class="icon-bar">
+                </span>
+                <span class="icon-bar">
+                </span>
+              </button>
+              <a class="navbar-brand" href="#">Hi {{ user.username }} !
+              </a>
             </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-left">
+                <li>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-dashboard">
+                    </i>
+                    <p class="hidden-lg hidden-md">Dashboard
+                    </p>
+                  </a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-globe">
+                    </i>
+                    <b class="caret hidden-sm hidden-xs">
+                    </b>
+                    <span class="notification hidden-sm hidden-xs">5
+                    </span>
+                    <p class="hidden-lg hidden-md">
+                      5 Notifications
+                      <b class="caret">
+                      </b>
+                    </p>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="#">Notification 1
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">Notification 2
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">Notification 3
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">Notification 4
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">Another notification
+                      </a>
+                    </li>
+                  </ul>
 
-            <ul class="nav">
-                <li>
-                    <a href="{% url "dashboard" %}">
-                        <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="{% url "userprofile" %}">
-                        <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <!--<li>
-                    <a href="table.html">
-                        <i class="pe-7s-note2"></i>
-                        <p>Table List</p>
-                    </a>
                 </li>
                 <li>
-                    <a href="typography.html">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
-                    </a>
+                  <a href="">
+                    <i class="fa fa-search">
+                    </i>
+                    <p class="hidden-lg hidden-md">Search
+                    </p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="">
+                    <p>FAQ
+                    </p>
+                  </a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <p>
+                      Services
+                      <b class="caret">
+                      </b>
+                    </p>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="#">Action
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">Something
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">Something
+                      </a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                      <a href="#">Separated link
+                      </a>
+                    </li>
+                  </ul>
                 </li>
                 <li>
-                    <a href="icons.html">
-                        <i class="pe-7s-science"></i>
-                        <p>Icons</p>
-                    </a>
+                  <a href="{% url 'logout' %}">
+                    <p>Log out
+                    </p>
+                  </a>
                 </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
-                    </a>
+                <li class="separator hidden-lg hidden-md">
                 </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-				<li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>-->
-            </ul>
-    	</div>
-    </div>
-
-    <div class="main-panel">
-		<nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Hi {{ user.username }} !</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-dashboard"></i>
-								<p class="hidden-lg hidden-md">Dashboard</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret hidden-sm hidden-xs"></b>
-                                    <span class="notification hidden-sm hidden-xs">5</span>
-									<p class="hidden-lg hidden-md">
-										5 Notifications
-										<b class="caret"></b>
-									</p>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                           <a href="">
-                                <i class="fa fa-search"></i>
-								<p class="hidden-lg hidden-md">Search</p>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                           <a href="">
-                               <p>FAQ</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <p>
-										Services
-										<b class="caret"></b>
-									</p>
-
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                            <a href="{% url 'logout' %}">
-                                <p>Log out</p>
-                            </a>
-                        </li>
-						<li class="separator hidden-lg hidden-md"></li>
-                    </ul>
-                </div>
+              </ul>
             </div>
+          </div>
         </nav>
-
-        
         <div class="content">
-            <div class="container-fluid">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card">
+                  <div class="header">
+                    <h3 class="title">Drupal Application Request
+                    </h3>
+                  </div>
+                  <div class="content">
+                    <form action="." method="post">
+                      {% csrf_token %}
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label>Requester
+                            </label>
+                            <input type="text" class="form-control" disabled placeholder="{{ user.username }}" value="{{ user.username }}">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Platform
+                            </label>
+                            <input type="text" class="form-control" disabled placeholder="Drupal" value="Drupal">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Environment Type
+                            </label>
+                            <input type="text" class="form-control" disabled  placeholder="Docker" value="Docker" >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <span style="color: red">{{form.project_name.errors}}
+                        </span>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Project Name
+                            </label>
+                            <input type="text" class="form-control"   placeholder="Name of your project" name='project_name'>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Application Name
+                            </label>
+                            <input type="text" class="form-control" placeholder="Name of your application"  name='application_name'>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label>Git URL
+                            </label>
+                            <input type="url" class="form-control" placeholder="Enter the git SSH url of gitlab.intelligrape.net">
+                          </div>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-info btn-fill pull-right">Submit
+                      </button>
+                      <div class="clearfix">
+                      </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card card-user">
+                    <div class="image">
+                      <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+                    </div>
+                    <div class="content">
+                      <div class="author">
+                        <a href="#">
+                          <img class="avatar border-gray" src="{% static "dashboard/assets/img/faces/face-1.jpg" %}" halt="..."/>
+                          <h4 class="title">{{ user.first_name }} {{ user.last_name }}
+                            <br />
+                            <small>{{ user.username }}
+                            </small>
+                          </h4>
+                        </a>
+                      </div>
+                      <p class="description text-center"> {{ user.email }} 
+                        <br>
+                        To The New 
+                        <br>
+                        Noida, India 
+                        <br>
+                        <br>
+                        <b>Last Login 
+                        </b> : {{ user.last_login }}  
+                        <br>
+                        <b> Joined On 
+                        </b> : {{ user.date_joined }}
+                      </p>
+                    </div>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--below card-->
+          <div class="content">
+              <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="header">
-                                <h3 class="title">Drupal Application Request</h3>
+                  <div class="col-md-8">
+                    <div class="card">
+
+                        <div class="content">
+
+                      <!-- multistep form -->
+                      <form id="regForm" action="">
+                        <!-- One "tab" for each step in the form: -->
+                        <h2>Requirement:</h2>
+                        
+                        <div class="tab">Varnish:
+                          <form>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <label>Varnish Version
+                                </label>
+                                <br>
+                                <input type="radio" name="varnish_version" value="Varnish4" checked> Varnish 4 
+                                <input type="radio" name="varnish_version" value="Varnish4.1"> Varnish 4.1  
+                                <input type="radio" name="varnish_version" value="Varnishlatest"> Latest         
+                              </div>
                             </div>
-                            <div class="content">
-                                <form action="." method="post">
-                                    {% csrf_token %}
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label>Requester</label>
-                                                <input type="text" class="form-control" placeholder="Required" >
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Platform</label>
-                                                <input type="text" class="form-control"  placeholder="Drupal" value="Drupal">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Environment Type</label>
-                                                <input type="text" class="form-control"  placeholder="Docker" value="Docker" >
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <span style="color: red">{{form.project_name.errors}}</span>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Project Name</label>
-                                                <input type="text" class="form-control"   placeholder="Name of your project" name='project_name'>
-                                            </div>
-                                        </div>
-					<div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Status</label>
-                                                <input type="text" class="form-control"   placeholder="Status" name='status' value="submitted">
-                                            </div>
-                                        </div>
+                            <div class="row">
+                              <hr>
+                              <div class="header">
+                                <h3 class="title"> Environment variables 
+                                </h3>
+                              </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                              <span style="color: red">{{form.project_name.errors}}
+                              </span>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Key #1
+                                  </label>
+                                  <input type="text" class="form-control" disabled placeholder="VARNISH_BACKEND_HOST" name='VARNISH_BACKEND_HOST_VALUE'>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Value #1
+                                  </label>
+                                  <input type="text" class="form-control" placeholder="Environment V" name='VARNISH_BACKEND_HOST_VALUE'>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <span style="color: red">{{form.project_name.errors}}
+                              </span>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Key #2
+                                  </label>
+                                  <input type="text" class="form-control" disabled placeholder="VARNISH_BACKEND_PORT" name='VARNISH_BACKEND_PORT_VALUE'>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Value #2
+                                  </label>
+                                  <input type="text" class="form-control" placeholder="Environment V" value="80" name='VARNISH_BACKEND_PORT_VALUE'>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <span style="color: red">{{form.project_name.errors}}
+                              </span>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Key #3
+                                  </label>
+                                  <input type="text" class="form-control"   placeholder="VARNISH_SECRET" name='VARNISH_SECRET_VALUE'>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Value #3
+                                  </label>
+                                  <input type="text" class="form-control" placeholder="Environment V"  name='VARNISH_SECRET_VALUE'>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <span style="color: red">{{form.project_name.errors}}
+                              </span>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Key #4
+                                  </label>
+                                  <input type="text" class="form-control"   placeholder="VARNISH_PORT" name='VARNISH_PORT_VALUE'>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Value #4
+                                  </label>
+                                  <input type="text" class="form-control" placeholder="Environment V" value="6081" name='VARNISH_PORT_VALUE'>
+                                </div>
+                                
+                              </div>
+                            </div>
+                            </form>
+                            </div>
 
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Application Name</label>
-                                                <input type="text" class="form-control" placeholder="Name of your application"  name='application_name'>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
+                          <div class="tab">PHP:
+                          <form>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label>Ubuntu Version
+                                    </label>
+                                    <br>
+                                    <select name="UBUNTU_VERSION">
+                                      <option value="14.04">14.04
+                                      </option>
+                                      <option value="16.04">16.04
+                                      </option>
+                                      <option value="16.10">16.10
+                                      </option>
+                                      <option value="18.04">18.04
+                                      </option>				
+                                    </select>
+                                    <br>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label>PHP Version
+                                    </label>
+                                    <select name="PHP_VERSION">
+                                      <option value="7.0">7.0
+                                      </option>
+                                      <option value="7.1">7.1
+                                      </option>
+                                      <option value="7.2">7.2
+                                      </option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label>PHP Modules Required
+                                    </label>
+                                    <select name="PHP_MODULES" multiple>
+                                      <option value="mysql">Mysql 
+                                      </option>
+                                      <option value="curl">Curl
+                                      </option>
+                                      <option value="json">Json
+                                      </option>
+                                      <option value="mongo">Mongo
+                                      </option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <!--<div class="col-md-4">
+<div class="form-group">
+<label>Build Tool</label>
+<br>
+<input type="radio" name="build_tool" value="Gradle" checked]> Gradle 3.1
+<input type="radio" name="build_tool" value="Maven"> Maven 3.5
+</div>
+</div>-->
+                                <!--<div class="col-md-4">
+<div class="form-group" >
+<label>Mongo Password</label>
+<input type="text" class="form-control"  placeholder="Mongo Password">
+</div>
+</div>-->
+                              </div>
+                              <div class="row">
+                                <hr>
+                                <div class="header">
+                                  <h3 class="title">
+                                      Environment Variables
+                                  </h3>
+                                  </div>
+                              </div>
+                              <br>
+                              <div class="row">
+                                <span style="color: red">{{form.project_name.errors}}
+                                </span>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Key #1
+                                    </label>
+                                    <input type="text" class="form-control"   value="NGINX_BACKEND_HOST" name='NGINX_BACKEND_HOST' disabled>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Value #1
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Environment V" value="9000"  name='NGINX_BACKEND_HOST'>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <span style="color: red">{{form.project_name.errors}}
+                                </span>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Key #2
+                                    </label>
+                                    <input type="text" class="form-control"   value="NGINX_SERVER_NAME" name='NGINX_SERVER_NAME' disabled>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Value #2
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Environment V" value="drupal"  name='NGINX_SERVER_NAME'>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <span style="color: red">{{form.project_name.errors}}
+                                </span>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Key #3
+                                    </label>
+                                    <input type="text" class="form-control"   value="NGINX_SERVER_ROOT" name='NGINX_SERVER_ROOT' disabled>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Value #3
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Environment V" value="/var/www/html"  name='NGINX_SERVER_ROOT'>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <span style="color: red">{{form.project_name.errors}}
+                                </span>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Key #4
+                                    </label>
+                                    <input type="text" class="form-control"   value="NGINX_STATIC_CONTENT_ACCESS_LOG"  name='NGINX_STATIC_CONTENT_ACCESS_LOG' disabled>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Value #4
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Environment V" value="off"  name='NGINX_STATIC_CONTENT_ACCESS_LOG'>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <span style="color: red">{{form.project_name.errors}}
+                                </span>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Key #5
+                                    </label>
+                                    <input type="text" class="form-control"   value="NGINX_STATIC_CONTENT_EXPIRES" name='NGINX_STATIC_CONTENT_EXPIRES' disabled>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Value #5
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Environment V" value="30d"  name='NGINX_STATIC_CONTENT_EXPIRES'>
+                                  </div>
+                                </div>
+                              </div>                              
+                            </form>
+                          </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Git URL</label>
-                                                <input type="url" class="form-control" placeholder="Enter the git SSH url of gitlab.intelligrape.net">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <h3>Dependency</h3>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Ubuntu Version</label>
-                                                    <br>
+                          <div class="tab">MySQL:
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>MySQl Version</label>
+                                                <br>
+                                                
+                                            <input type="radio" name="platform_version" value="8.0" checked>8.0 (latest)</br>
+                                            <input type="radio" name="platform_version" value="5.7"> 5.7</br>
+                                            <input type="radio" name="platform_version" value="5.6"> 5.6</br>
+                                            <input type="radio" name="platform_version" value="5.5"> 5.5</br>
                                                     
-                                                <select name="UBUNTU_VERSION">
-    							<option value="14.04">14.04</option>
-    							<option value="16.04">16.04</option>
-	   						<option value="16.10">16.10</option>
-   							 <option value="18.04">18.04</option>				
-						 </select>
-  							<br>
 
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>PHP Version</label>
-						<select name="PHP_VERSION">
-                                                        <option value="7.0">7.0</option>
-                                                        <option value="7.1">7.1</option>
-                                                        <option value="7.2">7.2</option>
-                                                 </select>
-                                               
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>PHP Modules Required</label>
-                                                <select name="PHP_MODULES" multiple>
-                                                        <option value="mysql">Mysql </option>
-                                                        <option value="curl">Curl</option>
-                                                        <option value="json">Json</option>
-                                                         <option value="mongo">Mongo</option>
-                                                 </select>
-                                            </div>
+
                                         </div>
 
                                     </div>
-                                     <div class="row">
-                                         <!--<div class="col-md-4">
-
-                                           <div class="form-group">
-                                                <label>Build Tool</label>
-                                                    <br>
-                                                <input type="radio" name="build_tool" value="Gradle" checked]> Gradle 3.1
-                                                  <input type="radio" name="build_tool" value="Maven"> Maven 3.5
-                                                 
-                                            </div>
-                                        </div>-->
-                                        <!--<div class="col-md-4">
-                                            <div class="form-group" >
-                                                <label>Mongo Password</label>
-                                                <input type="text" class="form-control"  placeholder="Mongo Password">
-                                                  
-                                            </div>
-                                        </div>-->
-                                       
+                                    
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>CPU</label>
+                                            <input type="number" class="form-control"  placeholder="Desired Core of Virtual CPU" min="1" max="4">
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                    <hr>
-                                    <h4>Environment Variables</h4>
-                                    </div>
-                                    <div class="row">
-                                        <span style="color: red">{{form.project_name.errors}}</span>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Key #1</label>
-                                                <input type="text" class="form-control"   value="NGINX_BACKEND_HOST" name='NGINX_BACKEND_HOST' disabled>
-                                            </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Memeory</label>
+                                            <input type="number" class="form-control"  placeholder="Desired Memory" min="256" max="2048">
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Value #1</label>
-                                                <input type="text" class="form-control" placeholder="9000"  name='NGINX_BACKEND_HOST_VALUE'>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                     <div class="row">
-                                        <span style="color: red">{{form.project_name.errors}}</span>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Key #2</label>
-                                                <input type="text" class="form-control"   value="NGINX_SERVER_NAME" name='NGINX_SERVER_NAME' disabled>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Value #2</label>
-                                                <input type="text" class="form-control" placeholder="drupal"  name='NGINX_SERVER_NAME_VALUE'>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                     <div class="row">
-                                        <span style="color: red">{{form.project_name.errors}}</span>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Key #3</label>
-                                                <input type="text" class="form-control"   value="NGINX_SERVER_ROOT" name='NGINX_SERVER_ROOT' disabled>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Value #3</label>
-                                                <input type="text" class="form-control" placeholder="/var/www/html"  name='NGINX_SERVER_ROOT_VALUE'>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                     <div class="row">
-                                        <span style="color: red">{{form.project_name.errors}}</span>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Key #4</label>
-                                                <input type="text" class="form-control"   value="NGINX_STATIC_CONTENT_ACCESS_LOG"  name='NGINX_STATIC_CONTENT_ACCESS_LOG' disabled>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Value #4</label>
-                                                <input type="text" class="form-control" placeholder="off"  name='NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE'>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                     <div class="row">
-                                        <span style="color: red">{{form.project_name.errors}}</span>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Key #5</label>
-                                                <input type="text" class="form-control"   value="NGINX_STATIC_CONTENT_EXPIRES" name='NGINX_STATIC_CONTENT_EXPIRES' disabled>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Value #5</label>
-                                                <input type="text" class="form-control" placeholder="30d"  name='NGINX_STATIC_CONTENT_EXPIRES_VALUE'>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                     <div class="row">
-                                        <span style="color: red">{{form.project_name.errors}}</span>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Key #6</label>
-                                                <input type="text" class="form-control"  value="NGINX_DRUPAL_FILE_PROXY_URL" name='NGINX_DRUPAL_FILE_PROXY_URL' disabled>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Value #6</label>
-                                                <input type="text" class="form-control" placeholder="none"  name='NGINX_DRUPAL_FILE_PROXY_URL_VALUE'>
-                                            </div>
-                                        </div>
-                                        
                                     </div>
 
-                                    <!--<div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>About Me</label>
-                                                <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
-                                            </div>
+
+
+                                </div>
+                                 <div class="row">
+                                     <!--<div class="col-md-4">
+
+                                       <div class="form-group">
+                                            <label>Build Tool</label>
+                                                <br>
+                                            <input type="radio" name="build_tool" value="Gradle" checked]> Gradle 3.1
+                                              <input type="radio" name="build_tool" value="Maven"> Maven 3.5
+                                             
+                                        </div>
+
+                                    </div>-->
+                                     <!-- <div class="col-md-4 col-md-offset-4">
+                                        <div class="form-group">
+                                            <label>MySql Password</label>
+                                            <input type="text" class="form-control"  placeholder="MySql Password">
+                                        </div>
+                                    </div> -->
+                                    <!--<div class="col-md-4">
+                                        <div class="form-group" >
+                                            <label>Mongo Password</label>
+                                            <input type="text" class="form-control"  placeholder="Mongo Password">
+                                              
                                         </div>
                                     </div>-->
-
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Submit</button>
-                                    <div class="clearfix"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-user">
-                            <div class="image">
-                                <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
-                            </div>
-                            <div class="content">
-                                <div class="author">
-                                     <a href="#">
-                                    <img class="avatar border-gray" src="{% static "dashboard/assets/img/faces/face-1.jpg" %}" halt="..."/>
-
-                                      <h4 class="title">{{ user.first_name }} {{ user.last_name }}<br />
-                                         <small>{{ user.username }}</small>
-                                      </h4>
-                                    </a>
+                                   
                                 </div>
-                                <p class="description text-center"> {{ user.email }} <br>
-                                                    To The New <br>
-                                                    Noida, India <br><br>
-                                                    <b>Last Login </b> : {{ user.last_login }}  <br>
-                                                    <b> Joined On </b> : {{ user.date_joined }}
+                                <div class="row">
+                                  <hr>
+                                <div class="header">
+                                    <h3 class="title"> Environment variables 
+                                    </h3>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}</span>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Key #1</label>
+                                            <input type="text" class="form-control" disabled  value="MYSQL_DATABASE_NAME" name='MYSQL_DATABASE_NAME_VALUE'>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Value #1</label>
+                                            <input type="text"  class="form-control" placeholder="Environment V"  name='MYSQL_DATABASE_NAME_VALUE'>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                 <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}</span>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Key #2</label>
+                                            <input type="text" class="form-control" disabled value="MYSQL_ROOT_PASSWORD" name='MYSQL_ROOT_PASSWORD_VALUE'>
 
-                                </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Value #2</label>
+                                            <input type="text" class="form-control" placeholder="Environment V"  name='MYSQL_ROOT_PASSWORD_VALUE'>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                 <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}</span>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Key #3</label>
+                                            <input type="text" class="form-control"   disabled value="MYSQL_USER_NAME" name="MYSQL_USER_NAME_VALUE">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Value #3</label>
+                                            <input type="text" class="form-control" placeholder="Environment V" value="root" name='MYSQL_USER_NAME_VALUE'>
+
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                                 <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}</span>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Key #4</label>
+                                            <input type="text" class="form-control" disabled value="MYSQL_PASSWORD" name='MYSQL_PASSWORD_VALUE'>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Value #4</label>
+                                            <input type="text" class="form-control" placeholder="Environment V"  name='MYSQL_PASSWORD_VALUE'>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                 <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}</span>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Key #5</label>
+                                            <input type="text" class="form-control" disabled value="MYSQL_PORT" name='MYSQL_PORT_VALUE'>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Value #5</label>
+                                            <input type="text" class="form-control" placeholder="3306"  name='MYSQL_PORT_VALUE' value="3306" >
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                 <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}</span>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Key #6</label>
+                                            <input type="text" class="form-control" disabled value="MYSQL_CLIENT_DEFAULT_CHARACTER_SET " name='MYSQL_CLIENT_DEFAULT_CHARACTER_SET' >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Value #6</label>
+                                            <input type="text" class="form-control" placeholder="utf-8"  name='MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE' value="utf-8">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                 <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}</span>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Key #7</label>
+                                            <input type="text" class="form-control"  disabled value="MYSQL_DUMP_MAX_ALLOWED_PACKET" name='MYSQL_DUMP_MAX_ALLOWED_PACKET_VALUE'>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Value #7</label>
+                                            <input type="text" class="form-control" placeholder="1G"  name='MYSQL_DUMP_MAX_ALLOWED_PACKET_VALUE' value="1G">
+
+                                        </div>
+                                    </div>
+                                    
+                                  </div>                                    
+                              
+                            </form>
+                          </div>
+
+                          <div class="tab">Redis:
+                              <form>
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label>Redis Version
+                                        </label>
+                                        <br>
+                                        <input type="radio" name="platform_version" value="5.0" checked>5.0
+                                        </br>
+                                      <input type="radio" name="platform_version" value="5.1"> 5.1
+                                      </br>  
+                                      <input type="radio" name="platform_version" value="4.2"> 4.2
+                                      </br>                        
+                                </div>
+                                </div>                                
+                                </div>
+                                <div class="row">
+                                <div class="header">
+                                    <h3 class="title"> Environment variables 
+                                    </h3>
+                                  </div>
+                                  </div>
+
+                                <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}
+                                    </span>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Key #1
+                                        </label>
+                                        <input type="text" class="form-control"   placeholder="Environment Key" value="REDIS_PASSWORD" disabled name='REDIS_PASSWORD_VALUE'>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Value #1
+                                        </label>
+                                        <input type="text" class="form-control" placeholder="Environment V"  name='REDIS_PASSWORD_VALUE'>
+                                      </div>
+                                    </div>
+                                  
+                                 
+                                </div>
+                                </form>                               
+                          </div>
+
+                          <!-- Next and previous buttons -->
+                          <div style="overflow:auto;">
+                            <div style="float:right;">
+                              <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous
+                              </button>
+                              <button type="button" id="nextBtn" onclick="nextPrev(1)">Next
+                              </button>
                             </div>
-                            <hr>
-                            <!--<div class="text-center">
-                                <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
-                                <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
-                                <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
-
-                            </div>-->
+                          </div>
+                          
+                          <!-- Circles which indicates the steps of the form: -->
+                          <div style="text-align:center;margin-top:40px;">
+                            <span class="step">
+                            </span>
+                            <span class="step">
+                            </span>
+                            <span class="step">
+                            </span>
+                            <span class="step">
+                            </span>
                         </div>
-                    </div>
-
+                      </form>
+                  </div>
+                  
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-       
 
-        <!--<footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                </p>
-            </div>
-        </footer>-->
+        <!--below card end-->
+              
+      </body>
+         
+            <!-- Script for regForm -->
+            <script src="{% static "dashboard/assets/js/regForm.js" %}">
+            </script>
+            </html>
+          {% else %}
+          <a href="{% url 'login' %}">login
+          </a>
+          <br>
+          {% endif %}
 
-    </div>
-</div>
-
-
-</body>
-
-    <!--   Core JS Files   -->
-    <script src="{% static "dashboard/assets/js/jquery-1.10.2.js" %}" type="text/javascript"></script>
-    <script src="{% static "dashboard/assets/js/bootstrap.min.js" %}" type="text/javascript"></script>
-
-    <!--  Checkbox, Radio & Switch Plugins -->
-    <script src="{% static "dashboard/assets/js/bootstrap-checkbox-radio-switch.js" %}"></script>
-
-    <!--  Charts Plugin -->
-    <script src="{% static "dashboard/assets/js/chartist.min.js" %}"></script>
-
-    <!--  Notifications Plugin    -->
-    <script src="{% static "dashboard/assets/js/bootstrap-notify.js" %}"></script>
-
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
-    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-    <script src="{% static "dashboard/assets/js/light-bootstrap-dashboard.js" %}"></script>
-
-    <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-    <script src="{% static "dashboard/assets/js/demo.js" %}"></script>
-
-</html>
-{% else %}
-      <a href="{% url 'login' %}">login</a> <br>
-{% endif %}

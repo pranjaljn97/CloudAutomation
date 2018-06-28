@@ -47,9 +47,11 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="{% url "dashboard" %}" class="simple-text">
-                    DashBoard
-                </a>
+
+                    <center>
+                            <h4> For Approval</h4>
+                         </center>
+
             </div>
 
             <ul class="nav">
@@ -59,21 +61,21 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-		  <li>
-                    <a href="{% url "dashboard" %}">
+
+
+            <li>
+                    <a href="{% url "approved" %}">
+                        <i class="pe-7s-graph"></i>
+                        <p>Approved</p>
+                    </a>
+                </li>
+            <li>
+                    <a href="{% url "rejected" %}">
                         <i class="pe-7s-note2"></i>
-                        <p>Submitted</p>
-                    </a>
+                        <p>Rejected</p>
+                     </a>
                 </li>
 
-              
-
-                <li>
-                    <a href="{% url "userprofile" %}">
-                        <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
                 
 
                 <!--<li>
@@ -159,7 +161,7 @@
                             </a>
                         </li>
                     </ul>
-                    
+
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
@@ -201,9 +203,11 @@
                 <div class="row">
 
 
+                    
                     {% for post in posts %}
-                    <!-- onclick="window.location='{% url "javaform" %}';" -->
+                    <!-- onclick="window.location='{% url "detailform" post.id %}';"-->
                     <div class="col-md-4" style="cursor: pointer;">
+
                         <div class="card">
                             <div class="header">
                                 <h4 class="title"><b>Requester: {{ post.requester }}</b></h4>
@@ -215,14 +219,19 @@
                                     <br>
                                     <i class="fa fa-circle text-info"></i> Project Name: {{ post.project_name }} <br>
                                     <i class="fa fa-circle text-info"></i> Application Name: {{ post.application_name }}<br>
+
                                     <i class="fa fa-circle text-info"></i> Application Status: {{ post.status }}<br>
 
                                     <br>
                                     
                                     
-                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "forapproval1" post.id %}';" name="approvebtn">
-                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "forapproval2" post.id %}';" name="rejectbtn">
+                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "approvedsuccessfully" post.id %}';" name="approvebtn">
+                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "rejectedsuccessfully" post.id %}';" name="rejectbtn">
+                                    <input type="submit" id="detailsbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';" name="rejectbtn">
                                     <br>
+
+                                    <br><br>
+
                             </div>
                             <!--<div class="content">
                                 <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>

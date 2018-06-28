@@ -47,9 +47,9 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <center>
-                   <h4> DashBoard</h4>
-                </center>
+                    <center>
+                            <h4> Rejected Stacks</h4>
+                         </center>
             </div>
 
             <ul class="nav">
@@ -59,41 +59,16 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-		  <li>
-                    <a href="{% url "dashboard" %}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Submitted</p>
-                    </a>
-                </li>
-		{% if perms.login.view_content %}
-		  <li>
+                {% if perms.login.view_content %}
+		         <li>
                     <a href="{% url "forapproval" %}">
                         <i class="pe-7s-graph"></i>
                         <p>For Approval</p>
                     </a>
                 </li>
-		{% endif %}
+		        {% endif %}
 
-                <li>
-
-                <li>
-
-                <li>
-                    <a href="{% url "userprofile" %}">
-                        <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                
-
-                <li>
-                    <a href="{% url "cprovider" %}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Cloud Provider</p>
-                    </a>
-                </li>
-                
-                
+           
 
                 <!--<li>
 
@@ -218,40 +193,45 @@
             <div class="container-fluid">
                 <div class="row">
 
-
-
                     
+                    {% for post in posts %}
+                        {% if post.status == 'rejected' %}
+                            <div class="col-md-4" style="cursor: pointer;" onclick="window.location='{% url "detailform" post.id %}';">
+                                <div class="card">
+                                    <div class="header">
+                                        <h4 class="title"><b>Requester: {{ post.requester }}</b></h4>
+                                            <br>
+                                            
 
 
-
-                    <div class="col-md-4" style="cursor: pointer;" onclick="window.location='{% url "drupalform" %}';">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title"><b>Drupal Application</b></h4>
-                                    <br>
-                                    <p class="category">Template for deploying Drupal Application</p>
-                                    <br>
-                                    <i class="fa fa-circle text-info"></i> Build Tool: Drupal <br>
-                                    <i class="fa fa-circle text-info"></i> Database: MySQL<br>
-                                    <br><br>
-                            </div>
-
-                            <!--<div class="content">
-                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Requested
-                                        <i class="fa fa-circle text-danger"></i> Pending
-                                        <i class="fa fa-circle text-warning"></i> Rejected
-                                    </div
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-clock-o"></i> {{ user.username }}
+                                            <p class="category"></p>
+                                            <br>
+                                            <i class="fa fa-circle text-info"></i> Project Name: {{ post.project_name }} <br>
+                                            <i class="fa fa-circle text-info"></i> Application Name: {{ post.application_name }}<br>
+                                            <br><br>
                                     </div>
+                                    <!--<div class="content">
+                                        <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                                        <div class="footer">
+                                            <div class="legend">
+                                                <i class="fa fa-circle text-info"></i> Requested
+                                                <i class="fa fa-circle text-danger"></i> Pending
+                                                <i class="fa fa-circle text-warning"></i> Rejected
+                                            </div
+                                            <hr>
+                                            <div class="stats">
+                                                <i class="fa fa-clock-o"></i> {{ user.username }}
+                                            </div>
+                                        </div>
+                                    </div>-->
                                 </div>
-                            </div>-->
-                        </div>
-                    </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+
+
+
 
                     <!--<div class="col-md-8">
                         <div class="card">
