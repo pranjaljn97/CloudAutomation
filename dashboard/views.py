@@ -124,6 +124,15 @@ def drupalform(request):
         if form.is_valid():
             form.save()
             #pass
+            #mail functionality
+            umail = request.user.email 
+            projectname = form.cleaned_data.get('project_name')
+            subject = "Request Submitted"
+            message = "Your form has been submitted \n Please verify your details:" + "Project Name:" + projectname
+            from_email = settings.EMAIL_HOST_USER
+            to_list = [umail]
+            send_mail(subject, message, from_email, to_list, fail_silently=False)
+
          
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
         else:
