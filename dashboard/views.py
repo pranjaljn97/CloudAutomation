@@ -56,7 +56,7 @@ def forapproval(request):
      posts = Project.objects.all()
      return render(request, "dashboard/forapproval.html", {'posts': posts })
 
-def forapproval1(request, id):
+def approvedsuccessfully(request, id):
     
     currpost = Project.objects.get(id=id)
     currpost.status = 'Approved'
@@ -74,7 +74,7 @@ def forapproval1(request, id):
     #posts.save()
     return render(request, "dashboard/forapproval.html", {'posts': posts })
 
-def forapproval2(request, id):
+def rejectedsuccessfully(request, id):
     
     currpost = Project.objects.get(id=id)
     currpost.status = 'Rejected'
