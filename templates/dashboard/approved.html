@@ -195,7 +195,7 @@
 
                     
                     {% for post in posts %}
-                        {% if post.status == 'approved' %}
+                        {% if post.status == 'Approved' %}
                             <div class="col-md-4" style="cursor: pointer;" onclick="window.location='{% url "detailform" post.id %}';">
                                 <div class="card">
                                     <div class="header">
@@ -209,6 +209,11 @@
                                             <i class="fa fa-circle text-info"></i> Project Name: {{ post.project_name }} <br>
                                             <i class="fa fa-circle text-info"></i> Application Name: {{ post.application_name }}<br>
                                             <br><br>
+                                            <center>
+                        
+                                            <input type="submit" id="detailbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';">
+                                            </center>
+                                            <br>
                                     </div>
                                     <!--<div class="content">
                                         <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
