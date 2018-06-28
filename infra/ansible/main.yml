@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  connection: local
+  sudo: yes
+  vars_files:
+    - "env.yml"
+  roles: 
+    - php-stack

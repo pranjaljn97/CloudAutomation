@@ -1,0 +1,83 @@
+#jinja2: lstrip_blocks: True
+version: '2.0'
+services:
+  {% if mysql %}
+   mysql:  
+     image: mysql:5.7
+     container_name: MYSQL 
+     volumes:
+       - ./mysql:/var/lib/mysql
+     environment:
+       MYSQL_ROOT_PASSWORD: {{ MYSQL_ROOT_PASSWORD }}
+       MYSQL_DATABASE: {{ MYSQL_DATABASE }}
+       MYSQL_USER: {{ MYSQL_USER }}
+       MYSQL_PASSWORD: {{ MYSQL_PASSWORD }}
+  {% endif %} 
+  
+  {% if mongodb %}
+   mongodb:
+     image: mongo
+     container_name: MongoDB
+     environment:
+       MONGO_INTIDB_ROOT_USERNAME: {{ MONGO_INTIDB_ROOT_USERNAME }}
+       MONGO_INTIDB_ROOT_PASSWORD: {{ MONGO_INTIDB_ROOT_PASSWORD }} 
+     volumes:
+       - ./mongodb:/data/db
+  {% endif %}
+
+   
+
+  {% if redis %}
+   redis:
+     image: wodby/redis
+     container_name: Redis 
+     environment:
+       REDIS_PASSWORD: {{ REDIS_PASSWORD }} 
+  {% endif %}
+
+  
+  {% if nginx_php %}
+   nginx_php:
+     image: wodby/php-nginx
+     container_name: NGINX
+     environment:
+       NGINX_SERVER_ROOT: /var/www/html/
+     depends_on:
+       - php
+     ports:
+       - "8000:80"
+     volumes:
+      - code:/var/www/html
+
+
+   php:
+     image: wodby/php
+     container_name: php
+     environment:
+       DB_USER: admin
+       DB_PASSWORD: admin
+       DB_NAME: wordpress
+     volumes:
+      - code:/var/www/html
+          
+  {% endif %}    
+  
+  {% if varnish %} 
+   varnish:
+     image: wodby/varnish
+     container_name: Varnish
+     environment:
+       VARNISH_BACKEND_HOST: "NGINX"
+       VARNISH_BACKEND_PORT: {{ VARNISH_BACKEND_PORT }}
+     depends_on:
+       - nginx_php
+     ports:
+       - "8050:6081"    
+
+  {% endif %}
+
+volumes:
+    mysql:
+    code:
+    mongodb:
+   

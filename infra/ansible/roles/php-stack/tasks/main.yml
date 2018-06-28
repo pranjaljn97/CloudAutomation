@@ -1,0 +1,41 @@
+---
+- name: Create a login user
+  user:
+    name: ansible-agent
+    password: '$6$CNGueoGzOWDd$vWhGXjGIJKUEID2g7IxiFijBVWssNS6xjqo39LdMMmS6rBpvDvjVYVq.z2R30iGt5AsniDew.3Ro7laKkzC860'
+    groups: docker, sudo  
+    state: present
+    shell: /bin/bash       
+    system: no             
+    createhome: yes        
+    home: /home/ansible-agent 
+
+- name: Create directories for mongodb and Mysql
+  file:
+    path: "{{ item.dest }}"
+    mode: "{{item.mode}}"
+    state: directory
+  with_items:
+    - { dest: '/home/ansible-agent/mysql', mode: '0775'}
+    - { dest: '/home/ansible-agent/mongodb', mode: '0775'}
+    - { dest: '/home/ansible-agent/code', mode: '0775'}
+  
+
+- name: Copying Template into remote
+  template:
+    src: docker-compose.yml
+    dest: /home/ansible-agent
+    owner: bin
+    mode: 0644
+  debugger: on_failed  
+
+
+
+- name: Docker
+  shell: |
+    cd /home/ansible-agent 
+    docker-compose up -d
+    docker ps
+  register: result 
+
+- debug: var=result 
