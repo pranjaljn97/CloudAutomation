@@ -12,7 +12,7 @@ from django.utils import timezone
 @python_2_unicode_compatible  # only if you need to support Python 2
 class Project(models.Model):
         #requester = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Requester")
-        id = models.AutoField(primary_key=True)
+        #id = models.AutoField(primary_key=True)
         requester = models.CharField(blank=True,max_length=30)
         status = models.CharField(blank=True,max_length=30)
         project_name = models.CharField(blank=True,max_length=30,unique=True)

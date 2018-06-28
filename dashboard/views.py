@@ -62,12 +62,12 @@ def approvedsuccessfully(request, id):
     currpost.status = 'Approved'
     currpost.save()
     posts = Project.objects.all()
-
     #mail functionality
+    umail = request.user.email
     subject = "Approval Request"
     message = "Congratulations your stack request has been approved"
     from_email = settings.EMAIL_HOST_USER
-    to_list = ["mehtamudit1804@gmail.com"]
+    to_list = [umail]
     send_mail(subject, message, from_email, to_list, fail_silently=False)
 
    # posts.status = 'Approved'
@@ -80,12 +80,12 @@ def rejectedsuccessfully(request, id):
     currpost.status = 'Rejected'
     currpost.save()
     posts = Project.objects.all()
-
-     #mail functionality
+    #mail functionality
+    umail = request.user.email
     subject = "Approval Request"
     message = "Sorry your stack request has been rejected"
     from_email = settings.EMAIL_HOST_USER
-    to_list = ["mehtamudit1804@gmail.com"]
+    to_list = [umail]
     send_mail(subject, message, from_email, to_list, fail_silently=False)
 
     #posts.status = newstatus
@@ -143,7 +143,17 @@ def drupalform(request):
         if form.is_valid():
             form.save()
             #pass
-         
+            
+            #mail functionality
+            projectname = form.cleaned_data.get('project_name')
+            #currpost = Project.objects.filter(id=currid)
+            umail = request.user.email
+            subject = "Request Submitted"
+            message = "Your form has been submitted \n Please verify your details: \n" + "Project Name: " + projectname
+            from_email = settings.EMAIL_HOST_USER
+            to_list = [umail]
+            send_mail(subject, message, from_email, to_list, fail_silently=False)
+
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
         else:
             print(form.errors)   
