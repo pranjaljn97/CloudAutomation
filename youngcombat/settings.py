@@ -97,8 +97,6 @@ DATABASES = {
     }
 }
 
-
-
 WSGI_APPLICATION = 'youngcombat.wsgi.application'
 
 # Password validation
