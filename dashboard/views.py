@@ -88,6 +88,7 @@ def forapproval2(request, id):
     from_email = settings.EMAIL_HOST_USER
     to_list = ["mehtamudit1804@gmail.com"]
     send_mail(subject, message, from_email, to_list, fail_silently=False)
+
     #posts.status = newstatus
     #posts = Project.objects.get(pk=id)
     #posts.status = 'Rejected'
