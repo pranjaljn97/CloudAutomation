@@ -201,33 +201,32 @@
                   <div class="content">
                   
                       <form id="regForm" action="." method="POST">
-                      {% csrf_token %}
-
+                        {% csrf_token %}
                           <!-- One "tab" for each step in the form: -->
                           <h2>Drupal Application resource:</h2>
   
                           <div class="tab">Basic info.
-                                <form>
+                                
                                               <div class="row">
                                                 <div class="col-md-5">
                                                   <div class="form-group">
                                                     <label>Requester
                                                     </label>
-                                                    <input type="text" class="form-control" disabled placeholder="{{ user.username }}" value="{{ user.username }}">
+                                                    <input type="text" class="form-control" readonly placeholder="{{ user.username }}" value="{{ user.username }}">
                                                   </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                   <div class="form-group">
                                                     <label>Platform
                                                     </label>
-                                                    <input type="text" class="form-control" disabled placeholder="Drupal" value="Drupal">
+                                                    <input type="text" class="form-control" readonly placeholder="Drupal" value="Drupal">
                                                   </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                   <div class="form-group">
                                                     <label for="exampleInputEmail1">Environment Type
                                                     </label>
-                                                    <input type="text" class="form-control" disabled  placeholder="Docker" value="Docker" >
+                                                    <input type="text" class="form-control" readonly  placeholder="Docker" value="Docker" >
                                                   </div>
                                                 </div>
                                               </div>
@@ -261,18 +260,15 @@
                                                   <div class="col-md-4">
                                                     <div class="form-group">
                                                       <label>Status:
-                                                  
-                                                  
                                                       </label>
-                                                      <input type="text" class="form-control" placeholder="submitted">
+                                                      <input type="text" class="form-control" readonly value="submitted" name="status">
                                                     </div>
                                                   </div>
                                                 </div>
-                                    </form>
                               </div>
                             
                             <div class="tab">PHP:
-                            <form>
+                            
                                 <div class="row">
                                   <div class="col-md-4">
                                     <div class="form-group">
@@ -349,7 +345,7 @@
                                     <div class="form-group">
                                       <label>Value #1
                                       </label>
-                                      <input type="text" class="form-control" placeholder='NGINX_BACKEND_HOST'>
+                                      <input type="text" class="form-control" name="NGINX_BACKEND_HOST_VALUE" placeholder='NGINX_BACKEND_HOST'>
                                     </div>
                                   </div>
                                 </div>
@@ -367,7 +363,7 @@
                                     <div class="form-group">
                                       <label>Value #2
                                       </label>
-                                      <input type="text" class="form-control" placeholder='NGINX_SERVER_NAME'>
+                                      <input type="text" class="form-control" name='NGINX_SERVER_NAME_VALUE' placeholder='NGINX_SERVER_NAME'>
                                     </div>
                                   </div>
                                 </div>
@@ -378,14 +374,14 @@
                                     <div class="form-group">
                                       <label>Key #3
                                       </label>
-                                      <input type="text" class="form-control"   value="NGINX_SERVER_ROOT" name='NGINX_SERVER_ROOT' disabled>
+                                      <input type="text" class="form-control" value="NGINX_SERVER_ROOT" name='NGINX_SERVER_ROOT' disabled>
                                     </div>
                                   </div>
                                   <div class="col-md-6">
                                     <div class="form-group">
                                       <label>Value #3
                                       </label>
-                                      <input type="text" class="form-control" placeholder='NGINX_SERVER_ROOT'>
+                                      <input type="text" class="form-control" name='NGINX_SERVER_ROOT_VALUE' placeholder='NGINX_SERVER_ROOT'>
                                     </div>
                                   </div>
                                 </div>
@@ -403,7 +399,7 @@
                                     <div class="form-group">
                                       <label>Value #4
                                       </label>
-                                      <input type="text" class="form-control" placeholder='NGINX_STATIC_CONTENT_ACCESS_LOG'>
+                                      <input type="text" class="form-control" name='NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE' placeholder='NGINX_STATIC_CONTENT_ACCESS_LOG'>
                                     </div>
                                   </div>
                                 </div>
@@ -421,7 +417,7 @@
                                     <div class="form-group">
                                       <label>Value #5
                                       </label>
-                                      <input type="text" class="form-control" placeholder='NGINX_STATIC_CONTENT_EXPIRES'>
+                                      <input type="text" class="form-control" name='NGINX_STATIC_CONTENT_EXPIRES_VALUE' placeholder='NGINX_STATIC_CONTENT_EXPIRES'>
                                     </div>
                                   </div>
                                   
@@ -448,11 +444,11 @@
            </div>
         </div>
                                 </div>                              
-                              </form>
+                              
                             </div>
   
                             <div class="tab">MySQL:
-                              <form>
+                              
                                   <div class="row">
                                       <div class="col-md-4">
                                           <div class="form-group">
@@ -491,7 +487,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #1</label>
-                                              <input type="text"  class="form-control" placeholder='MYSQL_DATABASE_NAME_VALUE'>
+                                              <input type="text"  class="form-control" name='MYSQL_DATABASE_NAME_VALUE' placeholder='MYSQL_DATABASE_NAME_VALUE'>
                                           </div>
                                       </div>
                                       
@@ -509,7 +505,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #2</label>
-                                              <input type="text" class="form-control" placeholder='MYSQL_ROOT_PASSWORD_VALUE'>
+                                              <input type="text" class="form-control" name="MYSQL_ROOT_PASSWORD_VALUE" placeholder='MYSQL_ROOT_PASSWORD_VALUE'>
                                           </div>
                                       </div>
                                       
@@ -527,7 +523,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #3</label>
-                                              <input type="text" class="form-control" placeholder='MYSQL_USER_NAME_VALUE'>
+                                              <input type="text" class="form-control" name='MYSQL_USER_NAME_VALUE' placeholder='MYSQL_USER_NAME_VALUE'>
   
                                           </div>
                                       </div>
@@ -547,7 +543,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #4</label>
-                                              <input type="text" class="form-control" placeholder='MYSQL_PASSWORD_VALUE'>
+                                              <input type="text" class="form-control" name='MYSQL_PASSWORD_VALUE' placeholder='MYSQL_PASSWORD_VALUE'>
                                           </div>
                                       </div>
                                       
@@ -563,7 +559,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #5</label>
-                                              <input type="text" class="form-control" placeholder='MYSQL_PORT_VALUE' >
+                                              <input type="text" class="form-control" name='MYSQL_PORT_VALUE' placeholder='MYSQL_PORT_VALUE' >
                                           </div>
                                       </div>
                                       
@@ -579,7 +575,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #6</label>
-                                              <input type="text" class="form-control" placeholder='MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE'>
+                                              <input type="text" class="form-control" name='MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE' placeholder='MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE'>
                                           </div>
                                       </div>
                                       
@@ -595,18 +591,17 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #7</label>
-                                              <input type="text" class="form-control" placeholder='MYSQL_DUMP_MAX_ALLOWED_PACKET_VALUE'>
+                                              <input type="text" class="form-control" name='MYSQL_DUMP_MAX_ALLOWED_PACKET_VALUE' placeholder='MYSQL_DUMP_MAX_ALLOWED_PACKET_VALUE'>
   
                                           </div>
                                       </div>
                                       
                                     </div>                                    
-                                
-                              </form>
+                                                              
                             </div>
 
                             <div class="tab">MongoDB
-                                    <form>
+                                    
                                         <div class="row">
                                           <div class="col-md-4">
                                             <div class="form-group">
@@ -649,7 +644,7 @@
                                           <div class="col-md-6">
                                             <div class="form-group">
                                               <label>Value #1</label> <input type="text" class=
-                                              "form-control" placeholder='MONGO_INITDB_DATABASE_VALUE' />
+                                              "form-control" name='MONGO_INITDB_DATABASE_VALUE' placeholder='MONGO_INITDB_DATABASE_VALUE' />
                                             </div>
                                           </div>
                                         </div>
@@ -665,7 +660,7 @@
                                           <div class="col-md-6">
                                             <div class="form-group">
                                               <label>Value #2</label> <input type="text" class=
-                                              "form-control" placeholder='MONGO_INITDB_ROOT_USERNAME_VALUE' />
+                                              "form-control" name='MONGO_INITDB_ROOT_USERNAME_VALUE' placeholder='MONGO_INITDB_ROOT_USERNAME_VALUE' />
                                             </div>
                                           </div>
                                         </div>
@@ -681,7 +676,7 @@
                                           <div class="col-md-6">
                                             <div class="form-group">
                                               <label>Value #3</label> <input type="text" class=
-                                              "form-control" placeholder='MONGO_INITDB_ROOT_PASSWORD_VALUE' />
+                                              "form-control" name='MONGO_INITDB_ROOT_PASSWORD_VALUE' placeholder='MONGO_INITDB_ROOT_PASSWORD_VALUE' />
                                             </div>
                                           </div>
                                         </div>
@@ -697,16 +692,14 @@
                                           <div class="col-md-6">
                                             <div class="form-group">
                                               <label>Value #4</label> <input type="text" class=
-                                              "form-control" placeholder="MONGO_PORT_VALUE" />
+                                              "form-control" name="MONGO_PORT_VALUE" placeholder="MONGO_PORT_VALUE" />
                                             </div>
                                           </div>
                                         </div>
-                                      </form>
+                                      
                               </div>
 
-                            <div class="tab">Varnish:
-                                <form>
-      
+                            <div class="tab">Varnish:      
                                   <div class="row">
                                     <div class="col-md-4">
                                       <label>Varnish Version
@@ -735,14 +728,14 @@
                                       <div class="form-group">
                                         <label>Key #1
                                         </label>
-                                        <input type="text" class="form-control" placeholder="VARNISH_BACKEND_HOST" name='VARNISH_BACKEND_HOST_VALUE'>
+                                        <input type="text" class="form-control" placeholder="VARNISH_BACKEND_HOST" disabled name='VARNISH_BACKEND_HOST_VALUE'>
                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label>Value #1
                                         </label>
-                                        <input type="text" class="form-control" placeholder='VARNISH_BACKEND_HOST_VALUE'>
+                                        <input type="text" class="form-control" name='VARNISH_BACKEND_HOST_VALUE' placeholder='VARNISH_BACKEND_HOST_VALUE'>
                                       </div>
                                     </div>
                                   </div>
@@ -753,14 +746,14 @@
                                       <div class="form-group">
                                         <label>Key #2
                                         </label>
-                                        <input type="text" class="form-control" placeholder="VARNISH_BACKEND_PORT" name='VARNISH_BACKEND_PORT_VALUE'>
+                                        <input type="text" class="form-control" placeholder="VARNISH_BACKEND_PORT" name='VARNISH_BACKEND_PORT_VALUE' disabled>
                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label>Value #2
                                         </label>
-                                        <input type="text" class="form-control" placeholder='VARNISH_BACKEND_PORT_VALUE'>
+                                        <input type="text" class="form-control" name='VARNISH_BACKEND_PORT_VALUE' placeholder='VARNISH_BACKEND_PORT_VALUE'>
                                       </div>
                                     </div>
                                   </div>
@@ -771,14 +764,14 @@
                                       <div class="form-group">
                                         <label>Key #3
                                         </label>
-                                        <input type="text" class="form-control"   placeholder="VARNISH_SECRET" name='VARNISH_SECRET_VALUE'>
+                                        <input type="text" class="form-control" disabled  placeholder="VARNISH_SECRET" name='VARNISH_SECRET_VALUE'>
                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label>Value #3
                                         </label>
-                                        <input type="text" class="form-control" placeholder='VARNISH_SECRET_VALUE'>
+                                        <input type="text" class="form-control" name='VARNISH_SECRET_VALUE' placeholder='VARNISH_SECRET_VALUE'>
                                       </div>
                                     </div>
                                   </div>
@@ -789,22 +782,22 @@
                                       <div class="form-group">
                                         <label>Key #4
                                         </label>
-                                        <input type="text" class="form-control"   placeholder="VARNISH_PORT" name='VARNISH_PORT_VALUE'>
+                                        <input type="text" class="form-control"   placeholder="VARNISH_PORT" name='VARNISH_PORT_VALUE' disabled>
                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <label>Value #4
                                         </label>
-                                        <input type="text" class="form-control" placeholder='VARNISH_PORT_VALUE'>
+                                        <input type="text" class="form-control" name='VARNISH_PORT_VALUE' placeholder='VARNISH_PORT_VALUE'>
                                       </div>
                                     </div>
                                   </div>
-                                  </form>
+                                  
                                   </div>
 
                             <div class="tab">Redis:
-                                <form>
+                                
                                     <div class="row">
                                       <div class="col-md-4">
                                         <div class="form-group">
@@ -832,20 +825,20 @@
                                         <div class="form-group">
                                           <label>Key #1
                                           </label>
-                                          <input type="text" class="form-control"   placeholder="Environment Key" value="REDIS_PASSWORD" disabled name='REDIS_PASSWORD_VALUE'>
+                                          <input type="text" class="form-control" disabled  placeholder="Environment Key" value="REDIS_PASSWORD" name='REDIS_PASSWORD_VALUE'>
                                         </div>
                                       </div>
                                       <div class="col-md-6">
                                         <div class="form-group">
                                           <label>Value #1
                                           </label>
-                                          <input type="text" class="form-control" placeholder='REDIS_PASSWORD_VALUE'>
+                                          <input type="text" class="form-control" name='REDIS_PASSWORD_VALUE' placeholder='REDIS_PASSWORD_VALUE'>
                                         </div>
                                       </div>
                                     
                                    
                                   </div>
-                                  </form>                               
+                                                               
                             </div>
 
  
