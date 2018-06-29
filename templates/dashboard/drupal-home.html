@@ -212,7 +212,7 @@
                                                   <div class="form-group">
                                                     <label>Requester
                                                     </label>
-                                                    <input type="text" class="form-control" readonly placeholder="{{ user.username }}" value="{{ user.username }}">
+                                                    <input type="text" class="form-control" readonly placeholder="{{ user.username }}" value="{{ user.username }}" name="requester">
                                                   </div>
                                                 </div>
                                                 <div class="col-md-3">
@@ -605,8 +605,8 @@
                                         <div class="row">
                                           <div class="col-md-4">
                                             <div class="form-group">
-                                              <label>MySQl Version</label><br />
-                                              <select name="mysql_version">
+                                              <label>Mongo DB Version</label><br />
+                                              <select name="mongo_version">
                                                 <option value="8">
                                                   8
                                                 </option>
@@ -644,7 +644,7 @@
                                           <div class="col-md-6">
                                             <div class="form-group">
                                               <label>Value #1</label> <input type="text" class=
-                                              "form-control" name='MONGO_INITDB_DATABASE_VALUE' placeholder='MONGO_INITDB_DATABASE_VALUE' />
+                                              "form-control" name='MONGO_INITDB_DATABASE_VALUE' placeholder='MONGO_INITDB_DATABASE_VALUE'  />
                                             </div>
                                           </div>
                                         </div>

@@ -34,7 +34,7 @@ class Project(models.Model):
         NGINX_STATIC_CONTENT_EXPIRES_VALUE = models.CharField( blank=True,max_length=500)
         NGINX_DRUPAL_FILE_PROXY_URL_VALUE = models.CharField( blank=True,max_length=500)
         MONGO_PORT_VALUE = models.CharField( blank=True,max_length=500)
-        MONGO_INIT_DATABASE_VALUE = models.CharField( blank=True,max_length=500)
+        MONGO_INITDB_DATABASE_VALUE = models.CharField( blank=True,max_length=500)
         MONGO_INITDB_ROOT_USERNAME_VALUE = models.CharField( blank=True,max_length=500)
         MONGO_INITDB_ROOT_PASSWORD_VALUE = models.CharField( blank=True,max_length=500)
         mongo_version = models.CharField( blank=True,max_length=500)
@@ -72,5 +72,5 @@ class RequestForm(ModelForm):
     class Meta:
         model = Project
         exclude = ['project_flag','pub_date',]
-        fields = ['requester','platform','envtype', 'project_name','status', 'application_name' , 'git_url','UBUNTU_VERSION','PHP_VERSION','PHP_MODULES','NGINX_BACKEND_HOST_VALUE','NGINX_SERVER_NAME_VALUE','NGINX_SERVER_ROOT_VALUE','NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE','NGINX_STATIC_CONTENT_EXPIRES_VALUE','NGINX_DRUPAL_FILE_PROXY_URL_VALUE','mysql_version','MYSQL_DATABASE_NAME_VALUE','MYSQL_ROOT_PASSWORD_VALUE','MYSQL_USER_NAME_VALUE','MYSQL_PASSWORD_VALUE','MYSQL_PORT_VALUE','MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE','MYSQL_DUMP_MAX_ALLOWED_PACKET','MONGO_PORT_VALUE','MONGO_INIT_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE','MONGO_INITDB_ROOT_PASSWORD_VALUE','mongo_version','varnish_version','VARNISH_BACKEND_HOST_VALUE','VARNISH_BACKEND_PORT_VALUE','VARNISH_PORT_VALUE','redis_version','REDIS_PASSWORD_VALUE', ]
+        fields = ['requester','platform','envtype', 'project_name','status', 'application_name' , 'git_url','UBUNTU_VERSION','PHP_VERSION','PHP_MODULES','NGINX_BACKEND_HOST_VALUE','NGINX_SERVER_NAME_VALUE','NGINX_SERVER_ROOT_VALUE','NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE','NGINX_STATIC_CONTENT_EXPIRES_VALUE','NGINX_DRUPAL_FILE_PROXY_URL_VALUE','mysql_version','MYSQL_DATABASE_NAME_VALUE','MYSQL_ROOT_PASSWORD_VALUE','MYSQL_USER_NAME_VALUE','MYSQL_PASSWORD_VALUE','MYSQL_PORT_VALUE','MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE','MYSQL_DUMP_MAX_ALLOWED_PACKET','MONGO_PORT_VALUE','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE','MONGO_INITDB_ROOT_PASSWORD_VALUE','mongo_version','varnish_version','VARNISH_BACKEND_HOST_VALUE','VARNISH_BACKEND_PORT_VALUE','VARNISH_PORT_VALUE','redis_version','REDIS_PASSWORD_VALUE', ]
 # Create your models here.,
