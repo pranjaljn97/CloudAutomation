@@ -33,6 +33,11 @@ class Project(models.Model):
         NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE = models.CharField( blank=True,max_length=500)
         NGINX_STATIC_CONTENT_EXPIRES_VALUE = models.CharField( blank=True,max_length=500)
         NGINX_DRUPAL_FILE_PROXY_URL_VALUE = models.CharField( blank=True,max_length=500)
+        MONGO_PORT_VALUE = models.CharField( blank=True,max_length=500)
+        MONGO_INIT_DATABASE_VALUE = models.CharField( blank=True,max_length=500)
+        MONGO_INITDB_ROOT_USERNAME_VALUE = models.CharField( blank=True,max_length=500)
+        MONGO_INITDB_ROOT_PASSWORD_VALUE = models.CharField( blank=True,max_length=500)
+        mongo_version = models.CharField( blank=True,max_length=500)
 
 
         #=====================step 3(mysql details)===============================================
@@ -54,8 +59,6 @@ class Project(models.Model):
         #======================step 5(redis details)=========================================
         redis_version = models.CharField( blank=True,max_length=100)
         REDIS_PASSWORD_VALUE = models.CharField( blank=True,max_length=100)
-
-
 
 
         class Meta:

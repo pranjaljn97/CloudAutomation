@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib.auth.decorators import login_required
-
-
 from .models import RequestForm
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -13,8 +11,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.utils import timezone
 from django.shortcuts import render
+from django.template import Context
 from .models import Project
 from django.contrib.auth.models import User
+from django.template.loader import get_template, render_to_string
+
 
 import datetime
 
@@ -67,7 +68,8 @@ def approvedsuccessfully(request, id):
     subject = "Approval Request"
     message = "Congratulations your stack request has been approved"
     from_email = settings.EMAIL_HOST_USER
-    to_list = ["mehtamudit1804@gmail.com"]
+    umail = request.user.email 
+    to_list = [umail]
     send_mail(subject, message, from_email, to_list, fail_silently=False)
 
    # posts.status = 'Approved'
@@ -84,8 +86,9 @@ def rejectedsuccessfully(request, id):
      #mail functionality
     subject = "Approval Request"
     message = "Sorry your stack request has been rejected"
+    umail = request.user.email 
     from_email = settings.EMAIL_HOST_USER
-    to_list = ["mehtamudit1804@gmail.com"]
+    to_list = [umail]
     send_mail(subject, message, from_email, to_list, fail_silently=False)
 
     #posts.status = newstatus
@@ -143,6 +146,36 @@ def drupalform(request):
         if form.is_valid():
             form.save()
             #pass
+            #mail functionality
+            uname = request.user.get_username()
+            umail = request.user.email 
+            projectname = form.cleaned_data.get('project_name')
+            appname = form.cleaned_data.get('application_name')
+
+            #varnish data
+            varnishversion = form.cleaned_data.get('varnish_version')
+            varnishbackendhost = form.cleaned_data.get('VARNISH_BACKEND_HOST_VALUE')
+            varnishbackendport = form.cleaned_data.get('VARNISH_BACKEND_PORT_VALUE')
+            varnishsecret = form.cleaned_data.get('VARNISH_SECRET_VALUE')
+            varnishport = form.cleaned_data.get('VARNISH_PORT_VALUE')
+            subject = "Request Submitted"
+            #message = "Your form has been submitted \n Please verify your details:" + "Project Name:" + projectname
+            from_email = settings.EMAIL_HOST_USER
+            to_list = [umail]
+            c = {'uname': uname,
+                        'projectname': projectname,
+                        'appname': appname,
+                        'varnishversion': varnishversion,
+                        'varnishbackendhost': varnishbackendhost,
+                        'varnishbackendport': varnishbackendport,
+                        'varnishsecret': varnishsecret,
+                        'varnishport': varnishport}            
+            html_content = render_to_string('dashboard/email.html', c)
+            text_msg = "Request Approval"
+
+            send_mail(subject, text_msg, from_email, to_list, fail_silently=False, html_message=html_content
+            )
+
          
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
         else:
