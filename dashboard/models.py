@@ -7,15 +7,13 @@ from django.contrib.auth.models import User
 from django.forms import ModelForm
 import datetime
 from django.utils import timezone
-
-
-@python_2_unicode_compatible  # only if you need to support Python 2
 class Project(models.Model):
         
-        #requester = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Requester")
+        requester = models.ForeignKey(User,default=1)
         #====================step 1 (basic details)=====================================
-        id = models.AutoField(primary_key=True)
-        requester = models.CharField(blank=True,max_length=30)
+        #requester = models.ForeignKey(settings.AUTH_USER_MODEL)
+	id = models.AutoField(primary_key=True)
+        #requester = models.CharField(blank=True,max_length=30)
         platform = models.CharField(blank=True,max_length=30)
         envtype = models.CharField(blank=True,max_length=30)
         project_name = models.CharField(blank=True,max_length=30,unique=True)
