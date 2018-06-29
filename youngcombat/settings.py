@@ -93,9 +93,10 @@ DATABASES = {
         'USER': os.environ['DB_USER'],                      # Not used with sqlite3.
         'PASSWORD': os.environ['DB_PASSWORD'],                  # Not used with sqlite3.
         'HOST': os.environ['DB_HOST'],                         # Set to empty string for localhost. Not used with sqlite3.
-
+        'PORT': os.environ['DB_PORT'],    
     }
 }
+
 
 
 WSGI_APPLICATION = 'youngcombat.wsgi.application'
