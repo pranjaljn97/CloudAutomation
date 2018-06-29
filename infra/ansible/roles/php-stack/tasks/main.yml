@@ -1,14 +1,14 @@
 ---
 - name: Create a login user
   user:
-    name: "{{ USERNAME }}"
+    name: "{{ env.user.USERNAME }}"
     password: '$6$CNGueoGzOWDd$vWhGXjGIJKUEID2g7IxiFijBVWssNS6xjqo39LdMMmS6rBpvDvjVYVq.z2R30iGt5AsniDew.3Ro7laKkzC860'
     groups: docker, sudo  
     state: present
     shell: /bin/bash       
     system: no             
     createhome: yes        
-    home: /home/{{ USERNAME }} 
+    home: /home/{{ env.user.USERNAME }} 
 
 - name: Create directories for mongodb and Mysql
   file:
@@ -16,15 +16,15 @@
     mode: "{{item.mode}}"
     state: directory
   with_items:
-    - { dest: '/home/{{ USERNAME }}/mysql', mode: '0775'}
-    - { dest: '/home/{{ USERNAME }}/mongodb', mode: '0775'}
-    - { dest: '/home/{{ USERNAME }}/code', mode: '0775'}
+    - { dest: '/home/{{ env.user.USERNAME }}/mysql', mode: '0775'}
+    - { dest: '/home/{{ env.user.USERNAME }}/mongodb', mode: '0775'}
+    - { dest: '/home/{{ env.user.USERNAME }}/code', mode: '0775'}
   
 
 - name: Copying Template into remote
   template:
     src: docker-compose.yml
-    dest: '/home/{{ USERNAME }}'
+    dest: '/home/{{ env.user.USERNAME }}'
     owner: bin
     mode: 0644
   debugger: on_failed  
@@ -33,7 +33,7 @@
 
 - name: Docker
   shell: |
-    cd /home/"{{ USERNAME }}" 
+    cd /home/"{{ env.user.USERNAME }}" 
     docker-compose up -d
     docker ps
   register: result 

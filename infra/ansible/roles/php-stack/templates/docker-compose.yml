@@ -1,42 +1,42 @@
 #jinja2: lstrip_blocks: True
 version: '2.0'
 services:
-  {% if mysql %}
+  {% if env.mysql %}
    mysql:  
      image: mysql:5.7
      container_name: MYSQL 
      volumes:
        - ./mysql:/var/lib/mysql
      environment:
-       MYSQL_ROOT_PASSWORD: {{ MYSQL_ROOT_PASSWORD }}
-       MYSQL_DATABASE: {{ MYSQL_DATABASE }}
-       MYSQL_USER: {{ MYSQL_USER }}
-       MYSQL_PASSWORD: {{ MYSQL_PASSWORD }}
+       MYSQL_ROOT_PASSWORD: {{ env.mysql.MYSQL_ROOT_PASSWORD }}
+       MYSQL_DATABASE: {{ env.mysql.MYSQL_DATABASE }}
+       MYSQL_USER: {{ env.mysql.MYSQL_USER }}
+       MYSQL_PASSWORD: {{ env.mysql.MYSQL_PASSWORD }}
   {% endif %} 
   
-  {% if mongodb %}
+  {% if env.mongodb %}
    mongodb:
      image: mongo
      container_name: MongoDB
      environment:
-       MONGO_INTIDB_ROOT_USERNAME: {{ MONGO_INTIDB_ROOT_USERNAME }}
-       MONGO_INTIDB_ROOT_PASSWORD: {{ MONGO_INTIDB_ROOT_PASSWORD }} 
+       MONGO_INTIDB_ROOT_USERNAME: {{ env.mongodb.MONGO_INITDB_ROOT_USERNAME }}
+       MONGO_INTIDB_ROOT_PASSWORD: {{ env.mongodb.MONGO_INITDB_ROOT_PASSWORD }} 
      volumes:
        - ./mongodb:/data/db
   {% endif %}
 
    
 
-  {% if redis %}
+  {% if env.redis %}
    redis:
      image: wodby/redis
      container_name: Redis 
      environment:
-       REDIS_PASSWORD: {{ REDIS_PASSWORD }} 
+       REDIS_PASSWORD: {{ env.redis.REDIS_PASSWORD }} 
   {% endif %}
 
   
-  {% if nginx_php %}
+  {% if env.nginx_php %}
    nginx_php:
      image: wodby/php-nginx
      container_name: NGINX
@@ -62,13 +62,13 @@ services:
           
   {% endif %}    
   
-  {% if varnish %} 
+  {% if env.varnish %} 
    varnish:
      image: wodby/varnish
      container_name: Varnish
      environment:
        VARNISH_BACKEND_HOST: "NGINX"
-       VARNISH_BACKEND_PORT: {{ VARNISH_BACKEND_PORT }}
+       VARNISH_BACKEND_PORT: {{ env.varnish.VARNISH_BACKEND_PORT }}
      depends_on:
        - nginx_php
      ports:
@@ -80,4 +80,4 @@ volumes:
     mysql:
     code:
     mongodb:
-   
+

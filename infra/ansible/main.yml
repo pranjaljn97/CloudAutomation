@@ -2,7 +2,7 @@
 - hosts: localhost
   connection: local
   sudo: yes
-  vars_files:
-    - "env.yml"
+  vars:
+    env: "{{ lookup('file','env.json')|from_json }}"
   roles: 
     - php-stack
