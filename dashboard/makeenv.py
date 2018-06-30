@@ -5,10 +5,10 @@ import io
 import MySQLdb
 import sys
 
-def makeenvfile():
+def makeenvfile(myid):
     connection = MySQLdb.connect (host = "localhost", user = "root", passwd = "mehta123", db = "myproject")
     cursor = connection.cursor ()
-    cursor.execute ("select *  from dashboard_project")
+    cursor.execute ("select *  from dashboard_project where id = %s",myid)
     data = cursor.fetchall ()
 
     try:
@@ -71,7 +71,7 @@ def makeenvfile():
     print(data == data_loaded)
     cursor.close ()
     connection.close ()
-    sys.exit()
+    #sys.exit()
 
 
 # makeenvfile()

@@ -74,7 +74,7 @@ def approvedsuccessfully(request, id):
     send_mail(subject, message, from_email, to_list, fail_silently=False)
     
     #make env file for ansible
-    makeenvfile()
+    makeenvfile(id)
      # posts.status = 'Approved'
     #posts.save()
     return render(request, "dashboard/forapproval.html", {'posts': posts })
