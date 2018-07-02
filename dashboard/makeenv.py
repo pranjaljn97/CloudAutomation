@@ -4,6 +4,7 @@ import json
 import io
 import MySQLdb
 import sys
+import os
 from dashboard.models import Project
 
 def makeenvfile(myid):
@@ -28,7 +29,7 @@ def makeenvfile(myid):
 		       	         'platform': post.platform},
 
 	            'nginx_php': { 'enable': True,
-                               'env': {
+                               'envi': {
                                 'PHP_VERSION': post.PHP_VERSION,
 			                    'PHP_MODULES': post.PHP_MODULES,
 			                    'NGINX_BACKEND_HOST_VALUE': post.NGINX_BACKEND_HOST_VALUE,
@@ -40,10 +41,13 @@ def makeenvfile(myid):
 
                                 'volumes': {
 
+                                },
+                                'ports': {
+
                                 }
                                 },
 	            'mysql' : { 'enable': True,
-                            'env': {
+                            'envi': {
                                 'mysql_version': post.mysql_version,
  		       	                'MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE': post.MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE,
                                 'MYSQL_DATABASE': post.MYSQL_DATABASE_NAME_VALUE,                                     
@@ -54,11 +58,14 @@ def makeenvfile(myid):
 			                    'MYSQL_USER': post.MYSQL_USER_NAME_VALUE},
                                 'volumes': {
                                     
+                                },
+                                'ports': {
+
                                 }
                                 },
                            
                 "mongodb": { 'enable': True,
-                              'env': {
+                              'envi': {
                                 'MONGO_PORT_VALUE': post.MONGO_PORT_VALUE,
 			                    'MONGO_INITDB_DATABASE_VALUE': post.MONGO_INITDB_DATABASE_VALUE,
        			                'MONGO_INITDB_ROOT_USERNAME': post.MONGO_INITDB_ROOT_USERNAME_VALUE,
@@ -66,43 +73,59 @@ def makeenvfile(myid):
 			                    'mongo_version': post.mongo_version},
                                 'volumes': {
                                     
+                                },
+                                'ports': {
+
                                 }
                             },
                             
          		'varnish' : {
                              'enable': True,
-                             'env': {
+                             'envi': {
                                 'VARNISH_BACKEND_HOST': post.VARNISH_BACKEND_HOST_VALUE,
                                 'VARNISH_BACKEND_PORT': post.VARNISH_BACKEND_PORT_VALUE,
                                 'VARNISH_PORT_VALUE': post.VARNISH_PORT_VALUE,
 			                    'varnish_version': post.varnish_version},
                                 'volumes': {
                                     
+                                },
+                              'volumes': {
+                                    
+                                },
+                              'ports': {
+
                                 }
+                            
                             },
 
                              
 	            'redis' : {
                             'enable': True,
-                             'env': {
+                             'envi': {
                                 'REDIS_PASSWORD': post.REDIS_PASSWORD_VALUE,
 			                    'redis_version': post.redis_version },
                              'volumes': {
                                     
-                                }
+                                },
+                             'ports': {
+                                    
+                                },
+                              
                             }}
 
 			                
 
 # Write JSON file
-        with io.open('data'+str(post.id)+'.json', 'w', encoding='utf8') as outfile:
+        with io.open(post.project_name+ '_' + str(post.id)+'.json', 'w', encoding='utf8') as outfile:
             str_ = json.dumps(data,
                       indent=4, sort_keys=True,
                       separators=(',', ': '), ensure_ascii=False)
             outfile.write(to_unicode(str_))
+            filename = "./" + post.project_name + '_' + str(post.id) + '.json'
+            os.rename(filename, "./ansible/" + filename)
 
 # Read JSON file
-        with open('data'+str(row[0])+'.json') as data_file:
+        with open("./ansible/" + post.project_name+ '_' + str(post.id)+'.json') as data_file:
             data_loaded = json.load(data_file)
 
     print(data == data_loaded)
