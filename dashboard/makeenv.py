@@ -26,7 +26,7 @@ def makeenvfile(myid):
 		       	         'platform':row[2]},
 
 	            'nginx_php': { 'enable': True,
-                             'PHP_VERSION':row[9],
+                              'PHP_VERSION':row[9],
 			                 'PHP_MODULES':row[10],
 			                 'NGINX_BACKEND_HOST_VALUE':row[11],
                              'NGINX_SERVER_NAME_VALUE': row[12],
