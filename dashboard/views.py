@@ -16,6 +16,7 @@ from .models import Project
 from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 from dashboard.makeenv import makeenvfile
+from dashboard.runplaybook import execplaybook
 
 
 import datetime
@@ -77,6 +78,7 @@ def approvedsuccessfully(request, id):
     makeenvfile(id)
      # posts.status = 'Approved'
     #posts.save()
+    execplaybook(id)
     return render(request, "dashboard/forapproval.html", {'posts': posts })
 
 def rejectedsuccessfully(request, id):

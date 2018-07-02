@@ -113,6 +113,8 @@ def makeenvfile(myid):
                               
                             }}
 
+       
+
 			                
 
 # Write JSON file
@@ -122,10 +124,10 @@ def makeenvfile(myid):
                       separators=(',', ': '), ensure_ascii=False)
             outfile.write(to_unicode(str_))
             filename = "./" + post.project_name + '_' + str(post.id) + '.json'
-            os.rename(filename, "./ansible/" + filename)
+            os.rename(filename, "./ansibledir/" + filename)
 
 # Read JSON file
-        with open("./ansible/" + post.project_name+ '_' + str(post.id)+'.json') as data_file:
+        with open("./ansibledir/" + post.project_name+ '_' + str(post.id)+'.json') as data_file:
             data_loaded = json.load(data_file)
 
     print(data == data_loaded)
