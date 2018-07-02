@@ -9,11 +9,11 @@ import datetime
 from django.utils import timezone
 class Project(models.Model):
         
-        requester = models.ForeignKey(User,default=1)
-        #====================step 1 (basic details)=====================================
+        #requester = models.ForeignKey(User,default=1)
+        #===#=================step 1 (basic details)=====================================
         #requester = models.ForeignKey(settings.AUTH_USER_MODEL)
 	id = models.AutoField(primary_key=True)
-        #requester = models.CharField(blank=True,max_length=30)
+        requester = models.CharField(blank=True,max_length=30)
         platform = models.CharField(blank=True,max_length=30)
         envtype = models.CharField(blank=True,max_length=30)
         project_name = models.CharField(blank=True,max_length=30,unique=True)

@@ -25,7 +25,8 @@ def makeenvfile(myid):
 			             'envtype':row[3],
 		       	         'platform':row[2]},
 
-	            'nginx_php': {'PHP_VERSION':row[9],
+	            'nginx_php': { 'enable': True,
+                             'PHP_VERSION':row[9],
 			                 'PHP_MODULES':row[10],
 			                 'NGINX_BACKEND_HOST_VALUE':row[11],
                              'NGINX_SERVER_NAME_VALUE': row[12],
@@ -33,8 +34,8 @@ def makeenvfile(myid):
                             'NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE':row[14],                      
                             'NGINX_STATIC_CONTENT_EXPIRES_VALUE':row[15],
                             'NGINX_DRUPAL_FILE_PROXY_URL_VALUE':row[16]},
-	            'mysql' : {
-			                'mysql_version':row[22],
+	            'mysql' : {  'enable': True,
+                            'mysql_version':row[22],
  		       	            'MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE':row[28],
                             'MYSQL_DATABASE':row[23],                                     
                             'MYSQL_DUMP_MAX_ALLOWED_PACKET':row[29],
@@ -42,18 +43,20 @@ def makeenvfile(myid):
                             'MYSQL_PORT_VALUE':row[27],
 			                'MYSQL_ROOT_PASSWORD':row[24],
 			                'MYSQL_USER':row[25]},
-                "mongodb": {
+                "mongodb": { 'enable': True,
          		             'MONGO_PORT_VALUE': row[17],
 			                 'MONGO_INITDB_DATABASE_VALUE': row[18],
        			             'MONGO_INITDB_ROOT_USERNAME': row[19],
         		             'MONGO_INITDB_ROOT_PASSWORD': row[20],
 			                'mongo_version': row[21],},
 	            'varnish' : {
+                             'enable': True,
                              'VARNISH_BACKEND_HOST':row[31],
                              'VARNISH_BACKEND_PORT':row[32],
                              'VARNISH_PORT_VALUE':row[33],
 			                 'varnish_version':row[30]},
 	            'redis' : {
+                            'enable': True,
 			                'REDIS_PASSWORD':row[35],
 			                'redis_version':row[34], }}
 
