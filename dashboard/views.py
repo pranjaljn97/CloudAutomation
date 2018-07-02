@@ -15,6 +15,7 @@ from django.template import Context
 from .models import Project
 from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
+from dashboard.makeenv import makeenvfile
 
 
 import datetime
@@ -71,8 +72,10 @@ def approvedsuccessfully(request, id):
     umail = request.user.email 
     to_list = [umail]
     send_mail(subject, message, from_email, to_list, fail_silently=False)
-
-   # posts.status = 'Approved'
+    
+    #make env file for ansible
+    makeenvfile(id)
+     # posts.status = 'Approved'
     #posts.save()
     return render(request, "dashboard/forapproval.html", {'posts': posts })
 
