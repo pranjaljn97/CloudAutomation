@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 import os
-from subprocess import call
+import subprocess
+from ansible_subprocess import run_playbook, run_ping
+
 from dashboard.models import Project
 
 def execplaybook(id):
     post = Project.objects.get(pk=id)
     project_name = post.project_name
-    jsonfilepath = project_name + '_' + str(id)
     ansiblePath=os.getcwd()+"/ansibledir"
-    print ansiblePath
-    print "Hello"
-    call(["sudo ansible-playbook", "main.yml", "--extra-vars", "@" + jsonfilepath], cwd=ansiblePath)
-    print "Bye"
-
+    jsonfilepath = project_name + "_" + str(post.id) + ".json"
+    newpath = '''"''' +  jsonfilepath + '''"'''
+    print newpath
+    subprocess.check_call(['./ansibledir/runplaybook.sh', './ansibledir/' + jsonfilepath,'./ansibledir/main.yml'])
+    
