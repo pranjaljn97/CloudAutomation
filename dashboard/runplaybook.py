@@ -12,4 +12,3 @@ def execplaybook(id):
     print "Hello"
     call(["sudo ansible-playbook", "main.yml", "--extra-vars", "@" + jsonfilepath], cwd=ansiblePath)
     print "Bye"
-
