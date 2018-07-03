@@ -7,8 +7,9 @@ import sys
 import os
 from dashboard.models import Project
 
+
 def makeenvfile(myid):
-    connection = MySQLdb.connect (host = "localhost", user = "root", passwd = "mehta123", db = "myproject")
+    connection = MySQLdb.connect (host = os.environ['DB_HOST'], user = os.environ['DB_USER'], passwd = os.environ['DB_PASSWORD'], db = os.environ['DB_NAME'])
     cursor = connection.cursor ()
     cursor.execute ("select *  from dashboard_project where id = %s",myid)
     data = cursor.fetchall ()
