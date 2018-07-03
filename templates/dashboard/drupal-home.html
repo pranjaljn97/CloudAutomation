@@ -203,33 +203,33 @@
                       <form id="regForm" action="." method="POST">
                         {% csrf_token %}
                           <!-- One "tab" for each step in the form: -->
-                          <h2>Drupal Application resource:</h2>
+                          <h2>PHP Application Stack</h2>
   
-                          <div class="tab">Basic info.
+                          <div class="tab">Drupal | Wordpress | Magento | Custom PHP Application
                                 
-                                              <div class="row">
-                                                <div class="col-md-5">
-                                                  <div class="form-group">
-                                                    <label>Requester
-                                                    </label>
-                                                    <input type="text" class="form-control" readonly placeholder="{{ user.username }}" value="{{ user.username }}" name="requester">
-                                                  </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                  <div class="form-group">
-                                                    <label>Platform
-                                                    </label>
-                                                    <input type="text" class="form-control" readonly placeholder="Drupal" value="Drupal">
-                                                  </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                  <div class="form-group">
-                                                    <label for="exampleInputEmail1">Environment Type
-                                                    </label>
-                                                    <input type="text" class="form-control" readonly  placeholder="Docker" value="Docker" >
-                                                  </div>
-                                                </div>
-                                              </div>
+                            <div class="row">
+                              <div class="col-md-5">
+                                <div class="form-group">
+                                  <label>Requester
+                                  </label>
+                                  <input type="text" class="form-control" readonly placeholder="{{ user.email }}" value="{{ user.email }}" name="requester">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>Platform
+                                  </label>
+                                  <input type="text" class="form-control" readonly placeholder="PHP" value="PHP" name="platform">
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Environment Type
+                                  </label>
+                                  <input type="text" class="form-control" readonly  placeholder="Docker" value="Docker" name="envtype">
+                                </div>
+                              </div>
+                            </div>
                                               <div class="row">
                                                 <span style="color: red">{{form.project_name.errors}}
                                                 </span>
@@ -253,46 +253,31 @@
                                                   <div class="form-group">
                                                     <label>Git URL
                                                     </label>
-                                                    <input type="url" class="form-control" placeholder="Enter the git SSH url of gitlab.intelligrape.net">
+                                                    <input type="url" class="form-control" placeholder="Enter the git SSH url of gitlab.intelligrape.net" name='git_url'>
                                                   </div>
                                                 </div>
                                                                                   
-                                                  <div class="col-md-4">
+                                                  <div class="col-md-6">
                                                     <div class="form-group">
-                                                      <label>Status:
+                                                      <label>Token
                                                       </label>
-                                                      <input type="text" class="form-control" readonly value="submitted" name="status">
+                                                      <input type="text" class="form-control" placeholder="GIT Token" name="git_token">
                                                     </div>
                                                   </div>
                                                 </div>
                               </div>
                             
-                            <div class="tab">PHP:
+                            <div class="tab"><b>PHP-Nginx</b>
                             
                                 <div class="row">
-                                  <div class="col-md-4">
-                                    <div class="form-group">
-                                      <label>Ubuntu Version
-                                      </label>
-                                      <br>
-                                      <select name="UBUNTU_VERSION">
-                                        <option value="14.04">14.04
-                                        </option>
-                                        <option value="16.04">16.04
-                                        </option>
-                                        <option value="16.10">16.10
-                                        </option>
-                                        <option value="18.04">18.04
-                                        </option>				
-                                      </select>
-                                      <br>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-4">
+                                  <div class="col-md-6">
                                     <div class="form-group">
                                       <label>PHP Version
                                       </label><br>
                                       <select name="PHP_VERSION">
+                                        <option value="NA">
+                                            NA
+                                          </option>
                                         <option value="7.0">7.0
                                         </option>
                                         <option value="7.1">7.1
@@ -302,22 +287,7 @@
                                       </select>
                                     </div>
                                   </div>
-                                  <div class="col-md-4">
-                                    <div class="form-group">
-                                      <label>PHP Modules Required
-                                      </label>
-                                      <select name="PHP_MODULES" multiple>
-                                        <option value="mysql">Mysql 
-                                        </option>
-                                        <option value="curl">Curl
-                                        </option>
-                                        <option value="json">Json
-                                        </option>
-                                        <option value="mongo">Mongo
-                                        </option>
-                                      </select>
-                                    </div>
-                                  </div>
+                                  
                                 </div>
                                 <div class="row">
 
@@ -455,6 +425,9 @@
                                               <label>MySQl Version</label>
                                                   <br>
                                                   <select name="MySQL_version">
+                                                      <option value="NA">
+                                                          NA
+                                                        </option>
                                                       <option value="8">8</option>
                                                       <option value="5.7">5.7</option>
                                                       <option value="5.6">5.6</option>
@@ -559,7 +532,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #5</label>
-                                              <input type="text" class="form-control" name='MYSQL_PORT_VALUE' placeholder='MYSQL_PORT_VALUE' >
+                                              <input type="text" class="form-control" name='MYSQL_PORT_VALUE' value='3306' >
                                           </div>
                                       </div>
                                       
@@ -607,6 +580,9 @@
                                             <div class="form-group">
                                               <label>Mongo DB Version</label><br />
                                               <select name="mongo_version">
+                                                <option value="NA">
+                                                  NA
+                                                </option>
                                                 <option value="8">
                                                   8
                                                 </option>
@@ -706,6 +682,9 @@
                                       </label>
                                       <br>
                                       <select name="varnish_version">
+                                          <option value="NA">
+                                              NA
+                                            </option>
                                           <option value="4">4</option>
                                           <option value="4.1">4.1</option>
                                           <option value="latest">Latest</option>
@@ -804,6 +783,9 @@
                                           <label>Redis Version
                                           </label>
                                           <select name="redis_version">
+                                              <option value="NA">
+                                                  NA
+                                                </option>
                                               <option value="5.0">5.0</option>
                                               <option value="5.1">5.1</option>
                                               <option value="4.2">4.2</option>

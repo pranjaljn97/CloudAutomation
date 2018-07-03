@@ -147,44 +147,62 @@ def javaform(request):
 @login_required(login_url='/login/')
 def drupalform(request):
     if request.method == 'POST':
+        
         form = RequestForm(request.POST)
         if form.is_valid():
-            form.save()
-            #pass
-            #mail functionality
-            uname = request.user.get_username()
-            umail = request.user.email 
-            projectname = form.cleaned_data.get('project_name')
-            appname = form.cleaned_data.get('application_name')
+            form.requester = request.user.email 
+            form.platform = "PHP"
+            form.envtype = "Docker"
+            form.projectname = form.cleaned_data.get('project_name')
+            form.appname = form.cleaned_data.get('application_name')
+            form.git_url = form.cleaned_data.get('git_url')
+            
+
+            PHP_VERSION = form.cleaned_data.get('PHP_VERSION')
+            NGINX_BACKEND_HOST_VALUE=form.cleaned_data.get('NGINX_BACKEND_HOST_VALUE')
+            NGINX_SERVER_ROOT_VALUE=form.cleaned_data.get('NGINX_SERVER_ROOT_VALUE')
+            NGINX_SERVER_NAME_VALUE =form.cleaned_data.get('NGINX_SERVER_NAME_VALUE')
+            NGINX_STATIC_CONTENT_EXPIRES_VALUE=form.cleaned_data.get('NGINX_STATIC_CONTENT_EXPIRES_VALUE')
+            NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE=form.cleaned_data.get('NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE')
+
+
+
+
 
             #varnish data
-            varnishversion = form.cleaned_data.get('varnish_version')
-            varnishbackendhost = form.cleaned_data.get('VARNISH_BACKEND_HOST_VALUE')
-            varnishbackendport = form.cleaned_data.get('VARNISH_BACKEND_PORT_VALUE')
-            varnishsecret = form.cleaned_data.get('VARNISH_SECRET_VALUE')
-            varnishport = form.cleaned_data.get('VARNISH_PORT_VALUE')
+            varnish_version = form.cleaned_data.get('varnish_version')
+            VARNISH_BACKEND_HOST_VALUE = form.cleaned_data.get('VARNISH_BACKEND_HOST_VALUE')
+            VARNISH_BACKEND_PORT_VALUE = form.cleaned_data.get('VARNISH_BACKEND_PORT_VALUE')
+            VARNISH_SECRET_VALUE = form.cleaned_data.get('VARNISH_SECRET_VALUE')
+            VARNISH_PORT_VALUE = form.cleaned_data.get('VARNISH_PORT_VALUE')
+            
+            
             subject = "Request Submitted"
+
+            
             #message = "Your form has been submitted \n Please verify your details:" + "Project Name:" + projectname
             from_email = settings.EMAIL_HOST_USER
-            to_list = [umail]
-            c = {'uname': uname,
-                        'projectname': projectname,
-                        'appname': appname,
-                        'varnishversion': varnishversion,
-                        'varnishbackendhost': varnishbackendhost,
-                        'varnishbackendport': varnishbackendport,
-                        'varnishsecret': varnishsecret,
-                        'varnishport': varnishport}            
+            to_list = [settings.ADMIN_MAIL,request.user.email]
+            c = {'uname': request.user.email,
+                        'projectname': form.appname,
+                        'appname': form.projectname,
+                        'varnishversion': varnish_version,
+                        'varnishbackendhost': VARNISH_BACKEND_HOST_VALUE,
+                        'varnishbackendport': VARNISH_BACKEND_PORT_VALUE,
+                        'varnishsecret': VARNISH_SECRET_VALUE,
+                        'varnishport': VARNISH_PORT_VALUE}            
             html_content = render_to_string('dashboard/email.html', c)
             text_msg = "Request Approval"
 
             send_mail(subject, text_msg, from_email, to_list, fail_silently=False, html_message=html_content
             )
-
+            form.save()
          
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
         else:
             print(form.errors)   
+        
+
     else:
         form = RequestForm()
     return render(request, 'dashboard/drupal-home.html', {'form': form})
