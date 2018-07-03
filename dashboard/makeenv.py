@@ -43,9 +43,7 @@ def makeenvfile(myid):
                                 'volumes': {
 
                                 },
-                                'ports': {
-
-                                }
+                                'ports': '9000'
                                 },
 	            'mysql' : { 'enable': True,
                             'envi': {
@@ -93,9 +91,7 @@ def makeenvfile(myid):
                               'volumes': {
                                     
                                 },
-                              'ports': {
-
-                                }
+                              'ports': '8085'
                             
                             },
 

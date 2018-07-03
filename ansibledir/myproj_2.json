@@ -6,7 +6,7 @@
             "MONGO_INITDB_ROOT_PASSWORD": "",
             "MONGO_INITDB_ROOT_USERNAME": "",
             "MONGO_PORT_VALUE": "",
-            "mongo_version": "NA"
+            "mongo_version": "8"
         },
         "ports": {},
         "volumes": {}
@@ -18,9 +18,9 @@
             "MYSQL_DATABASE": "",
             "MYSQL_DUMP_MAX_ALLOWED_PACKET": "",
             "MYSQL_PASSWORD": "",
-            "MYSQL_PORT_VALUE": "3306",
+            "MYSQL_PORT_VALUE": "",
             "MYSQL_ROOT_PASSWORD": "",
-            "MYSQL_USER": "ewf",
+            "MYSQL_USER": "",
             "mysql_version": ""
         },
         "ports": {},
@@ -36,7 +36,7 @@
             "NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE": "",
             "NGINX_STATIC_CONTENT_EXPIRES_VALUE": "",
             "PHP_MODULES": "",
-            "PHP_VERSION": "7.1"
+            "PHP_VERSION": "7.0"
         },
         "ports": {},
         "volumes": {}
@@ -45,27 +45,27 @@
         "enable": true,
         "envi": {
             "REDIS_PASSWORD": "",
-            "redis_version": "NA"
+            "redis_version": "5.0"
         },
         "ports": {},
         "volumes": {}
     },
     "user": {
-        "USERNAME": "",
-        "application_name": "first",
-        "envtype": "Docker",
+        "USERNAME": "admin",
+        "application_name": "myapp",
+        "envtype": "",
         "git_url": "",
-        "id": 1,
-        "platform": "PHP",
-        "project_name": "First Try"
+        "id": 2,
+        "platform": "",
+        "project_name": "myproj"
     },
     "varnish": {
         "enable": true,
         "envi": {
-            "VARNISH_BACKEND_HOST": "ewfew",
-            "VARNISH_BACKEND_PORT": "fewfe",
+            "VARNISH_BACKEND_HOST": "",
+            "VARNISH_BACKEND_PORT": "",
             "VARNISH_PORT_VALUE": "",
-            "varnish_version": "NA"
+            "varnish_version": "4"
         },
         "ports": {},
         "volumes": {}
