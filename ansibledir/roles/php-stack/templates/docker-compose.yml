@@ -53,7 +53,7 @@ services:
      depends_on:
        - php
      ports:
-       - "{{ env.nginx_php.port }}:80"
+       - "{{ nginx_php.ports }}:80"
      volumes:
       - code:/var/www/html
 
@@ -82,7 +82,7 @@ services:
      depends_on:
        - nginx_php
      ports:
-       - "{{ varnish.port }}:6081"    
+       - "{{ varnish.ports }}:6081"    
 
   {% endif %}
 
