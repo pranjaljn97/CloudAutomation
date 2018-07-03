@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import os
 import subprocess
-
 from dashboard.models import Project
 
 def execplaybook(id):
