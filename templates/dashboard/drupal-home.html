@@ -195,7 +195,6 @@
         <div class="content">
           <div class="container-fluid">
             <div class="row">
-              
               <div class="col-md-8">
                 <div class="card">
                   <div class="content">
@@ -231,9 +230,10 @@
                               </div>
                             </div>
                                               <div class="row">
-                                                <span style="color: red">{{form.project_name.errors}}
-                                                </span>
+                                                
                                                 <div class="col-md-6">
+                                                    <span style="color: red">{{form.project_name.errors}}
+                                                      </span>
                                                   <div class="form-group">
                                                     <label>Project Name
                                                     </label>
@@ -249,6 +249,8 @@
                                                 </div>
                                               </div>
                                               <div class="row">
+
+                                                
                                                 <div class="col-md-6">
                                                   <div class="form-group">
                                                     <label>Git URL
@@ -391,30 +393,23 @@
                                     </div>
                                   </div>
                                   
+                                  
+
+                              <div id="room_fields">                                              
+                                <div class="content">
                                   <div class="row">
-                                  <div class="col-md-6">
-                                    <div class="btncls">
-                                  <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add More" />
-                                    </div>
-                                    </div>
-                                    </div>
-                                  <div id="room_fields">
-           <div>
-            <div class='label'>Room 1:</div>
-            <div class="content">
-              <div class="row">
-                <div class="col-md-6">
-                Key: <input type="text"  name="key[]" value=""/>
-                </div>
-                <div class="col-md-6">
-                Value: <input type="text" name="value[]" value=""/>
-                </div>
-                </div>
-              </div>
-           </div>
+                
+                                  </div>
+                                </div>
+                              </div>
+
+        <div class="col-md-3">
+          <div class="form-group">                                          
+                <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add More" />                                  
+          </div>
         </div>
-                                </div>                              
-                              
+
+                                </div>                          
                             </div>
   
                             <div class="tab">MySQL:
