@@ -1,25 +1,25 @@
 #jinja2: lstrip_blocks: True
 version: '2.0'
 services:
-  {% if env.mysql.enable==true %}
+  {% if mysql.enable==true %}
    mysql:  
      image: mysql:5.7
      container_name: MYSQL 
      volumes:
        - ./mysql:/var/lib/mysql
      environment:
-       {% for key,value in env.mysql.envi.iteritems() %}
+       {% for key,value in mysql.envi.iteritems() %}
        {{ key }} : {{ value }}
        {% endfor %}
        
   {% endif %} 
   
-  {% if env.mongodb.enable==true %}
+  {% if mongodb.enable==true %}
    mongodb:
      image: mongo
      container_name: MongoDB
      environment:
-       {% for key,value in env.mongodb.envi.iteritems() %}
+       {% for key,value in mongodb.envi.iteritems() %}
        {{ key }} : {{ value }}
        {% endfor %}
        
@@ -29,31 +29,31 @@ services:
 
    
 
-  {% if env.redis.enable==true %}
+  {% if redis.enable==true %}
    redis:
      image: wodby/redis
      container_name: Redis 
      environment:
-       {% for key,value in env.redis.envi.iteritems() %}
+       {% for key,value in redis.envi.iteritems() %}
        {{ key }} : {{ value }}
        {% endfor %}
        
   {% endif %}
 
   
-  {% if env.nginx_php.enable==true %}
+  {% if nginx_php.enable==true %}
    nginx_php:
      image: wodby/php-nginx
      container_name: NGINX
      environment:
-       {% for key,value in env.nginx_php.envi.iteritems() %}
+       {% for key,value in nginx_php.envi.iteritems() %}
        {{ key }} : {{ value }}
        {% endfor %}
        NGINX_SERVER_ROOT: /var/www/html/
      depends_on:
        - php
      ports:
-       - "{{ env.nginx_php.port }}:80"
+       - "{{ nginx_php.ports }}:80"
      volumes:
       - code:/var/www/html
 
@@ -70,19 +70,19 @@ services:
           
   {% endif %}    
   
-  {% if env.varnish.enable==true %} 
+  {% if varnish.enable==true %} 
    varnish:
      image: wodby/varnish
      container_name: Varnish
      environment:
-       {% for key,value in env.varnish.envi.iteritems() %}
+       {% for key,value in varnish.envi.iteritems() %}
        {{ key }} : {{ value }}
        {% endfor %}
        
      depends_on:
        - nginx_php
      ports:
-       - "{{ env.varnish.port }}:6081"    
+       - "{{ varnish.ports }}:6081"    
 
   {% endif %}
 
@@ -90,4 +90,3 @@ volumes:
     mysql:
     code:
     mongodb:
-

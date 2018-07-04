@@ -3,6 +3,6 @@
   connection: local
   sudo: yes
   roles: 
-    - docker-install
+    - system-setup
     - php-stack
     

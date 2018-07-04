@@ -1,0 +1,7 @@
+---
+
+- name: Install OpenSSH server
+  apt:
+    name: "openssh-server"
+    state: "present"
+  notify: ["Test and restart SSHD"]

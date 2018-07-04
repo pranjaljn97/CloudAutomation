@@ -1,0 +1,17 @@
+---
+- name: Initial Task
+  hosts: localhost
+  connection: local
+  sudo: yes
+  roles: 
+    - add-hosts
+    
+- name: New instances
+  hosts: "{{ hostname }}"
+  remote_user: "{{ user }}"
+  vars:
+    ansible_password: "{{ password }}"
+
+  roles:
+    - docker-install
+    
