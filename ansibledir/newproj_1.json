@@ -1,0 +1,73 @@
+{
+    "mongodb": {
+        "enable": true,
+        "envi": {
+            "MONGO_INITDB_DATABASE_VALUE": "",
+            "MONGO_INITDB_ROOT_PASSWORD": "",
+            "MONGO_INITDB_ROOT_USERNAME": "",
+            "MONGO_PORT_VALUE": "",
+            "mongo_version": "NA"
+        },
+        "ports": {},
+        "volumes": {}
+    },
+    "mysql": {
+        "enable": true,
+        "envi": {
+            "MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE": "",
+            "MYSQL_DATABASE": "",
+            "MYSQL_DUMP_MAX_ALLOWED_PACKET": "",
+            "MYSQL_PASSWORD": "",
+            "MYSQL_PORT_VALUE": "3306",
+            "MYSQL_ROOT_PASSWORD": "",
+            "MYSQL_USER": "",
+            "mysql_version": ""
+        },
+        "ports": {},
+        "volumes": {}
+    },
+    "nginx_php": {
+        "enable": true,
+        "envi": {
+            "NGINX_BACKEND_HOST_VALUE": "",
+            "NGINX_DRUPAL_FILE_PROXY_URL_VALUE": "",
+            "NGINX_SERVER_NAME_VALUE": "",
+            "NGINX_SERVER_ROOT_VALUE": "",
+            "NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE": "",
+            "NGINX_STATIC_CONTENT_EXPIRES_VALUE": "",
+            "PHP_MODULES": "",
+            "PHP_VERSION": "NA"
+        },
+        "ports": "9000",
+        "volumes": {}
+    },
+    "redis": {
+        "enable": true,
+        "envi": {
+            "REDIS_PASSWORD": "",
+            "redis_version": "NA"
+        },
+        "ports": {},
+        "volumes": {}
+    },
+    "user": {
+        "USERNAME": "nitish.tiwari@tothenew.com",
+        "application_name": "newapp",
+        "envtype": "Docker",
+        "git_url": "",
+        "id": 1,
+        "platform": "PHP",
+        "project_name": "newproj"
+    },
+    "varnish": {
+        "enable": true,
+        "envi": {
+            "VARNISH_BACKEND_HOST": "",
+            "VARNISH_BACKEND_PORT": "",
+            "VARNISH_PORT_VALUE": "",
+            "varnish_version": "NA"
+        },
+        "ports": "8085",
+        "volumes": {}
+    }
+}

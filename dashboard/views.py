@@ -5,18 +5,19 @@ from .models import RequestForm
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
-
+from .models import HostForm
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.utils import timezone
 from django.shortcuts import render
 from django.template import Context
-from .models import Project
+from .models import Project, Host
 from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 from dashboard.makeenv import makeenvfile
 from dashboard.runplaybook import execplaybook
+from dashboard.makehostentry import hostentry
 
 
 import datetime
@@ -37,12 +38,28 @@ def thanks(request):
 #   today = datetime.datetime.now().date()
     return render(request, "dashboard/thanks.html")
 
-@login_required(login_url='/login/')
-def cloudprovider(request):
-    uname = request.user.get_username()
-   
-#   today = datetime.datetime.now().date()
-    return render(request, "dashboard/cloud-provider.html")
+# @login_required(login_url='/login/')
+def cprovider(request):
+    if request.method == 'POST':
+        form = HostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('dashboard/cloud-provider.html')
+    else:
+        form = HostForm()
+        hosts = Host.objects.all()
+    return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
+#     return render(request, "dashboard/cloud-provider.html")
+
+
+def hostadded(request, id):
+    
+    hostentry(id)
+    hosts = Host.objects.all()
+    return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
+
+
+
     
 
 @login_required(login_url='/login/')
@@ -103,12 +120,6 @@ def rejectedsuccessfully(request, id):
     return render(request, "dashboard/forapproval.html", {'posts': posts })
 
 
-
-
-
-
-
-
 @login_required(login_url='/login/')
 def detailform(request,id):
 #   today = datetime.datetime.now().date()
@@ -165,10 +176,6 @@ def drupalform(request):
             NGINX_STATIC_CONTENT_EXPIRES_VALUE=form.cleaned_data.get('NGINX_STATIC_CONTENT_EXPIRES_VALUE')
             NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE=form.cleaned_data.get('NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE')
 
-
-
-
-
             #varnish data
             varnish_version = form.cleaned_data.get('varnish_version')
             VARNISH_BACKEND_HOST_VALUE = form.cleaned_data.get('VARNISH_BACKEND_HOST_VALUE')
@@ -208,7 +215,6 @@ def drupalform(request):
     return render(request, 'dashboard/drupal-home.html', {'form': form})
 # Create your views here.
 
-
 @login_required(login_url='/login/')
 def nodeform(request):
     if request.method == 'POST':
@@ -220,4 +226,5 @@ def nodeform(request):
     else:
         form = RequestForm()
     return render(request, 'dashboard/node-home.html', {'form': form})
+
 # Create your views here.
