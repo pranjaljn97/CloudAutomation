@@ -1,0 +1,93 @@
+#jinja2: lstrip_blocks: True
+version: '2.0'
+services:
+  {% if mysql.enable==true %}
+   mysql:  
+     image: mysql:5.7
+     container_name: MYSQL 
+     volumes:
+       - ./mysql:/var/lib/mysql
+     environment:
+       {% for key,value in mysql.envi.iteritems() %}
+       {{ key }} : {{ value }}
+       {% endfor %}
+       
+  {% endif %} 
+  
+  {% if mongodb.enable==true %}
+   mongodb:
+     image: mongo
+     container_name: MongoDB
+     environment:
+       {% for key,value in mongodb.envi.iteritems() %}
+       {{ key }} : {{ value }}
+       {% endfor %}
+       
+     volumes:
+       - ./mongodb:/data/db
+  {% endif %}
+
+   
+
+  {% if redis.enable==true %}
+   redis:
+     image: wodby/redis
+     container_name: Redis 
+     environment:
+       {% for key,value in redis.envi.iteritems() %}
+       {{ key }} : {{ value }}
+       {% endfor %}
+       
+  {% endif %}
+
+  
+  {% if nginx_php.enable==true %}
+   nginx_php:
+     image: wodby/php-nginx
+     container_name: NGINX
+     environment:
+       {% for key,value in nginx_php.envi.iteritems() %}
+       {{ key }} : {{ value }}
+       {% endfor %}
+       NGINX_SERVER_ROOT: /var/www/html/
+     depends_on:
+       - php
+     ports:
+       - "{{ nginx_php.ports }}:80"
+     volumes:
+      - code:/var/www/html
+
+
+   php:
+     image: wodby/php
+     container_name: php
+     environment:
+       DB_USER: admin
+       DB_PASSWORD: admin
+       DB_NAME: wordpress
+     volumes:
+      - code:/var/www/html
+          
+  {% endif %}    
+  
+  {% if varnish.enable==true %} 
+   varnish:
+     image: wodby/varnish
+     container_name: Varnish
+     environment:
+       {% for key,value in varnish.envi.iteritems() %}
+       {{ key }} : {{ value }}
+       {% endfor %}
+       
+     depends_on:
+       - nginx_php
+     ports:
+       - "{{ varnish.ports }}:6081"    
+
+  {% endif %}
+
+volumes:
+    mysql:
+    code:
+    mongodb:
+
