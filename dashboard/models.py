@@ -1,20 +1,38 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 import datetime
 from django.utils import timezone
+
+class Host(models.Model):
+        id = models.AutoField(primary_key=True)
+        hostIdentifier = models.CharField(blank=True, max_length=30)
+        hostIp = models.CharField(blank=True, max_length=30)
+        hostUsername = models.CharField(blank=True,max_length=30)
+        hostPassword = models.CharField(blank=True,max_length=30)
+        status = models.CharField(default='initiated', max_length=30)
+        class Meta:
+                permissions = (
+                    ('view_content', 'View content'),
+                 )
+
+class HostForm(ModelForm):
+    class Meta:
+        model = Host
+        fields = ['hostIdentifier','hostIp','hostUsername','hostPassword']
+
 class Project(models.Model):
         
         #requester = models.ForeignKey(User,default=1)
         #===#=================step 1 (basic details)=====================================
         #requester = models.ForeignKey(settings.AUTH_USER_MODEL)
-	id = models.AutoField(primary_key=True)
+	      id = models.AutoField(primary_key=True)
         requester = models.CharField(blank=True,max_length=30)
         platform = models.CharField(blank=True,max_length=30)
+        #host_Info = models.CharField(blank=True, max_length=30)
         envtype = models.CharField(blank=True,max_length=30)
         project_name = models.CharField(blank=True,max_length=30,unique=True)
         application_name = models.CharField(blank=True,max_length=30)
@@ -77,10 +95,8 @@ class Project(models.Model):
                 permissions = (
                     ('view_content', 'View content'),
                  )
-
         def __str__(self):
-                return self
-
+          return self.project_name
 
 
 class RequestForm(ModelForm):
@@ -88,13 +104,3 @@ class RequestForm(ModelForm):
         model = Project
         exclude = ['project_flag','pub_date',]
         fields = ['requester','platform','envtype', 'project_name','status', 'application_name' , 'git_url','UBUNTU_VERSION','PHP_VERSION','PHP_MODULES','NGINX_BACKEND_HOST_VALUE','NGINX_SERVER_NAME_VALUE','NGINX_SERVER_ROOT_VALUE','NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE','NGINX_STATIC_CONTENT_EXPIRES_VALUE','key1','value1','key2','value2','key3','value3','key4','value4','key5','value5','mysql_version','MYSQL_DATABASE_NAME_VALUE','MYSQL_ROOT_PASSWORD_VALUE','MYSQL_USER_NAME_VALUE','MYSQL_PASSWORD_VALUE','MYSQL_PORT_VALUE','MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE','MYSQL_DUMP_MAX_ALLOWED_PACKET','MONGO_PORT_VALUE','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE','MONGO_INITDB_ROOT_PASSWORD_VALUE','mongo_version','varnish_version','VARNISH_BACKEND_HOST_VALUE','VARNISH_BACKEND_PORT_VALUE','VARNISH_PORT_VALUE','redis_version','REDIS_PASSWORD_VALUE', ]
-# Create your models here.,
-#class moreKeyValue(models.Model):
-        #project = models.ForeignKey(Project,null=False,blank=True)
-	#key1 = models.CharField( blank=True,max_length=100)
-        #value1 = models.CharField( blank=True,max_length=100)
-        
-#class RequestForm2(ModelForm):
-    #class Meta:
-        #model = moreKeyValue
-        #fields = ['key1','value1', ]

@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^drupal/', views.drupalform, name='drupalform'),
     url(r'^node/', views.nodeform, name='nodeform'),
     url(r'^test/', views.userdata, name='userdata'),
-    url(r'^cprovider/', views.cloudprovider, name='cprovider'),
+    url(r'^cprovider/', views.cprovider, name='cprovider'),
     url(r'^thanks/', views.thanks, name='thanks'),
     url(r'^forapproval/', views.forapproval, name='forapproval'),
     url(r'^approvedsuccessfully/(?P<id>[0-9]+)', views.approvedsuccessfully, name='approvedsuccessfully'),
@@ -16,5 +16,11 @@ urlpatterns = [
     url(r'^approved/', views.approved, name='approved'),
     url(r'^rejected/', views.rejected, name='rejected'),
     url(r'^detailform/?(?P<id>[0-9]+)', views.detailform, name='detailform'),
+
     url(r'^finalmail/?(?P<id>[0-9]+)', views.finalmail, name='finalmail'),
+
+    url(r'^hostadded/(?P<id>[0-9]+)', views.hostadded, name='hostadded'),
+
+    
+
 ]

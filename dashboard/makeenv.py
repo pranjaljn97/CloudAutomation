@@ -6,6 +6,8 @@ import MySQLdb
 import sys
 import os
 from dashboard.models import Project
+from django.conf import settings
+
 
 
 def makeenvfile(myid):
@@ -13,6 +15,8 @@ def makeenvfile(myid):
     cursor = connection.cursor ()
     cursor.execute ("select *  from dashboard_project where id = %s",myid)
     data = cursor.fetchall ()
+    destpath = settings.ENVFILE_PATH
+    print destpath
 
     try:
         to_unicode = unicode
@@ -43,7 +47,7 @@ def makeenvfile(myid):
                                 'volumes': {
 
                                 },
-                                'ports': '9000'
+                                'ports': '9000'                                                                                                               
                                 },
 	            'mysql' : { 'enable': True,
                             'envi': {
@@ -120,11 +124,13 @@ def makeenvfile(myid):
                       indent=4, sort_keys=True,
                       separators=(',', ': '), ensure_ascii=False)
             outfile.write(to_unicode(str_))
-            filename = "./" + post.project_name + '_' + str(post.id) + '.json'
-            os.rename(filename, "./ansibledir/" + filename)
+            filecurrpath = "./" + post.project_name + '_' + str(post.id) + '.json'
+            filename = post.project_name + '_' + str(post.id) + '.json'
+            print destpath + filename
+            os.rename(filecurrpath, destpath + filename)
 
 # Read JSON file
-        with open("./ansibledir/" + post.project_name+ '_' + str(post.id)+'.json') as data_file:
+        with open(destpath + post.project_name+ '_' + str(post.id)+'.json') as data_file:
             data_loaded = json.load(data_file)
 
     print(data == data_loaded)

@@ -1,6 +1,6 @@
 {% extends "dashboard/phpform.html" %}
 {% load static %}
-{% block content %}
+
                   <div class="content">
                   
                       <form id="regForm" action="." method="POST">
@@ -18,25 +18,41 @@
                                   <input type="text" class="form-control" readonly placeholder="{{ user.email }}" value="{{ user.email }}" name="requester">
                                 </div>
                               </div>
-                              <div class="col-md-3">
+                              <div class="col-md-2">
                                 <div class="form-group">
                                   <label>Platform
                                   </label>
                                   <input type="text" class="form-control" readonly placeholder="PHP" value="PHP" name="platform">
                                 </div>
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-3">
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Environment Type
                                   </label>
                                   <input type="text" class="form-control" readonly  placeholder="Docker" value="Docker" name="envtype">
                                 </div>
                               </div>
+
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label>Choose Host</label>
+                                  <select name=host_Info>
+                                    <option value="NA">NA</option>
+                                    {% for i in hostInfo %}
+                                      {% if i.status == 'Added Successfully' %}
+                                    <option value ="{{ i.hostIdentifier }}">{{ i.hostIdentifier }}</option>
+                                      {% endif %}
+                                    {% endfor %}  
+                                  </select>
+                                  
+                                </div>
+                              </div>
                             </div>
                                               <div class="row">
-                                                <span style="color: red">{{form.project_name.errors}}
-                                                </span>
+                                                
                                                 <div class="col-md-6">
+                                                    <span style="color: red">{{form.project_name.errors}}
+                                                      </span>
                                                   <div class="form-group">
                                                     <label>Project Name
                                                     </label>
@@ -52,6 +68,8 @@
                                                 </div>
                                               </div>
                                               <div class="row">
+
+                                                
                                                 <div class="col-md-6">
                                                   <div class="form-group">
                                                     <label>Git URL
@@ -194,23 +212,25 @@
                                     </div>
                                   </div>
                                   
-                                <div class="row">
-                                  <div class="col-md-6">
-                                    <div class="btncls">
-                                  <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add More" />
-                                    </div>
-                                    </div>
-                                </div>
-                                <div id="room_fields">
-                                    <div>
-                                      <div class='label'>Room 1:</div>
-                                      <div class="content">
-                                        
-                                      </div>
-                                    </div>
+
+                                  
+
+                              <div id="room_fields">                                              
+                                <div class="content">
+                                  <div class="row">
+                
                                   </div>
-                                </div>                              
-                                                        
+                                </div>
+                              </div>
+
+        <div class="col-md-3">
+          <div class="form-group">                                          
+                <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add More" />                                  
+          </div>
+        </div>
+
+                                </div>                          
+
                             </div>
    <!-- ================================STEP 3 MYSQL DETAILS================================== -->  
                             <div class="tab">MySQL:

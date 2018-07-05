@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 
 from django.db import migrations, models
@@ -10,6 +10,20 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.CreateModel(
+            name='Host',
+            fields=[
+                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('hostIdentifier', models.CharField(blank=True, max_length=30)),
+                ('hostIp', models.CharField(blank=True, max_length=30)),
+                ('hostUsername', models.CharField(blank=True, max_length=30)),
+                ('hostPassword', models.CharField(blank=True, max_length=30)),
+                ('status', models.CharField(default='initiated', max_length=30)),
+            ],
+            options={
+                'permissions': (('view_content', 'View content'),),
+            },
+        ),
         migrations.CreateModel(
             name='Project',
             fields=[
