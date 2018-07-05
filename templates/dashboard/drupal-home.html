@@ -1,209 +1,13 @@
-{% if user.is_authenticated %}
+{% extends "dashboard/phpform.html" %}
 {% load static %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Self Service Portal | To The New
-    </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-    <!-- CSS for regForm -->
-    <link href="{% static "dashboard/assets/css/regForm.css" %}" rel="stylesheet"/>
-    <!-- Bootstrap core CSS     -->
-    <link href="{% static "dashboard/assets/css/bootstrap.min.css" %}" rel="stylesheet" />
-    <!-- Animation library for notifications   -->
-    <link href="{% static "dashboard/assets/css/animate.min.css" %}" rel="stylesheet"/>
-    <!--  Light Bootstrap Table core CSS    -->
-    <link href="{% static "dashboard/assets/css/light-bootstrap-dashboard.css" %}" rel="stylesheet"/>
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="{% static "dashboard/assets/css/demo.css" %}" rel="stylesheet" />
 
-    <!--  CSS for add more button     -->
-    <link href="{% static "dashboard/assets/css/addMore.css" %}" rel="stylesheet" />
-
-    <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="{% static "dashboard/assets/css/pe-icon-7-stroke.css" %}" rel="stylesheet" />
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
-        <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
-        <div class="sidebar-wrapper">
-          <div class="logo">
-            <a href="{% url "userprofile" %}" class="simple-text">
-              UserProfile
-            </a>
-          </div>
-          <ul class="nav">
-            <li>
-              <a href="{% url "dashboard" %}">
-                <i class="pe-7s-graph">
-                </i>
-                <p>Dashboard
-                </p>
-              </a>
-            </li>
-            <li class="active">
-              <a href="{% url "userprofile" %}">
-                <i class="pe-7s-user">
-                </i>
-                <p>User Profile
-                </p>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                <span class="sr-only">Toggle navigation
-                </span>
-                <span class="icon-bar">
-                </span>
-                <span class="icon-bar">
-                </span>
-                <span class="icon-bar">
-                </span>
-              </button>
-              <a class="navbar-brand" href="#">Hi {{ user.username }} !
-              </a>
-            </div>
-            <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav navbar-left">
-                <li>
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-dashboard">
-                    </i>
-                    <p class="hidden-lg hidden-md">Dashboard
-                    </p>
-                  </a>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-globe">
-                    </i>
-                    <b class="caret hidden-sm hidden-xs">
-                    </b>
-                    <span class="notification hidden-sm hidden-xs">5
-                    </span>
-                    <p class="hidden-lg hidden-md">
-                      5 Notifications
-                      <b class="caret">
-                      </b>
-                    </p>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a href="#">Notification 1
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">Notification 2
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">Notification 3
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">Notification 4
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">Another notification
-                      </a>
-                    </li>
-                  </ul>
-
-                </li>
-                <li>
-                  <a href="">
-                    <i class="fa fa-search">
-                    </i>
-                    <p class="hidden-lg hidden-md">Search
-                    </p>
-                  </a>
-                </li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <li>
-                  <a href="">
-                    <p>FAQ
-                    </p>
-                  </a>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <p>
-                      Services
-                      <b class="caret">
-                      </b>
-                    </p>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a href="#">Action
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">Another action
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">Something
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">Another action
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">Something
-                      </a>
-                    </li>
-                    <li class="divider">
-                    </li>
-                    <li>
-                      <a href="#">Separated link
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="{% url 'logout' %}">
-                    <p>Log out
-                    </p>
-                  </a>
-                </li>
-                <li class="separator hidden-lg hidden-md">
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        
-        <!--Top card start-->
-        <div class="content">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-8">
-                <div class="card">
                   <div class="content">
                   
                       <form id="regForm" action="." method="POST">
                         {% csrf_token %}
                           <!-- One "tab" for each step in the form: -->
                           <h2>PHP Application Stack</h2>
-  
+  <!-- ================================STEP 1 BASIC DETAILS======================================= -->
                           <div class="tab">Drupal | Wordpress | Magento | Custom PHP Application
                                 
                             <div class="row">
@@ -283,13 +87,13 @@
                                                   </div>
                                                 </div>
                               </div>
-                            
+          <!-- ================================STEP 2 PHP NGINX DETAILS================================== -->                  
                             <div class="tab"><b>PHP-Nginx</b>
                             
                                 <div class="row">
                                   <div class="col-md-6">
                                     <div class="form-group">
-                                      <label>PHP Version
+                                      <label><h4> Version</h4>
                                       </label><br>
                                       <select name="PHP_VERSION">
                                         <option value="NA">
@@ -332,7 +136,7 @@
                                     <div class="form-group">
                                       <label>Value #1
                                       </label>
-                                      <input type="text" class="form-control" name="NGINX_BACKEND_HOST_VALUE" placeholder='NGINX_BACKEND_HOST'>
+                                      <input type="text" class="form-control" name="NGINX_BACKEND_HOST_VALUE" value='9000'>
                                     </div>
                                   </div>
                                 </div>
@@ -350,7 +154,7 @@
                                     <div class="form-group">
                                       <label>Value #2
                                       </label>
-                                      <input type="text" class="form-control" name='NGINX_SERVER_NAME_VALUE' placeholder='NGINX_SERVER_NAME'>
+                                      <input type="text" class="form-control" name='NGINX_SERVER_NAME_VALUE' value='drupal'>
                                     </div>
                                   </div>
                                 </div>
@@ -368,7 +172,7 @@
                                     <div class="form-group">
                                       <label>Value #3
                                       </label>
-                                      <input type="text" class="form-control" name='NGINX_SERVER_ROOT_VALUE' placeholder='NGINX_SERVER_ROOT'>
+                                      <input type="text" class="form-control" name='NGINX_SERVER_ROOT_VALUE' value='/var/www/html/'>
                                     </div>
                                   </div>
                                 </div>
@@ -386,7 +190,7 @@
                                     <div class="form-group">
                                       <label>Value #4
                                       </label>
-                                      <input type="text" class="form-control" name='NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE' placeholder='NGINX_STATIC_CONTENT_ACCESS_LOG'>
+                                      <input type="text" class="form-control" name='NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE' value='off'>
                                     </div>
                                   </div>
                                 </div>
@@ -404,10 +208,11 @@
                                     <div class="form-group">
                                       <label>Value #5
                                       </label>
-                                      <input type="text" class="form-control" name='NGINX_STATIC_CONTENT_EXPIRES_VALUE' placeholder='NGINX_STATIC_CONTENT_EXPIRES'>
+                                      <input type="text" class="form-control" name='NGINX_STATIC_CONTENT_EXPIRES_VALUE' value='30d'>
                                     </div>
                                   </div>
                                   
+
                                   
 
                               <div id="room_fields">                                              
@@ -425,8 +230,9 @@
         </div>
 
                                 </div>                          
+
                             </div>
-  
+   <!-- ================================STEP 3 MYSQL DETAILS================================== -->  
                             <div class="tab">MySQL:
                               
                                   <div class="row">
@@ -470,7 +276,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #1</label>
-                                              <input type="text"  class="form-control" name='MYSQL_DATABASE_NAME_VALUE' placeholder='MYSQL_DATABASE_NAME_VALUE'>
+                                              <input type="text"  class="form-control" name='MYSQL_DATABASE_NAME_VALUE' value='db'>
                                           </div>
                                       </div>
                                       
@@ -488,7 +294,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #2</label>
-                                              <input type="text" class="form-control" name="MYSQL_ROOT_PASSWORD_VALUE" placeholder='MYSQL_ROOT_PASSWORD_VALUE'>
+                                              <input type="text" class="form-control" name="MYSQL_ROOT_PASSWORD_VALUE" value='1234'>
                                           </div>
                                       </div>
                                       
@@ -506,7 +312,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #3</label>
-                                              <input type="text" class="form-control" name='MYSQL_USER_NAME_VALUE' placeholder='MYSQL_USER_NAME_VALUE'>
+                                              <input type="text" class="form-control" name='MYSQL_USER_NAME_VALUE' value='root'>
   
                                           </div>
                                       </div>
@@ -526,7 +332,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #4</label>
-                                              <input type="text" class="form-control" name='MYSQL_PASSWORD_VALUE' placeholder='MYSQL_PASSWORD_VALUE'>
+                                              <input type="text" class="form-control" name='MYSQL_PASSWORD_VALUE' value='1234'>
                                           </div>
                                       </div>
                                       
@@ -558,7 +364,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #6</label>
-                                              <input type="text" class="form-control" name='MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE' placeholder='MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE'>
+                                              <input type="text" class="form-control" name='MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE' value='utf-8'>
                                           </div>
                                       </div>
                                       
@@ -582,7 +388,7 @@
                                     </div>                                    
                                                               
                             </div>
-
+ <!-- ================================STEP 4 MONGO DETAILS================================== -->  
                             <div class="tab">MongoDB
                                     
                                         <div class="row">
@@ -630,7 +436,7 @@
                                           <div class="col-md-6">
                                             <div class="form-group">
                                               <label>Value #1</label> <input type="text" class=
-                                              "form-control" name='MONGO_INITDB_DATABASE_VALUE' placeholder='MONGO_INITDB_DATABASE_VALUE'  />
+                                              "form-control" name='MONGO_INITDB_DATABASE_VALUE' value='mongodb'  />
                                             </div>
                                           </div>
                                         </div>
@@ -646,7 +452,7 @@
                                           <div class="col-md-6">
                                             <div class="form-group">
                                               <label>Value #2</label> <input type="text" class=
-                                              "form-control" name='MONGO_INITDB_ROOT_USERNAME_VALUE' placeholder='MONGO_INITDB_ROOT_USERNAME_VALUE' />
+                                              "form-control" name='MONGO_INITDB_ROOT_USERNAME_VALUE' value='user' />
                                             </div>
                                           </div>
                                         </div>
@@ -662,7 +468,7 @@
                                           <div class="col-md-6">
                                             <div class="form-group">
                                               <label>Value #3</label> <input type="text" class=
-                                              "form-control" name='MONGO_INITDB_ROOT_PASSWORD_VALUE' placeholder='MONGO_INITDB_ROOT_PASSWORD_VALUE' />
+                                              "form-control" name='MONGO_INITDB_ROOT_PASSWORD_VALUE' value='1234' />
                                             </div>
                                           </div>
                                         </div>
@@ -678,12 +484,13 @@
                                           <div class="col-md-6">
                                             <div class="form-group">
                                               <label>Value #4</label> <input type="text" class=
-                                              "form-control" name="MONGO_PORT_VALUE" placeholder="MONGO_PORT_VALUE" />
+                                              "form-control" name="MONGO_PORT_VALUE" value'27017'= />
                                             </div>
                                           </div>
                                         </div>
                                       
                               </div>
+ <!-- ================================STEP 5 VARNISH DETAILS================================== -->  
 
                             <div class="tab">Varnish:      
                                   <div class="row">
@@ -724,7 +531,7 @@
                                       <div class="form-group">
                                         <label>Value #1
                                         </label>
-                                        <input type="text" class="form-control" name='VARNISH_BACKEND_HOST_VALUE' placeholder='VARNISH_BACKEND_HOST_VALUE'>
+                                        <input type="text" class="form-control" name='VARNISH_BACKEND_HOST_VALUE' value='localhost'>
                                       </div>
                                     </div>
                                   </div>
@@ -742,7 +549,7 @@
                                       <div class="form-group">
                                         <label>Value #2
                                         </label>
-                                        <input type="text" class="form-control" name='VARNISH_BACKEND_PORT_VALUE' placeholder='VARNISH_BACKEND_PORT_VALUE'>
+                                        <input type="text" class="form-control" name='VARNISH_BACKEND_PORT_VALUE' value='80'>
                                       </div>
                                     </div>
                                   </div>
@@ -778,12 +585,13 @@
                                       <div class="form-group">
                                         <label>Value #4
                                         </label>
-                                        <input type="text" class="form-control" name='VARNISH_PORT_VALUE' placeholder='VARNISH_PORT_VALUE'>
+                                        <input type="text" class="form-control" name='VARNISH_PORT_VALUE' value='6081'>
                                       </div>
                                     </div>
                                   </div>
                                   
                                   </div>
+   <!-- ================================STEP 6 REDIS DETAILS================================== -->  
 
                             <div class="tab">Redis:
                                 
@@ -833,112 +641,7 @@
                                                                
                             </div>
 
+{% endblock %}
+
  
-                            <!-- Next and previous buttons -->
-                            <div style="overflow:auto;">
-                              <div style="float:right;">
-                                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous
-                                </button>
-                                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next
-                                </button>
-                              </div>
-                            </div>
-                            
-                            <!-- Circles which indicates the steps of the form: -->
-                            <div style="text-align:center;margin-top:40px;">
-                              <span class="step">
-                              </span>
-                              <span class="step">
-                              </span>
-                              <span class="step">
-                              </span>
-                              <span class="step">
-                              </span>
-                              <span class="step">
-                              </span>
-                              <span class="step">
-                                </span>
-                          </div>
-                        </form>
-                      
-                    </div>
-                  </div>
-                </div>
-
-                <!--User card start-->
-                <div class="col-md-4">
-                  <div class="card card-user">
-                    <div class="image">
-                      <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
-                    </div>
-                    <div class="content">
-                      <div class="author">
-                        <a href="#">
-                          <img class="avatar border-gray" src="{% static "dashboard/assets/img/faces/face-1.jpg" %}" halt="..."/>
-                          <h4 class="title">{{ user.first_name }} {{ user.last_name }}
-                            <br />
-                            <small>{{ user.username }}
-                            </small>
-                          </h4>
-                        </a>
-                      </div>
-                      <p class="description text-center"> {{ user.email }} 
-                        <br>
-                        To The New 
-                        <br>
-                        Noida, India 
-                        <br>
-                        <br>
-                        <b>Last Login 
-                        </b> : {{ user.last_login }}  
-                        <br>
-                        <b> Joined On 
-                        </b> : {{ user.date_joined }}
-                      </p>
-                    </div>
-                    <hr>
-                  </div>
-                </div>
-            <!--user card end-->
-              
-              </div>
-            </div>
-          </div>
-          <!--Top card end-->            
-      </body>
-         
-            <!-- Script for regForm -->
-            <script src="{% static "dashboard/assets/js/regForm.js" %}"></script>
-            
-            <script src="{% static "dashboard/assets/js/jquery-1.10.2.js" %}" type="text/javascript"></script>
-            <script src="{% static "dashboard/assets/js/bootstrap.min.js" %}" type="text/javascript"></script>
-        
-            <!--  Checkbox, Radio & Switch Plugins -->
-            <script src="{% static "dashboard/assets/js/bootstrap-checkbox-radio-switch.js" %}"></script>
-        
-            <!--  Charts Plugin -->
-            <script src="{% static "dashboard/assets/js/chartist.min.js" %}"></script>
-        
-            <!--  Notifications Plugin    -->
-            <script src="{% static "dashboard/assets/js/bootstrap-notify.js" %}"></script>
-        
-            <!--  Google Maps Plugin    -->
-            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-        
-            <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-            <script src="{% static "dashboard/assets/js/light-bootstrap-dashboard.js" %}"></script>
-        
-            <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-            <script src="{% static "dashboard/assets/js/demo.js" %}"></script>
-
-             <!-- JS file for add more button -->
-             <script src="{% static "dashboard/assets/js/addMore.js" %}"></script>
-            
-             </html>
-            {% else %}
-          <a href="{% url 'login' %}">login
-          </a>
-          <br>
-          {% endif %}
-
-
+                           
