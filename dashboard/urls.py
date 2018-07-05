@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'^approved/', views.approved, name='approved'),
     url(r'^rejected/', views.rejected, name='rejected'),
     url(r'^detailform/?(?P<id>[0-9]+)', views.detailform, name='detailform'),
+    url(r'^finalmail/?(?P<id>[0-9]+)', views.finalmail, name='finalmail'),
 ]

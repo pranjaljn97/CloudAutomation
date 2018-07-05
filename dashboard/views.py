@@ -5,7 +5,6 @@ from .models import RequestForm
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
-
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
@@ -15,10 +14,11 @@ from django.template import Context
 from .models import Project
 from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
-from dashboard.makeenv import makeenvfile
+#from dashboard.makeenv import makeenvfile
+from dashboard.mail import sendmail
+from dashboard.buildinfo import buildinfo
+from dashboard.mail2 import fmail
 from dashboard.runplaybook import execplaybook
-
-
 import datetime
 
 
@@ -59,6 +59,20 @@ def forapproval(request):
      posts = Project.objects.all()
      return render(request, "dashboard/forapproval.html", {'posts': posts })
 
+@login_required(login_url='/login/')
+def approved(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = Project.objects.all()
+     return render(request, "dashboard/approved.html", {'posts': posts })
+@login_required(login_url='/login/')
+def rejected(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = Project.objects.all()
+     return render(request, "dashboard/rejected.html", {'posts': posts })
+
+
 def approvedsuccessfully(request, id):
     
     currpost = Project.objects.get(id=id)
@@ -72,14 +86,13 @@ def approvedsuccessfully(request, id):
     from_email = settings.EMAIL_HOST_USER
     umail = request.user.email 
     to_list = [umail]
-    send_mail(subject, message, from_email, to_list, fail_silently=False)
+    #send_mail(subject, message, from_email, to_list, fail_silently=False)
     
     #make env file for ansible
-    makeenvfile(id)
-     # posts.status = 'Approved'
-    #posts.save()
-    execplaybook(id)
-    return render(request, "dashboard/forapproval.html", {'posts': posts })
+    buildinfo(request,id)
+    #makeenvfile(id)
+    #execplaybook(id)
+    return render(request, "dashboard/detailform"+str(id)+".html", {'posts': posts })
 
 def rejectedsuccessfully(request, id):
     
@@ -95,19 +108,7 @@ def rejectedsuccessfully(request, id):
     from_email = settings.EMAIL_HOST_USER
     to_list = [umail]
     send_mail(subject, message, from_email, to_list, fail_silently=False)
-
-    #posts.status = newstatus
-    #posts = Project.objects.get(pk=id)
-    #posts.status = 'Rejected'
-    #posts.save()
     return render(request, "dashboard/forapproval.html", {'posts': posts })
-
-
-
-
-
-
-
 
 @login_required(login_url='/login/')
 def detailform(request,id):
@@ -115,21 +116,16 @@ def detailform(request,id):
      uname = request.user.get_username()
      posts = Project.objects.get(pk=id)
      return render(request, "dashboard/detailform.html", {'posts': posts })
+
+
 @login_required(login_url='/login/')
-def approved(request):
+def finalmail(request,id):
 #   today = datetime.datetime.now().date()
      uname = request.user.get_username()
-     posts = Project.objects.all()
-     return render(request, "dashboard/approved.html", {'posts': posts })
-@login_required(login_url='/login/')
-def rejected(request):
-#   today = datetime.datetime.now().date()
-     uname = request.user.get_username()
-     posts = Project.objects.all()
-     return render(request, "dashboard/rejected.html", {'posts': posts })
-
-
-
+     posts = Project.objects.get(pk=id)
+     fmail(request,id,posts)
+     posts2 = Project.objects.all()
+     return render(request, "dashboard/approved.html", {'posts': posts2 })
 
 @login_required(login_url='/login/')
 def javaform(request):
@@ -142,61 +138,20 @@ def javaform(request):
     else:
         form = RequestForm()
     return render(request, 'dashboard/java-home.html', {'form': form})
-# Create your views here.
+
 
 @login_required(login_url='/login/')
 def drupalform(request):
     if request.method == 'POST':
-        
         form = RequestForm(request.POST)
         if form.is_valid():
-            form.requester = request.user.email 
-            form.platform = "PHP"
-            form.envtype = "Docker"
-            form.projectname = form.cleaned_data.get('project_name')
-            form.appname = form.cleaned_data.get('application_name')
-            form.git_url = form.cleaned_data.get('git_url')
-            
-
-            PHP_VERSION = form.cleaned_data.get('PHP_VERSION')
-            NGINX_BACKEND_HOST_VALUE=form.cleaned_data.get('NGINX_BACKEND_HOST_VALUE')
-            NGINX_SERVER_ROOT_VALUE=form.cleaned_data.get('NGINX_SERVER_ROOT_VALUE')
-            NGINX_SERVER_NAME_VALUE =form.cleaned_data.get('NGINX_SERVER_NAME_VALUE')
-            NGINX_STATIC_CONTENT_EXPIRES_VALUE=form.cleaned_data.get('NGINX_STATIC_CONTENT_EXPIRES_VALUE')
-            NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE=form.cleaned_data.get('NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE')
-
-
-
-
-
-            #varnish data
-            varnish_version = form.cleaned_data.get('varnish_version')
-            VARNISH_BACKEND_HOST_VALUE = form.cleaned_data.get('VARNISH_BACKEND_HOST_VALUE')
-            VARNISH_BACKEND_PORT_VALUE = form.cleaned_data.get('VARNISH_BACKEND_PORT_VALUE')
-            VARNISH_SECRET_VALUE = form.cleaned_data.get('VARNISH_SECRET_VALUE')
-            VARNISH_PORT_VALUE = form.cleaned_data.get('VARNISH_PORT_VALUE')
-            
-            
-            subject = "Request Submitted"
-
-            
-            #message = "Your form has been submitted \n Please verify your details:" + "Project Name:" + projectname
-            from_email = settings.EMAIL_HOST_USER
-            to_list = [settings.ADMIN_MAIL,request.user.email]
-            c = {'uname': request.user.email,
-                        'projectname': form.appname,
-                        'appname': form.projectname,
-                        'varnishversion': varnish_version,
-                        'varnishbackendhost': VARNISH_BACKEND_HOST_VALUE,
-                        'varnishbackendport': VARNISH_BACKEND_PORT_VALUE,
-                        'varnishsecret': VARNISH_SECRET_VALUE,
-                        'varnishport': VARNISH_PORT_VALUE}            
-            html_content = render_to_string('dashboard/email.html', c)
-            text_msg = "Request Approval"
-
-            send_mail(subject, text_msg, from_email, to_list, fail_silently=False, html_message=html_content
-            )
             form.save()
+
+            #form2 = RequestForm2(request.POST)
+            #if form2.is_valid():
+                #instance = form2.save(commit=False)  
+                #instance.user = User.objects.get(id=1)
+                #instance.save()
          
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
         else:

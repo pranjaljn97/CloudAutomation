@@ -38,7 +38,7 @@ def makeenvfile(myid):
                                 'NGINX_SERVER_ROOT_VALUE': post.NGINX_SERVER_ROOT_VALUE,
                                 'NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE': post.NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE,                      
                                 'NGINX_STATIC_CONTENT_EXPIRES_VALUE': post.NGINX_STATIC_CONTENT_EXPIRES_VALUE,
-                                'NGINX_DRUPAL_FILE_PROXY_URL_VALUE': post.NGINX_DRUPAL_FILE_PROXY_URL_VALUE},
+                                #'NGINX_DRUPAL_FILE_PROXY_URL_VALUE': post.NGINX_DRUPAL_FILE_PROXY_URL_VALUE},
 
                                 'volumes': {
 

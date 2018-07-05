@@ -1,0 +1,38 @@
+<html>
+<head>
+
+</head>
+<body>
+
+    Hello {{ uname }}
+
+    <h1> Congratulations!! Your form has been submitted </h1>
+    <br>
+    <h2> Please verify the details </h2>
+    <table>
+        <tr> 
+            <th> Username </th>
+            <th> Project Name </th>
+            <th> Application Name </th>
+        </tr>
+        <tr>
+            <td> {{ uname }} </td>
+            <td> {{ projectname }} </td>
+            <td> {{ appname }} </td> 
+        </tr>
+    </table>
+    <table>
+        <tr aria-colspan="3"><th>SSH Details</th></tr>
+        <tr> 
+                <th> HostIP </th>
+                <th> Username </th>
+                <th> Password </th>
+            </tr>
+            <tr>
+                <td> {{ hostIP }} </td>
+                <td> {{ projectname }} </td>
+                <td> ansiblepass </td> 
+            </tr>
+    </table>
+</body>
+</html>
