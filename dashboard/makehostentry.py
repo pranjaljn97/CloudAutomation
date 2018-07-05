@@ -14,3 +14,4 @@ def hostentry(id):
     hostinfo = "hostname=" + ipAddress + " user=" + username + " password=" + password
     
     subprocess.check_call(['./ansibledir/hostadd.sh', './ansibledir/addHost.yml', hostinfo])
+    

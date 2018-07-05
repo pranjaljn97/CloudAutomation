@@ -214,18 +214,33 @@
                                   <input type="text" class="form-control" readonly placeholder="{{ user.email }}" value="{{ user.email }}" name="requester">
                                 </div>
                               </div>
-                              <div class="col-md-3">
+                              <div class="col-md-2">
                                 <div class="form-group">
                                   <label>Platform
                                   </label>
                                   <input type="text" class="form-control" readonly placeholder="PHP" value="PHP" name="platform">
                                 </div>
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-3">
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Environment Type
                                   </label>
                                   <input type="text" class="form-control" readonly  placeholder="Docker" value="Docker" name="envtype">
+                                </div>
+                              </div>
+
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label>Choose Host</label>
+                                  <select name=host_Info>
+                                    <option value="NA">NA</option>
+                                    {% for i in hostInfo %}
+                                      {% if i.status == 'Added Successfully' %}
+                                    <option value ="{{ i.hostIdentifier }}">{{ i.hostIdentifier }}</option>
+                                      {% endif %}
+                                    {% endfor %}  
+                                  </select>
+                                  
                                 </div>
                               </div>
                             </div>

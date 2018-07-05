@@ -1,8 +1,11 @@
-var room = 1;
+var key=5;
+var val=5;
 function add_fields() {
-room++;
+key++;
+val++;
 var objTo = document.getElementById('room_fields')
 var divtest = document.createElement("div");
-divtest.innerHTML = '<div class="label">Room ' + room +':</div><div class="content"><div class="row"><div class="col-md-6"><span>Key: <input type="text" name="key[]" value="" /></span></div><div class="col-md-6"><span>Value: <input type="text" namae="value[]" value=""/></span></div></div></div>';
+
+divtest.innerHTML = '<div class="col-md-6"><div class="form-group"><label>Key #' +key+ '</label> <input type="text" class="form-control" name="key[]" value="" /></div></div> <div class="col-md-6"><div class="form-group"><label>Value #' +val+ '</label><input type="text" class="form-control" name="value[]" value=""/></div></div> ';
 objTo.appendChild(divtest)
 }

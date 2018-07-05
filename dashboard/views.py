@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import HostForm
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.utils import timezone
@@ -51,15 +51,10 @@ def cprovider(request):
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
 #     return render(request, "dashboard/cloud-provider.html")
 
-
 def hostadded(request, id):
-    
     hostentry(id)
     hosts = Host.objects.all()
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
-
-
-
     
 
 @login_required(login_url='/login/')
@@ -143,7 +138,7 @@ def rejected(request):
 
 
 @login_required(login_url='/login/')
-def javaform(request):
+def javaform(request): 
     if request.method == 'POST':
         form = RequestForm(request.POST)
         if form.is_valid():
@@ -157,6 +152,9 @@ def javaform(request):
 
 @login_required(login_url='/login/')
 def drupalform(request):
+    # hostInfo = Host.objects.values_list('hostIdentifier',flat=True)  
+    hostInfo = Host.objects.all()  
+    
     if request.method == 'POST':
         
         form = RequestForm(request.POST)
@@ -164,11 +162,10 @@ def drupalform(request):
             form.requester = request.user.email 
             form.platform = "PHP"
             form.envtype = "Docker"
+            # host_Info = form.cleaned_data.get('host_Info')
             form.projectname = form.cleaned_data.get('project_name')
             form.appname = form.cleaned_data.get('application_name')
             form.git_url = form.cleaned_data.get('git_url')
-            
-
             PHP_VERSION = form.cleaned_data.get('PHP_VERSION')
             NGINX_BACKEND_HOST_VALUE=form.cleaned_data.get('NGINX_BACKEND_HOST_VALUE')
             NGINX_SERVER_ROOT_VALUE=form.cleaned_data.get('NGINX_SERVER_ROOT_VALUE')
@@ -208,11 +205,9 @@ def drupalform(request):
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
         else:
             print(form.errors)   
-        
-
     else:
         form = RequestForm()
-    return render(request, 'dashboard/drupal-home.html', {'form': form})
+    return render(request, 'dashboard/drupal-home.html', {'form': form,'hostInfo': hostInfo})
 # Create your views here.
 
 @login_required(login_url='/login/')
@@ -226,5 +221,3 @@ def nodeform(request):
     else:
         form = RequestForm()
     return render(request, 'dashboard/node-home.html', {'form': form})
-
-# Create your views here.

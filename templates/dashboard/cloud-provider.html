@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row">
 
-                    <!--Add host card-->
+                    <!--Entering host info card-->
                     <div class="col-md-4" >
                         <div class="card">
                             <div class="header">
@@ -15,6 +15,7 @@
                             <br>
                             <form action="" method="POST" id="HostForm">
                                 {% csrf_token %}
+                            <label>Host Identifier :</label><input type="text" name="hostIdentifier"><br>
                             <label>Host IP address :</label><input type="text" name="hostIp"><br>
                             <label>Host's username :</label><input type="text" name="hostUsername"><br>
                             <label>Host's password :</label><input type="password" name="hostPassword"><br><br>
@@ -37,14 +38,15 @@
                             <div class="header">
                                 
                                     <p class="category"></p>
+                                    
                                     <br>
+                                    <i class="fa fa-circle text-info"></i> Host Identifier : {{ host.hostIdentifier }} <br>
                                     <i class="fa fa-circle text-info"></i> Host IP address : {{ host.hostIp }} <br>
                                     <i class="fa fa-circle text-info"></i> Host Username : {{ host.hostUsername }}<br>
                                     <i class="fa fa-circle text-info"></i> Host Password : {{ host.hostPassword }}<br>
-                                    <i class="fa fa-circle text-info"></i> Status: {{ host.status }}<br>
+                                    <i class="fa fa-circle text-info"></i> Status : {{ host.status }}<br>
                                     <br>                                    
                                     <input type="submit" value="Approve" onclick="window.location='{% url "hostadded" host.id %}';" name="hostadded" >
-
                             </div>
                         </div>
                     </div>
@@ -56,6 +58,5 @@
                     </div>
                 </div>
             </div>
-    
         
         {% endblock %}
