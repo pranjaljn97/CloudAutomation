@@ -5,7 +5,6 @@ from .models import RequestForm
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
-
 from django.shortcuts import render
 from .models import HostForm
 from django.http import HttpResponse, HttpResponseRedirect
@@ -69,6 +68,8 @@ def userdata(request):
     posts = Project.objects.all().filter(requester='admin')
 
     return render(request, 'dashboard/post_list.html', {'posts': posts })
+
+
 
 @login_required(login_url='/login/')
 def forapproval(request):

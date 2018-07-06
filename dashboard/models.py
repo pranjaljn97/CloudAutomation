@@ -29,15 +29,21 @@ class Project(models.Model):
         #requester = models.ForeignKey(User,default=1)
         #===#=================step 1 (basic details)=====================================
         #requester = models.ForeignKey(settings.AUTH_USER_MODEL)
-	id = models.AutoField(primary_key=True)
-        requester = models.CharField(blank=True,max_length=30)
+
+        requester = models.CharField(blank=True,max_length=100)
+        id = models.AutoField(primary_key=True)
+        #requester = models.CharField(blank=True,max_length=100)
+
         platform = models.CharField(blank=True,max_length=30)
-        #host_Info = models.CharField(blank=True, max_length=30)
+        hostIp = models.CharField(blank=True, max_length=30)
         envtype = models.CharField(blank=True,max_length=30)
         project_name = models.CharField(blank=True,max_length=30,unique=True)
         application_name = models.CharField(blank=True,max_length=30)
         git_url = models.CharField(blank=True,max_length=256)
-        status = models.CharField(blank=True,max_length=30)
+        git_token = models.CharField(blank=True,max_length=256)
+        git_username = models.CharField(blank=True,max_length=256)
+        git_branch = models.CharField(blank=True,max_length=256)
+        status = models.CharField(default='submitted', max_length=30)
 
         #=================step 2(php-nginx details)========================================
         UBUNTU_VERSION = models.CharField(blank=True,max_length=256)
@@ -103,4 +109,4 @@ class RequestForm(ModelForm):
     class Meta:
         model = Project
         exclude = ['project_flag','pub_date',]
-        fields = ['requester','platform','envtype', 'project_name','status', 'application_name' , 'git_url','UBUNTU_VERSION','PHP_VERSION','PHP_MODULES','NGINX_BACKEND_HOST_VALUE','NGINX_SERVER_NAME_VALUE','NGINX_SERVER_ROOT_VALUE','NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE','NGINX_STATIC_CONTENT_EXPIRES_VALUE','key1','value1','key2','value2','key3','value3','key4','value4','key5','value5','mysql_version','MYSQL_DATABASE_NAME_VALUE','MYSQL_ROOT_PASSWORD_VALUE','MYSQL_USER_NAME_VALUE','MYSQL_PASSWORD_VALUE','MYSQL_PORT_VALUE','MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE','MYSQL_DUMP_MAX_ALLOWED_PACKET','MONGO_PORT_VALUE','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE','MONGO_INITDB_ROOT_PASSWORD_VALUE','mongo_version','varnish_version','VARNISH_BACKEND_HOST_VALUE','VARNISH_BACKEND_PORT_VALUE','VARNISH_PORT_VALUE','redis_version','REDIS_PASSWORD_VALUE', ]
+        fields = ['requester','platform','envtype', 'project_name', 'application_name' ,'hostIp', 'git_url','git_token','git_username','git_branch','UBUNTU_VERSION','PHP_VERSION','PHP_MODULES','NGINX_BACKEND_HOST_VALUE','NGINX_SERVER_NAME_VALUE','NGINX_SERVER_ROOT_VALUE','NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE','NGINX_STATIC_CONTENT_EXPIRES_VALUE','key1','value1','key2','value2','key3','value3','key4','value4','key5','value5','mysql_version','MYSQL_DATABASE_NAME_VALUE','MYSQL_ROOT_PASSWORD_VALUE','MYSQL_USER_NAME_VALUE','MYSQL_PASSWORD_VALUE','MYSQL_PORT_VALUE','MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE','MYSQL_DUMP_MAX_ALLOWED_PACKET','MONGO_PORT_VALUE','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE','MONGO_INITDB_ROOT_PASSWORD_VALUE','mongo_version','varnish_version','VARNISH_BACKEND_HOST_VALUE','VARNISH_BACKEND_PORT_VALUE','VARNISH_PORT_VALUE','redis_version','REDIS_PASSWORD_VALUE', ]
