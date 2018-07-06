@@ -60,7 +60,7 @@
         "project_name": "demoproj",
         "GITHUB_USERNAME":"pranjaljn97",
         "GITHUB_URL":"github.com/pranjaljn97/s2p.git",
-        "GITHUB_TOKEN":"eaed780159d5ef4214fc268037de76e47b695667",
+        "GITHUB_TOKEN":"",
         "GITHUB_BRANCH":"uat"
     },
     "varnish": {
