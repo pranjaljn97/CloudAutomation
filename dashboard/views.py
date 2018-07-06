@@ -137,6 +137,13 @@ def detailform(request,id):
      posts = Project.objects.get(pk=id)
      return render(request, "dashboard/detailform.html", {'posts': posts })
 
+@login_required(login_url='/login/')
+def submitted(request,requester):
+#   today = datetime.datetime.now().date()
+     uname = request.user.email
+     posts = Project.objects.all().filter(requester=requester)
+     return render(request, "dashboard/submitted.html", {'posts': posts })
+
 
 @login_required(login_url='/login/')
 def finalmail(request,id):
