@@ -39,7 +39,7 @@ def makeenvfile(myid):
 	            'nginx_php': { 'enable': True,
                                'envi': {
                                 'PHP_VERSION': post.PHP_VERSION,
-                                'PHP_MODULES': post.PHP_MODULES
+                                'PHP_MODULES': post.PHP_MODULES,
                                 'WEB_DOCUMENT_ROOT': post.NGINX_SERVER_ROOT_VALUE,
                                 
                                },
