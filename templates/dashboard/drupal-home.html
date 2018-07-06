@@ -37,11 +37,11 @@
                               <div class="col-md-2">
                                 <div class="form-group">
                                   <label>Choose Host</label>
-                                  <select name=host_Info>
+                                  <select name=hostIp>
                                     <option value="NA">NA</option>
                                     {% for i in hostInfo %}
                                       {% if i.status == 'Added Successfully' %}
-                                    <option value ="{{ i.hostIdentifier }}">{{ i.hostIdentifier }}</option>
+                                    <option value ="{{ i.hostIp }}">{{ i.hostIdentifier }}</option>
                                       {% endif %}
                                     {% endfor %}  
                                   </select>

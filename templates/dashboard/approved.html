@@ -21,13 +21,15 @@
                                             <br>
                                             <i class="fa fa-circle text-info"></i> Project Name: {{ post.project_name }} <br>
                                             <i class="fa fa-circle text-info"></i> Application Name: {{ post.application_name }}<br>
+                                            <i class="fa fa-circle text-info"></i> Host IP: {{ post.hostIp }}<br>
+                                            <i class="fa fa-circle text-info"></i> Application Status: {{ post.status }}
                                             <br><br>
                                             <center>
                         
                                             <input type="submit" id="detailbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';">
                                             <input type="submit" id="finalmail" value="Final Mail" onclick="window.location='{% url "finalmail" post.id %}';">
                                             </center>
-                                            <br>
+                                           
                                     </div>
                                     <!--<div class="content">
                                         <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
