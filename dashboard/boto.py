@@ -1,7 +1,6 @@
 import boto3
 
-client = boto3.client('route53',aws_access_key_id='AKIAJQR3KIHGMJP6FCSQ',
-         aws_secret_access_key='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')
+client = boto3.client('route53')
 
 
 def add_cname_record(source, target):

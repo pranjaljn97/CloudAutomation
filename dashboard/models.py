@@ -29,9 +29,11 @@ class Project(models.Model):
         #requester = models.ForeignKey(User,default=1)
         #===#=================step 1 (basic details)=====================================
         #requester = models.ForeignKey(settings.AUTH_USER_MODEL)
+
         requester = models.CharField(blank=True,max_length=100)
         id = models.AutoField(primary_key=True)
         #requester = models.CharField(blank=True,max_length=100)
+
         platform = models.CharField(blank=True,max_length=30)
         hostIp = models.CharField(blank=True, max_length=30)
         envtype = models.CharField(blank=True,max_length=30)
