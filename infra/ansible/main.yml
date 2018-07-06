@@ -3,6 +3,5 @@
   connection: local
   sudo: yes
   roles: 
-    - system-setup
     - php-stack
     

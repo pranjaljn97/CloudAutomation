@@ -38,4 +38,10 @@
     docker ps
   register: result 
 
-- debug: var=result 
+
+- name: clone a private repository
+  become: true
+  git: 
+    repo: 'https://{{ user.GITHUB_USERNAME }}:{{ user.GITHUB_TOKEN }}@{{ user.GITHUB_URL }}'
+    dest: '/home/{{ user.USERNAME }}/code' 
+    version: "{{ user.GITHUB_BRANCH }}"

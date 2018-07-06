@@ -32,7 +32,7 @@
             "NGINX_BACKEND_HOST_VALUE": "localhost",
             "NGINX_DRUPAL_FILE_PROXY_URL_VALUE": "",
             "NGINX_SERVER_NAME_VALUE": "abc",
-            "NGINX_SERVER_ROOT_VALUE": "/var/www/html",
+            "WEB_DOCUMENT_ROOT": "/var/www/html",
             "NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE": "",
             "NGINX_STATIC_CONTENT_EXPIRES_VALUE": "",
             "PHP_MODULES": "",
@@ -51,18 +51,22 @@
         "volumes": {}
     },
     "user": {
-        "USERNAME": "mudit.mehta@tothenew.com",
+        "USERNAME": "admin",
         "application_name": "demoapp",
         "envtype": "Docker",
         "git_url": "",
         "id": 9,
         "platform": "PHP",
-        "project_name": "demoproj"
+        "project_name": "demoproj",
+        "GITHUB_USERNAME":"pranjaljn97",
+        "GITHUB_URL":"github.com/pranjaljn97/s2p.git",
+        "GITHUB_TOKEN":"eaed780159d5ef4214fc268037de76e47b695667",
+        "GITHUB_BRANCH":"uat"
     },
     "varnish": {
         "enable": true,
         "envi": {
-            "VARNISH_BACKEND_HOST": "localhost",
+            "VARNISH_BACKEND_HOST": "NGINX",
             "VARNISH_BACKEND_PORT": "80",
             "VARNISH_PORT_VALUE": "6081",
             "varnish_version": "4"

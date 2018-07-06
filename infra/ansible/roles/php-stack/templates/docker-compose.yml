@@ -43,30 +43,16 @@ services:
   
   {% if nginx_php.enable==true %}
    nginx_php:
-     image: wodby/php-nginx
+     image: webdevops/php-nginx:ubuntu-16.04
      container_name: NGINX
      environment:
        {% for key,value in nginx_php.envi.iteritems() %}
        {{ key }} : {{ value }}
        {% endfor %}
-       NGINX_SERVER_ROOT: /var/www/html/
-     depends_on:
-       - php
      ports:
        - "{{ nginx_php.ports }}:80"
      volumes:
-      - code:/var/www/html
-
-
-   php:
-     image: wodby/php
-     container_name: php
-     environment:
-       DB_USER: admin
-       DB_PASSWORD: admin
-       DB_NAME: wordpress
-     volumes:
-      - code:/var/www/html
+      - ./code:/var/www/html
           
   {% endif %}    
   
