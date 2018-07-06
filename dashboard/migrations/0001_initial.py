@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import migrations, models
@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Host',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('hostIdentifier', models.CharField(blank=True, max_length=30)),
-                ('hostIp', models.CharField(blank=True, max_length=30)),
-                ('hostUsername', models.CharField(blank=True, max_length=30)),
-                ('hostPassword', models.CharField(blank=True, max_length=30)),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
+                ('hostIdentifier', models.CharField(max_length=30, blank=True)),
+                ('hostIp', models.CharField(max_length=30, blank=True)),
+                ('hostUsername', models.CharField(max_length=30, blank=True)),
+                ('hostPassword', models.CharField(max_length=30, blank=True)),
                 ('status', models.CharField(default='initiated', max_length=30)),
             ],
             options={
@@ -27,14 +27,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Project',
             fields=[
+                ('requester', models.CharField(max_length=100, blank=True)),
                 ('id', models.AutoField(serialize=False, primary_key=True)),
-                ('requester', models.CharField(max_length=30, blank=True)),
                 ('platform', models.CharField(max_length=30, blank=True)),
+                ('hostIp', models.CharField(max_length=30, blank=True)),
                 ('envtype', models.CharField(max_length=30, blank=True)),
                 ('project_name', models.CharField(unique=True, max_length=30, blank=True)),
                 ('application_name', models.CharField(max_length=30, blank=True)),
                 ('git_url', models.CharField(max_length=256, blank=True)),
-                ('status', models.CharField(max_length=30, blank=True)),
+                ('status', models.CharField(default='submitted', max_length=30)),
                 ('UBUNTU_VERSION', models.CharField(max_length=256, blank=True)),
                 ('PHP_VERSION', models.CharField(max_length=256, blank=True)),
                 ('PHP_MODULES', models.CharField(max_length=256, blank=True)),
