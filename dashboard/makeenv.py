@@ -29,18 +29,19 @@ def makeenvfile(myid):
                          'USERNAME': post.requester,
                          'project_name': post.project_name,
 			             'application_name': post.application_name,
-			             'git_url': post.git_url,
+			             'GITHUB_URL': post.git_url,
+                         'GITHUB_USERNAME': post.git_username,
+                         'GITHUB_TOKEN': post.git_token,
+                         'GITHUB_BRANCH': post.git_branch,
 			             'envtype': post.envtype,
 		       	         'platform': post.platform},
 
 	            'nginx_php': { 'enable': True,
                                'envi': {
                                 'PHP_VERSION': post.PHP_VERSION,
-			                    'PHP_MODULES': post.PHP_MODULES,
-			                    'NGINX_BACKEND_HOST_VALUE': post.NGINX_BACKEND_HOST_VALUE,
-                                'NGINX_SERVER_NAME_VALUE': post.NGINX_SERVER_NAME_VALUE,
-                                'NGINX_SERVER_ROOT_VALUE': post.NGINX_SERVER_ROOT_VALUE,
-                                'NGINX_STATIC_CONTENT_EXPIRES': post.NGINX_STATIC_CONTENT_EXPIRES_VALUE,
+			                    'PHP_MODULES': post.PHP_MODULES
+                                'WEB_DOCUMENT_ROOT': post.NGINX_SERVER_ROOT_VALUE,
+                                
                                },
 
                                 'volumes': {
