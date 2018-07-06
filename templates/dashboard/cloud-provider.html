@@ -11,15 +11,16 @@
                     <div class="col-md-4" >
                         <div class="card">
                             <div class="header">
-                                <h4 class="title" align="center"><b>Hosts information</b></h4>
+                                <h4 class="title" align="center"><b>Hosts Information</b></h4>
                             <br>
                             <form action="" method="POST" id="HostForm">
                                 {% csrf_token %}
+                                <center>
                             <label>Host Identifier :</label><input type="text" name="hostIdentifier"><br>
                             <label>Host IP address :</label><input type="text" name="hostIp"><br>
                             <label>Host's username :</label><input type="text" name="hostUsername"><br>
                             <label>Host's password :</label><input type="password" name="hostPassword"><br><br>
-                            <input type="submit" value="Add Host"/>
+                            <input type="submit" value="Add Host"/></center>
                             </form>
                             </div>
                         </div>
