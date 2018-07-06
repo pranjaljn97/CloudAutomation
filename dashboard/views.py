@@ -108,8 +108,8 @@ def approvedsuccessfully(request, id):
     
     #make env file for ansible
     buildinfo(request,id)
-    #makeenvfile(id)
-    #execplaybook(id)
+    makeenvfile(id)
+    execplaybook(id)
     return render(request, "dashboard/detailform"+str(id)+".html", {'posts': posts })
 
 def rejectedsuccessfully(request, id):

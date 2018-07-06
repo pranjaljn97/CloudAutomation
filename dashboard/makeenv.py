@@ -40,9 +40,8 @@ def makeenvfile(myid):
 			                    'NGINX_BACKEND_HOST_VALUE': post.NGINX_BACKEND_HOST_VALUE,
                                 'NGINX_SERVER_NAME_VALUE': post.NGINX_SERVER_NAME_VALUE,
                                 'NGINX_SERVER_ROOT_VALUE': post.NGINX_SERVER_ROOT_VALUE,
-                                'NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE': post.NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE,                      
-                                'NGINX_STATIC_CONTENT_EXPIRES_VALUE': post.NGINX_STATIC_CONTENT_EXPIRES_VALUE,
-                                #'NGINX_DRUPAL_FILE_PROXY_URL_VALUE': post.NGINX_DRUPAL_FILE_PROXY_URL_VALUE},
+                                'NGINX_STATIC_CONTENT_EXPIRES': post.NGINX_STATIC_CONTENT_EXPIRES_VALUE,
+                               },
 
                                 'volumes': {
 
@@ -52,7 +51,7 @@ def makeenvfile(myid):
 	            'mysql' : { 'enable': True,
                             'envi': {
                                 'mysql_version': post.mysql_version,
- 		       	                'MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE': post.MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE,
+ 		       	                'MYSQL_CLIENT_DEFAULT_CHARACTER_SET': post.MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE,
                                 'MYSQL_DATABASE': post.MYSQL_DATABASE_NAME_VALUE,                                     
                                 'MYSQL_DUMP_MAX_ALLOWED_PACKET': post.MYSQL_DUMP_MAX_ALLOWED_PACKET,
                                 'MYSQL_PASSWORD': post.MYSQL_PASSWORD_VALUE,            
@@ -70,7 +69,7 @@ def makeenvfile(myid):
                 "mongodb": { 'enable': True,
                               'envi': {
                                 'MONGO_PORT_VALUE': post.MONGO_PORT_VALUE,
-			                    'MONGO_INITDB_DATABASE_VALUE': post.MONGO_INITDB_DATABASE_VALUE,
+			                    'MONGO_INITDB_DATABASE': post.MONGO_INITDB_DATABASE_VALUE,
        			                'MONGO_INITDB_ROOT_USERNAME': post.MONGO_INITDB_ROOT_USERNAME_VALUE,
         		                'MONGO_INITDB_ROOT_PASSWORD': post.MONGO_INITDB_ROOT_PASSWORD_VALUE,
 			                    'mongo_version': post.mongo_version},

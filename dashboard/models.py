@@ -29,7 +29,7 @@ class Project(models.Model):
         #requester = models.ForeignKey(User,default=1)
         #===#=================step 1 (basic details)=====================================
         #requester = models.ForeignKey(settings.AUTH_USER_MODEL)
-	      id = models.AutoField(primary_key=True)
+	id = models.AutoField(primary_key=True)
         requester = models.CharField(blank=True,max_length=30)
         platform = models.CharField(blank=True,max_length=30)
         #host_Info = models.CharField(blank=True, max_length=30)
