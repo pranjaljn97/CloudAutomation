@@ -15,7 +15,7 @@
 
                         <div class="card">
                             <div class="header">
-                                <h4 class="title"><b>Requester: {{ post.requester }}</b></h4>
+                                <h5 class="title"><b>Requester: {{ post.requester }}</b></h5>
                                     <br>
                                     
 
@@ -30,12 +30,13 @@
                                     <br>
                                     
 
-
+                                    <center>
                                     
                                     <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "approvedsuccessfully" post.id %}';" name="approvebtn">
                                     <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "rejectedsuccessfully" post.id %}';" name="rejectbtn">
                                     <input type="submit" id="detailsbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';" name="rejectbtn">
                                     <br>
+                                    </center>
 
                             
 
