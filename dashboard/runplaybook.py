@@ -15,4 +15,4 @@ def execplaybook(id):
     jsonfilepath = project_name + "_" + str(post.id) + ".json"
     newpath = '''"''' +  jsonfilepath + '''"'''
     print newpath
-    subprocess.check_call(['./ansibledir/runplaybook.sh', './ansibledir/main.yml', destpath + jsonfilepath, hostip])
+    subprocess.check_call(['./ansibledir/runplaybook.sh', './ansibledir/main.yml', destpath + jsonfilepath])

@@ -76,7 +76,8 @@ def forapproval(request):
 #   today = datetime.datetime.now().date()
      uname = request.user.get_username()
      posts = Project.objects.all()
-     return render(request, "dashboard/forapproval.html", {'posts': posts })
+     hostInfo = Host.objects.all()  
+     return render(request, "dashboard/forapproval.html", {'posts': posts, 'hostInfo': hostInfo })
 
 @login_required(login_url='/login/')
 def approved(request):
@@ -98,6 +99,7 @@ def approvedsuccessfully(request, id):
     currpost.status = 'Approved'
     currpost.save()
     posts = Project.objects.all()
+    hostInfo = Host.objects.all()  
 
     #mail functionality
     subject = "Approval Request"
@@ -111,7 +113,7 @@ def approvedsuccessfully(request, id):
     buildinfo(request,id)
     makeenvfile(id)
     execplaybook(id)
-    return render(request, "dashboard/detailform"+str(id)+".html", {'posts': posts })
+    return render(request, "dashboard/detailform"+str(id)+".html", {'posts': posts, 'hostInfo': hostInfo })
 
 def rejectedsuccessfully(request, id):
     
