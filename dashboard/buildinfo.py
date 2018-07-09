@@ -28,6 +28,7 @@ def buildinfo(request,id,jsonfile,hostip):
 
                                             <p class="category"></p>
                                             <br>
+                                            
                                             <i class="fa fa-circle text-info"></i> Creating Mysql Directories&nbsp: True <br>"""
 
           

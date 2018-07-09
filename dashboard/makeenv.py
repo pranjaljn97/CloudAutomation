@@ -13,7 +13,7 @@ from django.conf import settings
 def makeenvfile(myid):
     connection = MySQLdb.connect (host = os.environ['DB_HOST'], user = os.environ['DB_USER'], passwd = os.environ['DB_PASSWORD'], db = os.environ['DB_NAME'])
     cursor = connection.cursor ()
-    cursor.execute ("select *  from dashboard_project where id = %s",myid)
+    cursor.execute ("select * from dashboard_project where id = %s",myid)
     data = cursor.fetchall ()
     destpath = settings.ENVFILE_PATH
     print destpath

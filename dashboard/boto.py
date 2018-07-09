@@ -7,9 +7,9 @@ client = boto3.client('route53',aws_access_key_id=os.environ['Access_key_ID'], a
 def add_cname_record(request,id,name,name2,ip):
 	try:
 		target = ip
-		source = name + "_" + name2 + ".tothenew.tk"
+		source = name + "_" + name2 + ".tothenew.tk."
 		response = client.change_resource_record_sets(
-        HostedZoneId='Z2H4GS4DFI9BRZ',	
+        HostedZoneId=os.environ['Hosted_Zone'],	
 		ChangeBatch= {
 						'Comment': 'add %s -> %s' % (source, target),
 						'Changes': [
@@ -17,7 +17,7 @@ def add_cname_record(request,id,name,name2,ip):
 							 'Action': 'UPSERT',
 							 'ResourceRecordSet': {
 								 'Name': source,
-								 'Type': 'CNAME',
+								 'Type': 'A',
 								 'TTL': 300,
 								 'ResourceRecords': [{'Value': target}]
 							}

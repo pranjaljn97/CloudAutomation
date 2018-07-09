@@ -22,11 +22,7 @@ from dashboard.buildinfo import buildinfo
 from dashboard.mail2 import fmail
 from dashboard.boto import add_cname_record
 from dashboard.runplaybook import execplaybook
-
 from dashboard.makehostentry import hostentry
-
-
-
 import datetime
 
 
@@ -58,7 +54,11 @@ def cprovider(request):
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
 
 def hostadded(request, id):
-    hostentry(id)
+    try:
+        hostentry(id)
+    except:
+        msg = 'Error in adding Host entry'
+        return render(request, "dashboard/error.html",{'msg': msg })
     hosts = Host.objects.all()
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
     
@@ -98,18 +98,39 @@ def rejected(request):
 def approvedsuccessfully(request, id):
     
     currpost = Project.objects.get(id=id)
-    currpost.status = 'Approved'
-    currpost.save()
+    
     posts = Project.objects.all()
-    hostInfo = Host.objects.all()  
-
-   # makeenvfile(id)
+    hostInfo = Host.objects.all()
+    try:
+        makeenvfile(id)
+    except:
+        msg = 'Error in building Env File'
+        return render(request, "dashboard/error.html",{'msg': msg })
+    try:
+        execplaybook(id)
+    except:
+        msg = 'Error in executing Playbook'
+        return render(request, "dashboard/error.html",{'msg': msg })
     jsonfile = currpost.project_name
     appname = currpost.application_name
     hostip = currpost.hostIp
-    #buildinfo(request,id,jsonfile,hostip)
-    #add_cname_record(request,id,jsonfile,appname,hostip)
-    fmail(request,id,currpost,jsonfile)
+    try:
+        buildinfo(request,id,jsonfile,hostip)
+    except:
+        msg = 'Error in fetching information from output Json File'
+        return render(request, "dashboard/error.html",{'msg': msg })
+    try:
+        add_cname_record(request,id,jsonfile,appname,hostip)
+    except:
+        msg = 'Error in adding A record in AWS Route53'
+        return render(request, "dashboard/error.html",{'msg': msg })
+    currpost.status = 'Approved'
+    currpost.save()
+    try:
+       fmail(request,id,currpost,jsonfile)
+    except:
+        msg = 'Error in sending final mail to Requester'
+        return render(request, "dashboard/error.html",{'msg': msg })
     return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
 
 
@@ -179,12 +200,6 @@ def drupalform(request):
 
             form.save()
             sendmail(request,form,'submit')
-
-            #form2 = RequestForm2(request.POST)
-            #if form2.is_valid():
-                #instance = form2.save(commit=False)  
-                #instance.user = User.objects.get(id=1)
-                #instance.save()
          
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
         else:
