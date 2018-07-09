@@ -34,7 +34,8 @@ def makeenvfile(myid):
                          'GITHUB_TOKEN': post.git_token,
                          'GITHUB_BRANCH': post.git_branch,
 			             'envtype': post.envtype,
-		       	         'platform': post.platform},
+		       	         'platform': post.platform,
+                         'hostip': post.hostIp },
 
 	            'nginx_php': { 'enable': True,
                                'envi': {
@@ -85,7 +86,7 @@ def makeenvfile(myid):
          		'varnish' : {
                              'enable': True,
                              'envi': {
-                                'VARNISH_BACKEND_HOST': post.VARNISH_BACKEND_HOST_VALUE,
+                                'VARNISH_BACKEND_HOST': 'nginx_php',
                                 'VARNISH_BACKEND_PORT': post.VARNISH_BACKEND_PORT_VALUE,
                                 'VARNISH_PORT_VALUE': post.VARNISH_PORT_VALUE,
 			                    'varnish_version': post.varnish_version},

@@ -78,7 +78,8 @@ def forapproval(request):
 #   today = datetime.datetime.now().date()
      uname = request.user.get_username()
      posts = Project.objects.all()
-     return render(request, "dashboard/forapproval.html", {'posts': posts })
+     hostInfo = Host.objects.all()  
+     return render(request, "dashboard/forapproval.html", {'posts': posts, 'hostInfo': hostInfo })
 
 @login_required(login_url='/login/')
 def approved(request):
@@ -100,6 +101,7 @@ def approvedsuccessfully(request, id):
     currpost.status = 'Approved'
     currpost.save()
     posts = Project.objects.all()
+    hostInfo = Host.objects.all()  
 
     #mail functionality
     subject = "Approval Request"
@@ -110,6 +112,7 @@ def approvedsuccessfully(request, id):
     #send_mail(subject, message, from_email, to_list, fail_silently=False)
     
     #make env file for ansible
+
     
     makeenvfile(id)
     execplaybook(id)
@@ -119,7 +122,8 @@ def approvedsuccessfully(request, id):
     buildinfo(request,id,jsonfile)
     add_cname_record(request,id,jsonfile,appname,hostip)
     fmail(request,id,currpost,jsonfile)
-    return render(request, "dashboard/detailform1"+".html", {'posts': posts })
+    return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
+
 
 def rejectedsuccessfully(request, id):
     

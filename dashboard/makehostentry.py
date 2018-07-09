@@ -2,6 +2,7 @@ from dashboard.models import Host
 import subprocess
 import json
 import os
+import io
 def hostentry(id):
     host = Host.objects.get(pk=id)
     ipAddress = host.hostIp
@@ -34,6 +35,10 @@ def hostentry(id):
         if(okstatus != 0 and failurestatus == 0):
             host.status = 'Added Successfully'
             host.save()
+            with io.FileIO("/etc/ansible/hosts", "a+") as file:
+                file.write(ipAddress + " ansible_connection=ssh ansible_user=" + username + " ansible_ssh_pass=" + password + " ansible_sudo_pass=" + password)
+
+            
         else:
             host.status = 'Failed'
             host.save()
