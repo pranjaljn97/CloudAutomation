@@ -156,8 +156,8 @@ def submitted(request,requester):
 def rerun(request,id):
     posts = Project.objects.get(pk=id)
     #execplaybook(id)
-    buildinfo(request,id)
-    return render(request, "dashboard/detailform"+str(id)+".html", {'posts': posts })
+    #buildinfo(request,id, )
+    return render(request, "dashboard/detailform1"+".html", {'posts': posts })
 
 @login_required(login_url='/login/')
 def finalmail(request,id):

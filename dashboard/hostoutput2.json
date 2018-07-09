@@ -4,10 +4,10 @@
         {
             "play": {
                 "duration": {
-                    "end": "2018-07-09T10:18:21.147202Z", 
-                    "start": "2018-07-09T10:17:42.571684Z"
+                    "end": "2018-07-09T10:41:41.004062Z", 
+                    "start": "2018-07-09T10:41:25.220335Z"
                 }, 
-                "id": "c48e8f90-bdcf-f8d8-c86f-000000000007", 
+                "id": "c48e8f90-bdcf-dfcd-887f-000000000007", 
                 "name": "10.1.202.246"
             }, 
             "tasks": [
@@ -31,13 +31,13 @@
                                 ], 
                                 "ansible_all_ipv6_addresses": [
                                     "fe80::841b:1bff:fe80:46ee", 
-                                    "fe80::30cd:9cff:fe98:e6e4", 
                                     "fe80::42:85ff:feac:743", 
                                     "fe80::8c8e:b3ff:fe8c:e239", 
                                     "fe80::42:bdff:fe56:554d", 
                                     "fe80::42:c3ff:fe75:c9df", 
+                                    "fe80::8cd8:82ff:fe27:9ccc", 
                                     "fe80::42:feff:fe24:37b9", 
-                                    "fe80::3876:faff:fe7d:6d4c", 
+                                    "fe80::c006:1cff:fe27:b593", 
                                     "fe80::1844:c994:240c:7d8c", 
                                     "fe80::42:f0ff:fee4:1b9f", 
                                     "fe80::50fd:31ff:fe64:eb04"
@@ -77,11 +77,11 @@
                                     "device": "br-422e6722fe74", 
                                     "id": "8000.024285ac0743", 
                                     "interfaces": [
-                                        "veth3f5b2c2", 
+                                        "veth8389bdd", 
                                         "vethfb4d79c", 
                                         "veth2b1b365", 
-                                        "vethcabb5fc", 
-                                        "veth8306f9d"
+                                        "veth8306f9d", 
+                                        "veth71f034f"
                                     ], 
                                     "ipv4": {
                                         "address": "172.23.0.1", 
@@ -202,16 +202,16 @@
                                 "ansible_date_time": {
                                     "date": "2018-07-09", 
                                     "day": "09", 
-                                    "epoch": "1531131472", 
-                                    "hour": "15", 
-                                    "iso8601": "2018-07-09T10:17:52Z", 
-                                    "iso8601_basic": "20180709T154752093814", 
-                                    "iso8601_basic_short": "20180709T154752", 
-                                    "iso8601_micro": "2018-07-09T10:17:52.094178Z", 
-                                    "minute": "47", 
+                                    "epoch": "1531132888", 
+                                    "hour": "16", 
+                                    "iso8601": "2018-07-09T10:41:28Z", 
+                                    "iso8601_basic": "20180709T161128515205", 
+                                    "iso8601_basic_short": "20180709T161128", 
+                                    "iso8601_micro": "2018-07-09T10:41:28.515283Z", 
+                                    "minute": "11", 
                                     "month": "07", 
-                                    "second": "52", 
-                                    "time": "15:47:52", 
+                                    "second": "28", 
+                                    "time": "16:11:28", 
                                     "tz": "IST", 
                                     "tz_offset": "+0530", 
                                     "weekday": "Monday", 
@@ -877,13 +877,13 @@
                                     "PWD": "/home/pranjal", 
                                     "SHELL": "/bin/bash", 
                                     "SHLVL": "1", 
-                                    "SSH_CLIENT": "10.1.203.41 40062 22", 
-                                    "SSH_CONNECTION": "10.1.203.41 40062 10.1.202.246 22", 
+                                    "SSH_CLIENT": "10.1.203.41 46182 22", 
+                                    "SSH_CONNECTION": "10.1.203.41 46182 10.1.202.246 22", 
                                     "SSH_TTY": "/dev/pts/2", 
                                     "TERM": "xterm-256color", 
                                     "USER": "pranjal", 
                                     "XDG_RUNTIME_DIR": "/run/user/1000", 
-                                    "XDG_SESSION_ID": "90", 
+                                    "XDG_SESSION_ID": "95", 
                                     "_": "/bin/sh"
                                 }, 
                                 "ansible_fips": false, 
@@ -892,16 +892,16 @@
                                 "ansible_hostname": "pranjal-Inspiron-5567", 
                                 "ansible_interfaces": [
                                     "enp2s0", 
+                                    "veth8389bdd", 
                                     "docker0", 
                                     "veth2b1b365", 
                                     "veth8306f9d", 
                                     "br-ea17ed1ab4cc", 
                                     "br-bce8355a00d9", 
-                                    "veth3f5b2c2", 
                                     "br-6c5af6cad591", 
+                                    "veth71f034f", 
                                     "br-652aed507bfe", 
                                     "lo", 
-                                    "vethcabb5fc", 
                                     "wlp1s0", 
                                     "br-422e6722fe74", 
                                     "br-28924852d873", 
@@ -940,39 +940,39 @@
                                 }, 
                                 "ansible_machine": "x86_64", 
                                 "ansible_machine_id": "d537e1213d7f4ea5a83c9800347bc167", 
-                                "ansible_memfree_mb": 122, 
+                                "ansible_memfree_mb": 203, 
                                 "ansible_memory_mb": {
                                     "nocache": {
-                                        "free": 1065, 
-                                        "used": 2700
+                                        "free": 1340, 
+                                        "used": 2425
                                     }, 
                                     "real": {
-                                        "free": 122, 
+                                        "free": 203, 
                                         "total": 3765, 
-                                        "used": 3643
+                                        "used": 3562
                                     }, 
                                     "swap": {
-                                        "cached": 46, 
-                                        "free": 1339, 
+                                        "cached": 38, 
+                                        "free": 1344, 
                                         "total": 2047, 
-                                        "used": 708
+                                        "used": 703
                                     }
                                 }, 
                                 "ansible_memtotal_mb": 3765, 
                                 "ansible_mounts": [
                                     {
-                                        "block_available": 127345099, 
+                                        "block_available": 127339040, 
                                         "block_size": 4096, 
                                         "block_total": 138327700, 
-                                        "block_used": 10982601, 
+                                        "block_used": 10988660, 
                                         "device": "/dev/sda5", 
                                         "fstype": "ext4", 
-                                        "inode_available": 34896797, 
+                                        "inode_available": 34896804, 
                                         "inode_total": 35201024, 
-                                        "inode_used": 304227, 
+                                        "inode_used": 304220, 
                                         "mount": "/", 
                                         "options": "rw,relatime,errors=remount-ro,data=ordered", 
-                                        "size_available": 521605525504, 
+                                        "size_available": 521580707840, 
                                         "size_total": 566590259200, 
                                         "uuid": "cb63f220-3a74-4430-a050-68ceb8ef4e49"
                                     }, 
@@ -1304,7 +1304,7 @@
                                 "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEVXht6/v4k6NFcYd9rxZ+djOUM15tw0sI/rJuWubxXGUckyaS1OSAl2phmJ+dJM0Pxs7hsRNHad+FGBHnPTYG8=", 
                                 "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAILp68XjdqOuDWGYXpyeSn28mj+IdVlQmTqUfeynyfAxL", 
                                 "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDjFWCf7wCs5mCy9zrFsBBLYU2kbHE8PfYhFf2zyy3WM75UxNdg6YjoFirb4QG3TZcVqni/YSAgfpJgN2nOkvVftV2YROuyg9RcxS5zyMYVwgnPU1I1h/wQU2fTbP2H0I7UCFR74IGyZHF67uDx6fyy7j9W9YAEO/Z3Fk2Kp0HcxXH9PXETpes/OOTaANgvXdtPjN77Scsz4wvy5zIRNHMpO7a4NJiKUUuBWq8xTSWeFqYbQ1yKgmVjzEqpBBOXmOthJ9ibi9PhLUTVppEX4KZS0j1odKYxUurhqD4r78++fj4B5fWx6m/ngRvjR4SrSd7J2NoWq8NsMONuU3l5cCzz", 
-                                "ansible_swapfree_mb": 1339, 
+                                "ansible_swapfree_mb": 1344, 
                                 "ansible_swaptotal_mb": 2047, 
                                 "ansible_system": "Linux", 
                                 "ansible_system_capabilities": [
@@ -1312,7 +1312,7 @@
                                 ], 
                                 "ansible_system_capabilities_enforced": "True", 
                                 "ansible_system_vendor": "Dell Inc.", 
-                                "ansible_uptime_seconds": 272641, 
+                                "ansible_uptime_seconds": 274058, 
                                 "ansible_user_dir": "/home/pranjal", 
                                 "ansible_user_gecos": "Pranjal Jain,,,", 
                                 "ansible_user_gid": 1000, 
@@ -1337,17 +1337,17 @@
                                     "speed": 10000, 
                                     "type": "ether"
                                 }, 
-                                "ansible_veth3f5b2c2": {
+                                "ansible_veth71f034f": {
                                     "active": true, 
-                                    "device": "veth3f5b2c2", 
+                                    "device": "veth71f034f", 
                                     "ipv6": [
                                         {
-                                            "address": "fe80::3876:faff:fe7d:6d4c", 
+                                            "address": "fe80::8cd8:82ff:fe27:9ccc", 
                                             "prefix": "64", 
                                             "scope": "link"
                                         }
                                     ], 
-                                    "macaddress": "3a:76:fa:7d:6d:4c", 
+                                    "macaddress": "8e:d8:82:27:9c:cc", 
                                     "mtu": 1500, 
                                     "promisc": true, 
                                     "speed": 10000, 
@@ -1369,17 +1369,17 @@
                                     "speed": 10000, 
                                     "type": "ether"
                                 }, 
-                                "ansible_vethcabb5fc": {
+                                "ansible_veth8389bdd": {
                                     "active": true, 
-                                    "device": "vethcabb5fc", 
+                                    "device": "veth8389bdd", 
                                     "ipv6": [
                                         {
-                                            "address": "fe80::30cd:9cff:fe98:e6e4", 
+                                            "address": "fe80::c006:1cff:fe27:b593", 
                                             "prefix": "64", 
                                             "scope": "link"
                                         }
                                     ], 
-                                    "macaddress": "32:cd:9c:98:e6:e4", 
+                                    "macaddress": "c2:06:1c:27:b5:93", 
                                     "mtu": 1500, 
                                     "promisc": true, 
                                     "speed": 10000, 
@@ -1446,10 +1446,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T10:17:53.133113Z", 
-                            "start": "2018-07-09T10:17:42.587415Z"
+                            "end": "2018-07-09T10:41:29.017496Z", 
+                            "start": "2018-07-09T10:41:25.235108Z"
                         }, 
-                        "id": "c48e8f90-bdcf-f8d8-c86f-000000000015", 
+                        "id": "c48e8f90-bdcf-dfcd-887f-000000000015", 
                         "name": "Gathering Facts"
                     }
                 }, 
@@ -1512,10 +1512,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T10:17:54.732249Z", 
-                            "start": "2018-07-09T10:17:53.170478Z"
+                            "end": "2018-07-09T10:41:30.254745Z", 
+                            "start": "2018-07-09T10:41:29.055074Z"
                         }, 
-                        "id": "c48e8f90-bdcf-f8d8-c86f-00000000000c", 
+                        "id": "c48e8f90-bdcf-dfcd-887f-00000000000c", 
                         "name": "php-stack : Create a login user"
                     }
                 }, 
@@ -1708,10 +1708,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T10:17:57.098144Z", 
-                            "start": "2018-07-09T10:17:54.769053Z"
+                            "end": "2018-07-09T10:41:32.554082Z", 
+                            "start": "2018-07-09T10:41:30.296580Z"
                         }, 
-                        "id": "c48e8f90-bdcf-f8d8-c86f-00000000000d", 
+                        "id": "c48e8f90-bdcf-dfcd-887f-00000000000d", 
                         "name": "php-stack : Create directories for mongodb and Mysql"
                     }
                 }, 
@@ -1722,7 +1722,7 @@
                             "_ansible_parsed": true, 
                             "action": "template", 
                             "changed": false, 
-                            "checksum": "99667f964965ddcabf74375d8e778cf1c5b9dbec", 
+                            "checksum": "1dfddd3ddcfb9d26d635542a94615be81d8633e1", 
                             "dest": "/home/newproj/docker-compose.yml", 
                             "diff": {
                                 "after": {
@@ -1765,17 +1765,17 @@
                             "mode": "0644", 
                             "owner": "bin", 
                             "path": "/home/newproj/docker-compose.yml", 
-                            "size": 1555, 
+                            "size": 1457, 
                             "state": "file", 
                             "uid": 2
                         }
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T10:17:59.246813Z", 
-                            "start": "2018-07-09T10:17:57.135270Z"
+                            "end": "2018-07-09T10:41:34.661219Z", 
+                            "start": "2018-07-09T10:41:32.591168Z"
                         }, 
-                        "id": "c48e8f90-bdcf-f8d8-c86f-00000000000e", 
+                        "id": "c48e8f90-bdcf-dfcd-887f-00000000000e", 
                         "name": "php-stack : Copying Template into remote"
                     }
                 }, 
@@ -1787,8 +1787,8 @@
                             "action": "command", 
                             "changed": true, 
                             "cmd": "cd /home/\"newproj\"\n sudo docker-compose up -d\n docker ps", 
-                            "delta": "0:00:10.092873", 
-                            "end": "2018-07-09 15:48:10.152495", 
+                            "delta": "0:00:01.442313", 
+                            "end": "2018-07-09 16:11:36.884206", 
                             "invocation": {
                                 "module_args": {
                                     "_raw_params": "cd /home/\"newproj\"\n sudo docker-compose up -d\n docker ps", 
@@ -1803,7 +1803,7 @@
                                 }
                             }, 
                             "rc": 0, 
-                            "start": "2018-07-09 15:48:00.059622", 
+                            "start": "2018-07-09 16:11:35.441893", 
                             "stderr": "newproj_NGINX is up-to-date\nnewproj_MYSQL is up-to-date\nnewproj_MongoDB is up-to-date\nnewproj_Redis is up-to-date\nnewproj_Varnish is up-to-date", 
                             "stderr_lines": [
                                 "newproj_NGINX is up-to-date", 
@@ -1812,23 +1812,23 @@
                                 "newproj_Redis is up-to-date", 
                                 "newproj_Varnish is up-to-date"
                             ], 
-                            "stdout": "CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS              PORTS                                     NAMES\n3e7960bcf94a        wodby/varnish                      \"/docker-entrypoint.\u2026\"   2 minutes ago       Up 2 minutes        6082/tcp, 0.0.0.0:8085->6081/tcp          newproj_Varnish\n55c3aa22206c        mysql:5.7                          \"docker-entrypoint.s\u2026\"   3 minutes ago       Up 2 minutes        3306/tcp                                  newproj_MYSQL\n08ce2c3488b1        wodby/redis                        \"/docker-entrypoint.\u2026\"   3 minutes ago       Up 2 minutes        6379/tcp                                  newproj_Redis\nd299175336a0        mongo                              \"docker-entrypoint.s\u2026\"   3 minutes ago       Up 2 minutes        27017/tcp                                 newproj_MongoDB\nb5c0a92787e5        webdevops/php-nginx:ubuntu-16.04   \"/entrypoint supervi\u2026\"   3 minutes ago       Up 2 minutes        443/tcp, 9000/tcp, 0.0.0.0:9000->80/tcp   newproj_NGINX", 
+                            "stdout": "CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS              PORTS                                     NAMES\n5f093b5a94fd        mongo                              \"docker-entrypoint.s\u2026\"   2 minutes ago       Up 2 minutes        27017/tcp                                 newproj_MongoDB\ndbcf5a209420        mysql:5.7                          \"docker-entrypoint.s\u2026\"   2 minutes ago       Up 2 minutes        3306/tcp                                  newproj_MYSQL\n3e7960bcf94a        wodby/varnish                      \"/docker-entrypoint.\u2026\"   26 minutes ago      Up 25 minutes       6082/tcp, 0.0.0.0:8085->6081/tcp          newproj_Varnish\n08ce2c3488b1        wodby/redis                        \"/docker-entrypoint.\u2026\"   26 minutes ago      Up 26 minutes       6379/tcp                                  newproj_Redis\nb5c0a92787e5        webdevops/php-nginx:ubuntu-16.04   \"/entrypoint supervi\u2026\"   26 minutes ago      Up 26 minutes       443/tcp, 9000/tcp, 0.0.0.0:9000->80/tcp   newproj_NGINX", 
                             "stdout_lines": [
                                 "CONTAINER ID        IMAGE                              COMMAND                  CREATED             STATUS              PORTS                                     NAMES", 
-                                "3e7960bcf94a        wodby/varnish                      \"/docker-entrypoint.\u2026\"   2 minutes ago       Up 2 minutes        6082/tcp, 0.0.0.0:8085->6081/tcp          newproj_Varnish", 
-                                "55c3aa22206c        mysql:5.7                          \"docker-entrypoint.s\u2026\"   3 minutes ago       Up 2 minutes        3306/tcp                                  newproj_MYSQL", 
-                                "08ce2c3488b1        wodby/redis                        \"/docker-entrypoint.\u2026\"   3 minutes ago       Up 2 minutes        6379/tcp                                  newproj_Redis", 
-                                "d299175336a0        mongo                              \"docker-entrypoint.s\u2026\"   3 minutes ago       Up 2 minutes        27017/tcp                                 newproj_MongoDB", 
-                                "b5c0a92787e5        webdevops/php-nginx:ubuntu-16.04   \"/entrypoint supervi\u2026\"   3 minutes ago       Up 2 minutes        443/tcp, 9000/tcp, 0.0.0.0:9000->80/tcp   newproj_NGINX"
+                                "5f093b5a94fd        mongo                              \"docker-entrypoint.s\u2026\"   2 minutes ago       Up 2 minutes        27017/tcp                                 newproj_MongoDB", 
+                                "dbcf5a209420        mysql:5.7                          \"docker-entrypoint.s\u2026\"   2 minutes ago       Up 2 minutes        3306/tcp                                  newproj_MYSQL", 
+                                "3e7960bcf94a        wodby/varnish                      \"/docker-entrypoint.\u2026\"   26 minutes ago      Up 25 minutes       6082/tcp, 0.0.0.0:8085->6081/tcp          newproj_Varnish", 
+                                "08ce2c3488b1        wodby/redis                        \"/docker-entrypoint.\u2026\"   26 minutes ago      Up 26 minutes       6379/tcp                                  newproj_Redis", 
+                                "b5c0a92787e5        webdevops/php-nginx:ubuntu-16.04   \"/entrypoint supervi\u2026\"   26 minutes ago      Up 26 minutes       443/tcp, 9000/tcp, 0.0.0.0:9000->80/tcp   newproj_NGINX"
                             ]
                         }
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T10:18:10.305161Z", 
-                            "start": "2018-07-09T10:17:59.284066Z"
+                            "end": "2018-07-09T10:41:36.981109Z", 
+                            "start": "2018-07-09T10:41:34.701288Z"
                         }, 
-                        "id": "c48e8f90-bdcf-f8d8-c86f-00000000000f", 
+                        "id": "c48e8f90-bdcf-dfcd-887f-00000000000f", 
                         "name": "php-stack : Docker"
                     }
                 }, 
@@ -1838,9 +1838,14 @@
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "git", 
-                            "after": "ef7a8781ef8092b68da634ef61e9a9b057ce9326", 
-                            "before": "ef7a8781ef8092b68da634ef61e9a9b057ce9326", 
                             "changed": false, 
+                            "cmd": [
+                                "/usr/bin/git", 
+                                "fetch", 
+                                "--tags", 
+                                "origin"
+                            ], 
+                            "failed": true, 
                             "invocation": {
                                 "module_args": {
                                     "accept_hostkey": false, 
@@ -1865,15 +1870,15 @@
                                     "version": "uat"
                                 }
                             }, 
-                            "remote_url_changed": false
+                            "msg": "Failed to download remote objects and refs:  remote: Invalid username or password.\nfatal: Authentication failed for 'https://pranjaljn97:fb061ee91f3382c73d15297f2a1629d77a9e24cd@github.com/pranjaljn97/s2p.git/'\n"
                         }
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T10:18:21.147202Z", 
-                            "start": "2018-07-09T10:18:10.346557Z"
+                            "end": "2018-07-09T10:41:41.004062Z", 
+                            "start": "2018-07-09T10:41:37.020801Z"
                         }, 
-                        "id": "c48e8f90-bdcf-f8d8-c86f-000000000010", 
+                        "id": "c48e8f90-bdcf-dfcd-887f-000000000010", 
                         "name": "php-stack : clone a private repository"
                     }
                 }
@@ -1883,8 +1888,8 @@
     "stats": {
         "10.1.202.246": {
             "changed": 1, 
-            "failures": 0, 
-            "ok": 6, 
+            "failures": 1, 
+            "ok": 5, 
             "skipped": 0, 
             "unreachable": 0
         }

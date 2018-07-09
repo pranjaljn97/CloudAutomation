@@ -55,10 +55,10 @@ def makeenvfile(myid):
                                 'mysql_version': post.mysql_version,
  		       	                'MYSQL_CLIENT_DEFAULT_CHARACTER_SET': post.MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE,
                                 'MYSQL_DATABASE': post.MYSQL_DATABASE_NAME_VALUE,                                     
-                                'MYSQL_DUMP_MAX_ALLOWED_PACKET': post.MYSQL_DUMP_MAX_ALLOWED_PACKET,
+                               
                                 'MYSQL_PASSWORD': post.MYSQL_PASSWORD_VALUE,            
-                                'MYSQL_PORT_VALUE': post.MYSQL_PORT_VALUE,
-			                    'MYSQL_ROOT_PASSWORD': post.MYSQL_ROOT_PASSWORD_VALUE,
+                                
+                                'MYSQL_ROOT_PASSWORD': post.MYSQL_ROOT_PASSWORD_VALUE,
 			                    'MYSQL_USER': post.MYSQL_USER_NAME_VALUE},
                                 'volumes': {
                                     
@@ -70,7 +70,6 @@ def makeenvfile(myid):
                            
                 "mongodb": { 'enable': True,
                               'envi': {
-                                'MONGO_PORT_VALUE': post.MONGO_PORT_VALUE,
 			                    'MONGO_INITDB_DATABASE': post.MONGO_INITDB_DATABASE_VALUE,
        			                'MONGO_INITDB_ROOT_USERNAME': post.MONGO_INITDB_ROOT_USERNAME_VALUE,
         		                'MONGO_INITDB_ROOT_PASSWORD': post.MONGO_INITDB_ROOT_PASSWORD_VALUE,
