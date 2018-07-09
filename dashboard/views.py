@@ -119,7 +119,7 @@ def approvedsuccessfully(request, id):
     jsonfile = currpost.project_name
     appname = currpost.application_name
     hostip = currpost.hostIp
-    buildinfo(request,id,jsonfile)
+    buildinfo(request,id,jsonfile,hostip)
     add_cname_record(request,id,jsonfile,appname,hostip)
     fmail(request,id,currpost,jsonfile)
     return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })

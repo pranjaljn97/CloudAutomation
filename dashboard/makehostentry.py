@@ -36,7 +36,7 @@ def hostentry(id):
             host.status = 'Added Successfully'
             host.save()
             with io.FileIO("/etc/ansible/hosts", "a+") as file:
-                file.write(ipAddress + " ansible_connection=ssh ansible_user=" + username + " ansible_ssh_pass=" + password + " ansible_sudo_pass=" + password)
+                file.write("\n" + ipAddress + " ansible_connection=ssh ansible_user=" + username + " ansible_ssh_pass=" + password + " ansible_sudo_pass=" + password)
 
             
         else:

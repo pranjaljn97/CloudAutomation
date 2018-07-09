@@ -4,10 +4,10 @@
         {
             "play": {
                 "duration": {
-                    "end": "2018-07-09T07:08:18.435889Z", 
-                    "start": "2018-07-09T07:08:16.636948Z"
+                    "end": "2018-07-09T10:12:28.720911Z", 
+                    "start": "2018-07-09T10:12:26.702748Z"
                 }, 
-                "id": "c48e8f90-bdcf-8a37-fe2f-000000000005", 
+                "id": "c48e8f90-bdcf-7d56-6ead-000000000006", 
                 "name": "Initial Task"
             }, 
             "tasks": [
@@ -34,10 +34,12 @@
                                     "172.17.0.1", 
                                     "172.23.0.1", 
                                     "172.21.0.1", 
-                                    "172.18.0.1"
+                                    "172.18.0.1", 
+                                    "172.31.0.1"
                                 ], 
                                 "ansible_all_ipv6_addresses": [
-                                    "fe80::2b38:d0a6:56a9:6279"
+                                    "fe80::2b38:d0a6:56a9:6279", 
+                                    "fe80::42:9dff:fe75:c32e"
                                 ], 
                                 "ansible_apparmor": {
                                     "status": "enabled"
@@ -261,6 +263,88 @@
                                         "network": "172.25.0.0"
                                     }, 
                                     "macaddress": "02:42:35:c2:18:2f", 
+                                    "mtu": 1500, 
+                                    "promisc": false, 
+                                    "stp": false, 
+                                    "timestamping": [
+                                        "rx_software", 
+                                        "software"
+                                    ], 
+                                    "type": "bridge"
+                                }, 
+                                "ansible_br_239eefe438ac": {
+                                    "active": false, 
+                                    "device": "br-239eefe438ac", 
+                                    "features": {
+                                        "esp_hw_offload": "off [fixed]", 
+                                        "esp_tx_csum_hw_offload": "off [fixed]", 
+                                        "fcoe_mtu": "off [fixed]", 
+                                        "generic_receive_offload": "on", 
+                                        "generic_segmentation_offload": "on", 
+                                        "highdma": "on", 
+                                        "hw_tc_offload": "off [fixed]", 
+                                        "l2_fwd_offload": "off [fixed]", 
+                                        "large_receive_offload": "off [fixed]", 
+                                        "loopback": "off [fixed]", 
+                                        "netns_local": "on [fixed]", 
+                                        "ntuple_filters": "off [fixed]", 
+                                        "receive_hashing": "off [fixed]", 
+                                        "rx_all": "off [fixed]", 
+                                        "rx_checksumming": "off [fixed]", 
+                                        "rx_fcs": "off [fixed]", 
+                                        "rx_vlan_filter": "off [fixed]", 
+                                        "rx_vlan_offload": "off [fixed]", 
+                                        "rx_vlan_stag_filter": "off [fixed]", 
+                                        "rx_vlan_stag_hw_parse": "off [fixed]", 
+                                        "scatter_gather": "on", 
+                                        "tcp_segmentation_offload": "on", 
+                                        "tx_checksum_fcoe_crc": "off [fixed]", 
+                                        "tx_checksum_ip_generic": "on", 
+                                        "tx_checksum_ipv4": "off [fixed]", 
+                                        "tx_checksum_ipv6": "off [fixed]", 
+                                        "tx_checksum_sctp": "off [fixed]", 
+                                        "tx_checksumming": "on", 
+                                        "tx_esp_segmentation": "on", 
+                                        "tx_fcoe_segmentation": "on", 
+                                        "tx_gre_csum_segmentation": "on", 
+                                        "tx_gre_segmentation": "on", 
+                                        "tx_gso_partial": "on", 
+                                        "tx_gso_robust": "on", 
+                                        "tx_ipxip4_segmentation": "on", 
+                                        "tx_ipxip6_segmentation": "on", 
+                                        "tx_lockless": "on [fixed]", 
+                                        "tx_nocache_copy": "off", 
+                                        "tx_scatter_gather": "on", 
+                                        "tx_scatter_gather_fraglist": "on", 
+                                        "tx_sctp_segmentation": "on", 
+                                        "tx_tcp6_segmentation": "on", 
+                                        "tx_tcp_ecn_segmentation": "on", 
+                                        "tx_tcp_mangleid_segmentation": "on", 
+                                        "tx_tcp_segmentation": "on", 
+                                        "tx_udp_tnl_csum_segmentation": "on", 
+                                        "tx_udp_tnl_segmentation": "on", 
+                                        "tx_vlan_offload": "on", 
+                                        "tx_vlan_stag_hw_insert": "on", 
+                                        "udp_fragmentation_offload": "on", 
+                                        "vlan_challenged": "off [fixed]"
+                                    }, 
+                                    "hw_timestamp_filters": [], 
+                                    "id": "8000.02429d75c32e", 
+                                    "interfaces": [], 
+                                    "ipv4": {
+                                        "address": "172.31.0.1", 
+                                        "broadcast": "172.31.255.255", 
+                                        "netmask": "255.255.0.0", 
+                                        "network": "172.31.0.0"
+                                    }, 
+                                    "ipv6": [
+                                        {
+                                            "address": "fe80::42:9dff:fe75:c32e", 
+                                            "prefix": "64", 
+                                            "scope": "link"
+                                        }
+                                    ], 
+                                    "macaddress": "02:42:9d:75:c3:2e", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -955,16 +1039,16 @@
                                 "ansible_date_time": {
                                     "date": "2018-07-09", 
                                     "day": "09", 
-                                    "epoch": "1531120097", 
-                                    "hour": "07", 
-                                    "iso8601": "2018-07-09T07:08:17Z", 
-                                    "iso8601_basic": "20180709T070817555131", 
-                                    "iso8601_basic_short": "20180709T070817", 
-                                    "iso8601_micro": "2018-07-09T07:08:17.555227Z", 
-                                    "minute": "08", 
+                                    "epoch": "1531131147", 
+                                    "hour": "10", 
+                                    "iso8601": "2018-07-09T10:12:27Z", 
+                                    "iso8601_basic": "20180709T101227880496", 
+                                    "iso8601_basic_short": "20180709T101227", 
+                                    "iso8601_micro": "2018-07-09T10:12:27.880704Z", 
+                                    "minute": "12", 
                                     "month": "07", 
-                                    "second": "17", 
-                                    "time": "07:08:17", 
+                                    "second": "27", 
+                                    "time": "10:12:27", 
                                     "tz": "UTC", 
                                     "tz_offset": "+0000", 
                                     "weekday": "Monday", 
@@ -1738,6 +1822,7 @@
                                     "br-24f0b78fe214", 
                                     "br-08a43e192076", 
                                     "br-e9d76f3cdadf", 
+                                    "br-239eefe438ac", 
                                     "br-0213f4d878ea", 
                                     "br-edd9f461d33e", 
                                     "docker_gwbridge", 
@@ -1838,39 +1923,39 @@
                                 }, 
                                 "ansible_machine": "x86_64", 
                                 "ansible_machine_id": "0367f62633014ddb98a1c64bc27e4a70", 
-                                "ansible_memfree_mb": 134, 
+                                "ansible_memfree_mb": 115, 
                                 "ansible_memory_mb": {
                                     "nocache": {
-                                        "free": 650, 
-                                        "used": 3210
+                                        "free": 1090, 
+                                        "used": 2770
                                     }, 
                                     "real": {
-                                        "free": 134, 
+                                        "free": 115, 
                                         "total": 3860, 
-                                        "used": 3726
+                                        "used": 3745
                                     }, 
                                     "swap": {
-                                        "cached": 57, 
-                                        "free": 3018, 
+                                        "cached": 56, 
+                                        "free": 2177, 
                                         "total": 4010, 
-                                        "used": 992
+                                        "used": 1833
                                     }
                                 }, 
                                 "ansible_memtotal_mb": 3860, 
                                 "ansible_mounts": [
                                     {
-                                        "block_available": 36717, 
+                                        "block_available": 1387, 
                                         "block_size": 4096, 
                                         "block_total": 6011939, 
-                                        "block_used": 5975222, 
+                                        "block_used": 6010552, 
                                         "device": "/dev/sda7", 
                                         "fstype": "ext4", 
-                                        "inode_available": 1030648, 
+                                        "inode_available": 1031187, 
                                         "inode_total": 1537088, 
-                                        "inode_used": 506440, 
+                                        "inode_used": 505901, 
                                         "mount": "/", 
                                         "options": "rw,relatime,errors=remount-ro,data=ordered", 
-                                        "size_available": 150392832, 
+                                        "size_available": 5681152, 
                                         "size_total": 24624902144, 
                                         "uuid": "72b75b29-b301-4b88-a8fe-edfc2a586bd4"
                                     }, 
@@ -1947,7 +2032,7 @@
                                 "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBA/RbPo1Wh17UIy2amE1c0pf0S5Aduo13NdqAmezmjlfYo+hqh1bMq+CqqU+O862DVTGZ3l67YGWbwmMQew8F9Q=", 
                                 "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIHABU+ohc5M73Uon8Ek2Hj1wVdPtRHOzfLf7sWg8oSta", 
                                 "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQCvirL2guyt4Se2vr6Ge98WQk0VQzRGE5X+fi2I0sfZiy8OM4zx78d9tPUgnhno6980zjWHsXLeJc2n802kyZ/+TvjnPt3xKS4eVM7YynFbdGD80vmXP+JZPoXidIJ0862jF5gs/w7salfFV/B8xtjsI9TMR5q9IKU3RDsaTvspRxG+elXTVl9RAxjKYfYwxm4xomO/+UrvnUYrONljxncv4AYY/MQzRn70DxRr8qwDgjDnQoRdAn+0LtsKCKVWL4TZU8KWh0k0QlT4rawjVIoKkZMo8p5Lldd4YrdXufebz3ntYcdgIdIPA7WqtPM0+LmQZ4eSufCBUKwxS65LlxnF", 
-                                "ansible_swapfree_mb": 3018, 
+                                "ansible_swapfree_mb": 2177, 
                                 "ansible_swaptotal_mb": 4010, 
                                 "ansible_system": "Linux", 
                                 "ansible_system_capabilities": [
@@ -1992,7 +2077,7 @@
                                 ], 
                                 "ansible_system_capabilities_enforced": "True", 
                                 "ansible_system_vendor": "Hewlett-Packard", 
-                                "ansible_uptime_seconds": 4686, 
+                                "ansible_uptime_seconds": 15737, 
                                 "ansible_user_dir": "/root", 
                                 "ansible_user_gecos": "root", 
                                 "ansible_user_gid": 0, 
@@ -2104,10 +2189,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T07:08:18.261987Z", 
-                            "start": "2018-07-09T07:08:16.725020Z"
+                            "end": "2018-07-09T10:12:28.517703Z", 
+                            "start": "2018-07-09T10:12:26.793495Z"
                         }, 
-                        "id": "c48e8f90-bdcf-8a37-fe2f-00000000001e", 
+                        "id": "c48e8f90-bdcf-7d56-6ead-00000000001f", 
                         "name": "Gathering Facts"
                     }
                 }, 
@@ -2130,10 +2215,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T07:08:18.435889Z", 
-                            "start": "2018-07-09T07:08:18.348155Z"
+                            "end": "2018-07-09T10:12:28.720911Z", 
+                            "start": "2018-07-09T10:12:28.673315Z"
                         }, 
-                        "id": "c48e8f90-bdcf-8a37-fe2f-00000000000a", 
+                        "id": "c48e8f90-bdcf-7d56-6ead-00000000000b", 
                         "name": "add-hosts : add newly created instances to newly_created group"
                     }
                 }
@@ -2142,10 +2227,10 @@
         {
             "play": {
                 "duration": {
-                    "end": "2018-07-09T07:09:39.376613Z", 
-                    "start": "2018-07-09T07:08:18.476264Z"
+                    "end": "2018-07-09T10:13:40.159683Z", 
+                    "start": "2018-07-09T10:12:28.735122Z"
                 }, 
-                "id": "c48e8f90-bdcf-8a37-fe2f-00000000000b", 
+                "id": "c48e8f90-bdcf-7d56-6ead-00000000000c", 
                 "name": "New instances"
             }, 
             "tasks": [
@@ -2158,21 +2243,22 @@
                             "action": "setup", 
                             "ansible_facts": {
                                 "ansible_all_ipv4_addresses": [
+                                    "172.23.0.1", 
+                                    "172.22.0.1", 
                                     "172.19.0.1", 
                                     "172.17.0.1", 
                                     "172.18.0.1", 
                                     "172.20.0.1", 
-                                    "10.1.202.246"
+                                    "10.1.202.246", 
+                                    "172.21.0.1"
                                 ], 
                                 "ansible_all_ipv6_addresses": [
-                                    "fe80::b073:58ff:fe37:190b", 
-                                    "fe80::5861:85ff:fe4e:fd30", 
+                                    "fe80::42:85ff:feac:743", 
+                                    "fe80::42:bdff:fe56:554d", 
                                     "fe80::42:c3ff:fe75:c9df", 
-                                    "fe80::2483:4ff:fe9d:bcf2", 
-                                    "fe80::988a:d6ff:fef3:ec86", 
-                                    "fe80::64d3:e2ff:fe32:b892", 
                                     "fe80::42:feff:fe24:37b9", 
-                                    "fe80::1844:c994:240c:7d8c"
+                                    "fe80::1844:c994:240c:7d8c", 
+                                    "fe80::42:f0ff:fee4:1b9f"
                                 ], 
                                 "ansible_apparmor": {
                                     "status": "enabled"
@@ -2181,16 +2267,10 @@
                                 "ansible_bios_date": "09/11/2017", 
                                 "ansible_bios_version": "1.1.7", 
                                 "ansible_br_28924852d873": {
-                                    "active": true, 
+                                    "active": false, 
                                     "device": "br-28924852d873", 
                                     "id": "8000.0242c375c9df", 
-                                    "interfaces": [
-                                        "veth9bf7fd5", 
-                                        "vetha4589d2", 
-                                        "vethb0c3ab9", 
-                                        "vethb6b9dc1", 
-                                        "vethd774514"
-                                    ], 
+                                    "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.19.0.1", 
                                         "broadcast": "172.19.255.255", 
@@ -2205,6 +2285,78 @@
                                         }
                                     ], 
                                     "macaddress": "02:42:c3:75:c9:df", 
+                                    "mtu": 1500, 
+                                    "promisc": false, 
+                                    "stp": false, 
+                                    "type": "bridge"
+                                }, 
+                                "ansible_br_422e6722fe74": {
+                                    "active": false, 
+                                    "device": "br-422e6722fe74", 
+                                    "id": "8000.024285ac0743", 
+                                    "interfaces": [], 
+                                    "ipv4": {
+                                        "address": "172.23.0.1", 
+                                        "broadcast": "172.23.255.255", 
+                                        "netmask": "255.255.0.0", 
+                                        "network": "172.23.0.0"
+                                    }, 
+                                    "ipv6": [
+                                        {
+                                            "address": "fe80::42:85ff:feac:743", 
+                                            "prefix": "64", 
+                                            "scope": "link"
+                                        }
+                                    ], 
+                                    "macaddress": "02:42:85:ac:07:43", 
+                                    "mtu": 1500, 
+                                    "promisc": false, 
+                                    "stp": false, 
+                                    "type": "bridge"
+                                }, 
+                                "ansible_br_652aed507bfe": {
+                                    "active": false, 
+                                    "device": "br-652aed507bfe", 
+                                    "id": "8000.0242f0e41b9f", 
+                                    "interfaces": [], 
+                                    "ipv4": {
+                                        "address": "172.21.0.1", 
+                                        "broadcast": "172.21.255.255", 
+                                        "netmask": "255.255.0.0", 
+                                        "network": "172.21.0.0"
+                                    }, 
+                                    "ipv6": [
+                                        {
+                                            "address": "fe80::42:f0ff:fee4:1b9f", 
+                                            "prefix": "64", 
+                                            "scope": "link"
+                                        }
+                                    ], 
+                                    "macaddress": "02:42:f0:e4:1b:9f", 
+                                    "mtu": 1500, 
+                                    "promisc": false, 
+                                    "stp": false, 
+                                    "type": "bridge"
+                                }, 
+                                "ansible_br_6c5af6cad591": {
+                                    "active": false, 
+                                    "device": "br-6c5af6cad591", 
+                                    "id": "8000.0242bd56554d", 
+                                    "interfaces": [], 
+                                    "ipv4": {
+                                        "address": "172.22.0.1", 
+                                        "broadcast": "172.22.255.255", 
+                                        "netmask": "255.255.0.0", 
+                                        "network": "172.22.0.0"
+                                    }, 
+                                    "ipv6": [
+                                        {
+                                            "address": "fe80::42:bdff:fe56:554d", 
+                                            "prefix": "64", 
+                                            "scope": "link"
+                                        }
+                                    ], 
+                                    "macaddress": "02:42:bd:56:55:4d", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -2262,16 +2414,16 @@
                                 "ansible_date_time": {
                                     "date": "2018-07-09", 
                                     "day": "09", 
-                                    "epoch": "1531120105", 
-                                    "hour": "12", 
-                                    "iso8601": "2018-07-09T07:08:25Z", 
-                                    "iso8601_basic": "20180709T123825699397", 
-                                    "iso8601_basic_short": "20180709T123825", 
-                                    "iso8601_micro": "2018-07-09T07:08:25.699714Z", 
-                                    "minute": "38", 
+                                    "epoch": "1531131152", 
+                                    "hour": "15", 
+                                    "iso8601": "2018-07-09T10:12:32Z", 
+                                    "iso8601_basic": "20180709T154232524533", 
+                                    "iso8601_basic_short": "20180709T154232", 
+                                    "iso8601_micro": "2018-07-09T10:12:32.524619Z", 
+                                    "minute": "42", 
                                     "month": "07", 
-                                    "second": "25", 
-                                    "time": "12:38:25", 
+                                    "second": "32", 
+                                    "time": "15:42:32", 
                                     "tz": "IST", 
                                     "tz_offset": "+0530", 
                                     "weekday": "Monday", 
@@ -2937,13 +3089,13 @@
                                     "PWD": "/home/pranjal", 
                                     "SHELL": "/bin/bash", 
                                     "SHLVL": "1", 
-                                    "SSH_CLIENT": "10.1.203.41 48406 22", 
-                                    "SSH_CONNECTION": "10.1.203.41 48406 10.1.202.246 22", 
+                                    "SSH_CLIENT": "10.1.203.41 38740 22", 
+                                    "SSH_CONNECTION": "10.1.203.41 38740 10.1.202.246 22", 
                                     "SSH_TTY": "/dev/pts/2", 
                                     "TERM": "xterm-256color", 
                                     "USER": "pranjal", 
                                     "XDG_RUNTIME_DIR": "/run/user/1000", 
-                                    "XDG_SESSION_ID": "59", 
+                                    "XDG_SESSION_ID": "87", 
                                     "_": "/bin/sh"
                                 }, 
                                 "ansible_fips": false, 
@@ -2952,15 +3104,13 @@
                                 "ansible_hostname": "pranjal-Inspiron-5567", 
                                 "ansible_interfaces": [
                                     "enp2s0", 
-                                    "veth9bf7fd5", 
                                     "docker0", 
-                                    "vetha4589d2", 
                                     "br-ea17ed1ab4cc", 
-                                    "vethb6b9dc1", 
-                                    "vethd774514", 
                                     "br-bce8355a00d9", 
-                                    "vethb0c3ab9", 
+                                    "br-652aed507bfe", 
+                                    "br-6c5af6cad591", 
                                     "lo", 
+                                    "br-422e6722fe74", 
                                     "br-28924852d873", 
                                     "wlp1s0"
                                 ], 
@@ -2997,39 +3147,39 @@
                                 }, 
                                 "ansible_machine": "x86_64", 
                                 "ansible_machine_id": "d537e1213d7f4ea5a83c9800347bc167", 
-                                "ansible_memfree_mb": 218, 
+                                "ansible_memfree_mb": 324, 
                                 "ansible_memory_mb": {
                                     "nocache": {
-                                        "free": 1083, 
-                                        "used": 2682
+                                        "free": 1253, 
+                                        "used": 2512
                                     }, 
                                     "real": {
-                                        "free": 218, 
+                                        "free": 324, 
                                         "total": 3765, 
-                                        "used": 3547
+                                        "used": 3441
                                     }, 
                                     "swap": {
-                                        "cached": 20, 
-                                        "free": 1527, 
+                                        "cached": 50, 
+                                        "free": 1326, 
                                         "total": 2047, 
-                                        "used": 520
+                                        "used": 721
                                     }
                                 }, 
                                 "ansible_memtotal_mb": 3765, 
                                 "ansible_mounts": [
                                     {
-                                        "block_available": 127830267, 
+                                        "block_available": 127370004, 
                                         "block_size": 4096, 
                                         "block_total": 138327700, 
-                                        "block_used": 10497433, 
+                                        "block_used": 10957696, 
                                         "device": "/dev/sda5", 
                                         "fstype": "ext4", 
-                                        "inode_available": 34898864, 
+                                        "inode_available": 34897088, 
                                         "inode_total": 35201024, 
-                                        "inode_used": 302160, 
+                                        "inode_used": 303936, 
                                         "mount": "/", 
                                         "options": "rw,relatime,errors=remount-ro,data=ordered", 
-                                        "size_available": 523592773632, 
+                                        "size_available": 521707536384, 
                                         "size_total": 566590259200, 
                                         "uuid": "cb63f220-3a74-4430-a050-68ceb8ef4e49"
                                     }, 
@@ -3361,7 +3511,7 @@
                                 "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEVXht6/v4k6NFcYd9rxZ+djOUM15tw0sI/rJuWubxXGUckyaS1OSAl2phmJ+dJM0Pxs7hsRNHad+FGBHnPTYG8=", 
                                 "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAILp68XjdqOuDWGYXpyeSn28mj+IdVlQmTqUfeynyfAxL", 
                                 "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDjFWCf7wCs5mCy9zrFsBBLYU2kbHE8PfYhFf2zyy3WM75UxNdg6YjoFirb4QG3TZcVqni/YSAgfpJgN2nOkvVftV2YROuyg9RcxS5zyMYVwgnPU1I1h/wQU2fTbP2H0I7UCFR74IGyZHF67uDx6fyy7j9W9YAEO/Z3Fk2Kp0HcxXH9PXETpes/OOTaANgvXdtPjN77Scsz4wvy5zIRNHMpO7a4NJiKUUuBWq8xTSWeFqYbQ1yKgmVjzEqpBBOXmOthJ9ibi9PhLUTVppEX4KZS0j1odKYxUurhqD4r78++fj4B5fWx6m/ngRvjR4SrSd7J2NoWq8NsMONuU3l5cCzz", 
-                                "ansible_swapfree_mb": 1527, 
+                                "ansible_swapfree_mb": 1326, 
                                 "ansible_swaptotal_mb": 2047, 
                                 "ansible_system": "Linux", 
                                 "ansible_system_capabilities": [
@@ -3369,7 +3519,7 @@
                                 ], 
                                 "ansible_system_capabilities_enforced": "True", 
                                 "ansible_system_vendor": "Dell Inc.", 
-                                "ansible_uptime_seconds": 261277, 
+                                "ansible_uptime_seconds": 272322, 
                                 "ansible_user_dir": "/home/pranjal", 
                                 "ansible_user_gecos": "Pranjal Jain,,,", 
                                 "ansible_user_gid": 1000, 
@@ -3378,86 +3528,6 @@
                                 "ansible_user_uid": 1000, 
                                 "ansible_userspace_architecture": "x86_64", 
                                 "ansible_userspace_bits": "64", 
-                                "ansible_veth9bf7fd5": {
-                                    "active": true, 
-                                    "device": "veth9bf7fd5", 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::2483:4ff:fe9d:bcf2", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "26:83:04:9d:bc:f2", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vetha4589d2": {
-                                    "active": true, 
-                                    "device": "vetha4589d2", 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::988a:d6ff:fef3:ec86", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "9a:8a:d6:f3:ec:86", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethb0c3ab9": {
-                                    "active": true, 
-                                    "device": "vethb0c3ab9", 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::64d3:e2ff:fe32:b892", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "66:d3:e2:32:b8:92", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethb6b9dc1": {
-                                    "active": true, 
-                                    "device": "vethb6b9dc1", 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::b073:58ff:fe37:190b", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "b2:73:58:37:19:0b", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethd774514": {
-                                    "active": true, 
-                                    "device": "vethd774514", 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::5861:85ff:fe4e:fd30", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "5a:61:85:4e:fd:30", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "type": "ether"
-                                }, 
                                 "ansible_virtualization_role": "host", 
                                 "ansible_virtualization_type": "kvm", 
                                 "ansible_wlp1s0": {
@@ -3503,10 +3573,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T07:08:26.717570Z", 
-                            "start": "2018-07-09T07:08:18.489322Z"
+                            "end": "2018-07-09T10:12:33.756336Z", 
+                            "start": "2018-07-09T10:12:28.751536Z"
                         }, 
-                        "id": "c48e8f90-bdcf-8a37-fe2f-000000000039", 
+                        "id": "c48e8f90-bdcf-7d56-6ead-00000000003a", 
                         "name": "Gathering Facts"
                     }
                 }, 
@@ -3528,7 +3598,7 @@
                                     "_ansible_item_result": true, 
                                     "_ansible_no_log": false, 
                                     "_ansible_parsed": true, 
-                                    "cache_update_time": 1531120126, 
+                                    "cache_update_time": 1531131167, 
                                     "cache_updated": true, 
                                     "changed": false, 
                                     "failed": false, 
@@ -3575,10 +3645,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T07:09:03.792198Z", 
-                            "start": "2018-07-09T07:08:26.755192Z"
+                            "end": "2018-07-09T10:13:07.917689Z", 
+                            "start": "2018-07-09T10:12:33.803914Z"
                         }, 
-                        "id": "c48e8f90-bdcf-8a37-fe2f-000000000010", 
+                        "id": "c48e8f90-bdcf-7d56-6ead-000000000011", 
                         "name": "docker-install : Installing docker packages"
                     }
                 }, 
@@ -3606,10 +3676,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T07:09:19.581925Z", 
-                            "start": "2018-07-09T07:09:03.825964Z"
+                            "end": "2018-07-09T10:13:20.636331Z", 
+                            "start": "2018-07-09T10:13:07.953483Z"
                         }, 
-                        "id": "c48e8f90-bdcf-8a37-fe2f-000000000011", 
+                        "id": "c48e8f90-bdcf-7d56-6ead-000000000012", 
                         "name": "docker-install : Add Docker's official GPG key"
                     }
                 }, 
@@ -3637,10 +3707,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T07:09:20.915539Z", 
-                            "start": "2018-07-09T07:09:19.617637Z"
+                            "end": "2018-07-09T10:13:21.752516Z", 
+                            "start": "2018-07-09T10:13:20.675585Z"
                         }, 
-                        "id": "c48e8f90-bdcf-8a37-fe2f-000000000012", 
+                        "id": "c48e8f90-bdcf-7d56-6ead-000000000013", 
                         "name": "docker-install : Verifing that we have the key with the fingerprint"
                     }
                 }, 
@@ -3670,10 +3740,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T07:09:23.853393Z", 
-                            "start": "2018-07-09T07:09:20.953144Z"
+                            "end": "2018-07-09T10:13:23.773317Z", 
+                            "start": "2018-07-09T10:13:21.787711Z"
                         }, 
-                        "id": "c48e8f90-bdcf-8a37-fe2f-000000000013", 
+                        "id": "c48e8f90-bdcf-7d56-6ead-000000000014", 
                         "name": "docker-install : Setting up the stable repository"
                     }
                 }, 
@@ -3683,7 +3753,7 @@
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "apt", 
-                            "cache_update_time": 1531120168, 
+                            "cache_update_time": 1531131208, 
                             "cache_updated": true, 
                             "changed": true, 
                             "invocation": {
@@ -3710,10 +3780,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T07:09:30.064339Z", 
-                            "start": "2018-07-09T07:09:23.890468Z"
+                            "end": "2018-07-09T10:13:31.939031Z", 
+                            "start": "2018-07-09T10:13:23.808762Z"
                         }, 
-                        "id": "c48e8f90-bdcf-8a37-fe2f-000000000014", 
+                        "id": "c48e8f90-bdcf-7d56-6ead-000000000015", 
                         "name": "docker-install : Updating apt packages"
                     }
                 }, 
@@ -3726,7 +3796,7 @@
                             ], 
                             "_ansible_parsed": true, 
                             "action": "apt", 
-                            "cache_update_time": 1531120173, 
+                            "cache_update_time": 1531131214, 
                             "cache_updated": true, 
                             "changed": false, 
                             "invocation": {
@@ -3756,10 +3826,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T07:09:34.629709Z", 
-                            "start": "2018-07-09T07:09:30.105857Z"
+                            "end": "2018-07-09T10:13:36.087280Z", 
+                            "start": "2018-07-09T10:13:31.979128Z"
                         }, 
-                        "id": "c48e8f90-bdcf-8a37-fe2f-000000000015", 
+                        "id": "c48e8f90-bdcf-7d56-6ead-000000000016", 
                         "name": "docker-install : Installing docker"
                     }
                 }, 
@@ -3769,7 +3839,7 @@
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "apt", 
-                            "cache_update_time": 1531120178, 
+                            "cache_update_time": 1531131218, 
                             "cache_updated": true, 
                             "changed": false, 
                             "invocation": {
@@ -3799,10 +3869,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-09T07:09:39.376613Z", 
-                            "start": "2018-07-09T07:09:34.671886Z"
+                            "end": "2018-07-09T10:13:40.159683Z", 
+                            "start": "2018-07-09T10:13:36.126074Z"
                         }, 
-                        "id": "c48e8f90-bdcf-8a37-fe2f-000000000016", 
+                        "id": "c48e8f90-bdcf-7d56-6ead-000000000017", 
                         "name": "docker-install : Installing docker-compose"
                     }
                 }
