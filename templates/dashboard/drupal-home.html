@@ -16,7 +16,7 @@
                                 <div class="form-group">
                                   <label>Requester
                                   </label>
-                                  <input type="text" class="form-control" readonly placeholder="{{ user.name }}" value="{{ user.username }}" name="requester">
+                                  <input type="text" class="form-control" readonly placeholder="{{ user.email }}" value="{{ user.email }}" name="requester">
                                 </div>
                               </div>
                               <div class="col-md-2">
@@ -57,14 +57,14 @@
                                                   <div class="form-group">
                                                     <label>Project Name
                                                     </label>
-                                                    <input type="text" class="form-control"   placeholder="Name of your project" name='project_name'>
+                                                    <input type="text" class="form-control" required placeholder="Name of your project" name='project_name'>
                                                   </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                   <div class="form-group">
                                                     <label>Application Name
                                                     </label>
-                                                    <input type="text" class="form-control" placeholder="Name of your application"  name='application_name'>
+                                                    <input type="text" class="form-control" required placeholder="Name of your application"  name='application_name'>
                                                   </div>
                                                 </div>
                                               </div>
@@ -140,6 +140,7 @@
                                     </div>
                                 </div>
                                 <br>
+                                <!--
                                 <div class="row">
                                   <span style="color: red">{{form.project_name.errors}}
                                   </span>
@@ -176,6 +177,7 @@
                                     </div>
                                   </div>
                                 </div>
+                              -->
                                 <div class="row">
                                   <span style="color: red">{{form.project_name.errors}}
                                   </span>
@@ -355,7 +357,8 @@
                                       </div>
                                       
                                   </div>
-                                   <div class="row">
+                                  
+                                   <!-- <div class="row">
                                       <span style="color: red">{{form.project_name.errors}}</span>
                                       <div class="col-md-6">
                                           <div class="form-group">
@@ -370,24 +373,24 @@
                                           </div>
                                       </div>
                                       
-                                  </div>
+                                  </div> -->
                                    <div class="row">
                                       <span style="color: red">{{form.project_name.errors}}</span>
                                       <div class="col-md-6">
                                           <div class="form-group">
-                                              <label>Key #6</label>
+                                              <label>Key #5</label>
                                               <input type="text" class="form-control" disabled value="MYSQL_CLIENT_DEFAULT_CHARACTER_SET " name='MYSQL_CLIENT_DEFAULT_CHARACTER_SET' >
                                           </div>
                                       </div>
                                       <div class="col-md-6">
                                           <div class="form-group">
-                                              <label>Value #6</label>
+                                              <label>Value #5</label>
                                               <input type="text" class="form-control" name='MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE' value='utf-8'>
                                           </div>
                                       </div>
                                       
                                   </div>
-                                   <div class="row">
+                                   <!-- <div class="row">
                                       <span style="color: red">{{form.project_name.errors}}</span>
                                       <div class="col-md-6">
                                           <div class="form-group">
@@ -403,7 +406,7 @@
                                           </div>
                                       </div>
                                       
-                                    </div>                                    
+                                    </div>                                     -->
                                                               
                             </div>
  <!-- ================================STEP 4 MONGO DETAILS================================== -->  
@@ -490,7 +493,7 @@
                                             </div>
                                           </div>
                                         </div>
-                                        <div class="row">
+                                        <!-- <div class="row">
                                           <span style="color: red">{{form.project_name.errors}}</span>
                                           <div class="col-md-6">
                                             <div class="form-group">
@@ -505,7 +508,7 @@
                                               "form-control" name="MONGO_PORT_VALUE" value'27017'= />
                                             </div>
                                           </div>
-                                        </div>
+                                        </div> -->
                                       
                               </div>
  <!-- ================================STEP 5 VARNISH DETAILS================================== -->  
@@ -513,9 +516,10 @@
                             <div class="tab">Varnish:      
                                   <div class="row">
                                     <div class="col-md-4">
+                                      <div class="form-group">
                                       <label>Varnish Version
                                       </label>
-                                      <br>
+
                                       <select name="varnish_version">
                                           <option value="NA">
                                               NA
@@ -526,7 +530,7 @@
                                         </select>
                                     </div>
                                   </div>
-      
+                                  </div>
                                   <div class="row">
                                     <hr>
                                     <div class="header">
@@ -534,7 +538,7 @@
                                       </h3>
                                     </div>
                                   </div>
-                                  <br>
+                                  
                                   <div class="row">
                                     <span style="color: red">{{form.project_name.errors}}
                                     </span>
@@ -549,7 +553,7 @@
                                       <div class="form-group">
                                         <label>Value #1
                                         </label>
-                                        <input type="text" class="form-control" name='VARNISH_BACKEND_HOST_VALUE' value='localhost'>
+                                        <input type="text" class="form-control" name='VARNISH_BACKEND_HOST_VALUE' value='nginx_php'>
                                       </div>
                                     </div>
                                   </div>
@@ -571,7 +575,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="row">
+                                  <!-- <div class="row">
                                     <span style="color: red">{{form.project_name.errors}}
                                     </span>
                                     <div class="col-md-6">
@@ -588,27 +592,27 @@
                                         <input type="text" class="form-control" name='VARNISH_SECRET_VALUE' placeholder='VARNISH_SECRET_VALUE'>
                                       </div>
                                     </div>
-                                  </div>
+                                  </div> -->
                                   <div class="row">
                                     <span style="color: red">{{form.project_name.errors}}
                                     </span>
                                     <div class="col-md-6">
                                       <div class="form-group">
-                                        <label>Key #4
+                                        <label>Key #3
                                         </label>
                                         <input type="text" class="form-control"   placeholder="VARNISH_PORT" name='VARNISH_PORT_VALUE' disabled>
                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                       <div class="form-group">
-                                        <label>Value #4
+                                        <label>Value #3
                                         </label>
                                         <input type="text" class="form-control" name='VARNISH_PORT_VALUE' value='6081'>
                                       </div>
                                     </div>
                                   </div>
-                                  
                                   </div>
+
    <!-- ================================STEP 6 REDIS DETAILS================================== -->  
 
                             <div class="tab">Redis:
