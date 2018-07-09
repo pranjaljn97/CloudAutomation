@@ -103,24 +103,12 @@ def approvedsuccessfully(request, id):
     posts = Project.objects.all()
     hostInfo = Host.objects.all()  
 
-    #mail functionality
-    subject = "Approval Request"
-    message = "Congratulations your stack request has been approved"
-    from_email = settings.EMAIL_HOST_USER
-    umail = request.user.email 
-    to_list = [umail]
-    send_mail(subject, message, from_email, to_list, fail_silently=False)
-    
-    #make env file for ansible
-
-    
-    makeenvfile(id)
-    execplaybook(id)
+   # makeenvfile(id)
     jsonfile = currpost.project_name
     appname = currpost.application_name
     hostip = currpost.hostIp
-    buildinfo(request,id,jsonfile,hostip)
-    add_cname_record(request,id,jsonfile,appname,hostip)
+    #buildinfo(request,id,jsonfile,hostip)
+    #add_cname_record(request,id,jsonfile,appname,hostip)
     fmail(request,id,currpost,jsonfile)
     return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
 

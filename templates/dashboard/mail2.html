@@ -7,11 +7,9 @@
                 <tr>
                     <td width="2%"></td>
                     <td style="color:#ffffff;font-family:open sans;line-height:20px;font-size:17px" width="90%">
-                         Stack Approved and Its Up now !
+                        Congratulations! Your requested stack is up now. Find below Details:
                     </td>
-                    <td width="5%"></td>
-                    <td><img src="https://ci3.googleusercontent.com/proxy/gjIZtZsYi5y18QOv4o7N4P5eknkTxgecuDEkAbzXx2NVnmzx=s0-d-e1-ft#http://TTN.png" class="CToWUd"></td>
-                    <td width="3%"></td>
+                   
                 </tr>
                 <tr><td height="10"></td></tr>
             </tbody></table>
@@ -29,7 +27,7 @@
                 <tr>
                     <td width="30"></td>
                     <td style="color:#999999;font-family:open sans;line-height:20px;font-size:18px">
-                        Brief details of your stack is as follows:
+                        You can access your website at {{  projectname }}_{{appname}}.tothenew.tk
                     </td>
                 </tr>
             </tbody></table>
@@ -50,19 +48,19 @@
                                         <tbody><tr>
                                             <td>
                                                 <table border="0" align="left" cellpadding="0" cellspacing="0">
-                                                    <tbody><tr><td colspan="8" style="height:1px;background:#e7eaec"></td></tr>
+                                                    <tbody>
+                                                    <tr><td colspan="8" style="height:1px;background:#e7eaec"></td></tr>
                                                     <tr><td colspan="4" height="10px"></td></tr>
                                                     <tr>
                                                         <td width="3%"></td>
-                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Username</td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Project Name</td>
                                                         <td width="3%"></td>
-                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Password</td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Application Name</td>
                                                         <td width="3%"></td>
-                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Host Ip</td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Git Url</td>
                                                         <td width="3%"></td>
-                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Access</td>
-                                                        <td width="3%"></td>
-                                                       
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Git Token</td>
+                                                        <td></td>
                                                     </tr>
                                                     
 
@@ -73,15 +71,14 @@
                                                             <td width="3%"></td>
                                                             <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px"> {{ projectname }}</td>
                                                             <td width="3%"></td>
-                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">ansiblepass</td>
+                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">{{ appname }}</td>
 
                                                             <td width="3%"></td>
-                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">{{ hostIp }}</td>
-                                                            <td width="3%"></td>
-                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">{{  projectname }}_{{appname}}.ssp.org</td>
+                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">{{  git_url }}</td>
                                                             <td width="3%"></td>
 
-                              
+                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">{{ git_token }}</td>
+                                                            <td></td>
                                                         </tr>
                                                     
                                                     <tr><td colspan="12" height="10px"></td></tr>
@@ -100,10 +97,129 @@
                                                     <tr><td colspan="6" height="10px"></td></tr>
                                                     <tr>
                                                         <td width="2%"></td>
-                                                        <td width="14%" colspan="7" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold"> Status</td>
+                                                        <td width="14%" colspan="7" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Server Login Credentials</td>
                                                         <td width="3%"></td>
                                                         <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">
-                                                            All Container running
+                                                            
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr><td colspan="4" height="10px"></td></tr>
+                                                    <tr><td colspan="12" style="height:1px;background:#e7eaec"></td></tr>
+
+
+                                                    <tr><td colspan="8" style="height:1px;background:#e7eaec"></td></tr>
+                                                    <tr><td colspan="4" height="10px"></td></tr>
+                                                    <tr>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Host Ip</td>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Username</td>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Password</td>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Port</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    
+
+                                                        <tr><td colspan="12" height="10px"></td></tr>
+                                                        <tr><td colspan="12" style="height:1px;background:#e7eaec"></td></tr>
+                                                        <tr><td colspan="12" height="10px"></td></tr>
+                                                        <tr>
+                                                            <td width="3%"></td>
+                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px"> {{ hostIp }}</td>
+                                                            <td width="3%"></td>
+                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">{{ projectname }}</td>
+
+                                                            <td width="3%"></td>
+                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">ansiblepass</td>
+                                                            <td width="3%"></td>
+
+                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">22</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    
+                                                    <tr><td colspan="12" height="10px"></td></tr>
+                                                    <tr><td colspan="12" style="height:1px;background:#e7eaec"></td></tr>
+                                                    <tr><td colspan="12" height="10px"></td></tr>
+                                                    <tr>
+                                                        <td width="2%"></td>
+                                                        <td width="14%" colspan="7" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold"></td>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px"></td>
+
+                                                    </tr>
+
+                                                    <tr><td colspan="6" height="10px"></td></tr>
+                                                    <tr><td colspan="12" style="height:1px;background:#e7eaec"></td></tr>
+                                                    <tr><td colspan="6" height="10px"></td></tr>
+                                                    <tr>
+                                                        <td width="2%"></td>
+                                                        <td width="14%" colspan="7" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">DB Credentials</td>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">
+                                                            
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr><td colspan="4" height="10px"></td></tr>
+                                                    <tr><td colspan="12" style="height:1px;background:#e7eaec"></td></tr>
+
+
+
+                                                    <tr><td colspan="8" style="height:1px;background:#e7eaec"></td></tr>
+                                                    <tr><td colspan="4" height="10px"></td></tr>
+                                                    <tr>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Mysql Username</td>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Mysql Password</td>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Mongo Username</td>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Mongo Password</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    
+
+                                                        <tr><td colspan="12" height="10px"></td></tr>
+                                                        <tr><td colspan="12" style="height:1px;background:#e7eaec"></td></tr>
+                                                        <tr><td colspan="12" height="10px"></td></tr>
+                                                        <tr>
+                                                            <td width="3%"></td>
+                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px"> {{ mysqluname }}</td>
+                                                            <td width="3%"></td>
+                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">{{ mysqlupwd }}</td>
+
+                                                            <td width="3%"></td>
+                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">{{ mongouname }}</td>
+                                                            <td width="3%"></td>
+
+                                                            <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">{{ mongoupwd }}</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    
+                                                    <tr><td colspan="12" height="10px"></td></tr>
+                                                    <tr><td colspan="12" style="height:1px;background:#e7eaec"></td></tr>
+                                                    <tr><td colspan="12" height="10px"></td></tr>
+                                                    <tr>
+                                                        <td width="2%"></td>
+                                                        <td width="14%" colspan="7" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold"></td>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px"></td>
+
+                                                    </tr>
+
+                                                    <tr><td colspan="6" height="10px"></td></tr>
+                                                    <tr><td colspan="12" style="height:1px;background:#e7eaec"></td></tr>
+                                                    <tr><td colspan="6" height="10px"></td></tr>
+                                                    <tr>
+                                                        <td width="2%"></td>
+                                                        <td width="14%" colspan="7" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold"></td>
+                                                        <td width="3%"></td>
+                                                        <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">
+                                                            
                                                         </td>
 
                                                     </tr>
@@ -125,6 +241,10 @@
         </td>
     </tr>
 
+
+
+    
+
     <tr>
     <td align="center" style="border:none">
         <table bgcolor="f3f3f4" height="50" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -133,10 +253,10 @@
                     <b>Note:</b>
                     <ul>
                         <li>
-                            Visit S2P Portal for the complete details, You will be informed soon about the approval request.
+                            Use- mysql -u {{ mysqluname}} -p {{ mysqlupwd }}    for connecting to mysql.
                         </li>
                         <li>
-                            In case you haven't requested for this stack or you have any other queries, please write to <a href="mailto:tejprakash.sharma@tothenew.com" target="_blank">admin-noida-team-tejprakash@tothenew.com</a>
+                            Visit S2P Portal for the complete details.
                         </li>
                         <li>
                             To provide your feedback on S2P Portal, please write to <a href="mailto:pvats@tothenew.com" target="_blank">admin-S2P-pvats@tothenew.com</a>
