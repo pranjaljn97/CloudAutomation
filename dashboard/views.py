@@ -43,7 +43,7 @@ def thanks(request):
 #   today = datetime.datetime.now().date()
     return render(request, "dashboard/thanks.html")
 
-# @login_required(login_url='/login/')
+@login_required(login_url='/login/')
 def cprovider(request):
     if request.method == 'POST':
         form = HostForm(request.POST)
@@ -54,7 +54,6 @@ def cprovider(request):
         form = HostForm()
         hosts = Host.objects.all()
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
-#     return render(request, "dashboard/cloud-provider.html")
 
 def hostadded(request, id):
     hostentry(id)
@@ -92,6 +91,7 @@ def rejected(request):
      return render(request, "dashboard/rejected.html", {'posts': posts })
 
 
+
 def approvedsuccessfully(request, id):
     
     currpost = Project.objects.get(id=id)
@@ -105,7 +105,7 @@ def approvedsuccessfully(request, id):
     from_email = settings.EMAIL_HOST_USER
     umail = request.user.email 
     to_list = [umail]
-    #send_mail(subject, message, from_email, to_list, fail_silently=False)
+    send_mail(subject, message, from_email, to_list, fail_silently=False)
     
     #make env file for ansible
     buildinfo(request,id)
@@ -140,10 +140,15 @@ def submitted(request,requester):
      posts = Project.objects.all().filter(requester=requester)
      return render(request, "dashboard/submitted.html", {'posts': posts })
 
+@login_required(login_url='/login/')
+def rerun(request,id):
+    posts = Project.objects.get(pk=id)
+    #execplaybook(id)
+    buildinfo(request,id)
+    return render(request, "dashboard/detailform"+str(id)+".html", {'posts': posts })
 
 @login_required(login_url='/login/')
 def finalmail(request,id):
-#   today = datetime.datetime.now().date()
      uname = request.user.get_username()
      posts = Project.objects.get(pk=id)
      fmail(request,id,posts)
