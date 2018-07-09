@@ -1,9 +1,10 @@
 import json
-def buildinfo(request,id):
-    with open('dashboard/123.json', 'r') as f:
+def buildinfo(request,id,jsonfile):
+    name = jsonfile + "_" + id + ".json"
+    with open('dashboard/' + name, 'r') as f:
         plays = json.load(f)
     message = ""
-    f2 = open('templates/dashboard/detailform'+str(id)+'.html','w')
+    f2 = open('templates/dashboard/detailform1.html','w')
     for x in plays['plays']:
         #print("Installing Docker Packages:" + str(x['tasks'][9]['hosts']['127.0.0.1']['results'][0]['failed']))
         print("Installing Docker Packages:")

@@ -17,8 +17,10 @@ from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 from dashboard.makeenv import makeenvfile
 from dashboard.mail import sendmail
+from dashboard.mail2 import fmail
 from dashboard.buildinfo import buildinfo
 from dashboard.mail2 import fmail
+from dashboard.boto import add_cname_record
 from dashboard.runplaybook import execplaybook
 
 from dashboard.makehostentry import hostentry
@@ -110,26 +112,30 @@ def approvedsuccessfully(request, id):
     #send_mail(subject, message, from_email, to_list, fail_silently=False)
     
     #make env file for ansible
-    buildinfo(request,id)
+
+    
     makeenvfile(id)
     execplaybook(id)
-    return render(request, "dashboard/detailform"+str(id)+".html", {'posts': posts, 'hostInfo': hostInfo })
+    jsonfile = currpost.project_name
+    appname = currpost.application_name
+    hostip = currpost.hostIp
+    buildinfo(request,id,jsonfile)
+    add_cname_record(request,id,jsonfile,appname,hostip)
+    fmail(request,id,currpost,jsonfile)
+    return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
+
 
 def rejectedsuccessfully(request, id):
     
     currpost = Project.objects.get(id=id)
     currpost.status = 'Rejected'
     currpost.save()
-    posts = Project.objects.all()
+    posts = Project.objects.get(pk=id)
+    posts2 = Project.objects.all()
 
      #mail functionality
-    subject = "Approval Request"
-    message = "Sorry your stack request has been rejected"
-    umail = request.user.email 
-    from_email = settings.EMAIL_HOST_USER
-    to_list = [umail]
-    send_mail(subject, message, from_email, to_list, fail_silently=False)
-    return render(request, "dashboard/forapproval.html", {'posts': posts })
+    sendmail(request,id,'reject')
+    return render(request, "dashboard/forapproval.html", {'posts': posts2 })
 
 
 @login_required(login_url='/login/')
@@ -138,6 +144,13 @@ def detailform(request,id):
      uname = request.user.get_username()
      posts = Project.objects.get(pk=id)
      return render(request, "dashboard/detailform.html", {'posts': posts })
+
+@login_required(login_url='/login/')
+def submitted(request,requester):
+#   today = datetime.datetime.now().date()
+     uname = request.user.email
+     posts = Project.objects.all().filter(requester=requester)
+     return render(request, "dashboard/submitted.html", {'posts': posts })
 
 
 @login_required(login_url='/login/')
@@ -172,6 +185,7 @@ def drupalform(request):
         if form.is_valid():
 
             form.save()
+            sendmail(request,form,'submit')
 
             #form2 = RequestForm2(request.POST)
             #if form2.is_valid():

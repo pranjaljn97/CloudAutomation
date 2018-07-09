@@ -11,8 +11,9 @@ from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 import json
 
-def fmail(request,id,posts):
-    with open('dashboard/123.json', 'r') as f:
+def fmail(request,id,posts,jsonfile):
+    name = jsonfile + "_" + id + ".json"
+    with open('dashboard/'+ name, 'r') as f:
         plays = json.load(f)
     stat = ''
     for x in plays['plays']:
@@ -29,7 +30,7 @@ def fmail(request,id,posts):
                 'appname':posts.application_name,
                 'hostIp':posts.hostIp, 
                 'status': stat,}            
-    html_content = render_to_string('dashboard/finalmail.html', c)
+    html_content = render_to_string('dashboard/mail2.html', c)
     text_msg = "Final Status"
     subject = "Your requested Stack status"
     send_mail(subject, text_msg, from_email, to_list, fail_silently=False, html_message=html_content
