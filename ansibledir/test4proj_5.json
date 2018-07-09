@@ -1,0 +1,71 @@
+{
+    "mongodb": {
+        "enable": true,
+        "envi": {
+            "MONGO_INITDB_DATABASE": "mongodb",
+            "MONGO_INITDB_ROOT_PASSWORD": "1234",
+            "MONGO_INITDB_ROOT_USERNAME": "user",
+            "MONGO_PORT_VALUE": "",
+            "mongo_version": "NA"
+        },
+        "ports": {},
+        "volumes": {}
+    },
+    "mysql": {
+        "enable": true,
+        "envi": {
+            "MYSQL_CLIENT_DEFAULT_CHARACTER_SET": "utf-8",
+            "MYSQL_DATABASE": "db",
+            "MYSQL_DUMP_MAX_ALLOWED_PACKET": "",
+            "MYSQL_PASSWORD": "1234",
+            "MYSQL_PORT_VALUE": "3306",
+            "MYSQL_ROOT_PASSWORD": "1234",
+            "MYSQL_USER": "root",
+            "mysql_version": ""
+        },
+        "ports": {},
+        "volumes": {}
+    },
+    "nginx_php": {
+        "enable": true,
+        "envi": {
+            "PHP_MODULES": "",
+            "PHP_VERSION": "NA",
+            "WEB_DOCUMENT_ROOT": "/var/www/html/"
+        },
+        "ports": "9000",
+        "volumes": {}
+    },
+    "redis": {
+        "enable": true,
+        "envi": {
+            "REDIS_PASSWORD": "",
+            "redis_version": "NA"
+        },
+        "ports": {},
+        "volumes": {}
+    },
+    "user": {
+        "GITHUB_BRANCH": "master",
+        "GITHUB_TOKEN": "7484c7e0fa46f86aed5a92c0856c9cda9ccaf3be",
+        "GITHUB_URL": "github.com/pranjaljn97/s2p.git",
+        "GITHUB_USERNAME": "pranjaljn97",
+        "USERNAME": "mudit.mehta@tothenew.com",
+        "application_name": "test4app",
+        "envtype": "Docker",
+        "id": 5,
+        "platform": "PHP",
+        "project_name": "test4proj"
+    },
+    "varnish": {
+        "enable": true,
+        "envi": {
+            "VARNISH_BACKEND_HOST": "NGINX",
+            "VARNISH_BACKEND_PORT": "80",
+            "VARNISH_PORT_VALUE": "6081",
+            "varnish_version": "NA"
+        },
+        "ports": "8085",
+        "volumes": {}
+    }
+}

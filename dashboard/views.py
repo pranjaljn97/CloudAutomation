@@ -17,8 +17,10 @@ from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 from dashboard.makeenv import makeenvfile
 from dashboard.mail import sendmail
+from dashboard.mail2 import fmail
 from dashboard.buildinfo import buildinfo
 from dashboard.mail2 import fmail
+from dashboard.boto import add_cname_record
 from dashboard.runplaybook import execplaybook
 
 from dashboard.makehostentry import hostentry
@@ -75,7 +77,8 @@ def forapproval(request):
 #   today = datetime.datetime.now().date()
      uname = request.user.get_username()
      posts = Project.objects.all()
-     return render(request, "dashboard/forapproval.html", {'posts': posts })
+     hostInfo = Host.objects.all()  
+     return render(request, "dashboard/forapproval.html", {'posts': posts, 'hostInfo': hostInfo })
 
 @login_required(login_url='/login/')
 def approved(request):
@@ -98,6 +101,7 @@ def approvedsuccessfully(request, id):
     currpost.status = 'Approved'
     currpost.save()
     posts = Project.objects.all()
+    hostInfo = Host.objects.all()  
 
     #mail functionality
     subject = "Approval Request"
@@ -108,10 +112,18 @@ def approvedsuccessfully(request, id):
     send_mail(subject, message, from_email, to_list, fail_silently=False)
     
     #make env file for ansible
-    buildinfo(request,id)
-    #makeenvfile(id)
-    #execplaybook(id)
-    return render(request, "dashboard/detailform"+str(id)+".html", {'posts': posts })
+
+    
+    makeenvfile(id)
+    execplaybook(id)
+    jsonfile = currpost.project_name
+    appname = currpost.application_name
+    hostip = currpost.hostIp
+    buildinfo(request,id,jsonfile,hostip)
+    add_cname_record(request,id,jsonfile,appname,hostip)
+    fmail(request,id,currpost,jsonfile)
+    return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
+
 
 def rejectedsuccessfully(request, id):
     

@@ -1,12 +1,15 @@
 import boto3
+import os
 
-client = boto3.client('route53')
+client = boto3.client('route53',aws_access_key_id=os.environ['Access_key_ID'], aws_secret_access_key=os.environ['Secret_access_key'])
 
 
-def add_cname_record(source, target):
+def add_cname_record(request,id,name,name2,ip):
 	try:
+		target = ip
+		source = name + "_" + name2 + ".ssp.org."
 		response = client.change_resource_record_sets(
-        HostedZoneId='Z2H4GS4DFI9BRZ',
+        HostedZoneId='Z2H4GS4DFI9BRZ',	
 		ChangeBatch= {
 						'Comment': 'add %s -> %s' % (source, target),
 						'Changes': [
@@ -24,4 +27,4 @@ def add_cname_record(source, target):
                          print e
 
 
-add_cname_record('sss.ssp.org.','172.230.201.0')
+

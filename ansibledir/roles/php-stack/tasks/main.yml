@@ -1,30 +1,33 @@
 ---
 - name: Create a login user
+  become: true
   user:
-    name: "{{ user.USERNAME }}"
+    name: "{{ user.project_name }}"
     password: '$6$CNGueoGzOWDd$vWhGXjGIJKUEID2g7IxiFijBVWssNS6xjqo39LdMMmS6rBpvDvjVYVq.z2R30iGt5AsniDew.3Ro7laKkzC860'
-    groups: docker, sudo  
+    groups: docker 
     state: present
     shell: /bin/bash       
     system: no             
     createhome: yes        
-    home: /home/{{ user.USERNAME }} 
+    home: /home/{{ user.project_name }} 
 
 - name: Create directories for mongodb and Mysql
+  become: true
   file:
     path: "{{ item.dest }}"
     mode: "{{item.mode}}"
     state: directory
   with_items:
-    - { dest: '/home/{{ user.USERNAME }}/mysql', mode: '0775'}
-    - { dest: '/home/{{ user.USERNAME }}/mongodb', mode: '0775'}
-    - { dest: '/home/{{ user.USERNAME }}/code', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/mysql', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/mongodb', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/code', mode: '0775'}
   
 
 - name: Copying Template into remote
+  become: true
   template:
     src: docker-compose.yml
-    dest: '/home/{{ user.USERNAME }}'
+    dest: '/home/{{ user.project_name }}'
     owner: bin
     mode: 0644
   debugger: on_failed  
@@ -32,10 +35,18 @@
 
 
 - name: Docker
+  become: true
   shell: |
-    cd /home/"{{ user.USERNAME }}" 
+    cd /home/"{{ user.project_name }}" 
     sudo docker-compose up -d
     docker ps
   register: result 
 
-- debug: var=result 
+- name: clone a private repository
+  become: true
+  git:
+    repo: 'https://{{ user.GITHUB_USERNAME }}:{{ user.GITHUB_TOKEN }}@{{ user.GITHUB_URL }}'
+    dest: '/home/{{ user.project_name }}/code'
+    version: "{{ user.GITHUB_BRANCH }}"
+
+

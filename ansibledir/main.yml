@@ -1,6 +1,4 @@
 ---
-- hosts: localhost
-  connection: local
-  sudo: yes
+- hosts: "{{ user.hostip }}"
   roles: 
     - php-stack
