@@ -50,7 +50,7 @@ def buildinfo(request,id,jsonfile,hostip):
             print("False")
 
                               
-            f2.write(message)
-            print("wdjwn")
-            f2.close()
+        f2.write(message)
+        print("wdjwn")
+        f2.close()
             
