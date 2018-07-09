@@ -2,3 +2,4 @@
 - hosts: "{{ user.hostip }}"
   roles: 
     - php-stack
+    - nginx
