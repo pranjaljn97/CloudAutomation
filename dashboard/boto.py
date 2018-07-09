@@ -7,7 +7,7 @@ client = boto3.client('route53',aws_access_key_id=os.environ['Access_key_ID'], a
 def add_cname_record(request,id,name,name2,ip):
 	try:
 		target = ip
-		source = name + "_" + name2 + ".ssp.org."
+		source = name + "_" + name2 + ".tothenew.tk"
 		response = client.change_resource_record_sets(
         HostedZoneId='Z2H4GS4DFI9BRZ',	
 		ChangeBatch= {
