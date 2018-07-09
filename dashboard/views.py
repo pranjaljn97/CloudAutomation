@@ -17,8 +17,10 @@ from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 from dashboard.makeenv import makeenvfile
 from dashboard.mail import sendmail
+from dashboard.mail2 import fmail
 from dashboard.buildinfo import buildinfo
 from dashboard.mail2 import fmail
+from dashboard.boto import add_cname_record
 from dashboard.runplaybook import execplaybook
 
 from dashboard.makehostentry import hostentry
@@ -108,10 +110,16 @@ def approvedsuccessfully(request, id):
     #send_mail(subject, message, from_email, to_list, fail_silently=False)
     
     #make env file for ansible
-    buildinfo(request,id)
-    #makeenvfile(id)
-    #execplaybook(id)
-    return render(request, "dashboard/detailform"+str(id)+".html", {'posts': posts })
+    
+    makeenvfile(id)
+    execplaybook(id)
+    jsonfile = currpost.project_name
+    appname = currpost.application_name
+    hostip = currpost.hostIp
+    buildinfo(request,id,jsonfile)
+    add_cname_record(request,id,jsonfile,appname,hostip)
+    fmail(request,id,currpost,jsonfile)
+    return render(request, "dashboard/detailform1"+".html", {'posts': posts })
 
 def rejectedsuccessfully(request, id):
     

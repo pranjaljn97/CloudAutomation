@@ -3,8 +3,10 @@ import boto3
 client = boto3.client('route53')
 
 
-def add_cname_record(source, target):
+def add_cname_record(request,id,name,name2,ip):
 	try:
+		target = ip
+		source = name + "_" + name2 + ".ssp.org."
 		response = client.change_resource_record_sets(
         HostedZoneId='Z2H4GS4DFI9BRZ',
 		ChangeBatch= {
@@ -24,4 +26,4 @@ def add_cname_record(source, target):
                          print e
 
 
-add_cname_record('sss.ssp.org.','172.230.201.0')
+
