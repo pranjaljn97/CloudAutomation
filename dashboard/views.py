@@ -54,11 +54,7 @@ def cprovider(request):
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
 
 def hostadded(request, id):
-    try:
-        hostentry(id)
-    except:
-        msg = 'Error in adding Host entry'
-        return render(request, "dashboard/error.html",{'msg': msg })
+    hostentry(id)
     hosts = Host.objects.all()
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
     

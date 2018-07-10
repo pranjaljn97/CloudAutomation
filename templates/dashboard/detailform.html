@@ -99,7 +99,7 @@
                     </a>
                 </li>
                 
-
+		{% if perms.login.view_content %}
                 <li>
                     <a href="{% url "cprovider" %}">
                         <i class="pe-7s-note2"></i>
@@ -107,7 +107,8 @@
                     </a>
                 </li>
 
-                
+                {% endif %}
+
 
                 <!--<li>
 
