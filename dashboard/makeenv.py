@@ -14,8 +14,13 @@ def makeenvfile(myid):
     connection = MySQLdb.connect (host = os.environ['DB_HOST'], user = os.environ['DB_USER'], passwd = os.environ['DB_PASSWORD'], db = os.environ['DB_NAME'])
     cursor = connection.cursor ()
     cursor.execute ("select * from dashboard_project where id = %s",myid)
+    currpost = Project.objects.get(pk=myid)
+    projectname = currpost.project_name
+    appname = currpost.application_name
     data = cursor.fetchall ()
-    destpath = settings.ENVFILE_PATH
+    destpath = settings.ENVFILE_PATH + projectname + '_' + appname + '/'
+    if not os.path.exists(destpath):
+        os.makedirs(destpath)
     print destpath
 
     try:

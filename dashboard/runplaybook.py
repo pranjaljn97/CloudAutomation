@@ -6,13 +6,15 @@ from django.conf import settings
 
 
 def execplaybook(id):
-    destpath = settings.ENVFILE_PATH
+    
     post = Project.objects.get(pk=id)
-    project_name = post.project_name
+    projectname = post.project_name
+    appname = post.application_name
+    destpath = settings.ENVFILE_PATH + projectname + '_' + appname + '/'
     hostip = post.hostIp
     ansiblePath=os.getcwd()+"/ansibledir"
 
-    jsonfilepath = project_name + "_" + str(post.id) + ".json"
+    jsonfilepath = projectname + "_" + str(post.id) + ".json"
     newpath = '''"''' +  jsonfilepath + '''"'''
     print newpath
-    subprocess.check_call(['./ansibledir/runplaybook.sh', './ansibledir/main.yml', destpath + jsonfilepath, 'dashboard/hostoutput2.json'])
+    subprocess.check_call(['./ansibledir/runplaybook.sh', './ansibledir/main.yml', destpath + jsonfilepath, destpath + 'hostoutput2.json'])

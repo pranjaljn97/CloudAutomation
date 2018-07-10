@@ -1,7 +1,13 @@
 import json
+from django.conf import settings
+from .models import Project
+
 def buildinfo(request,id,jsonfile,hostip):
-    name = "hostoutput2.json"
-    with open('dashboard/' + name, 'r') as f:
+    currpost = Project.objects.get(pk=id)
+    projectname = currpost.project_name
+    appname = currpost.application_name
+    name = settings.ENVFILE_PATH + projectname + '_' + appname + '/hostoutput2.json'
+    with open(name, 'r') as f:
         plays = json.load(f)
     message = ""
     f2 = open('templates/dashboard/detailform1.html','w')
