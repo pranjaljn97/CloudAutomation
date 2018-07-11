@@ -71,6 +71,7 @@ def makeenvfile(myid):
                         'USERNAME': post.requester,
                         'project_name': post.project_name,
                         'application_name': post.application_name,
+                        'repo_type': post.repo_type,
                         'GITHUB_URL': post.git_url,
                         'GITHUB_USERNAME': post.git_username,
                         'GITHUB_TOKEN': post.git_token,
