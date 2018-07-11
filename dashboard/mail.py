@@ -40,10 +40,6 @@ def sendmail(request,form,stat):
     		requestermail =  post.requester
                 from_email = 'S2P Team <'+settings.EMAIL_HOST_USER+'>'
                 to_list = [settings.ADMIN_MAIL,request.user.email, requestermail]
-                
-               
-           
-            
                 c = {'uname': post.requester,
                         'projectname': post.project_name ,
                         'appname': post.application_name ,
