@@ -1,7 +1,13 @@
  {% extends "dashboard/phpform.html" %}
 {% load static %}
 {% block content %}
-
+                  <script type="text/javascript">
+                    function ShowHideDiv() {
+                        var ddlPassport = document.getElementById("ddlPassport");
+                        var dvPassport = document.getElementById("dvPassport");
+                        dvPassport.style.display = ddlPassport.value == "private" ? "block" : "none";
+                    }
+                  </script>
                   <div class="content">
                   
                       <form id="regForm" action="." method="POST">
@@ -68,9 +74,33 @@
                                                   </div>
                                                 </div>
                                               </div>
+
+                                                                                  
                                               <div class="row">
 
                                                 
+                                                  <div class="col-md-6">
+                                                    <div class="form-group">
+                                                  
+                                                      <label>Repo Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                     
+                                                      <select id = "ddlPassport" name="repo_type" onchange = "ShowHideDiv()">
+                                                          <option value="public">Public</option>
+                                                          <option value="private">Private</option>  
+                                                      </select>
+                                                    
+                                                    </div>
+                                                  </div>
+                                                                                    
+                                                    
+                                                  </div>
+
+
+                                              
+
+                                              <div class="row">
+
+                                             
                                                 <div class="col-md-6">
                                                   <div class="form-group">
                                                     <label>Git URL
@@ -81,13 +111,13 @@
                                                                                   
                                                   <div class="col-md-6">
                                                     <div class="form-group">
-                                                      <label>Token
+                                                      <label>Branch Name
                                                       </label>
-                                                      <input type="text" class="form-control" placeholder="GIT Token" name="git_token">
+                                                      <input type="text" class="form-control" placeholder="GIT Branch" name="git_branch">
                                                     </div>
                                                   </div>
                                                 </div>
-                                                <div class="row">
+                                                <div class="row" id="dvPassport" style="display: none">
                                                 <div class="col-md-6">
                                                   <div class="form-group">
                                                     <label>Git Username
@@ -98,12 +128,13 @@
                                                                                   
                                                   <div class="col-md-6">
                                                     <div class="form-group">
-                                                      <label>Git Branch Name
+                                                      <label>Token
                                                       </label>
-                                                      <input type="text" class="form-control" placeholder="Git Branch" name="git_branch">
+                                                      <input type="text" class="form-control" placeholder="Git Token" name="git_token">
                                                     </div>
                                                   </div>
                                                 </div>
+                                                
                               </div>
           <!-- ================================STEP 2 PHP NGINX DETAILS================================== -->                  
                             <div class="tab"><b>PHP-Nginx</b>
