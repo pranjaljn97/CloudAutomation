@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
 from .models import RequestForm
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -42,6 +43,7 @@ def thanks(request):
     return render(request, "dashboard/thanks.html")
 
 @login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def cprovider(request):
     if request.method == 'POST':
         form = HostForm(request.POST)
@@ -53,6 +55,7 @@ def cprovider(request):
         hosts = Host.objects.all()
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
 
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def hostadded(request, id):
     hostentry(id)
     hosts = Host.objects.all()
@@ -69,6 +72,7 @@ def userdata(request):
 
 
 @login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def forapproval(request):
 #   today = datetime.datetime.now().date()
      uname = request.user.get_username()
@@ -77,12 +81,16 @@ def forapproval(request):
      return render(request, "dashboard/forapproval.html", {'posts': posts, 'hostInfo': hostInfo })
 
 @login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def approved(request):
 #   today = datetime.datetime.now().date()
      uname = request.user.get_username()
      posts = Project.objects.all()
      return render(request, "dashboard/approved.html", {'posts': posts })
+
+
 @login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def rejected(request):
 #   today = datetime.datetime.now().date()
      uname = request.user.get_username()
@@ -90,7 +98,7 @@ def rejected(request):
      return render(request, "dashboard/rejected.html", {'posts': posts })
 
 
-
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def approvedsuccessfully(request, id):
     
     currpost = Project.objects.get(id=id)
@@ -139,7 +147,7 @@ def approvedsuccessfully(request, id):
 
     return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
 
-
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def rejectedsuccessfully(request, id):
     
     currpost = Project.objects.get(id=id)
