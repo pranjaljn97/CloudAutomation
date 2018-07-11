@@ -40,10 +40,7 @@ def sendmail(request,form,stat):
     		requestermail =  post.requester
                 from_email = 'S2P Team <'+settings.EMAIL_HOST_USER+'>'
                 to_list = [settings.ADMIN_MAIL,request.user.email, requestermail]
-                connection = MySQLdb.connect (host = os.environ['DB_HOST'], user = os.environ['DB_USER'], passwd = os.environ['DB_PASSWORD'], db = os.environ['DB_NAME'])
-                cursor = connection.cursor ()
-                cursor.execute ("select *  from dashboard_project where id = %s",form)
-                data = cursor.fetchall ()
+                
                 destpath = settings.ENVFILE_PATH
                 print destpath
 
@@ -51,14 +48,13 @@ def sendmail(request,form,stat):
                         to_unicode = unicode
                 except NameError:
                         to_unicode = str
-                for row in data :
-                        form = Project.objects.get(pk=form)
-                c = {'uname': form.requester,
-                        'projectname': form.project_name ,
-                        'appname': form.application_name ,
-                        'hostIp': form.hostIp ,
-                        'git_url': form.git_url ,
-                        'git_token': form.git_token ,}            
+            
+                c = {'uname': post.requester,
+                        'projectname': post.project_name ,
+                        'appname': post.application_name ,
+                        'hostIp': post.hostIp ,
+                        'git_url': post.git_url ,
+                        'git_token': post.git_token ,}            
                 html_content = render_to_string('dashboard/rejectmail.html', c)
                 subject = "Stack Request Rejected"
                 text_msg = "Request Recieved"
