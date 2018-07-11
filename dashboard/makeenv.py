@@ -6,11 +6,50 @@ import MySQLdb
 import sys
 import os
 from dashboard.models import Project
+from dashboard.models import Ports
 from django.conf import settings
-
+import random
+global nginxport
+global varnishport
 
 
 def makeenvfile(myid):
+
+    curr = Project.objects.get(pk=myid)
+    pname = curr.project_name
+    
+    statusn = False
+    randomport = random.randint(9000,10000)
+    while(statusn == False):
+        allports = Ports.objects.all()
+        for oneport in allports:
+            if(oneport.port == str(randomport)):
+                statusn = True
+                randomport = random.randint(9000,10000)
+        if(statusn == False):
+            nginxport = randomport
+            newport = Ports(port = nginxport, status = '0', projectname = pname)
+            newport.save()
+            break
+
+    statusmy = False
+    randomport = random.randint(8000,8999)
+    while(statusmy == False):
+        allports = Ports.objects.all()
+        for oneport in allports:
+            if(oneport.port == str(randomport)):
+                statusmy = True
+                randomport = random.randint(8000,8999)
+        if(statusmy == False):
+            varnishport = randomport
+            newport = Ports(port = varnishport, status = '0', projectname = pname)
+            newport.save()
+            break
+    
+    
+
+
+
   
     currpost = Project.objects.get(pk=myid)
     projectname = currpost.project_name
@@ -51,7 +90,7 @@ def makeenvfile(myid):
                             'volumes': {
 
                             },
-                            'ports': '9000'                                                                                                               
+                            'ports': nginxport                                                                                                 
                             },
             'mysql' : { 'enable': True,
                         'envi': {
@@ -96,7 +135,7 @@ def makeenvfile(myid):
                             'volumes': {
                                 
                             },
-                            'ports': '8085'
+                            'ports': varnishport
                         
                         },
 

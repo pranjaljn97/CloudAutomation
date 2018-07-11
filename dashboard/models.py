@@ -7,6 +7,13 @@ from django.forms import ModelForm
 import datetime
 from django.utils import timezone
 
+
+class Ports(models.Model):
+    id = models.AutoField(primary_key=True)
+    port = models.CharField(blank=True, max_length=30)
+    status = models.CharField(blank=True, max_length=30)
+    projectname = models.CharField(blank=True, max_length=30)
+
 class Host(models.Model):
         id = models.AutoField(primary_key=True)
         hostIdentifier = models.CharField(blank=True, max_length=30)

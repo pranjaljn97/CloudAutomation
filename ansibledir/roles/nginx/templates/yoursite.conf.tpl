@@ -1,8 +1,6 @@
 server {
-    server_name {{ user.project_name }}_{{ user.application_name }}.tothenew.tk;
-    access_log /home/{{ user.project_name }}/logs/access.log;
-    error_log /home/{{ user.project_name }}/logs/error.log;
+    server_name {{ user.project_name }}-{{ user.application_name }}.tothenew.tk;
     location / {
-        proxy_pass localhost:{{ nginx_php.ports }};
+        proxy_pass http://localhost:{{ nginx_php.ports }};
     }
 }
