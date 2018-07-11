@@ -68,7 +68,7 @@ def makeenvfile(myid):
                                 'volumes': {
                                     
                                 },
-                                'ports': '3306'
+                                'ports': '3308'
                                 },
                            
                 "mongodb": { 'enable': True,
@@ -80,7 +80,7 @@ def makeenvfile(myid):
                                 'volumes': {
                                     
                                 },
-                                'ports': '27017'
+                                'ports': '27019'
                             },
                             
          		'varnish' : {
