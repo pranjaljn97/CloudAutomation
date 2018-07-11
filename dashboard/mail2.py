@@ -1,4 +1,5 @@
 from .models import RequestForm
+from .models import Project
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
@@ -14,9 +15,10 @@ import json
 
 def fmail(request,id,posts,jsonfile):
 
-    
+    post = Project.objects.get(pk=id)
+    requestermail =  post.requester
     from_email = settings.EMAIL_HOST_USER
-    to_list = [settings.ADMIN_MAIL,request.user.email]
+    to_list = [settings.ADMIN_MAIL,request.user.email, requestermail]
     c = {'uname':posts.requester,
                 'projectname':posts.project_name,
                 'appname':posts.application_name,

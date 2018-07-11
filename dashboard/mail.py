@@ -36,8 +36,10 @@ def sendmail(request,form,stat):
 
         if stat == "reject":
     #message = "Your form has been submitted \n Please verify your details:" + "Project Name:" + projectname
+		post = Project.objects.get(pk=form)
+    		requestermail =  post.requester
                 from_email = settings.EMAIL_HOST_USER
-                to_list = [settings.ADMIN_MAIL,request.user.email]
+                to_list = [settings.ADMIN_MAIL,request.user.email, requestermail]
                 connection = MySQLdb.connect (host = os.environ['DB_HOST'], user = os.environ['DB_USER'], passwd = os.environ['DB_PASSWORD'], db = os.environ['DB_NAME'])
                 cursor = connection.cursor ()
                 cursor.execute ("select *  from dashboard_project where id = %s",form)
