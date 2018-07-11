@@ -13,6 +13,25 @@ class Ports(models.Model):
     port = models.CharField(blank=True, max_length=30)
     status = models.CharField(blank=True, max_length=30)
     projectname = models.CharField(blank=True, max_length=30)
+    ptype = models.CharField(blank=True, max_length=30)
+
+class runningstack(models.Model):
+    id = models.AutoField(primary_key=True)
+    projectname = models.CharField(blank=True, max_length=50)
+    status = models.CharField(blank=True, max_length=50)
+    url = models.CharField(blank=True, max_length=50)
+    urlStatus = models.CharField(blank=True, max_length=50)
+    hostIp = models.CharField(blank=True, max_length=50)
+    hostStatus = models.CharField(blank=True, max_length=50)
+    nginxport = models.CharField(blank=True, max_length=50)
+    varnishport = models.CharField(blank=True, max_length=50)
+    mysqluname = models.CharField(blank=True, max_length=50)
+    mysqlupwd = models.CharField(blank=True, max_length=50)
+    mysqlstatus = models.CharField(blank=True, max_length=50)
+    mongouname = models.CharField(blank=True, max_length=50)
+    mongoupwd = models.CharField(blank=True, max_length=50)
+    mongostatus = models.CharField(blank=True, max_length=50)
+
 
 class Host(models.Model):
         id = models.AutoField(primary_key=True)
