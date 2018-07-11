@@ -41,13 +41,8 @@ def sendmail(request,form,stat):
                 from_email = 'S2P Team <'+settings.EMAIL_HOST_USER+'>'
                 to_list = [settings.ADMIN_MAIL,request.user.email, requestermail]
                 
-                destpath = settings.ENVFILE_PATH
-                print destpath
-
-                try:
-                        to_unicode = unicode
-                except NameError:
-                        to_unicode = str
+               
+           
             
                 c = {'uname': post.requester,
                         'projectname': post.project_name ,
