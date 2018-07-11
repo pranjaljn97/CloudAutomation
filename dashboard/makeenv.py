@@ -64,7 +64,8 @@ def makeenvfile(myid):
                                 'MYSQL_PASSWORD': post.MYSQL_PASSWORD_VALUE,            
                                 
                                 'MYSQL_ROOT_PASSWORD': post.MYSQL_ROOT_PASSWORD_VALUE,
-			                    'MYSQL_USER': post.MYSQL_USER_NAME_VALUE},
+			                    'MYSQL_USER': post.MYSQL_USER_NAME_VALUE,
+				},
                                 'volumes': {
                                     
                                 },
@@ -76,7 +77,8 @@ def makeenvfile(myid):
 			                    'MONGO_INITDB_DATABASE': post.MONGO_INITDB_DATABASE_VALUE,
        			                'MONGO_INITDB_ROOT_USERNAME': post.MONGO_INITDB_ROOT_USERNAME_VALUE,
         		                'MONGO_INITDB_ROOT_PASSWORD': post.MONGO_INITDB_ROOT_PASSWORD_VALUE,
-			                    'mongo_version': post.mongo_version},
+			                    'mongo_version': post.mongo_version,
+				},
                                 'volumes': {
                                     
                                 },

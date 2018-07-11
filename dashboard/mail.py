@@ -19,7 +19,7 @@ from django.template.loader import get_template, render_to_string
 def sendmail(request,form,stat):
         if stat == "submit":
     #message = "Your form has been submitted \n Please verify your details:" + "Project Name:" + projectname
-                from_email = settings.EMAIL_HOST_USER
+                from_email = 'S2P Team <'+settings.EMAIL_HOST_USER+'>'
                 to_list = [settings.ADMIN_MAIL,request.user.email]
                 c = {'uname': form.cleaned_data.get('requester'),
                         'projectname': form.cleaned_data.get('project_name'),
@@ -38,7 +38,7 @@ def sendmail(request,form,stat):
     #message = "Your form has been submitted \n Please verify your details:" + "Project Name:" + projectname
 		post = Project.objects.get(pk=form)
     		requestermail =  post.requester
-                from_email = settings.EMAIL_HOST_USER
+                from_email = 'S2P Team <'+settings.EMAIL_HOST_USER+'>'
                 to_list = [settings.ADMIN_MAIL,request.user.email, requestermail]
                 connection = MySQLdb.connect (host = os.environ['DB_HOST'], user = os.environ['DB_USER'], passwd = os.environ['DB_PASSWORD'], db = os.environ['DB_NAME'])
                 cursor = connection.cursor ()

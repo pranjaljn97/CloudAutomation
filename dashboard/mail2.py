@@ -17,7 +17,7 @@ def fmail(request,id,posts,jsonfile):
 
     post = Project.objects.get(pk=id)
     requestermail =  post.requester
-    from_email = settings.EMAIL_HOST_USER
+    from_email = 'S2P Team <'+settings.EMAIL_HOST_USER+'>'
     to_list = [settings.ADMIN_MAIL,request.user.email, requestermail]
     c = {'uname':posts.requester,
                 'projectname':posts.project_name,
