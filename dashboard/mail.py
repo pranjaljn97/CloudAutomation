@@ -60,5 +60,4 @@ def sendmail(request,form,stat):
                 text_msg = "Request Recieved"
                 send_mail(subject, text_msg, from_email, to_list, fail_silently=False, html_message=html_content
                         )
-                cursor.close ()
-                connection.close ()
+               
