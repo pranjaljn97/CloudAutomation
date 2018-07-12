@@ -23,6 +23,7 @@ from dashboard.mail2 import fmail
 from dashboard.buildinfo import buildinfo
 from dashboard.mail2 import fmail
 from dashboard.boto import add_cname_record
+from dashboard.boto import add_host_record
 from dashboard.rstackpy import rstack
 from dashboard.runplaybook import execplaybook
 from dashboard.makehostentry import hostentry
@@ -57,9 +58,14 @@ def cprovider(request):
         hosts = Host.objects.all()
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
 
+
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def hostadded(request, id):
     hostentry(id)
+    currpost = Host.objects.get(id=id)
+    name = currpost.hostIdentifier
+    ip = currpost.hostIp
+    add_host_record(name,ip)
     hosts = Host.objects.all()
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
     
