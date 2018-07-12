@@ -18,39 +18,47 @@ def makeenvfile(myid):
     curr = Project.objects.get(pk=myid)
     pname = curr.project_name
     
-    statusn = False
-    randomport = random.randint(9000,10000)
-    while(statusn == False):
-        allports = Ports.objects.all()
-        for oneport in allports:
-            if(oneport.port == str(randomport)):
-                statusn = True
+
+    obj = Ports.objects.all().filter(projectname=pname).filter(ptype='nginx')
+    if len(obj) == 0:
+                statusn = False
                 randomport = random.randint(9000,10000)
-        if(statusn == False):
-            nginxport = randomport
-            newport = Ports(port = nginxport, status = '0', projectname = pname)
-            newport.save()
-            break
+                while(statusn == False):
+                    allports = Ports.objects.all()
+                    for oneport in allports:
+                        if(oneport.port == str(randomport)):
+                            statusn = True
+                            randomport = random.randint(9000,10000)
+                    if(statusn == False):
+                        nginxport = randomport
+                        newport = Ports(port = nginxport, status = '0', projectname = pname, ptype = 'nginx')
+                        newport.save()
+                        break
 
-    statusmy = False
-    randomport = random.randint(8000,8999)
-    while(statusmy == False):
-        allports = Ports.objects.all()
-        for oneport in allports:
-            if(oneport.port == str(randomport)):
-                statusmy = True
+                statusmy = False
                 randomport = random.randint(8000,8999)
-        if(statusmy == False):
-            varnishport = randomport
-            newport = Ports(port = varnishport, status = '0', projectname = pname)
-            newport.save()
-            break
-    
-    
+                while(statusmy == False):
+                    allports = Ports.objects.all()
+                    for oneport in allports:
+                        if(oneport.port == str(randomport)):
+                            statusmy = True
+                            randomport = random.randint(8000,8999)
+                    if(statusmy == False):
+                        varnishport = randomport
+                        newport = Ports(port = varnishport, status = '0', projectname = pname, ptype = 'varnish')
+                        newport.save()
+                        break
+    else:
+        for o1 in obj:
+                print(o1.port)
+                nginxport = o1.port
+                print("hello2")
+                obj2 = Ports.objects.all().filter(projectname=pname).filter(ptype='varnish')
+                for o2 in obj2:
+                    print("hello3")
+                    varnishport = o2.port
 
-
-
-  
+      
     currpost = Project.objects.get(pk=myid)
     projectname = currpost.project_name
     appname = currpost.application_name
@@ -71,6 +79,7 @@ def makeenvfile(myid):
                         'USERNAME': post.requester,
                         'project_name': post.project_name,
                         'application_name': post.application_name,
+                        'repo_type': post.repo_type,
                         'GITHUB_URL': post.git_url,
                         'GITHUB_USERNAME': post.git_username,
                         'GITHUB_TOKEN': post.git_token,

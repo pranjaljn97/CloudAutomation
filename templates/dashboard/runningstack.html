@@ -3,6 +3,30 @@
 <!doctype html>
 <html lang="en">
 <head>
+            <style>
+                    #customers {
+                        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                        border-collapse: collapse;
+                        width: 100%;
+                    }
+                    
+                    #customers td, #customers th {
+                        border: 1px solid #ddd;
+                        padding: 8px;
+                    }
+                    
+                    #customers tr:nth-child(even){background-color: #f2f2f2;}
+                    
+                    #customers tr:hover {background-color: #ddd;}
+                    
+                    #customers th {
+                        padding-top: 12px;
+                        padding-bottom: 12px;
+                        text-align: left;
+                        background-color: rgb(151, 134, 211);
+                        color: white;
+                    }
+                    </style>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -62,7 +86,7 @@
                     </a>
                 </li>
 		  <li>
-                    <a href="{% url "dashboard" %}">
+                    <a href="{% url "submitted" user.email %}">
                         <i class="pe-7s-note2"></i>
                         <p>Submitted</p>
                     </a>
@@ -86,9 +110,9 @@
                                 <p>Rejected</p>
                             </a>
                         </li>
-            <li>
+             <li>
                                 <a href="{% url "rstackview" %}">
-                                    <i class="pe-7s-graph"></i>
+                                    <i class="pe-7s-note2"></i>
                                     <p>Running Stacks</p>
                                 </a>
                             </li>
@@ -234,45 +258,47 @@
                 </div>
             </div>
         </nav>
+
         <div class="content">
-            <div class="container-fluid">
-                {% block content %}{% endblock %}
-   
-            </div>
-        </div>
+                <table id="customers">
+                        <tr>
+                          <th>Project Name</th>
+                          <th>Status</th>
+                          <th>Url</th>
+                          <th>Url Status</th>
+                          <th>Host Ip</th>
+                          <th>Host Status</th>
+                          <th>Nginx Port</th>
+                          <th>Varnish POrt</th>
+                          <th>Mysql Username</th>
+                          <th>Mysql Password</th>
+                          <th>Mysql Status</th>
+                          <th>Mongo Username</th>
+                          <th>Mongo Password</th>
+                          <th>Mongo Status</th>
+                        </tr>
+                        {% for post in posts %}
+                        <tr>
+                          <td>{{ post.projectname }}</td>
+                          <td>{{ post.status }}</td>
+                          <td>{{ post.url }}</td>
+                          <td>{{ post.urlStatus }}</td>
+                          <td>{{ post.hostIp }}</td>
+                          <td>{{ post.hostStatus }}</td>
+                          <td>{{ post.nginxport }}</td>
+                          <td>{{ post.varnishport }}</td>
+                          <td>{{ post.mysqluname }}</td>
+                          <td>{{ post.mysqlupwd }}</td>
+                          <td>{{ post.mysqlstatus }}</td>
+                          <td>{{ post.mongouname }}</td>
+                          <td>{{ post.mongoupwd }}</td>
+                          <td>{{ post.mongostatus }}</td>
+                        </tr>
+                        {% endfor %}
+                      </table>
+                      </div>
 
 
-        <!--<footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                </p>
-            </div>
-        </footer>-->
     </div>
 </div>
 

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
 from .models import RequestForm
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -13,6 +14,7 @@ from django.utils import timezone
 from django.shortcuts import render
 from django.template import Context
 from .models import Project, Host
+from .models import runningstack
 from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 from dashboard.makeenv import makeenvfile
@@ -21,6 +23,7 @@ from dashboard.mail2 import fmail
 from dashboard.buildinfo import buildinfo
 from dashboard.mail2 import fmail
 from dashboard.boto import add_cname_record
+from dashboard.rstackpy import rstack
 from dashboard.runplaybook import execplaybook
 from dashboard.makehostentry import hostentry
 import datetime
@@ -42,6 +45,7 @@ def thanks(request):
     return render(request, "dashboard/thanks.html")
 
 @login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def cprovider(request):
     if request.method == 'POST':
         form = HostForm(request.POST)
@@ -53,6 +57,7 @@ def cprovider(request):
         hosts = Host.objects.all()
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
 
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def hostadded(request, id):
     hostentry(id)
     hosts = Host.objects.all()
@@ -69,6 +74,7 @@ def userdata(request):
 
 
 @login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def forapproval(request):
 #   today = datetime.datetime.now().date()
      uname = request.user.get_username()
@@ -77,12 +83,28 @@ def forapproval(request):
      return render(request, "dashboard/forapproval.html", {'posts': posts, 'hostInfo': hostInfo })
 
 @login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def approved(request):
 #   today = datetime.datetime.now().date()
      uname = request.user.get_username()
      posts = Project.objects.all()
      return render(request, "dashboard/approved.html", {'posts': posts })
+
 @login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def rstackview(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts2 = Project.objects.all().filter(status='Approved')
+     rstack(posts2)
+     posts = runningstack.objects.all()
+     return render(request, "dashboard/runningstack.html", {'posts': posts })
+
+
+
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def rejected(request):
 #   today = datetime.datetime.now().date()
      uname = request.user.get_username()
@@ -90,7 +112,7 @@ def rejected(request):
      return render(request, "dashboard/rejected.html", {'posts': posts })
 
 
-
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def approvedsuccessfully(request, id):
     
     currpost = Project.objects.get(id=id)
@@ -105,7 +127,7 @@ def approvedsuccessfully(request, id):
 
     print("hi")
    # try:
-    execplaybook(id)
+    #execplaybook(id)
    # except:
     #    msg = "Error in executing  Ansible Playbook"
      #   return render(request, "dashboard/error.html", {'msg': msg })
@@ -115,31 +137,26 @@ def approvedsuccessfully(request, id):
     appname = currpost.application_name
     hostip = currpost.hostIp
    # try:
-    buildinfo(request,id,jsonfile,hostip)
+    #buildinfo(request,id,jsonfile,hostip)
    # except:
     #    msg = "Error in fetching final status"
      #   return render(request, "dashboard/error.html", {'msg': msg })
   
    # try:
-    add_cname_record(request,id,jsonfile,appname,hostip)
+    #add_cname_record(request,id,jsonfile,appname,hostip)
     
 #    except:
        # msg = "Error in adding A record in AWS Route53"
        # return render(request, "dashboard/error.html", {'msg': msg })
-  
-   
-   
-   
-    
     
     currpost.status = 'Approved'
     currpost.save()
-  
-    fmail(request,id,currpost,jsonfile)
+   
+    #fmail(request,id,currpost,jsonfile)
 
     return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
 
-
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def rejectedsuccessfully(request, id):
     
     currpost = Project.objects.get(id=id)
