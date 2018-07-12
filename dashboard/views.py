@@ -66,8 +66,9 @@ def hostadded(request, id):
     name = currpost.hostIdentifier
     ip = currpost.hostIp
     add_host_record(name,ip)
-    hosts = Host.objects.all()
-    return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
+    posts = Host.objects.get(pk=id)
+    return render(request, "dashboard/hostdetailform.html", {'posts': posts })
+    
     
 
 @login_required(login_url='/login/')
@@ -182,6 +183,14 @@ def detailform(request,id):
      uname = request.user.get_username()
      posts = Project.objects.get(pk=id)
      return render(request, "dashboard/detailform.html", {'posts': posts })
+
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+@login_required(login_url='/login/')
+def hostdetailform(request,id):
+#   today = datetime.datetime.now().date()
+     
+     posts = Host.objects.get(pk=id)
+     return render(request, "dashboard/hostdetailform.html", {'posts': posts })
 
 @login_required(login_url='/login/')
 def submitted(request,requester):
