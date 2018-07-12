@@ -95,8 +95,9 @@ def approved(request):
 def rstackview(request):
 #   today = datetime.datetime.now().date()
      uname = request.user.get_username()
-     posts = Project.objects.all().filter(status='Approved')
-     rstack(posts)
+     posts2 = Project.objects.all().filter(status='Approved')
+     rstack(posts2)
+     posts = runningstack.objects.all()
      return render(request, "dashboard/runningstack.html", {'posts': posts })
 
 
@@ -150,9 +151,7 @@ def approvedsuccessfully(request, id):
     
     currpost.status = 'Approved'
     currpost.save()
-    host = runningstack(projectname=jsonfile)
-    host.save()
-  
+   
     #fmail(request,id,currpost,jsonfile)
 
     return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
