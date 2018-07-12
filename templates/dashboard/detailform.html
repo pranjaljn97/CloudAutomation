@@ -451,6 +451,7 @@
                 </div>
             </div>
             <div class="row">
+                <center>
                 {% if perms.login.view_content %}
 
                 {% if posts.status == 'Rejected' %}
@@ -479,6 +480,7 @@
                     <button class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">Re-Run</button>
                 </div>
                 {% endif %}
+                </center>
 
 
 

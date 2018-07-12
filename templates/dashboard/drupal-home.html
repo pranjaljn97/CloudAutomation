@@ -7,10 +7,17 @@
                         var dvPassport = document.getElementById("dvPassport");
                         dvPassport.style.display = ddlPassport.value == "private" ? "block" : "none";
                     }
+                    function ShowHideDiv2() {
+                        var filepass = document.getElementById("filepass");
+                        var fileopt = document.getElementById("fileopt");
+                        fileopt.style.display = filepass.value == 'yes' ? "block" : "none";
+                        
+
+                    }
                   </script>
                   <div class="content">
                   
-                      <form id="regForm" action="." method="POST">
+                      <form id="regForm" action="." method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                           <!-- One "tab" for each step in the form: -->
                           <h2>PHP Application Stack</h2>
@@ -152,12 +159,24 @@
                                         </option>
                                         <option value="7.2">7.2
                                         </option>
-				         <option value="NA">
+				                           <option value="NA">
                                             NA
                                           </option>
 
                                       </select>
-                                    </div>
+                                      </div>
+                                   
+                                        <label>Upload an Env File &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                          <select id = "filepass" name="fileopp" onchange = "ShowHideDiv2()">
+                                              <option value="no">No</option>
+                                              <option value="yes">Yes</option>  
+                                          </select>
+                                    
+                                      <div id="fileopt" style="display: none">
+                                      <input type = "file" placeholder = "document" name = "document" accept=".json"/>
+                                      </div>
+                                      
+                                   
                                   </div>
                                   
                                 </div>
@@ -173,44 +192,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <!--
-                                <div class="row">
-                                  <span style="color: red">{{form.project_name.errors}}
-                                  </span>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label>Key #1
-                                      </label>
-                                      <input type="text" class="form-control"   value="NGINX_BACKEND_HOST" name='NGINX_BACKEND_HOST' disabled>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label>Value #1
-                                      </label>
-                                      <input type="text" class="form-control" name="NGINX_BACKEND_HOST_VALUE" value='9000'>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <span style="color: red">{{form.project_name.errors}}
-                                  </span>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label>Key #2
-                                      </label>
-                                      <input type="text" class="form-control"   value="NGINX_SERVER_NAME" name='NGINX_SERVER_NAME' disabled>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label>Value #2
-                                      </label>
-                                      <input type="text" class="form-control" name='NGINX_SERVER_NAME_VALUE' value='drupal'>
-                                    </div>
-                                  </div>
-                                </div>
-                              -->
+                               
                                 <div class="row">
                                   <span style="color: red">{{form.project_name.errors}}
                                   </span>

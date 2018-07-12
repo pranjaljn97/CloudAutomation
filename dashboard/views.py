@@ -218,7 +218,7 @@ def drupalform(request):
     hostInfo = Host.objects.all()  
     
     if request.method == 'POST':
-        form = RequestForm(request.POST)
+        form = RequestForm(request.POST, request.FILES)
         if form.is_valid():
 
             form.save()
