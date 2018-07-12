@@ -77,7 +77,7 @@ class Project(models.Model):
         PHP_VERSION = models.CharField(blank=True,max_length=256)
         PHP_MODULES = models.CharField(blank=True,max_length=256)
         fileopp = models.CharField(blank=True,max_length=30)
-        document = models.FileField(upload_to='documents/')
+        document = models.FileField(upload_to='documents/',blank=True)
         # NGINX_BACKEND_HOST_VALUE = models.CharField(blank=True,max_length=500)
         # NGINX_SERVER_NAME_VALUE = models.CharField( blank=True,max_length=500)
         NGINX_SERVER_ROOT_VALUE = models.CharField( blank=True,max_length=500)

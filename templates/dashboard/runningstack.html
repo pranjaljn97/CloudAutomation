@@ -260,42 +260,56 @@
         </nav>
 
         <div class="content">
-                <table id="customers">
-                        <tr>
-                          <th>Project Name</th>
-                          <th>Status</th>
-                          <th>Url</th>
-                          <th>Url Status</th>
-                          <th>Host Ip</th>
-                          <th>Host Status</th>
-                          <th>Nginx Port</th>
-                          <th>Varnish POrt</th>
-                          <th>Mysql Username</th>
-                          <th>Mysql Password</th>
-                          <th>Mysql Status</th>
-                          <th>Mongo Username</th>
-                          <th>Mongo Password</th>
-                          <th>Mongo Status</th>
-                        </tr>
-                        {% for post in posts %}
-                        <tr>
-                          <td>{{ post.projectname }}</td>
-                          <td>{{ post.status }}</td>
-                          <td>{{ post.url }}</td>
-                          <td>{{ post.urlStatus }}</td>
-                          <td>{{ post.hostIp }}</td>
-                          <td>{{ post.hostStatus }}</td>
-                          <td>{{ post.nginxport }}</td>
-                          <td>{{ post.varnishport }}</td>
-                          <td>{{ post.mysqluname }}</td>
-                          <td>{{ post.mysqlupwd }}</td>
-                          <td>{{ post.mysqlstatus }}</td>
-                          <td>{{ post.mongouname }}</td>
-                          <td>{{ post.mongoupwd }}</td>
-                          <td>{{ post.mongostatus }}</td>
-                        </tr>
+                {% for post in posts %}
+                <div class="card">
+                        <div class="header">
+                            <h4 class="title"></h4>
+                            <p class="category">Basic Details</p>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                        <th>Project Name</th>
+                                        <th>Status</th>
+                                        <th>Url</th>
+                                        <th>Url Status</th>
+                                        <th>Host Ip</th>
+                                        <th>Host Status</th>
+                                        <th>Nginx Port</th>
+                                        <th>Varnish POrt</th>
+                                        <th>Mysql Username</th>
+                                        <th>Mysql Password</th>
+                                        <th>Mysql Status</th>
+                                        <th>Mongo Username</th>
+                                        <th>Mongo Password</th>
+                                        <th>Mongo Status</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                            <td>{{ post.projectname }}</td>
+                                            <td>{{ post.status }}</td>
+                                            <td>{{ post.url }}</td>
+                                            <td>{{ post.urlStatus }}</td>
+                                            <td>{{ post.hostIp }}</td>
+                                            <td>{{ post.hostStatus }}</td>
+                                            <td>{{ post.nginxport }}</td>
+                                            <td>{{ post.varnishport }}</td>
+                                            <td>{{ post.mysqluname }}</td>
+                                            <td>{{ post.mysqlupwd }}</td>
+                                            <td>{{ post.mysqlstatus }}</td>
+                                            <td>{{ post.mongouname }}</td>
+                                            <td>{{ post.mongoupwd }}</td>
+                                            <td>{{ post.mongostatus }}</td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+      
                         {% endfor %}
-                      </table>
+                     
                       </div>
 
 
