@@ -154,7 +154,7 @@ def approvedsuccessfully(request, id):
 #    except:
        # msg = "Error in adding A record in AWS Route53"
        # return render(request, "dashboard/error.html", {'msg': msg })
-    
+    currpost.approvedBy = request.user.email
     currpost.status = 'Approved'
     currpost.save()
    

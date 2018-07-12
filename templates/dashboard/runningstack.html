@@ -263,9 +263,10 @@
                 {% for post in posts %}
                 <div class="card">
                         <div class="header">
-                            <h4 class="title"></h4>
-                            <p class="category">Basic Details</p>
-                        </div>
+                                <h4 class="title"></h4>
+                                <p class="category">Approved by : {{ post.approvedBy }}</p>
+                            </div>
+                       
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover table-striped">
                                 <thead>
@@ -306,10 +307,11 @@
                             </table>
 
                         </div>
+                 
                     </div>
-      
                         {% endfor %}
                      
+                   
                       </div>
 
 

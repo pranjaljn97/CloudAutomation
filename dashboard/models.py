@@ -31,6 +31,7 @@ class runningstack(models.Model):
     mongouname = models.CharField(blank=True, max_length=50)
     mongoupwd = models.CharField(blank=True, max_length=50)
     mongostatus = models.CharField(blank=True, max_length=50)
+    approvedBy = models.CharField(blank=True,max_length=256)
 
 
 class Host(models.Model):
@@ -71,6 +72,7 @@ class Project(models.Model):
         git_username = models.CharField(blank=True,max_length=256)
         git_branch = models.CharField(blank=True,max_length=256)
         status = models.CharField(default='submitted', max_length=30)
+        approvedBy = models.CharField(blank=True,max_length=256)
 
         #=================step 2(php-nginx details)========================================
         UBUNTU_VERSION = models.CharField(blank=True,max_length=256)

@@ -71,6 +71,7 @@ def rstack(posts):
    
         projname = post.project_name
         appname = post.application_name
+        approvedBy = post.approvedBy
 
         url = projname +'-'+ appname +'.tothenew.tk'
         urlstatus = checkUrlStatus(url)
@@ -94,6 +95,7 @@ def rstack(posts):
         currpost.urlStatus = urlstatus
         currpost.hostIp = post.hostIp
         currpost.hostStatus = hstatus
+        currpost.approvedBy = approvedBy
         currpost.nginxport = nginxport
         currpost.varnishport = varnishport
         currpost.mysqluname = mysqluname
