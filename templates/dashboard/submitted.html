@@ -1,53 +1,120 @@
+
 {% extends "dashboard/sidebar.html" %}
 
 {% block content %}
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+
+
+                    
                     {% for post in posts %}
-                    <div class="col-md-4" style="cursor: pointer;">
-                        <div class="card">
+                    {% if post.status == 'Approved' %}
+                    <div class="col-md-4" style="cursor: pointer" onclick="window.location='{% url "detailform" post.id %}';">
+
+                        
+                        <div class="card" style="cursor: pointer; background-color:lightgreen;">
                             <div class="header">
+                                <br>
                                 <h5 class="title"><b>Requester: {{ post.requester }}</b></h5>
                                     <br>
                                     
+
+
                                     <p class="category"></p>
                                     <br>
                                     <i class="fa fa-circle text-info"></i> Project Name: {{ post.project_name }} <br>
                                     <i class="fa fa-circle text-info"></i> Application Name: {{ post.application_name }}<br>
                                     <i class="fa fa-circle text-info"></i> Host IP: {{ post.hostIp }}<br>
                                     <i class="fa fa-circle text-info"></i> Application Status: {{ post.status }}<br>
-
                                     <br>
                                     
 
-                                    <center>
-                                    <input type="submit" id="detailsbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';" name="detailtbtn">
-                                    {% if post.status == 'Approved' %}
-                                    <input type="submit" id="rerun" value="Stack Rerun" onclick="window.location='{% url "rerun" post.id %}';" name="reruntbtn">
                                     <br>
-                                    {% endif %}
-                                    </center>
 
-                            
-
+                                    <!-- <center>
+                                    
+                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "approvedsuccessfully" post.id %}';" name="approvebtn">
+                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "rejectedsuccessfully" post.id %}';" name="rejectbtn">
+                                    <input type="submit" id="detailsbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';" name="rejectbtn">
+                                    <br>
+                                    </center> -->
                             </div>
-                            <!--<div class="content">
-                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Requested
-                                        <i class="fa fa-circle text-danger"></i> Pending
-                                        <i class="fa fa-circle text-warning"></i> Rejected
-                                    </div
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-clock-o"></i> {{ user.username }}
-                                    </div>
-                                </div>
-                            </div>-->
+                            
                         </div>
                     </div>
+                 
+
+                    {% elif post.status == 'Rejected' %}
+                    <div class="col-md-4" style="cursor: pointer" onclick="window.location='{% url "detailform" post.id %}';">
+
+                        
+                        <div class="card" style="cursor: pointer; background-color:lightcoral;">
+                            <div class="header">
+                                <br>
+                                <h5 class="title"><b>Requester: {{ post.requester }}</b></h5>
+                                    <br>
+                                    
+
+
+                                    <p class="category"></p>
+                                    <br>
+                                    <i class="fa fa-circle text-info"></i> Project Name: {{ post.project_name }} <br>
+                                    <i class="fa fa-circle text-info"></i> Application Name: {{ post.application_name }}<br>
+                                    <i class="fa fa-circle text-info"></i> Host IP: {{ post.hostIp }}<br>
+                                    <i class="fa fa-circle text-info"></i> Application Status: {{ post.status }}<br>
+                                    <br>
+                                    
+
+                                    <br>
+
+                                    <!-- <center>
+                                    
+                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "approvedsuccessfully" post.id %}';" name="approvebtn">
+                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "rejectedsuccessfully" post.id %}';" name="rejectbtn">
+                                    <input type="submit" id="detailsbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';" name="rejectbtn"> -->
+                                    
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    {% elif post.status == 'submitted' %}
+                    <div class="col-md-4" style="cursor: pointer" onclick="window.location='{% url "detailform" post.id %}';">
+
+                        
+                        <div class="card" style="cursor: pointer; ">
+                            <div class="header">
+                                <br>
+                                <h5 class="title"><b>Requester: {{ post.requester }}</b></h5>
+                                    <br>
+                                    
+
+
+                                    <p class="category"></p>
+                                    <br>
+                                    <i class="fa fa-circle text-info"></i> Project Name: {{ post.project_name }} <br>
+                                    <i class="fa fa-circle text-info"></i> Application Name: {{ post.application_name }}<br>
+                                    <i class="fa fa-circle text-info"></i> Host IP: {{ post.hostIp }}<br>
+                                    <i class="fa fa-circle text-info"></i> Application Status: {{ post.status }}<br>
+                                    <br>
+                                    
+
+                                    <br>
+
+                                    <!-- <center>
+                                    
+                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "approvedsuccessfully" post.id %}';" name="approvebtn">
+                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "rejectedsuccessfully" post.id %}';" name="rejectbtn">
+                                    <input type="submit" id="detailsbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';" name="rejectbtn">
+                                    <br>
+                                    </center> -->
+                            </div>
+                            
+                        </div>
+                    </div>
+                    {% else %}
+                    {% endif %}
                     {% endfor %}
 
 

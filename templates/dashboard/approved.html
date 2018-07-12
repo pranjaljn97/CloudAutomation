@@ -9,7 +9,7 @@
                     
                     {% for post in posts %}
                         {% if post.status == 'Approved' %}
-                            <div class="col-md-4" style="cursor: pointer;">
+                            <div class="col-md-4" style="cursor: pointer;" onclick="window.location='{% url "detailform" post.id %}';">
                                 <div class="card">
                                     <div class="header">
                                         <h5 class="title"><b>Requester: {{ post.requester }}</b></h5>
@@ -26,7 +26,7 @@
                                             <br><br>
                                             <center>
                         
-                                            <input type="submit" id="detailbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';">
+                                            <!-- <input type="submit" id="detailbtn" value="Details" onclick="window.location='{% url "detailform" post.id %}';"> -->
                                             
                                             </center>
                                            
