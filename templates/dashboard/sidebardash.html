@@ -61,52 +61,21 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-		  <li>
-                    <a href="{% url "submitted" user.email %}">
+                <li>
+                    <a href="{% url "drupalform" %}">
                         <i class="pe-7s-note2"></i>
-                        <p>Submitted</p>
+                        <p>Php Stack</p>
                     </a>
                 </li>
-		{% if perms.login.view_content %}
-		  <li>
-                    <a href="{% url "forapproval" %}">
+
+                <li>
+                    <a href="{% url "userprofile" %}">
                         <i class="pe-7s-user"></i>
-                        <p>For Approval</p>
+                        <p>User Profile</p>
                     </a>
                 </li>
-            <li>
-                        <a href="{% url "approved" %}">
-                            <i class="pe-7s-note2"></i>
-                            <p>Approved</p>
-                        </a>
-                    </li>
-           <li>
-                            <a href="{% url "rejected" %}">
-                                <i class="pe-7s-graph"></i>
-                                <p>Rejected</p>
-                            </a>
-                        </li>
-             <li>
-                                <a href="{% url "rstackview" %}">
-                                    <i class="pe-7s-note2"></i>
-                                    <p>Running Stacks</p>
-                                </a>
-                            </li>
-		{% endif %}
-
-                <li>
-
-                <li>
                 
-                {% if perms.login.view_content %}
-                <li>
-                    <a href="{% url "cprovider" %}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Cloud Provider</p>
-                    </a>
-                </li>
-                {% endif %}
-
+                
                 
 
                 <!--<li>

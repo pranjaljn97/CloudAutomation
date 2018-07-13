@@ -4,3 +4,15 @@
     name: docker
     state: started
     enabled: yes
+
+- name: reload systemd
+  become: true
+  command: systemctl daemon-reload    
+
+
+- name: Restart service docker
+  become: true
+  service:
+    name: docker
+    state: restarted
+

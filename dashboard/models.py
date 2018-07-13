@@ -31,6 +31,7 @@ class runningstack(models.Model):
     mongouname = models.CharField(blank=True, max_length=50)
     mongoupwd = models.CharField(blank=True, max_length=50)
     mongostatus = models.CharField(blank=True, max_length=50)
+    approvedBy = models.CharField(blank=True,max_length=256)
 
 class status(models.Model):
     id = models.AutoField(primary_key=True)
@@ -52,6 +53,12 @@ class Host(models.Model):
         hostUsername = models.CharField(blank=True,max_length=30)
         hostPassword = models.CharField(blank=True,max_length=30)
         status = models.CharField(default='initiated', max_length=30)
+        hostDocker = models.CharField(blank=True,max_length=30)
+        hostNginx = models.CharField(blank=True,max_length=30)
+        hostMysql = models.CharField(blank=True,max_length=30)
+        hostMongo = models.CharField(blank=True,max_length=30)
+        mysqlUsername = models.CharField(blank=True,max_length=50)
+        mysqlPassword = models.CharField(blank=True,max_length=50)
         class Meta:
                 permissions = (
                     ('view_content', 'View content'),
@@ -60,7 +67,7 @@ class Host(models.Model):
 class HostForm(ModelForm):
     class Meta:
         model = Host
-        fields = ['hostIdentifier','hostIp','hostUsername','hostPassword']
+        fields = ['hostIdentifier','hostIp','hostUsername','hostPassword','hostDocker','hostNginx','hostMysql','hostMongo','mysqlUsername','mysqlPassword',]
 
 class Project(models.Model):
         
@@ -83,11 +90,14 @@ class Project(models.Model):
         git_username = models.CharField(blank=True,max_length=256)
         git_branch = models.CharField(blank=True,max_length=256)
         status = models.CharField(default='submitted', max_length=30)
+        approvedBy = models.CharField(blank=True,max_length=256)
 
         #=================step 2(php-nginx details)========================================
         UBUNTU_VERSION = models.CharField(blank=True,max_length=256)
         PHP_VERSION = models.CharField(blank=True,max_length=256)
         PHP_MODULES = models.CharField(blank=True,max_length=256)
+        fileopp = models.CharField(blank=True,max_length=30)
+        document = models.FileField(upload_to='documents/',blank=True)
         # NGINX_BACKEND_HOST_VALUE = models.CharField(blank=True,max_length=500)
         # NGINX_SERVER_NAME_VALUE = models.CharField( blank=True,max_length=500)
         NGINX_SERVER_ROOT_VALUE = models.CharField( blank=True,max_length=500)
@@ -148,4 +158,4 @@ class RequestForm(ModelForm):
     class Meta:
         model = Project
         exclude = ['project_flag','pub_date',]
-        fields = ['requester','platform','envtype', 'project_name', 'application_name' ,'hostIp','repo_type', 'git_url','git_token','git_username','git_branch','UBUNTU_VERSION','PHP_VERSION','PHP_MODULES','NGINX_SERVER_ROOT_VALUE','NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE','NGINX_STATIC_CONTENT_EXPIRES_VALUE','key1','value1','key2','value2','key3','value3','key4','value4','key5','value5','mysql_version','MYSQL_DATABASE_NAME_VALUE','MYSQL_ROOT_PASSWORD_VALUE','MYSQL_USER_NAME_VALUE','MYSQL_PASSWORD_VALUE','MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE','MONGO_INITDB_ROOT_PASSWORD_VALUE','mongo_version','varnish_version','VARNISH_BACKEND_HOST_VALUE','VARNISH_BACKEND_PORT_VALUE','VARNISH_PORT_VALUE','redis_version','REDIS_PASSWORD_VALUE', ]
+        fields = ['requester','platform','envtype', 'project_name', 'application_name' ,'hostIp','repo_type', 'git_url','git_token','git_username','git_branch','UBUNTU_VERSION','PHP_VERSION','PHP_MODULES','document','NGINX_SERVER_ROOT_VALUE','NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE','NGINX_STATIC_CONTENT_EXPIRES_VALUE','key1','value1','key2','value2','key3','value3','key4','value4','key5','value5','mysql_version','MYSQL_DATABASE_NAME_VALUE','MYSQL_ROOT_PASSWORD_VALUE','MYSQL_USER_NAME_VALUE','MYSQL_PASSWORD_VALUE','MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE','MONGO_INITDB_ROOT_PASSWORD_VALUE','mongo_version','varnish_version','VARNISH_BACKEND_HOST_VALUE','VARNISH_BACKEND_PORT_VALUE','VARNISH_PORT_VALUE','redis_version','REDIS_PASSWORD_VALUE', ]

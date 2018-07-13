@@ -36,12 +36,14 @@
         <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
         <div class="sidebar-wrapper">
           <div class="logo">
-            <a href="{% url "userprofile" %}" class="simple-text">
-              UserProfile
-            </a>
-          </div>
+
+            <center>
+                    <h4> Hello Developer</h4>
+                 </center>
+
+            </div>
           <ul class="nav">
-            <li>
+            <li class="active">
               <a href="{% url "dashboard" %}">
                 <i class="pe-7s-graph">
                 </i>
@@ -49,16 +51,53 @@
                 </p>
               </a>
             </li>
-            <li class="active">
-              <a href="{% url "userprofile" %}">
-                <i class="pe-7s-user">
-                </i>
-                <p>User Profile
-                </p>
-              </a>
-            </li>
-          </ul>
-        </div>
+            <li>
+              <a href="{% url "submitted" user.email %}">
+                      <i class="pe-7s-note2"></i>
+                      <p>Submitted</p>
+                  </a>
+              </li>
+    {% if perms.login.view_content %}
+    <li>
+                  <a href="{% url "forapproval" %}">
+                      <i class="pe-7s-user"></i>
+                      <p>For Approval</p>
+                  </a>
+              </li>
+          <li>
+                      <a href="{% url "approved" %}">
+                          <i class="pe-7s-note2"></i>
+                          <p>Approved</p>
+                      </a>
+                  </li>
+        <li>
+                          <a href="{% url "rejected" %}">
+                              <i class="pe-7s-graph"></i>
+                              <p>Rejected</p>
+                          </a>
+                      </li>
+          <li>
+                              <a href="{% url "rstackview" %}">
+                                  <i class="pe-7s-note2"></i>
+                                  <p>Running Stacks</p>
+                              </a>
+                          </li>
+    {% endif %}
+
+              <li>
+
+              <li>
+              
+              {% if perms.login.view_content %}
+              <li>
+                  <a href="{% url "cprovider" %}">
+                      <i class="pe-7s-note2"></i>
+                      <p>Cloud Provider</p>
+                  </a>
+              </li>
+              {% endif %}
+              </ul>
+            </div>
       </div>
       <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">

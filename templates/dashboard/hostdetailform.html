@@ -94,9 +94,8 @@
                             </li>
 		{% endif %}
 
-                <li>
-
-                <li>
+             
+              
                 
 		{% if perms.login.view_content %}
                 <li>
@@ -109,6 +108,40 @@
                 {% endif %}
 
 
+                <!--<li>
+
+
+
+
+                    <a href="typography.html">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Typography</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="icons.html">
+                        <i class="pe-7s-science"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="maps.html">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notifications.html">
+                        <i class="pe-7s-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+				<li class="active-pro">
+                    <a href="upgrade.html">
+                        <i class="pe-7s-rocket"></i>
+                        <p>Upgrade to PRO</p>
+                    </a>
+                </li>-->
             </ul>
     	</div>
     </div>
@@ -202,210 +235,75 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title"></h4>
-                                <p class="category">Basic Details</p>
+                                <p class="category">DNS Entry- worker-{{ posts.hostIdentifier }}.tothenew.tk </p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>Requester</th>
-                                        <th>Project Name</th>
-                                        <th>Application Name</th>
-                                        <th>Status</th>
-                                    	<th>Host Ip</th>
-                                    	<th>Git Url</th>
+                                        <th>Id</th>
+                                        <th>Host Identifier</th>
+                                        <th>Ip Address</th>
+                                        <th>Host Username</th>
+                                        <th>Host Password</th>
+                                        <th>Host Status</th>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                        	<td>{{ posts.requester }}</td>
-                                            <td>{{ posts.project_name }}</td>
-                                            <td>{{ posts.application_name }}</td>
+                                            <td>{{ posts.id }}</td>
+                                        	<td>{{ posts.hostIdentifier }}</td>
+                                            <td>{{ posts.hostIp }}</td>
+                                            <td>{{ posts.hostUsername }}</td>
+                                            <td>{{ posts.hostPassword }}</td>
                                             <td>{{ posts.status }}</td>
-                                        	<td>{{ posts.hostIp }}</td>
-                                        	<td>{{ posts.git_url }}</td>
+                                            
+                                      
                                         </tr>
                                        
                                     </tbody>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <p class="category">PHP-Nginx Details</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover">
                                     <thead>
-                                        <th>Php Version</th>
-                                    	<th>Nginx Server Root Value</th>
-                                    	<th>Static Content Log Value</th>
-                                    	<th>Static Content Expires Value</th>
-                                    	
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        	<td>{{ posts.PHP_VERSION }} </td>
-                                        	<td>{{ posts.NGINX_SERVER_ROOT_VALUE }}</td>
-                                        	<td>{{ posts.NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE }}</td>
-                                        	<td>{{ posts.NGINX_STATIC_CONTENT_EXPIRES_VALUE }}</td>
-                                        	
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
+                                    
+                                            <th>Docker</th>
+                                            <th>Nginx</th>
+                                            <th>Mysql</th>
+                                            <th>Mysql Username</th>
+                                            <th>Mysql Password</th>
+                                            <th>Mongo</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ posts.hostDocker }}</td>
+                                                <td>{{ posts.hostNginx }}</td>
+                                                <td>{{ posts.hostMysql }}</td>
+                                                <td>{{ posts.mysqlUsername }}</td>
+                                                <td>{{ posts.mysqlPassword }}</td>
+                                                <td>{{ posts.hostMongo }}</td>
 
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <p class="category">MySql Details</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <th>MySql Version</th>
-                                    	<th>Database Name Value</th>
-                                    	<th>Root Password Value</th>
-                                        <th> Mysql UserName</th>
-                                        <th> Mysql Password Value</th>
-                                        
-                                    	
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        	<td>{{ posts.mysql_version }}</td>
-                                        	<td>{{ posts.MYSQL_DATABASE_NAME_VALUE }}</td>
-                                        	<td> {{ posts.MYSQL_ROOT_PASSWORD_VALUE }}</td>
-                                            <td>{{ posts.MYSQL_USER_NAME_VALUE }}</td>
-                                            <td>{{ posts.MYSQL_PASSWORD_VALUE }}</td>
-                                            
-                                        	
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <p class="category">Varnish and Redis Details</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <th>Varnish Version</th>
-                                    	<th>Backend Host Value</th>
-                                    	<th>Backend Port Value</th>
-                                        <th>Varnish Port Value</th>
-                                        <th> Redis Version</th>
-                                        <th> Redis Password Value</th>
-
-                                        
-                                    	
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        	<td>{{ posts.varnish_version }}</td>
-                                        	<td>{{ posts.VARNISH_BACKEND_HOST_VALUE }}</td>
-                                        	<td> {{ VARNISH_BACKEND_PORT_VALUE }}</td>
-                                            <td>{{ posts.VARNISH_PORT_VALUE }}</td>
-                                            <td>{{ posts.redis_version }}</td>
-                                            <td>{{ posts.REDIS_PASSWORD_VALUE }}</td>
-                                            
-                                        	
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <p class="category">Mongo DB Details</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <th>Mongo DB Version</th>
-                                    	<th>Database Name</th>
-                                    	<th>Mongo DB Root UserName</th>
-                                        <th>Mongo DB Root Password</th>
-                                        
-                                        
-                                    	
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        	<td>{{ posts.mongo_version }}</td>
-                                        	<td>{{ posts.MONGO_INITDB_DATABASE_VALUE }}</td>
-                                        	<td>{{ posts.MONGO_INITDB_ROOT_USERNAME_VALUE }}</td>
-                                            <td>{{ posts.MONGO_INITDB_ROOT_PASSWORD_VALUE}} </td>
+                                            </tr>
                                            
-                                        	
-                                        </tr>
-                                        
-                                    </tbody>
+                                        </tbody>
                                 </table>
 
                             </div>
                         </div>
                     </div>
 
-                    {% for statusentry in allstatus %}
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <p class="category">Current Status</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <th>Project Name</th>
-                                    	<th>SSH Status</th>
-                                    	<th>Docker Status</th>
-                                        <th>URL Status</th>
-                                        <th>MySql Status</th>
-                                        <th>Mongo DB Status</th>
-                                        
-                                        
-                                    	
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        	<td>{{ statusentry.projectname }}</td>
-                                        	<td>{{ statusentry.sshstatus }}</td>
-                                        	<td>{{ statusentry.dockerstatus }}</td>
-                                            <td>{{ statusentry.urlstatus }} </td>
-                                            <td>{{ statusentry.mysqlstatus }} </td>
-                                            <td>{{ statusentry.mongostatus }} </td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
+
+
 
                             </div>
+                            <div class="row">
+                                    <center>
+                                 
+                    
+                                
+                                    <div class="col-md-2 col-md-offset-3">
+                                        <center>
+                                        <button class="btn btn-default btn-block" onclick="window.location='{% url "hostadded" posts.id %}';">Approve</button>
+                                        </center>
+                                    </div>
+                                 
                         </div>
                     </div>
-                    {% endfor %}
-
-
 
 
 
@@ -443,12 +341,8 @@
 
                 {% if posts.status == 'Approved' %}
                 <div class="col-md-2">
-                    <button class="btn btn-default btn-block">Re-Run</button>
+                    <button class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">Re-Run</button>
                 </div>
-                <div class="col-md-2">
-                    <button class="btn btn-default btn-block" onclick="window.location='{% url "checkstatus" posts.id %}';">Check Status</button>
-                </div>
-
                 {% endif %}
                 </center>
 
@@ -528,7 +422,7 @@
 
         	$.notify({
             	icon: 'pe-7s-gift',
-            	message: "hi developer"
+            	message: "Welcome to <b>Self Service Portal</b> - a self provisioning portal for every  developer."
 
             },{
                 type: 'info',
