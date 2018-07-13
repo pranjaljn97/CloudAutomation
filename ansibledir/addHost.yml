@@ -15,3 +15,5 @@
     ansible_ssh_pass: "{{ password }}"
   roles:
     - docker-install
+    - mysql
+    - mongodb

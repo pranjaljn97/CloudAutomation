@@ -19,3 +19,12 @@
     name: mongodb-org 
     state: present
     update_cache: yes
+  notify: 
+    - Start mongodb on boot
+   
+- name: restart mongod
+  become: true
+  service:
+    name: mongod
+    state: restarted
+

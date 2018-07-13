@@ -1,5 +1,5 @@
 ---
-- name: Start mysql on boot
+- name: mysql
   systemd:
     name: mysql
     state: started

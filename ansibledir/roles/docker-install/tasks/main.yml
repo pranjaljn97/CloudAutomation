@@ -71,8 +71,14 @@
     mode: 644
   notify:
     - reload systemd
-    - Start docker on boot
+ 
     
+- name: Restart service docker
+  become: true
+  service:
+    name: docker
+    state: restarted
+
 
 # sudo apt-get install docker-compose
 - name: Installing docker-compose
