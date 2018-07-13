@@ -16,8 +16,19 @@
     - python-mysqldb
   notify: mysql  
 
+- name: export mysql config file
+  become: true
+  copy:
+    src: my.cnf
+    dest: /etc/
+    owner: root
+    mode: 644
 
-
+- name: restart mysql
+  become: true
+  service:
+    name: mysql
+    state: restarted
 
 
                
