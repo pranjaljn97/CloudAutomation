@@ -187,3 +187,43 @@ def makeenvfile(myid):
 
 
 # makeenvfile()
+
+
+
+def makeEnvHost(id):
+    post = Host.objects.get(pk=myid)
+    hostId = post.hostIdentifier
+    hostIp2 = post.hostIp
+    destpath = settings.ENVFILE_PATH + hostId + '_' + hostIp2 + '/'
+    if not os.path.exists(destpath):
+        os.makedirs(destpath)
+    print destpath
+
+    data = {'id': post.id,
+            'hostIdentifier': post.hostIdentifier,
+            'hostIp': post.hostIp,
+            'hostUsername': post.hostUsername,
+            'hostPassword': post.hostPassword,
+            'hostDocker': post.hostDocker,
+            'hostNginx': post.hostNginx,
+            'hostMysql': post.hostMysql,
+            'hostMongo': post.hostMongo,
+            'mysqlUsername': post.mysqlUsername,
+            'mysqlPassword': post.mysqlPassword,}
+
+
+    with io.open(post.hostIdentifier+ '_' + str(post.id)+'.json', 'w', encoding='utf8') as outfile:
+        str_ = json.dumps(data,
+                    indent=4, sort_keys=True,
+                    separators=(',', ': '), ensure_ascii=False)
+        outfile.write(to_unicode(str_))
+        filecurrpath = "./" + post.hostIdentifier + '_' + str(post.id) + '.json'
+        filename = post.hostIdentifier + '_' + str(post.id) + '.json'
+        print destpath + filename
+        os.rename(filecurrpath, destpath + filename)
+
+# Read JSON file
+    with open(destpath + post.hostIdentifier+ '_' + str(post.id)+'.json') as data_file:
+        data_loaded = json.load(data_file)
+
+
