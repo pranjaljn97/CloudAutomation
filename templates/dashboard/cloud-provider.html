@@ -1,6 +1,12 @@
 {% extends "dashboard/sidebar.html" %}
 {% load static %}
 {% block content %}
+ <script type="text/javascript">
+    function ShowHideDiv(chkBox) {
+        var chkValue = document.getElementById("chkValue");
+        chkValue.style.display = chkBox.checked ? "block" : "none";
+    }
+</script>
 <style type="text/css">
     .form-style-5{
         max-width: 500px;
@@ -19,10 +25,17 @@
         font-size: 1.4em;
         margin-bottom: 10px;
     }
+
+    .form-style-5 legend2 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
     .form-style-5 label {
         display: block;
         margin-bottom: 8px;
     }
+
+
     .form-style-5 input[type="text"],
     .form-style-5 input[type="date"],
     .form-style-5 input[type="datetime"],
@@ -109,7 +122,7 @@
         <div class="content">
                 <div class="form-style-5">
                         <form action="" method="POST" id="HostForm">
-                                {% csrf_token %}
+                        {% csrf_token %}
                         <fieldset>
                         <legend><span class="number">1</span>Host Information</legend>
                         <input type="text" name="hostIdentifier" placeholder="Host Identifier" required>
@@ -117,10 +130,24 @@
            
                         </fieldset>
                         <fieldset>
-                        <legend><span class="number">2</span> SSH Info</legend>
+                        <legend><span class="number">2</span>SSH Info</legend>
                         <input type="text" name="hostUsername" placeholder="Host's Username" required>
                         <input type="text" name="hostPassword" placeholder="Host's Password" required>
                         </fieldset>
+                        <fieldset>
+                            <legend><span class="number">3</span>Configurations</legend>
+                            <input type="checkbox" name="hostDocker" value="Docker"> <legend2>Docker</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="hostNginx" value="Nginx"> <legend2>Nginx</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="hostMysql" value="Mysql" id="chkBox" onclick="ShowHideDiv(this)" /> <legend2>Mysql</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="hostMongo" value="Mongo"> <legend2>Mongo</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        </fieldset>
+                        <br>
+                        <fieldset id="chkValue" style="display: none">
+                                <legend><span class="number">4</span>Mysql Info</legend>
+                                <input type="text" name="mysqlUsername" value="root" readonlys>
+                                <input type="text" name="mysqlPassword" placeholder="Mysql Password">
+                                </fieldset>
+                        
                         <input type="submit" value="Add Host" style="background-image: url(/static/dashboard/assets/img/sidebar-10.png) "/>
                         </form>
                         </div>

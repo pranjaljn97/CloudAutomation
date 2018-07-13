@@ -41,6 +41,12 @@ class Host(models.Model):
         hostUsername = models.CharField(blank=True,max_length=30)
         hostPassword = models.CharField(blank=True,max_length=30)
         status = models.CharField(default='initiated', max_length=30)
+        hostDocker = models.CharField(blank=True,max_length=30)
+        hostNginx = models.CharField(blank=True,max_length=30)
+        hostMysql = models.CharField(blank=True,max_length=30)
+        hostMongo = models.CharField(blank=True,max_length=30)
+        mysqlUsername = models.CharField(blank=True,max_length=50)
+        mysqlPassword = models.CharField(blank=True,max_length=50)
         class Meta:
                 permissions = (
                     ('view_content', 'View content'),
@@ -49,7 +55,7 @@ class Host(models.Model):
 class HostForm(ModelForm):
     class Meta:
         model = Host
-        fields = ['hostIdentifier','hostIp','hostUsername','hostPassword']
+        fields = ['hostIdentifier','hostIp','hostUsername','hostPassword','hostDocker','hostNginx','hostMysql','hostMongo','mysqlUsername','mysqlPassword',]
 
 class Project(models.Model):
         

@@ -94,16 +94,8 @@
                             </li>
 		{% endif %}
 
-                <li>
-
-                <li>
-
-                <li>
-                    <a href="{% url "userprofile" %}">
-                        <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
+             
+              
                 
 		{% if perms.login.view_content %}
                 <li>
@@ -248,7 +240,7 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                    
+                                        <th>Id</th>
                                         <th>Host Identifier</th>
                                         <th>Ip Address</th>
                                         <th>Host Username</th>
@@ -257,6 +249,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td>{{ posts.id }}</td>
                                         	<td>{{ posts.hostIdentifier }}</td>
                                             <td>{{ posts.hostIp }}</td>
                                             <td>{{ posts.hostUsername }}</td>
@@ -267,6 +260,27 @@
                                         </tr>
                                        
                                     </tbody>
+                                    <thead>
+                                    
+                                            <th>Docker</th>
+                                            <th>Nginx</th>
+                                            <th>Mysql</th>
+                                            <th>Mysql Username</th>
+                                            <th>Mysql Password</th>
+                                            <th>Mongo</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ posts.hostDocker }}</td>
+                                                <td>{{ posts.hostNginx }}</td>
+                                                <td>{{ posts.hostMysql }}</td>
+                                                <td>{{ posts.mysqlUsername }}</td>
+                                                <td>{{ posts.mysqlPassword }}</td>
+                                                <td>{{ posts.hostMongo }}</td>
+
+                                            </tr>
+                                           
+                                        </tbody>
                                 </table>
 
                             </div>
