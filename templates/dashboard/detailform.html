@@ -409,6 +409,45 @@
                         </div>
                     </div>
 
+                    {% for statusentry in allstatus %}
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <p class="category">Current Status</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th>Project Name</th>
+                                    	<th>SSH Status</th>
+                                    	<th>Docker Status</th>
+                                        <th>URL Status</th>
+                                        <th>MySql Status</th>
+                                        <th>Mongo DB Status</th>
+                                        
+                                        
+                                    	
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        	<td>{{ statusentry.projectname }}</td>
+                                        	<td>{{ statusentry.sshstatus }}</td>
+                                        	<td>{{ statusentry.dockerstatus }}</td>
+                                            <td>{{ statusentry.urlstatus }} </td>
+                                            <td>{{ statusentry.mysqlstatus }} </td>
+                                            <td>{{ statusentry.mongostatus }} </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
 
 
 
@@ -444,8 +483,12 @@
 
                 {% if posts.status == 'Approved' %}
                 <div class="col-md-2">
-                    <button class="btn btn-default btn-block" onclick="window.location='{% url "rerunform" posts.id %}';">Re-Run</button>
+                    <button class="btn btn-default btn-block">Re-Run</button>
                 </div>
+                <div class="col-md-2">
+                    <button class="btn btn-default btn-block" onclick="window.location='{% url "checkstatus" posts.id %}';">Check Status</button>
+                </div>
+
                 {% endif %}
 
 
@@ -524,7 +567,7 @@
 
         	$.notify({
             	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>Self Service Portal</b> - a self provisioning portal for every  developer."
+            	message: "hi developer"
 
             },{
                 type: 'info',
