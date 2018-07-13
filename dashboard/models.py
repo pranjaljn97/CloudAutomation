@@ -33,6 +33,18 @@ class runningstack(models.Model):
     mongostatus = models.CharField(blank=True, max_length=50)
     approvedBy = models.CharField(blank=True,max_length=256)
 
+class status(models.Model):
+    id = models.AutoField(primary_key=True)
+    projectname = models.CharField(blank=True, max_length=1000)
+    sshstatus = models.CharField(blank=True, max_length=1000)
+    dockerstatus = models.CharField(blank=True, max_length=1000)
+    urlstatus = models.CharField(blank=True, max_length=1000)
+    mongostatus = models.CharField(blank=True, max_length=1000)
+    mysqlstatus = models.CharField(blank=True, max_length=1000)
+
+
+    
+
 
 class Host(models.Model):
         id = models.AutoField(primary_key=True)

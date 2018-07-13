@@ -27,7 +27,11 @@ from dashboard.boto import add_host_record
 from dashboard.rstackpy import rstack
 from dashboard.runplaybook import execplaybook
 from dashboard.makehostentry import hostentry
+from dashboard.checkStatus import HostCheck
+from dashboard.models import status
 import datetime
+import io
+import json
 
 
 @login_required(login_url='/login/')
@@ -134,7 +138,7 @@ def approvedsuccessfully(request, id):
 
     print("hi")
    # try:
-    #execplaybook(id)
+    execplaybook(id)
    # except:
     #    msg = "Error in executing  Ansible Playbook"
      #   return render(request, "dashboard/error.html", {'msg': msg })
@@ -144,7 +148,7 @@ def approvedsuccessfully(request, id):
     appname = currpost.application_name
     hostip = currpost.hostIp
    # try:
-    #buildinfo(request,id,jsonfile,hostip)
+    buildinfo(request,id,jsonfile,hostip)
    # except:
     #    msg = "Error in fetching final status"
      #   return render(request, "dashboard/error.html", {'msg': msg })
@@ -258,3 +262,57 @@ def nodeform(request):
     else:
         form = RequestForm()
     return render(request, 'dashboard/node-home.html', {'form': form})
+
+@login_required(login_url='/login/')
+def checkstatus(request, id):
+    global mysqlstatus
+    global mongostatus
+    global sshstatus
+
+    posts = Project.objects.get(pk=id)
+    hosts = Host.objects.all()
+    hostip = posts.hostIp
+    projectname = posts.project_name
+    appname = posts.application_name
+    destpath = settings.ENVFILE_PATH + projectname + '_' + appname + '/'
+    mysqluser = posts.MYSQL_USER_NAME_VALUE
+    mysqlpass = posts.MYSQL_PASSWORD_VALUE
+    mongouser = posts.MONGO_INITDB_ROOT_USERNAME_VALUE
+    mongopass = posts.MONGO_INITDB_ROOT_PASSWORD_VALUE 
+
+    hostcheck = HostCheck()
+    # 1 method
+    dockerstatus = hostcheck.checkDockerStatus(hostip)
+    #2nd method
+    urlstatus = hostcheck.checkUrlStatus(projectname,appname)
+    print dockerstatus
+    print urlstatus
+    #3rd method
+    with open(destpath + posts.project_name+ '_' + str(posts.id)+'.json') as data_file:
+        data_loaded = json.load(data_file)
+        mysqlport = data_loaded['mysql']['ports']
+        mongoport = data_loaded['mongodb']['ports']
+        mysqlstatus = hostcheck.checkMysql(hostip, mysqlport, mysqluser, mysqlpass)
+        mongostatus = hostcheck.checkMongo(hostip, mongoport, mongouser, mongopass)
+        # mysqlstatus = hostcheck.checkMysql('10.1.203.82', 3306, 'root', 'noida123')
+        print mysqlstatus
+        print mongostatus
+    
+   
+    for host in hosts:
+        if(host.hostIp == hostip):
+            sshuser = host.hostUsername
+            sshpass = host.hostPassword
+            sshstatus = hostcheck.checkSSHStatus(hostip, sshuser, sshpass)
+            print sshstatus
+            break
+    
+    status.objects.all().delete()
+    statusentry = status(projectname=projectname,sshstatus=sshstatus, dockerstatus=dockerstatus, urlstatus=urlstatus, mongostatus=mongostatus, mysqlstatus=mysqlstatus)
+    statusentry.save()
+    allstatus = status.objects.all()
+    return render(request, "dashboard/detailform.html", {'posts': posts, 'allstatus': allstatus })
+
+
+
+
