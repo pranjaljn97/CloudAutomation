@@ -1,4 +1,5 @@
 from dashboard.models import Host
+from django.conf import settings
 import subprocess
 import json
 import os
@@ -6,6 +7,8 @@ import io
 def hostentry(id):
     host = Host.objects.get(pk=id)
     ipAddress = host.hostIp
+    hostId = host.hostIdentifier
+    hostIp2 = host.hostIp
     username = host.hostUsername
     password = host.hostPassword
 
