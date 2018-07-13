@@ -1,11 +1,13 @@
 ---
-# sudo systemctl enable docker
 - name: Start docker on boot
   systemd:
     name: docker
     state: started
     enabled: yes
+<<<<<<< HEAD
 
 - name: reload systemd
   become: true
   command: systemctl daemon-reload    
+=======
+>>>>>>> e01e8fc9013ead227ca997fbb4f334b092c48971

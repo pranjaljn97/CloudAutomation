@@ -27,7 +27,7 @@
                 <tr>
                     <td width="30"></td>
                     <td style="color:#999999;font-family:open sans;line-height:20px;font-size:18px">
-                        You can access your website at {{  projectname }}_{{appname}}.tothenew.tk
+                        You can access your website at {{  projectname }}-{{appname}}.tothenew.tk
                     </td>
                 </tr>
             </tbody></table>
@@ -97,7 +97,7 @@
                                                     <tr><td colspan="6" height="10px"></td></tr>
                                                     <tr>
                                                         <td width="2%"></td>
-                                                        <td width="14%" colspan="7" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Server Login Credentials</td>
+                                                        <td width="14%" colspan="7" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Server Credentials</td>
                                                         <td width="3%"></td>
                                                         <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">
                                                             
@@ -253,7 +253,10 @@
                     <b>Note:</b>
                     <ul>
                         <li>
-                            Use- mysql -u {{ mysqluname}} -p {{ mysqlupwd }}    for connecting to mysql.
+                            Use-> mysql -u {{ mysqluname}} -h {{hostIp}} -P 3308 -p {{ mysqlupwd }}    for connecting to mysql.
+                        </li>
+                        <li>
+                            Use-> mongo --username {{ mongouname }} --password {{ mongoupwd }} --host {{ hostIp }} --port 27019    for connecting to mongo.
                         </li>
                         <li>
                             Visit S2P Portal for the complete details.

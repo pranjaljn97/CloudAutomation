@@ -1,4 +1,5 @@
 from .models import RequestForm
+from .models import Project
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
@@ -14,13 +15,15 @@ import json
 
 def fmail(request,id,posts,jsonfile):
 
-    
-    from_email = settings.EMAIL_HOST_USER
-    to_list = [settings.ADMIN_MAIL,request.user.email]
+    post = Project.objects.get(pk=id)
+    requestermail =  post.requester
+    from_email = 'S2P Team <'+settings.EMAIL_HOST_USER+'>'
+    to_list = [settings.ADMIN_MAIL,request.user.email, requestermail]
     c = {'uname':posts.requester,
                 'projectname':posts.project_name,
                 'appname':posts.application_name,
-                'giturl' :posts.git_url,
+                'git_url' :posts.git_url,
+                'git_token' :posts.git_token,
                 'hostIp':posts.hostIp, 
                 'mysqluname':posts.MYSQL_USER_NAME_VALUE,
                 'mysqlupwd':posts.MYSQL_PASSWORD_VALUE,

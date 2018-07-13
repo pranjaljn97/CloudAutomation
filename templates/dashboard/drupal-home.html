@@ -1,10 +1,23 @@
-{% extends "dashboard/phpform.html" %}
+ {% extends "dashboard/phpform.html" %}
 {% load static %}
 {% block content %}
+                  <script type="text/javascript">
+                    function ShowHideDiv() {
+                        var ddlPassport = document.getElementById("ddlPassport");
+                        var dvPassport = document.getElementById("dvPassport");
+                        dvPassport.style.display = ddlPassport.value == "private" ? "block" : "none";
+                    }
+                    function ShowHideDiv2() {
+                        var filepass = document.getElementById("filepass");
+                        var fileopt = document.getElementById("fileopt");
+                        fileopt.style.display = filepass.value == 'yes' ? "block" : "none";
+                        
 
+                    }
+                  </script>
                   <div class="content">
                   
-                      <form id="regForm" action="." method="POST">
+                      <form id="regForm" action="." method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                           <!-- One "tab" for each step in the form: -->
                           <h2>PHP Application Stack</h2>
@@ -38,7 +51,7 @@
                                 <div class="form-group">
                                   <label>Choose Host</label>
                                   <select name=hostIp>
-                                    <option value="NA">NA</option>
+                                   
                                     {% for i in hostInfo %}
                                       {% if i.status == 'Added Successfully' %}
                                     <option value ="{{ i.hostIp }}">{{ i.hostIdentifier }}</option>
@@ -68,9 +81,33 @@
                                                   </div>
                                                 </div>
                                               </div>
+
+                                                                                  
                                               <div class="row">
 
                                                 
+                                                  <div class="col-md-6">
+                                                    <div class="form-group">
+                                                  
+                                                      <label>Repo Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                     
+                                                      <select id = "ddlPassport" name="repo_type" onchange = "ShowHideDiv()">
+                                                          <option value="public">Public</option>
+                                                          <option value="private">Private</option>  
+                                                      </select>
+                                                    
+                                                    </div>
+                                                  </div>
+                                                                                    
+                                                    
+                                                  </div>
+
+
+                                              
+
+                                              <div class="row">
+
+                                             
                                                 <div class="col-md-6">
                                                   <div class="form-group">
                                                     <label>Git URL
@@ -81,13 +118,13 @@
                                                                                   
                                                   <div class="col-md-6">
                                                     <div class="form-group">
-                                                      <label>Token
+                                                      <label>Branch Name
                                                       </label>
-                                                      <input type="text" class="form-control" placeholder="GIT Token" name="git_token">
+                                                      <input type="text" class="form-control" placeholder="GIT Branch" name="git_branch">
                                                     </div>
                                                   </div>
                                                 </div>
-                                                <div class="row">
+                                                <div class="row" id="dvPassport" style="display: none">
                                                 <div class="col-md-6">
                                                   <div class="form-group">
                                                     <label>Git Username
@@ -98,12 +135,13 @@
                                                                                   
                                                   <div class="col-md-6">
                                                     <div class="form-group">
-                                                      <label>Git Branch Name
+                                                      <label>Token
                                                       </label>
-                                                      <input type="text" class="form-control" placeholder="Git Branch" name="git_branch">
+                                                      <input type="text" class="form-control" placeholder="Git Token" name="git_token">
                                                     </div>
                                                   </div>
                                                 </div>
+                                                
                               </div>
           <!-- ================================STEP 2 PHP NGINX DETAILS================================== -->                  
                             <div class="tab"><b>PHP-Nginx</b>
@@ -114,17 +152,31 @@
                                       <label><h4> Version</h4>
                                       </label><br>
                                       <select name="PHP_VERSION">
-                                        <option value="NA">
-                                            NA
-                                          </option>
+                                    
                                         <option value="7.0">7.0
                                         </option>
                                         <option value="7.1">7.1
                                         </option>
                                         <option value="7.2">7.2
                                         </option>
+				                           <option value="NA">
+                                            NA
+                                          </option>
+
                                       </select>
-                                    </div>
+                                      </div>
+                                   
+                                        <label>Upload an Env File &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                          <select id = "filepass" name="fileopp" onchange = "ShowHideDiv2()">
+                                              <option value="no">No</option>
+                                              <option value="yes">Yes</option>  
+                                          </select>
+                                    
+                                      <div id="fileopt" style="display: none">
+                                      <input type = "file" placeholder = "document" name = "document" accept=".json"/>
+                                      </div>
+                                      
+                                   
                                   </div>
                                   
                                 </div>
@@ -140,44 +192,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <!--
-                                <div class="row">
-                                  <span style="color: red">{{form.project_name.errors}}
-                                  </span>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label>Key #1
-                                      </label>
-                                      <input type="text" class="form-control"   value="NGINX_BACKEND_HOST" name='NGINX_BACKEND_HOST' disabled>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label>Value #1
-                                      </label>
-                                      <input type="text" class="form-control" name="NGINX_BACKEND_HOST_VALUE" value='9000'>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <span style="color: red">{{form.project_name.errors}}
-                                  </span>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label>Key #2
-                                      </label>
-                                      <input type="text" class="form-control"   value="NGINX_SERVER_NAME" name='NGINX_SERVER_NAME' disabled>
-                                    </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label>Value #2
-                                      </label>
-                                      <input type="text" class="form-control" name='NGINX_SERVER_NAME_VALUE' value='drupal'>
-                                    </div>
-                                  </div>
-                                </div>
-                              -->
+                               
                                 <div class="row">
                                   <span style="color: red">{{form.project_name.errors}}
                                   </span>
@@ -260,14 +275,16 @@
                                           <div class="form-group">
                                               <label>MySQl Version</label>
                                                   <br>
-                                                  <select name="MySQL_version">
-                                                      <option value="NA">
-                                                          NA
-                                                        </option>
-                                                      <option value="8">8</option>
+                                                  <select name="mysql_version">
+                                     
+                                                     
                                                       <option value="5.7">5.7</option>
                                                       <option value="5.6">5.6</option>
                                                       <option value="5.5">5.5</option>
+							   <option value="NA">
+                                                          NA
+                                                        </option>
+
                                                     </select>                                                     
   
   
@@ -417,21 +434,23 @@
                                             <div class="form-group">
                                               <label>Mongo DB Version</label><br />
                                               <select name="mongo_version">
-                                                <option value="NA">
-                                                  NA
+                               
+                                                <option value="3.0">
+                                                  3.0
                                                 </option>
-                                                <option value="8">
-                                                  8
+                                                <option value="2.6">
+                                                  2.6                
+		                               </option>
+                                                <option value="2.4">
+                                                  2.4
                                                 </option>
-                                                <option value="5.7">
-                                                  5.7
+                                                <option value="2.2">
+                                                  2.2
                                                 </option>
-                                                <option value="5.6">
-                                                  5.6
-                                                </option>
-                                                <option value="5.5">
-                                                  5.5
-                                                </option>
+					   <option value="NA">
+                                                         NA
+                                                        </option>
+
                                               </select>
                                             </div>
                                           </div>
@@ -521,12 +540,14 @@
                                       </label>
 
                                       <select name="varnish_version">
-                                          <option value="NA">
-                                              NA
-                                            </option>
+                                  
                                           <option value="4">4</option>
                                           <option value="4.1">4.1</option>
                                           <option value="latest">Latest</option>
+				           <option value="NA">
+                                              NA
+                                            </option>
+
                                         </select>
                                     </div>
                                   </div>
@@ -623,12 +644,14 @@
                                           <label>Redis Version
                                           </label>
                                           <select name="redis_version">
-                                              <option value="NA">
-                                                  NA
-                                                </option>
+                                         
                                               <option value="5.0">5.0</option>
                                               <option value="5.1">5.1</option>
                                               <option value="4.2">4.2</option>
+					      <option value="NA">
+                                              NA
+                                            </option>
+
                                             </select>                       
                                   </div>
                                   </div>                                

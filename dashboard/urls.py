@@ -16,9 +16,11 @@ urlpatterns = [
     url(r'^approved/', views.approved, name='approved'),
     url(r'^rejected/', views.rejected, name='rejected'),
     url(r'^detailform/?(?P<id>[0-9]+)', views.detailform, name='detailform'),
+    url(r'^hostdetailform/?(?P<id>[0-9]+)', views.hostdetailform, name='hostdetailform'),
     url(r'^submitted/(?P<requester>[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4})/$',views.submitted, name='submitted'),
     url(r'^finalmail/?(?P<id>[0-9]+)', views.finalmail, name='finalmail'),
     url(r'^hostadded/(?P<id>[0-9]+)', views.hostadded, name='hostadded'),
+    url(r'^rstackview/', views.rstackview, name='rstackview'),
 
     url(r'^rerun/?(?P<id>[0-9]+)', views.rerun, name='rerun'),
 

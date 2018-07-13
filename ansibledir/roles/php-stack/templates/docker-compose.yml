@@ -11,6 +11,8 @@ services:
        {% for key,value in mysql.envi.iteritems() %}
        {{ key }} : {{ value }}
        {% endfor %}
+     ports:
+       - "{{ mysql.ports }}:3306" 
        
   {% endif %} 
   
@@ -25,6 +27,12 @@ services:
        
      volumes:
        - ./mongodb:/data/db
+<<<<<<< HEAD
+=======
+       - ./logs/mongodb:/var/log/mongodb
+     ports:
+       - "{{ mongodb.ports }}:27017"
+>>>>>>> e01e8fc9013ead227ca997fbb4f334b092c48971
   {% endif %}
 
    
@@ -75,4 +83,9 @@ services:
 volumes:
     mysql:
     code:
+<<<<<<< HEAD
     mongodb:
+=======
+    mongodb:
+    logs:
+>>>>>>> e01e8fc9013ead227ca997fbb4f334b092c48971

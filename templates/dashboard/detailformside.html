@@ -86,6 +86,12 @@
                                 <p>Rejected</p>
                             </a>
                         </li>
+            <li>
+                                <a href="{% url "rstackview" %}">
+                                    <i class="pe-7s-graph"></i>
+                                    <p>Running Stacks</p>
+                                </a>
+                            </li>
 		{% endif %}
 
                 <li>
@@ -99,13 +105,14 @@
                     </a>
                 </li>
                 
-
+                {% if perms.login.view_content %}
                 <li>
                     <a href="{% url "cprovider" %}">
                         <i class="pe-7s-note2"></i>
                         <p>Cloud Provider</p>
                     </a>
                 </li>
+                {% endif %}
 
                 
 

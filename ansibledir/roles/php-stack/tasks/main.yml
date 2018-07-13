@@ -30,7 +30,7 @@
     dest: '/home/{{ user.project_name }}'
     owner: bin
     mode: 0644
-  debugger: on_failed  
+  
 
 
 
