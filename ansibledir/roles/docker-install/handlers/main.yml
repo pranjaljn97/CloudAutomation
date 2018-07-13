@@ -5,3 +5,7 @@
     name: docker
     state: started
     enabled: yes
+
+- name: reload systemd
+  become: true
+  command: systemctl daemon-reload    

@@ -1,0 +1,51 @@
+{
+    "mongodb": {
+        "enable": true,
+        "version": {
+            "latest": "mongo",
+            "3.2": "mongo:3.2",
+            "3.4": "mongo:3.4",
+            "3.6": "mongo:3.6",
+            "4.0": "mongo:4.0"
+        }
+    },
+    "mysql": {
+        "enable": true,
+        "version": {
+            "latest": "mysql",
+            "5.5": "mysql:5.5",
+            "5.6": "mysql:5.6",
+            "5.7": "mysql:5.7",
+            "8.0": "mysql:8.0"
+        }
+    },
+    "nginx_php": {
+        "enable": true,
+        "version": {
+            "latest": "webdevops/php-nginx",
+            "5.6": "webdevops/php-nginx:5.6",
+            "7.0": "webdevops/php-nginx:7.0",
+            "7.1": "webdevops/php-nginx:7.1",
+            "7.2": "webdevops/php-nginx:7.2"
+        }
+    },
+    "redis": {
+        "enable": true,
+        "version": {
+            "latest": "wodby/redis",
+            "3": "wodby/redis:3",
+            "3.2": "wodby/redis:3.2",
+            "4.0": "wodby/redis:4.0"
+        }
+    },
+    
+    "varnish": {
+        "enable": true,
+        "version": {
+            "latest": "wodby/varnish",
+            "4": "wodby/varnish:4",
+            "4.1": "wodby/varnish:4.1"
+
+        }
+    }
+}

@@ -1,0 +1,6 @@
+---
+- name: Start mongodb on boot
+  systemd:
+    name: mongod
+    state: started
+    enabled: yes

@@ -3,11 +3,10 @@ version: '2.0'
 services:
   {% if mysql.enable==true %}
    mysql:  
-     image: mysql:{{ mysql.envi.mysql_version }}
+     image: mysql:5.7
      container_name: '{{ user.project_name }}_MYSQL' 
      volumes:
        - ./mysql:/var/lib/mysql
-       - ./logs/mysql:/var/log/mysql
      environment:
        {% for key,value in mysql.envi.iteritems() %}
        {{ key }} : {{ value }}
@@ -26,7 +25,6 @@ services:
        
      volumes:
        - ./mongodb:/data/db
-       - ./logs/mongodb:/var/log/mongodb
   {% endif %}
 
    
@@ -45,11 +43,9 @@ services:
   
   {% if nginx_php.enable==true %}
    nginx_php:
-     image: webdevops/php-nginx:{{ nginx_php.envi.PHP_VERSION }}
+     image: webdevops/php-nginx:ubuntu-16.04
      container_name: '{{ user.project_name }}_NGINX'
      environment:
-       LOG_STDOUT: /var/log/nginx/access.log
-       LOG_STDERR: /var/log/nginx/error.log
        {% for key,value in nginx_php.envi.iteritems() %}
        {{ key }} : {{ value }}
        {% endfor %}
@@ -57,7 +53,6 @@ services:
        - "{{ nginx_php.ports }}:80"
      volumes:
       - ./code:/var/www/html
-      - ./logs/nginx:/var/log/nginx
           
   {% endif %}    
   
@@ -81,4 +76,3 @@ volumes:
     mysql:
     code:
     mongodb:
-    logs:

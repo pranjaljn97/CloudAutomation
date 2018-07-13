@@ -62,6 +62,18 @@
   tags:
     - docker
 
+- name: Install unit file
+  become: true
+  copy: 
+    src: docker.service 
+    dest: /lib/systemd/system/ 
+    owner: root 
+    mode: 644
+  notify:
+    - reload systemd
+    - Start docker on boot
+    
+
 # sudo apt-get install docker-compose
 - name: Installing docker-compose
   become: true

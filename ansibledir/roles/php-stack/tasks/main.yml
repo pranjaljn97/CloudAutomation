@@ -21,10 +21,6 @@
     - { dest: '/home/{{ user.project_name }}/mysql', mode: '0775'}
     - { dest: '/home/{{ user.project_name }}/mongodb', mode: '0775'}
     - { dest: '/home/{{ user.project_name }}/code', mode: '0775'}
-    - { dest: '/home/{{ user.project_name }}/logs', mode: '0775'}
-    - { dest: '/home/{{ user.project_name }}/logs/mysql', mode: '0775'}
-    - { dest: '/home/{{ user.project_name }}/logs/mongodb', mode: '0775'}
-    - { dest: '/home/{{ user.project_name }}/logs/nginx', mode: '0775'}
   
 
 - name: Copying Template into remote
@@ -52,5 +48,15 @@
     repo: 'https://{{ user.GITHUB_USERNAME }}:{{ user.GITHUB_TOKEN }}@{{ user.GITHUB_URL }}'
     dest: '/home/{{ user.project_name }}/code'
     version: "{{ user.GITHUB_BRANCH }}"
+  when: user.repo_type == "private" 
+
+
+- name: clone a public repository
+  become: true
+  git:
+    repo: 'https://{ user.GITHUB_URL }}'
+    dest: '/home/{{ user.project_name }}/code'
+    version: "{{ user.GITHUB_BRANCH }}"
+  when: user.repo_type == "public"   
 
 

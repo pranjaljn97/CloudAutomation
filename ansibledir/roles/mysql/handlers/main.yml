@@ -1,0 +1,6 @@
+---
+- name: Start mysql on boot
+  systemd:
+    name: mysql
+    state: started
+    enabled: yes
