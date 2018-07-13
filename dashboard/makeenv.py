@@ -2,10 +2,10 @@
 # view_rows.py - Fetch and display the rows from a MySQL database query
 import json
 import io
-import MySQLdb
 import sys
 import os
 from dashboard.models import Project
+from dashboard.models import Host
 from dashboard.models import Ports
 from django.conf import settings
 import random
@@ -14,6 +14,8 @@ global varnishport
 
 
 def makeenvfile(myid):
+
+
 
     curr = Project.objects.get(pk=myid)
     pname = curr.project_name
@@ -75,6 +77,22 @@ def makeenvfile(myid):
     
     post = Project.objects.get(pk=myid)
 
+    phpVersion  = post.PHP_VERSION
+    mysqlVersion = post.mysql_version
+    mongoVersion = post.mongo_version
+    varnishVersion = post.varnish_version
+    redisVersion = post.redis_version
+
+    name = 'dashboard/version.json'
+    with open(name, 'r') as f:
+        play = json.load(f)
+    phpImage = str(play["nginx_php"]["version"][phpVersion])
+    mysqlImage = str(play["nginx_php"]["version"][mysqlVersion])
+    mongoImage = str(play["nginx_php"]["version"][mongoVersion])
+    varnishImage = str(play["nginx_php"]["version"][varnishVersion])
+    redisImage = str(play["nginx_php"]["version"][redisVersion])
+
+
     data = {'user': {'id': post.id,
                         'USERNAME': post.requester,
                         'project_name': post.project_name,
@@ -89,6 +107,7 @@ def makeenvfile(myid):
                         'hostip': post.hostIp },
 
             'nginx_php': { 'enable': True,
+                            'image': phpImage,
                             'envi': {
                             'PHP_VERSION': post.PHP_VERSION,
                             'PHP_MODULES': post.PHP_MODULES,
@@ -102,6 +121,7 @@ def makeenvfile(myid):
                             'ports': nginxport                                                                                                 
                             },
             'mysql' : { 'enable': True,
+                        'image': mysqlImage,
                         'envi': {
                             'mysql_version': post.mysql_version,
                             'MYSQL_CLIENT_DEFAULT_CHARACTER_SET': post.MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE,
@@ -119,6 +139,7 @@ def makeenvfile(myid):
                             },
                         
             "mongodb": { 'enable': True,
+                          'image': mongoImage,
                             'envi': {
                             'MONGO_INITDB_DATABASE': post.MONGO_INITDB_DATABASE_VALUE,
                             'MONGO_INITDB_ROOT_USERNAME': post.MONGO_INITDB_ROOT_USERNAME_VALUE,
@@ -133,6 +154,7 @@ def makeenvfile(myid):
                         
             'varnish' : {
                             'enable': True,
+                            'image': varnishImage,
                             'envi': {
                             'VARNISH_BACKEND_HOST': 'nginx_php',
                             'VARNISH_BACKEND_PORT': post.VARNISH_BACKEND_PORT_VALUE,
@@ -151,6 +173,7 @@ def makeenvfile(myid):
                             
             'redis' : {
                         'enable': True,
+                        'image': redisImage,
                             'envi': {
                             'REDIS_PASSWORD': post.REDIS_PASSWORD_VALUE,
                             'redis_version': post.redis_version },
@@ -191,7 +214,7 @@ def makeenvfile(myid):
 
 
 def makeEnvHost(id):
-    post = Host.objects.get(pk=myid)
+    post = Host.objects.get(pk=id)
     hostId = post.hostIdentifier
     hostIp2 = post.hostIp
     destpath = settings.ENVFILE_PATH + hostId + '_' + hostIp2 + '/'
