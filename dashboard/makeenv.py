@@ -222,6 +222,11 @@ def makeEnvHost(id):
         os.makedirs(destpath)
     print destpath
 
+    try:
+        to_unicode = unicode
+    except NameError:
+        to_unicode = str
+        
     data = {'id': post.id,
             'hostIdentifier': post.hostIdentifier,
             'hostIp': post.hostIp,

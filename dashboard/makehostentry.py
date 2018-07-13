@@ -9,9 +9,10 @@ def hostentry(id):
     username = host.hostUsername
     password = host.hostPassword
 
-    hostinfo = "hostname=" + ipAddress + " user=" + username + " password=" + password
+    destpath = settings.ENVFILE_PATH + hostId + '_' + hostIp2 + '/'
+    filepath = host.hostIdentifier+ '_' + str(host.id)+'.json'
     try:
-        subprocess.check_call(['./ansibledir/hostadd.sh', './ansibledir/addHost.yml', hostinfo,'dashboard/hostoutput1.json'])
+        subprocess.check_call(['./ansibledir/hostadd.sh', './ansibledir/addHost.yml', destpath + filepath,'dashboard/hostoutput1.json'])
     except subprocess.CalledProcessError as Error:
         print("Error : %s"% (Error))
     print "hello"
