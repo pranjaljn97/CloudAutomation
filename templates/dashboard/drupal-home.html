@@ -6,6 +6,7 @@
                         var ddlPassport = document.getElementById("ddlPassport");
                         var dvPassport = document.getElementById("dvPassport");
                         dvPassport.style.display = ddlPassport.value == "private" ? "block" : "none";
+                        dvPassport.style.display = ddlPassport.value == "private" ? "block" : "none";
                     }
                     function ShowHideDiv2() {
                         var filepass = document.getElementById("filepass");
@@ -112,7 +113,7 @@
                                                   <div class="form-group">
                                                     <label>Git URL
                                                     </label>
-                                                    <input type="url" class="form-control" placeholder="Enter the git SSH url of gitlab.intelligrape.net" name='git_url'>
+                                                    <input type="url" class="form-control" placeholder="Enter the git SSH url of gitlab.intelligrape.net" name='git_url' required>
                                                   </div>
                                                 </div>
                                                                                   
