@@ -337,39 +337,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <p class="category">MySql Details</p>
-                            </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <th>MySql Version</th>
-                                    	<th>Database Name Value</th>
-                                    	<th>Root Password Value</th>
-                                        <th> Mysql UserName</th>
-                                        <th> Mysql Password Value</th>
-                                        
-                                    	
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        	<td>{{ posts.mysql_version }}</td>
-                                        	<td>{{ posts.MYSQL_DATABASE_NAME_VALUE }}</td>
-                                        	<td> {{ posts.MYSQL_ROOT_PASSWORD_VALUE }}</td>
-                                            <td>{{ posts.MYSQL_USER_NAME_VALUE }}</td>
-                                            <td>{{ posts.MYSQL_PASSWORD_VALUE }}</td>
-                                            
-                                        	
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <div class="col-md-12">
                         <div class="card">
@@ -476,7 +444,7 @@
 
                 {% if posts.status == 'Approved' %}
                 <div class="col-md-2">
-                    <button class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">Re-Run</button>
+                    <button class="btn btn-default btn-block" onclick="window.location='{% url "rerunform" posts.id %}';">Re-Run</button>
                 </div>
                 {% endif %}
 
