@@ -18,6 +18,7 @@ from .models import runningstack
 from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 from dashboard.makeenv import makeenvfile
+from dashboard.makeenv import makeEnvHost
 from dashboard.mail import sendmail
 from dashboard.mail2 import fmail
 from dashboard.buildinfo import buildinfo
@@ -65,6 +66,7 @@ def cprovider(request):
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def hostadded(request, id):
+    makeEnvHost(id)
     hostentry(id)
     currpost = Host.objects.get(id=id)
     name = currpost.hostIdentifier

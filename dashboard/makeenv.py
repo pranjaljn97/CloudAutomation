@@ -217,7 +217,7 @@ def makeEnvHost(id):
     post = Host.objects.get(pk=id)
     hostId = post.hostIdentifier
     hostIp2 = post.hostIp
-    destpath = settings.ENVFILE_PATH + hostId + '_' + hostIp2 + '/'
+    destpath = settings.ENVFILE_PATH + post.hostIdentifier + '_' + post.hostIp + '/'
     if not os.path.exists(destpath):
         os.makedirs(destpath)
     print destpath
