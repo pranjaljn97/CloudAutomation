@@ -87,10 +87,10 @@ def makeenvfile(myid):
     with open(name, 'r') as f:
         play = json.load(f)
     phpImage = str(play["nginx_php"]["version"][phpVersion])
-    mysqlImage = str(play["nginx_php"]["version"][mysqlVersion])
-    mongoImage = str(play["nginx_php"]["version"][mongoVersion])
-    varnishImage = str(play["nginx_php"]["version"][varnishVersion])
-    redisImage = str(play["nginx_php"]["version"][redisVersion])
+    mysqlImage = str(play["mysql"]["version"][mysqlVersion])
+    mongoImage = str(play["mongodb"]["version"][mongoVersion])
+    varnishImage = str(play["varnish"]["version"][varnishVersion])
+    redisImage = str(play["redis"]["version"][redisVersion])
 
 
     data = {'user': {'id': post.id,

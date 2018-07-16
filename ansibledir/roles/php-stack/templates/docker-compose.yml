@@ -27,12 +27,9 @@ services:
        
      volumes:
        - ./mongodb:/data/db
-<<<<<<< HEAD
-=======
        - ./logs/mongodb:/var/log/mongodb
      ports:
        - "{{ mongodb.ports }}:27017"
->>>>>>> e01e8fc9013ead227ca997fbb4f334b092c48971
   {% endif %}
 
    
@@ -51,7 +48,7 @@ services:
   
   {% if nginx_php.enable==true %}
    nginx_php:
-     image: webdevops/php-nginx:ubuntu-16.04
+     image: pranjaljn97/s2p
      container_name: '{{ user.project_name }}_NGINX'
      environment:
        {% for key,value in nginx_php.envi.iteritems() %}
@@ -83,9 +80,5 @@ services:
 volumes:
     mysql:
     code:
-<<<<<<< HEAD
-    mongodb:
-=======
     mongodb:
     logs:
->>>>>>> e01e8fc9013ead227ca997fbb4f334b092c48971

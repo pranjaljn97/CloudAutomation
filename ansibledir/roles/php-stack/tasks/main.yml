@@ -54,7 +54,7 @@
 - name: clone a public repository
   become: true
   git:
-    repo: 'https://{ user.GITHUB_URL }}'
+    repo: 'https://{{ user.GITHUB_URL }}'
     dest: '/home/{{ user.project_name }}/code'
     version: "{{ user.GITHUB_BRANCH }}"
   when: user.repo_type == "public"   
