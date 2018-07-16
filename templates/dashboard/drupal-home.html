@@ -333,7 +333,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #2</label>
-                                              <input type="text" class="form-control" name="MYSQL_ROOT_PASSWORD_VALUE" value='1234'>
+                                              <input type="text" class="form-control" name="MYSQL_ROOT_PASSWORD_VALUE" value='admin@1234'>
                                           </div>
                                       </div>
                                       
@@ -351,7 +351,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #3</label>
-                                              <input type="text" class="form-control" name='MYSQL_USER_NAME_VALUE' value='root'>
+                                              <input type="text" class="form-control" name='MYSQL_USER_NAME_VALUE' value= {{ user.username }}>
   
                                           </div>
                                       </div>
@@ -371,7 +371,7 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                               <label>Value #4</label>
-                                              <input type="text" class="form-control" name='MYSQL_PASSWORD_VALUE' value='1234'>
+                                              <input type="text" class="form-control" name='MYSQL_PASSWORD_VALUE' value= {{ user.username }}1234>
                                           </div>
                                       </div>
                                       
