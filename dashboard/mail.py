@@ -1,5 +1,4 @@
 import io
-import MySQLdb
 import sys
 import os
 from dashboard.models import Project
