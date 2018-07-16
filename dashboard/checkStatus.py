@@ -59,7 +59,7 @@ class HostCheck():
     def checkStack(self,Projectname,Host):
     	projectname = Projectname
         host = Host
-        nginxphpres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_roach1"'"]}').json()
+        nginxphpres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_nginx_php"'"]}').json()
         if nginxphpres[0]['Spec']['Mode']['Replicated']['Replicas']==1:
 	     print "\n"+nginxphpres[0]['Spec']['Name'] + " is running."
         elif nginxphpres[0]['Spec']['Mode']['Replicated']['Replicas']==0:
