@@ -1,10 +1,8 @@
 #!/usr/bin/python
 import paramiko, sys, getpass, requests
-# from dashboard.models import Host, Project
 from paramiko import client
 import docker, MySQLdb
 from pymongo import MongoClient
-from django.conf import settings
 
 
 class HostCheck():
@@ -18,7 +16,7 @@ class HostCheck():
             client.close()
             print "Logged out of device %s" %HOST
             return "SSH established successfully"
-        except Exception as e:
+        except:
             return "SSH failed"
 
     def checkDockerStatus(self,Host):
@@ -30,9 +28,6 @@ class HostCheck():
             return "Docker not working"
 
     def checkUrlStatus(self,projectname,appname):
-        # proj = Project.objects.get(pk=id)
-        # projectname = proj.project_name
-        # appname = proj.application_name
         try:    
             res = requests.get('http://' + projectname+'-'+appname+'@tothenew.tk')
             response =  str(res)
@@ -59,10 +54,66 @@ class HostCheck():
             mongoRes = str(info['version'])
             return "Mongo working fine:" +  mongoRes
         except:
-            return "Cant connect to mongo"
+            return "Can't connect to mongo"
     
-    # def checkContainer(jsonfile):
-    #     name = settings.ENVFILE_PATH + projectname + '_' + appname + '/hostoutput2.json'
-    #     with open(name, 'r') as f:
-    #         jsoninfo = json.load(f)
+    def checkStack(self,Projectname):
+    	projectname = Projectname
+        #nginxphpres=requests.get('http://127.0.0.1:2735/services?filters={"mode":["replicated"],"name":["'+project+"roach1"'"]}').json()
 
+        nginxphpres=requests.get('http://127.0.0.1:2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_nginx_php"'"]}').json()
+        if nginxphpres[0]['Spec']['Mode']['Replicated']['Replicas']==1:
+	     print "\n"+nginxphpres[0]['Spec']['Name'] + " is running."
+        elif nginxphpres[0]['Spec']['Mode']['Replicated']['Replicas']==0:
+	     print "\n"+nginxphpres[0]['Spec']['Name'] + " is not running."
+        else:
+	     print "Service isn't in replicated mode."
+
+    	mysqlres=requests.get('http://127.0.0.1:2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_mysql"'"]}').json()
+    	if mysqlres[0]['Spec']['Mode']['Replicated']['Replicas']==1:
+	     print "\n"+mysqlres[0]['Spec']['Name'] + " is running."
+        elif mysqlres[0]['Spec']['Mode']['Replicated']['Replicas']==0:
+	     print "\n"+mysqlres[0]['Spec']['Name'] + " is not running."
+        else:
+	     print "Service isn't in replicated mode."
+
+        mongores=requests.get('http://127.0.0.1:2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_mongodb"'"]}').json()
+        if mongores[0]['Spec']['Mode']['Replicated']['Replicas']==1:
+	     print "\n"+mongores[0]['Spec']['Name'] + " is running."
+        elif mongores[0]['Spec']['Mode']['Replicated']['Replicas']==0:
+	     print "\n"+mongores[0]['Spec']['Name'] + " is not running."
+        else:
+	     print "Service isn't in replicated mode."
+	
+        redisres=requests.get('http://127.0.0.1:2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_redis"'"]}').json()
+        if redisres[0]['Spec']['Mode']['Replicated']['Replicas']==1:
+	     print "\n"+redisres[0]['Spec']['Name'] + " is running."
+        elif redisres[0]['Spec']['Mode']['Replicated']['Replicas']==0:
+	     print "\n"+redisres[0]['Spec']['Name'] + " is not running."
+        else:
+	     print "Service isn't in replicated mode."
+
+        varnishres=requests.get('http://127.0.0.1:2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_varnish"'"]}').json()
+        if varnishres[0]['Spec']['Mode']['Replicated']['Replicas']==1:
+	     print "\n"+varnishres[0]['Spec']['Name'] + " is running."
+        elif varnishres[0]['Spec']['Mode']['Replicated']['Replicas']==0:
+	     print "\n"+varnishres[0]['Spec']['Name'] + " is not running."
+        else:
+	     print "Service isn't in replicated mode."
+
+
+        nginxphpres=requests.get('http://127.0.0.1:2735/containers/json?all=1&filters={ "name":["'+projectname+"_nginx_php"'"]}').json()
+        print "\n"+str(nginxphpres[0]['Id']) + " | " + str(nginxphpres[0]['Names'][0]) + " | " + str(nginxphpres[0]['Status'])
+
+        mysqlres=requests.get('http://127.0.0.1:2735/containers/json?all=1&filters={ "name":["'+projectname+"_mysql"'"]}').json()
+        print "\n"+str(mysqlres[0]['Id']) + " | " + str(mysqlres[0]['Names'][0]) + " | " + str(mysqlres[0]['Status'])
+
+        mongores=requests.get('http://127.0.0.1:2735/containers/json?all=1&filters={ "name":["'+projectname+"_mongodb"'"]}').json()
+        print "\n"+str(mongores[0]['Id']) + " | " + str(mongores[0]['Names'][0]) + " | " + str(mongores[0]['Status'])
+
+        varnishres=requests.get('http://127.0.0.1:2735/containers/json?all=1&filters={ "name":["'+projectname+"_varnish"'"]}').json()
+        print "\n"+(varnishres[0]['Id']) + " | " + str(varnishres[0]['Names'][0]) + " | " + str(varnishres[0]['Status'])
+
+        redisres=requests.get('http://127.0.0.1:2735/containers/json?all=1&filters={ "name":["'+projectname+"_redis"'"]}').json()
+        print "\n"+(redisres[0]['Id']) + " | " + str(redisres[0]['Names'][0]) + " | " + str(redisres[0]['Status'])
+
+        
