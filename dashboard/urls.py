@@ -22,10 +22,7 @@ urlpatterns = [
     url(r'^hostadded/(?P<id>[0-9]+)', views.hostadded, name='hostadded'),
     url(r'^rstackview/', views.rstackview, name='rstackview'),
     url(r'^checkstatus/(?P<id>[0-9]+)', views.checkstatus, name='checkstatus'),
-
-
-
-    # url(r'^rerunform/?(?P<id>[0-9]+)', views.rerunform, name='rerunform'),
+    url(r'^rerun/?(?P<id>[0-9]+)', views.rerun, name='rerun'),
 
 
 ]

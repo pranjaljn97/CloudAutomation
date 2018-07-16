@@ -5,6 +5,7 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 import datetime
+from django import forms
 from django.utils import timezone
 
 
@@ -159,3 +160,8 @@ class RequestForm(ModelForm):
         model = Project
         exclude = ['project_flag','pub_date',]
         fields = ['requester','platform','envtype', 'project_name', 'application_name' ,'hostIp','repo_type', 'git_url','git_token','git_username','git_branch','UBUNTU_VERSION','PHP_VERSION','PHP_MODULES','document','NGINX_SERVER_ROOT_VALUE','NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE','NGINX_STATIC_CONTENT_EXPIRES_VALUE','key1','value1','key2','value2','key3','value3','key4','value4','key5','value5','mysql_version','MYSQL_DATABASE_NAME_VALUE','MYSQL_ROOT_PASSWORD_VALUE','MYSQL_USER_NAME_VALUE','MYSQL_PASSWORD_VALUE','MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE','MONGO_INITDB_ROOT_PASSWORD_VALUE','mongo_version','varnish_version','VARNISH_BACKEND_HOST_VALUE','VARNISH_BACKEND_PORT_VALUE','VARNISH_PORT_VALUE','redis_version','REDIS_PASSWORD_VALUE', ]
+
+class Myform(forms.Form):
+    newbranch = forms.CharField(max_length=40)
+    
+
