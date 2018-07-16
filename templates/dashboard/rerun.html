@@ -420,7 +420,7 @@
 
                 </div>
             </div>
-            <!-- <div id="form" class="col-md-12" style="display: none;">
+            <div id="form" class="col-md-12">
                     <div class="card">
                         <div class = "col-md-12">
                         <div class="header">
@@ -428,12 +428,22 @@
                         </div>
                         <div class="content table-responsive table-full-width">
                             <div class="col-md-12">
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    New Git Branch <input type="text" name="newbranch"/>
+                                    <br><br>
+                                    <input type="submit" value="Submit" onclick="window.location='{% url "rerun" posts.id %}';"/>
+                                    <br>
+                                    <br>
+                                </form>
+                                        
+                                        
                           
                             </div>
                         </div>
                     </div>
             </div>
-            </div> -->
+            </div>
             
                 
                
@@ -466,7 +476,7 @@
 
                 {% if posts.status == 'Approved' %}
                 <div class="col-md-2">
-                    <button class="btn btn-default btn-block" onclick="window.location='{% url "rerun" posts.id %}';">Re-Run</button>
+                    <button class="btn btn-default btn-block">Re-Run</button>
                 </div>
                 <div class="col-md-2">
                     <button class="btn btn-default btn-block" onclick="window.location='{% url "checkstatus" posts.id %}';">Check Status</button>

@@ -30,6 +30,7 @@ from dashboard.runplaybook import execplaybook
 from dashboard.makehostentry import hostentry
 from dashboard.checkStatus import HostCheck
 from dashboard.models import status
+from dashboard.models import Myform
 import datetime
 import io
 import json
@@ -205,12 +206,7 @@ def submitted(request,requester):
      posts = Project.objects.all().filter(requester=requester)
      return render(request, "dashboard/submitted.html", {'posts': posts })
 
-@login_required(login_url='/login/')
-def rerun(request,id):
-    posts = Project.objects.get(pk=id)
-    #execplaybook(id)
-    #buildinfo(request,id, )
-    return render(request, "dashboard/detailform1"+".html", {'posts': posts })
+
 
 @login_required(login_url='/login/')
 def finalmail(request,id):
@@ -314,6 +310,45 @@ def checkstatus(request, id):
     statusentry.save()
     allstatus = status.objects.all()
     return render(request, "dashboard/detailform.html", {'posts': posts, 'allstatus': allstatus })
+
+@login_required(login_url='/login/')
+def rerun(request,id):
+    print("hi rerrun")
+    
+    posts = Project.objects.get(pk=id)
+    if request.method == 'POST':
+        print "int"
+        form = Myform(request.POST)
+        if form.is_valid():
+            newbranch = form.cleaned_data['newbranch']
+            print newbranch
+            posts.git_branch = newbranch
+            posts.save()
+            try:
+                makeenvfile(id)
+            except:
+                msg = "Error in making Env File"
+                return render(request, "dashboard/error.html", {'msg': msg })
+            try:
+                execplaybook(id)
+            except:
+                msg = "Error in executing  Ansible Playbook"
+                return render(request, "dashboard/error.html", {'msg': msg })
+            jsonfile = posts.project_name
+            appname = posts.application_name
+            hostip = posts.hostIp
+            try:
+                buildinfo(request,id,jsonfile,hostip)
+            except:
+                msg = "Error in fetching final status"
+                return render(request, "dashboard/error.html", {'msg': msg })
+            return HttpResponseRedirect('/dashboard/detailform' + id + '.html')
+    else:
+        form = Myform()
+    return render(request, "dashboard/rerun.html", {'posts': posts })
+
+    # return render(request, "dashboard/rerun.html", {'posts': posts })
+
 
 
 
