@@ -140,33 +140,33 @@ def approvedsuccessfully(request, id):
         return render(request, "dashboard/error.html", {'msg': msg })
 
     print("hi")
-    # try:
-    #     execplaybook(id)
-    # except:
-    #     msg = "Error in executing  Ansible Playbook"
-    #     return render(request, "dashboard/error.html", {'msg': msg })
+     try:
+         execplaybook(id)
+     except:
+         msg = "Error in executing  Ansible Playbook"
+         return render(request, "dashboard/error.html", {'msg': msg })
   
     
-    # jsonfile = currpost.project_name
-    # appname = currpost.application_name
-    # hostip = currpost.hostIp
-    # try:
-    #     buildinfo(request,id,jsonfile,hostip)
-    # except:
-    #     msg = "Error in fetching final status"
-    #     return render(request, "dashboard/error.html", {'msg': msg })
+     jsonfile = currpost.project_name
+     appname = currpost.application_name
+     hostip = currpost.hostIp
+     try:
+         buildinfo(request,id,jsonfile,hostip)
+     except:
+         msg = "Error in fetching final status"
+         return render(request, "dashboard/error.html", {'msg': msg })
   
-    # try:
-    #     add_cname_record(request,id,jsonfile,appname,hostip)
+     try:
+         add_cname_record(request,id,jsonfile,appname,hostip)
     
-    # except:
-    #     msg = "Error in adding A record in AWS Route53"
-    #     return render(request, "dashboard/error.html", {'msg': msg })
+     except:
+         msg = "Error in adding A record in AWS Route53"
+         return render(request, "dashboard/error.html", {'msg': msg })
     currpost.approvedBy = request.user.email
     currpost.status = 'Approved'
     currpost.save()
    
-    #fmail(request,id,currpost,jsonfile)
+    fmail(request,id,currpost,jsonfile)
 
     return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
 
