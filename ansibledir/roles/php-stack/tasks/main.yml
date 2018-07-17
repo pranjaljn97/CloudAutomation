@@ -21,7 +21,7 @@
     - { dest: '/home/{{ user.project_name }}/mysql', mode: '0775'}
     - { dest: '/home/{{ user.project_name }}/mongodb', mode: '0775'}
     - { dest: '/home/{{ user.project_name }}/code', mode: '0775'}
-  
+    - { dest: '/home/{{ user.project_name }}/logs', mode: '0775'} 
 
 - name: Copying Template into remote
   become: true
