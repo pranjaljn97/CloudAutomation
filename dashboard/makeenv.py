@@ -11,6 +11,7 @@ from django.conf import settings
 import random
 global nginxport
 global varnishport
+global sshnginxhport
 
 
 def makeenvfile(myid):
@@ -50,6 +51,21 @@ def makeenvfile(myid):
                         newport = Ports(port = varnishport, status = '0', projectname = pname, ptype = 'varnish')
                         newport.save()
                         break
+                statussh = False
+                randomport = random.randint(8000,8999)
+                while(statussh == False):
+                    allports = Ports.objects.all()
+                    for oneport in allports:
+                        if(oneport.port == str(randomport)):
+                            statussh = True
+                            randomport = random.randint(8000,8999)
+                    if(statussh == False):
+                        sshnginxhport = randomport
+                        newport = Ports(port = sshnginxhport, status = '0', projectname = pname, ptype = 'sshport')
+                        newport.save()
+                        break
+                        
+                
     else:
         for o1 in obj:
                 print(o1.port)
@@ -59,6 +75,10 @@ def makeenvfile(myid):
                 for o2 in obj2:
                     print("hello3")
                     varnishport = o2.port
+                obj3 = Ports.objects.all().filter(projectname=pname).filter(ptype='sshport')
+                for o3 in obj3:
+                    print("hello4")
+                    sshnginxhport = o3.port
 
       
     currpost = Project.objects.get(pk=myid)
@@ -118,7 +138,9 @@ def makeenvfile(myid):
                             'volumes': {
 
                             },
-                            'ports': nginxport                                                                                                 
+                            'ports': nginxport,
+                            'sshport': sshnginxhport
+
                             },
             'mysql' : { 'enable': True,
                         'image': mysqlImage,
