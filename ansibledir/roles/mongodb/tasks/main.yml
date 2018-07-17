@@ -32,7 +32,7 @@
    
 - name: restart mongod
   become: true
-  service:
+  systemd:
     name: mongod
-    state: restarted
+    state: started
 
