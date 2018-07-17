@@ -76,7 +76,7 @@ def makeenvfile(myid):
                             randomport = random.randint(6000,6999)
                     if(statusql == False):
                         sqlport = randomport
-                        newport = Ports(port = mysqlport, status = '0', projectname = pname, ptype = 'sqlport')
+                        newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'sqlport')
                         newport.save()
                         break
                 statumongo = False
