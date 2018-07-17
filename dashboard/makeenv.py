@@ -32,7 +32,7 @@ def makeenvfile(myid):
                     allports = Ports.objects.all()
                     for oneport in allports:
                         if(oneport.port == str(randomport)):
-                            statusn = True
+                            statusn = False
                             randomport = random.randint(9000,10000)
                     if(statusn == False):
                         nginxport = randomport
@@ -46,7 +46,7 @@ def makeenvfile(myid):
                     allports = Ports.objects.all()
                     for oneport in allports:
                         if(oneport.port == str(randomport)):
-                            statusmy = True
+                            statusmy = False
                             randomport = random.randint(8000,8999)
                     if(statusmy == False):
                         varnishport = randomport
@@ -54,25 +54,25 @@ def makeenvfile(myid):
                         newport.save()
                         break
                 statussh = False
-                randomport = random.randint(8000,8999)
+                randomport = random.randint(7000,7999)
                 while(statussh == False):
                     allports = Ports.objects.all()
                     for oneport in allports:
                         if(oneport.port == str(randomport)):
-                            statussh = True
-                            randomport = random.randint(8000,8999)
+                            statussh = False
+                            randomport = random.randint(7000,7999)
                     if(statussh == False):
                         sshnginxhport = randomport
                         newport = Ports(port = sshnginxhport, status = '0', projectname = pname, ptype = 'sshport')
                         newport.save()
                         break
                 statusql = False
-                randomport = random.randint(8000,8999)
+                randomport = random.randint(6000,6999)
                 while(statusql == False):
                     allports = Ports.objects.all()
                     for oneport in allports:
                         if(oneport.port == str(randomport)):
-                            statusql = True
+                            statusql = False
                             randomport = random.randint(6000,6999)
                     if(statusql == False):
                         sqlport = randomport
@@ -80,13 +80,13 @@ def makeenvfile(myid):
                         newport.save()
                         break
                 statumongo = False
-                randomport = random.randint(8000,8999)
+                randomport = random.randint(5000,5999)
                 while(statumongo == False):
                     allports = Ports.objects.all()
                     for oneport in allports:
                         if(oneport.port == str(randomport)):
-                            statumongo = True
-                            randomport = random.randint(7000,7999)
+                            statumongo = False
+                            randomport = random.randint(5000,5999)
                     if(statumongo == False):
                         mongoport = randomport
                         newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongoport')
@@ -101,18 +101,22 @@ def makeenvfile(myid):
                 obj2 = Ports.objects.all().filter(projectname=pname).filter(ptype='varnish')
                 for o2 in obj2:
                     varnishport = o2.port
+		    print("var")
 	            print(varnishport)
                 obj3 = Ports.objects.all().filter(projectname=pname).filter(ptype='sshport')
                 for o3 in obj3:
                     sshnginxhport = o3.port
-		    print(sshnginxport)
+		    print("ssh")
+		    print(sshnginxhport)
                 obj4 = Ports.objects.all().filter(projectname=pname).filter(ptype='sqlport')
                 for o4 in obj4:
                     sqlport = o4.port
+		    print("sql")
                     print(sqlport)
                 obj5 = Ports.objects.all().filter(projectname=pname).filter(ptype='mongoport')
                 for o5 in obj5:
-                    mongohport = o5.port
+		    print(o5.port)
+                    mongoport = o5.port
 
       
     currpost = Project.objects.get(pk=myid)

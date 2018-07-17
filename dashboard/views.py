@@ -351,11 +351,11 @@ def rerun(request,id):
             print newbranch
             posts.git_branch = newbranch
             posts.save()
-            try:
-                makeenvfile(id)
-            except:
-                msg = "Error in making Env File"
-                return render(request, "dashboard/error.html", {'msg': msg })
+            #try:
+            makeenvfile(id)
+            #except:
+             #   msg = "Error in making Env File"
+              #  return render(request, "dashboard/error.html", {'msg': msg })
             try:
                 execplaybook(id)
             except:
