@@ -140,26 +140,26 @@ def approvedsuccessfully(request, id):
         return render(request, "dashboard/error.html", {'msg': msg })
 
     print("hi")
-     try:
+    try:
          execplaybook(id)
-     except:
+    except:
          msg = "Error in executing  Ansible Playbook"
          return render(request, "dashboard/error.html", {'msg': msg })
   
     
-     jsonfile = currpost.project_name
-     appname = currpost.application_name
-     hostip = currpost.hostIp
-     try:
+    jsonfile = currpost.project_name
+    appname = currpost.application_name
+    hostip = currpost.hostIp
+    try:
          buildinfo(request,id,jsonfile,hostip)
-     except:
+    except:
          msg = "Error in fetching final status"
          return render(request, "dashboard/error.html", {'msg': msg })
   
-     try:
+    try:
          add_cname_record(request,id,jsonfile,appname,hostip)
     
-     except:
+    except:
          msg = "Error in adding A record in AWS Route53"
          return render(request, "dashboard/error.html", {'msg': msg })
     currpost.approvedBy = request.user.email
