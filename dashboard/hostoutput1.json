@@ -4,10 +4,10 @@
         {
             "play": {
                 "duration": {
-                    "end": "2018-07-16T10:27:42.927646Z", 
-                    "start": "2018-07-16T10:27:39.747409Z"
+                    "end": "2018-07-17T08:40:30.465261Z", 
+                    "start": "2018-07-17T08:40:25.024716Z"
                 }, 
-                "id": "c48e8f90-bdcf-0ee1-bb2b-00000000000b", 
+                "id": "c48e8f90-bdcf-982e-1167-00000000000b", 
                 "name": "Initial Task"
             }, 
             "tasks": [
@@ -20,24 +20,24 @@
                             "action": "setup", 
                             "ansible_facts": {
                                 "ansible_all_ipv4_addresses": [
-                                    "192.168.16.1", 
-                                    "172.27.0.1", 
-                                    "172.29.0.1", 
                                     "172.22.0.1", 
                                     "172.24.0.1", 
                                     "192.168.0.1", 
+                                    "172.17.0.1", 
                                     "172.30.0.1", 
                                     "172.28.0.1", 
-                                    "172.17.0.1", 
                                     "172.20.0.1", 
                                     "172.25.0.1", 
                                     "172.26.0.1", 
                                     "172.19.0.1", 
                                     "172.23.0.1", 
+                                    "10.1.202.123", 
                                     "172.21.0.1", 
                                     "172.18.0.1", 
                                     "172.31.0.1", 
-                                    "10.1.201.249"
+                                    "192.168.16.1", 
+                                    "172.27.0.1", 
+                                    "172.29.0.1"
                                 ], 
                                 "ansible_all_ipv6_addresses": [
                                     "fe80::2b38:d0a6:56a9:6279"
@@ -105,7 +105,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02421d1c270d", 
+                                    "id": "8000.0242f34a97d6", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.23.0.1", 
@@ -113,7 +113,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.23.0.0"
                                     }, 
-                                    "macaddress": "02:42:1d:1c:27:0d", 
+                                    "macaddress": "02:42:f3:4a:97:d6", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -180,7 +180,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242de2b80bb", 
+                                    "id": "8000.0242fd022fe5", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.18.0.1", 
@@ -188,7 +188,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.18.0.0"
                                     }, 
-                                    "macaddress": "02:42:de:2b:80:bb", 
+                                    "macaddress": "02:42:fd:02:2f:e5", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -255,7 +255,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.024285c9e22b", 
+                                    "id": "8000.02425cd3edcc", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.25.0.1", 
@@ -263,7 +263,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.25.0.0"
                                     }, 
-                                    "macaddress": "02:42:85:c9:e2:2b", 
+                                    "macaddress": "02:42:5c:d3:ed:cc", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -330,7 +330,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242f2405a7d", 
+                                    "id": "8000.02426b1e3b18", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.31.0.1", 
@@ -338,7 +338,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.31.0.0"
                                     }, 
-                                    "macaddress": "02:42:f2:40:5a:7d", 
+                                    "macaddress": "02:42:6b:1e:3b:18", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -405,7 +405,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242a557e4d4", 
+                                    "id": "8000.02424c0c93dc", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.19.0.1", 
@@ -413,7 +413,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.19.0.0"
                                     }, 
-                                    "macaddress": "02:42:a5:57:e4:d4", 
+                                    "macaddress": "02:42:4c:0c:93:dc", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -480,7 +480,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02423ed88b48", 
+                                    "id": "8000.02428d385e38", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "192.168.16.1", 
@@ -488,7 +488,7 @@
                                         "netmask": "255.255.240.0", 
                                         "network": "192.168.16.0"
                                     }, 
-                                    "macaddress": "02:42:3e:d8:8b:48", 
+                                    "macaddress": "02:42:8d:38:5e:38", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -555,7 +555,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242c75ac740", 
+                                    "id": "8000.0242affe9fca", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.28.0.1", 
@@ -563,7 +563,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.28.0.0"
                                     }, 
-                                    "macaddress": "02:42:c7:5a:c7:40", 
+                                    "macaddress": "02:42:af:fe:9f:ca", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -630,7 +630,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242bb815000", 
+                                    "id": "8000.0242a795ae23", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.27.0.1", 
@@ -638,7 +638,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.27.0.0"
                                     }, 
-                                    "macaddress": "02:42:bb:81:50:00", 
+                                    "macaddress": "02:42:a7:95:ae:23", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -705,7 +705,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242c7bef737", 
+                                    "id": "8000.02422933587d", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.29.0.1", 
@@ -713,7 +713,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.29.0.0"
                                     }, 
-                                    "macaddress": "02:42:c7:be:f7:37", 
+                                    "macaddress": "02:42:29:33:58:7d", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -780,7 +780,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242655c210e", 
+                                    "id": "8000.024280cccaca", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.24.0.1", 
@@ -788,7 +788,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.24.0.0"
                                     }, 
-                                    "macaddress": "02:42:65:5c:21:0e", 
+                                    "macaddress": "02:42:80:cc:ca:ca", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -855,7 +855,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242dd2d032c", 
+                                    "id": "8000.02429193d908", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "192.168.0.1", 
@@ -863,7 +863,7 @@
                                         "netmask": "255.255.240.0", 
                                         "network": "192.168.0.0"
                                     }, 
-                                    "macaddress": "02:42:dd:2d:03:2c", 
+                                    "macaddress": "02:42:91:93:d9:08", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -930,7 +930,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02420aa8f2bb", 
+                                    "id": "8000.024284fc96d6", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.22.0.1", 
@@ -938,7 +938,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.22.0.0"
                                     }, 
-                                    "macaddress": "02:42:0a:a8:f2:bb", 
+                                    "macaddress": "02:42:84:fc:96:d6", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -1005,7 +1005,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.024207e6a8a4", 
+                                    "id": "8000.0242bbfef486", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.30.0.1", 
@@ -1013,7 +1013,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.30.0.0"
                                     }, 
-                                    "macaddress": "02:42:07:e6:a8:a4", 
+                                    "macaddress": "02:42:bb:fe:f4:86", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -1080,7 +1080,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02427bc40d44", 
+                                    "id": "8000.024291572f7e", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.26.0.1", 
@@ -1088,7 +1088,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.26.0.0"
                                     }, 
-                                    "macaddress": "02:42:7b:c4:0d:44", 
+                                    "macaddress": "02:42:91:57:2f:7e", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -1155,7 +1155,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242ab5ed8bd", 
+                                    "id": "8000.0242faf8daa3", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.20.0.1", 
@@ -1163,7 +1163,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.20.0.0"
                                     }, 
-                                    "macaddress": "02:42:ab:5e:d8:bd", 
+                                    "macaddress": "02:42:fa:f8:da:a3", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -1182,34 +1182,34 @@
                                     "vt.handoff": "7"
                                 }, 
                                 "ansible_date_time": {
-                                    "date": "2018-07-16", 
-                                    "day": "16", 
-                                    "epoch": "1531736861", 
-                                    "hour": "10", 
-                                    "iso8601": "2018-07-16T10:27:41Z", 
-                                    "iso8601_basic": "20180716T102741825276", 
-                                    "iso8601_basic_short": "20180716T102741", 
-                                    "iso8601_micro": "2018-07-16T10:27:41.825411Z", 
-                                    "minute": "27", 
+                                    "date": "2018-07-17", 
+                                    "day": "17", 
+                                    "epoch": "1531816829", 
+                                    "hour": "08", 
+                                    "iso8601": "2018-07-17T08:40:29Z", 
+                                    "iso8601_basic": "20180717T084029271504", 
+                                    "iso8601_basic_short": "20180717T084029", 
+                                    "iso8601_micro": "2018-07-17T08:40:29.271708Z", 
+                                    "minute": "40", 
                                     "month": "07", 
-                                    "second": "41", 
-                                    "time": "10:27:41", 
+                                    "second": "29", 
+                                    "time": "08:40:29", 
                                     "tz": "UTC", 
                                     "tz_offset": "+0000", 
-                                    "weekday": "Monday", 
-                                    "weekday_number": "1", 
+                                    "weekday": "Tuesday", 
+                                    "weekday_number": "2", 
                                     "weeknumber": "29", 
                                     "year": "2018"
                                 }, 
                                 "ansible_default_ipv4": {
-                                    "address": "10.1.201.249", 
+                                    "address": "10.1.202.123", 
                                     "alias": "wlp9s0", 
-                                    "broadcast": "10.1.203.255", 
+                                    "broadcast": "10.1.207.255", 
                                     "gateway": "10.1.200.1", 
                                     "interface": "wlp9s0", 
                                     "macaddress": "c4:8e:8f:90:bd:cf", 
                                     "mtu": 1500, 
-                                    "netmask": "255.255.252.0", 
+                                    "netmask": "255.255.248.0", 
                                     "network": "10.1.200.0", 
                                     "type": "ether"
                                 }, 
@@ -1764,7 +1764,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242e29f2b1e", 
+                                    "id": "8000.02425a54b9f0", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.17.0.1", 
@@ -1772,7 +1772,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.17.0.0"
                                     }, 
-                                    "macaddress": "02:42:e2:9f:2b:1e", 
+                                    "macaddress": "02:42:5a:54:b9:f0", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -1839,7 +1839,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.024263e76a01", 
+                                    "id": "8000.0242d1cc0932", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.21.0.1", 
@@ -1847,7 +1847,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.21.0.0"
                                     }, 
-                                    "macaddress": "02:42:63:e7:6a:01", 
+                                    "macaddress": "02:42:d1:cc:09:32", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -1942,7 +1942,7 @@
                                     "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin", 
                                     "PWD": "/home/mudit1804/djangoprojects/s2p/ansibledir", 
                                     "SHELL": "/bin/bash", 
-                                    "SUDO_COMMAND": "/usr/local/bin/ansible-playbook ./ansibledir/addHost.yml --extra-vars @/tmp/ec2_server_52.90.242.38/ec2_server_1.json", 
+                                    "SUDO_COMMAND": "/usr/local/bin/ansible-playbook ./ansibledir/addHost.yml --extra-vars @/tmp/ec2_server_54.86.8.78/ec2_server_2.json", 
                                     "SUDO_GID": "1000", 
                                     "SUDO_UID": "1000", 
                                     "SUDO_USER": "mudit1804", 
@@ -1957,26 +1957,26 @@
                                 "ansible_fqdn": "mudit1804-HP-15-Notebook-PC", 
                                 "ansible_hostname": "mudit1804-HP-15-Notebook-PC", 
                                 "ansible_interfaces": [
-                                    "br-71fb2a734cc7", 
+                                    "br-08a43e192076", 
                                     "docker0", 
                                     "br-3caba1598aa2", 
-                                    "enp8s0", 
+                                    "br-eca035e0911a", 
                                     "wlp9s0", 
                                     "lo", 
                                     "br-c0b687243805", 
                                     "br-24f0b78fe214", 
-                                    "br-08a43e192076", 
-                                    "br-2cde09fc5c7e", 
                                     "br-239eefe438ac", 
+                                    "br-e9d76f3cdadf", 
                                     "br-0213f4d878ea", 
                                     "br-edd9f461d33e", 
-                                    "br-e9d76f3cdadf", 
                                     "docker_gwbridge", 
                                     "br-3bb835c215e5", 
                                     "br-976afa5298d6", 
+                                    "br-71fb2a734cc7", 
                                     "br-0d3887589923", 
                                     "br-7fb978c67a02", 
-                                    "br-eca035e0911a"
+                                    "enp8s0", 
+                                    "br-2cde09fc5c7e"
                                 ], 
                                 "ansible_is_chroot": false, 
                                 "ansible_iscsi_iqn": "", 
@@ -2070,39 +2070,39 @@
                                 }, 
                                 "ansible_machine": "x86_64", 
                                 "ansible_machine_id": "0367f62633014ddb98a1c64bc27e4a70", 
-                                "ansible_memfree_mb": 833, 
+                                "ansible_memfree_mb": 138, 
                                 "ansible_memory_mb": {
                                     "nocache": {
-                                        "free": 1479, 
-                                        "used": 2381
+                                        "free": 534, 
+                                        "used": 3326
                                     }, 
                                     "real": {
-                                        "free": 833, 
+                                        "free": 138, 
                                         "total": 3860, 
-                                        "used": 3027
+                                        "used": 3722
                                     }, 
                                     "swap": {
-                                        "cached": 85, 
-                                        "free": 2760, 
+                                        "cached": 63, 
+                                        "free": 3640, 
                                         "total": 4010, 
-                                        "used": 1250
+                                        "used": 370
                                     }
                                 }, 
                                 "ansible_memtotal_mb": 3860, 
                                 "ansible_mounts": [
                                     {
-                                        "block_available": 110219, 
+                                        "block_available": 48377, 
                                         "block_size": 4096, 
                                         "block_total": 6011939, 
-                                        "block_used": 5901720, 
+                                        "block_used": 5963562, 
                                         "device": "/dev/sda7", 
                                         "fstype": "ext4", 
-                                        "inode_available": 1039673, 
+                                        "inode_available": 1035970, 
                                         "inode_total": 1537088, 
-                                        "inode_used": 497415, 
+                                        "inode_used": 501118, 
                                         "mount": "/", 
                                         "options": "rw,relatime,errors=remount-ro,data=ordered", 
-                                        "size_available": 451457024, 
+                                        "size_available": 198152192, 
                                         "size_total": 24624902144, 
                                         "uuid": "72b75b29-b301-4b88-a8fe-edfc2a586bd4"
                                     }, 
@@ -2179,7 +2179,7 @@
                                 "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLQ9al4eGi78PUsV5pfrr9sgHlu8cHC8I1/veb/xAy7zuFpWxg83eHhD7gXjwA6MJCKqltFPGsI1XqWRSLfE4DM=", 
                                 "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIEcsdGi0dkk31Ry9y43DNeNxoM7bR7pXEC+9vaA0T2WK", 
                                 "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDEJ2VdyWmrSlq466P/XwFq9yNsiCe+iYEHvSzK9G7XZxX35W2FNYV1IDnY/hIRPfdFsx8lHBBlRiueuu1j2XYaMjJCFOdtlBJUykN4uz1JeGtLIey6bUN5C/b2Kb8sIDSa8/LVTczFh6Zx8LGnvi7t2rMzosjBMPTCd9xHihXcbwuoC+JjTKrbA5kaoMGO93dLewCKRdFj5qBKPvmgfA2Tbm0GV22Bs5mExIcWAY3pZglHuWUtL7nfxImsxqnmOK3qdkBrHzNcfox0SSKk10Ev17aVQzcUqRHW9Oa1HJptf0nHfdrAS1qQNaabfKoX53i9lTLeIFn13JzRa9s3em8D", 
-                                "ansible_swapfree_mb": 2760, 
+                                "ansible_swapfree_mb": 3640, 
                                 "ansible_swaptotal_mb": 4010, 
                                 "ansible_system": "Linux", 
                                 "ansible_system_capabilities": [
@@ -2224,7 +2224,7 @@
                                 ], 
                                 "ansible_system_capabilities_enforced": "True", 
                                 "ansible_system_vendor": "Hewlett-Packard", 
-                                "ansible_uptime_seconds": 19084, 
+                                "ansible_uptime_seconds": 3784, 
                                 "ansible_user_dir": "/root", 
                                 "ansible_user_gecos": "root", 
                                 "ansible_user_gid": 0, 
@@ -2293,9 +2293,9 @@
                                     }, 
                                     "hw_timestamp_filters": [], 
                                     "ipv4": {
-                                        "address": "10.1.201.249", 
-                                        "broadcast": "10.1.203.255", 
-                                        "netmask": "255.255.252.0", 
+                                        "address": "10.1.202.123", 
+                                        "broadcast": "10.1.207.255", 
+                                        "netmask": "255.255.248.0", 
                                         "network": "10.1.200.0"
                                     }, 
                                     "ipv6": [
@@ -2336,10 +2336,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:27:42.783864Z", 
-                            "start": "2018-07-16T10:27:39.916705Z"
+                            "end": "2018-07-17T08:40:30.320216Z", 
+                            "start": "2018-07-17T08:40:25.238205Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-00000000003f", 
+                        "id": "c48e8f90-bdcf-982e-1167-00000000003f", 
                         "name": "Gathering Facts"
                     }
                 }, 
@@ -2352,7 +2352,7 @@
                                 "groups": [
                                     "new"
                                 ], 
-                                "host_name": "52.90.242.38", 
+                                "host_name": "54.86.8.78", 
                                 "host_vars": {
                                     "group": "new"
                                 }
@@ -2362,10 +2362,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:27:42.927646Z", 
-                            "start": "2018-07-16T10:27:42.897504Z"
+                            "end": "2018-07-17T08:40:30.465261Z", 
+                            "start": "2018-07-17T08:40:30.391222Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000010", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000010", 
                         "name": "add-hosts : add newly created instances to newly_created group"
                     }
                 }
@@ -2374,24 +2374,26 @@
         {
             "play": {
                 "duration": {
-                    "end": "2018-07-16T10:31:11.827624Z", 
-                    "start": "2018-07-16T10:27:42.960551Z"
+                    "end": "2018-07-17T08:44:04.768685Z", 
+                    "start": "2018-07-17T08:40:30.504907Z"
                 }, 
-                "id": "c48e8f90-bdcf-0ee1-bb2b-000000000011", 
+                "id": "c48e8f90-bdcf-982e-1167-000000000011", 
                 "name": "New instances"
             }, 
             "tasks": [
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "_ansible_verbose_override": true, 
                             "action": "setup", 
                             "ansible_facts": {
                                 "ansible_all_ipv4_addresses": [
+                                    "192.168.80.1", 
                                     "172.17.0.1", 
                                     "192.168.16.1", 
+                                    "192.168.64.1", 
                                     "192.168.0.1", 
                                     "172.26.0.1", 
                                     "172.20.0.1", 
@@ -2405,13 +2407,20 @@
                                     "172.22.0.1", 
                                     "172.21.0.1", 
                                     "172.24.0.1", 
+                                    "192.168.48.1", 
                                     "172.25.0.1", 
+                                    "192.168.96.1", 
                                     "172.28.0.1", 
                                     "172.30.0.1"
                                 ], 
                                 "ansible_all_ipv6_addresses": [
+                                    "fe80::7cc6:6aff:fe1a:bafb", 
                                     "fe80::10f9:91ff:fe70:ddbe", 
-                                    "fe80::42:1dff:fe2c:1d71"
+                                    "fe80::70bf:aff:fedc:4aaf", 
+                                    "fe80::7009:caff:fe10:8ca2", 
+                                    "fe80::f8f9:43ff:fed2:dfeb", 
+                                    "fe80::42:56ff:fe8c:5bdb", 
+                                    "fe80::e8d1:eeff:fe5a:c719"
                                 ], 
                                 "ansible_apparmor": {
                                     "status": "enabled"
@@ -2469,7 +2478,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242b880e6f4", 
+                                    "id": "8000.0242285f617d", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.26.0.1", 
@@ -2477,7 +2486,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.26.0.0"
                                     }, 
-                                    "macaddress": "02:42:b8:80:e6:f4", 
+                                    "macaddress": "02:42:28:5f:61:7d", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -2537,7 +2546,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02423b3d908e", 
+                                    "id": "8000.0242ab6cc9c2", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.20.0.1", 
@@ -2545,7 +2554,75 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.20.0.0"
                                     }, 
-                                    "macaddress": "02:42:3b:3d:90:8e", 
+                                    "macaddress": "02:42:ab:6c:c9:c2", 
+                                    "mtu": 1500, 
+                                    "promisc": false, 
+                                    "stp": false, 
+                                    "timestamping": [
+                                        "rx_software", 
+                                        "software"
+                                    ], 
+                                    "type": "bridge"
+                                }, 
+                                "ansible_br_076f2e5817a2": {
+                                    "active": false, 
+                                    "device": "br-076f2e5817a2", 
+                                    "features": {
+                                        "busy_poll": "off [fixed]", 
+                                        "fcoe_mtu": "off [fixed]", 
+                                        "generic_receive_offload": "on", 
+                                        "generic_segmentation_offload": "on", 
+                                        "highdma": "on", 
+                                        "hw_tc_offload": "off [fixed]", 
+                                        "l2_fwd_offload": "off [fixed]", 
+                                        "large_receive_offload": "off [fixed]", 
+                                        "loopback": "off [fixed]", 
+                                        "netns_local": "on [fixed]", 
+                                        "ntuple_filters": "off [fixed]", 
+                                        "receive_hashing": "off [fixed]", 
+                                        "rx_all": "off [fixed]", 
+                                        "rx_checksumming": "off [fixed]", 
+                                        "rx_fcs": "off [fixed]", 
+                                        "rx_vlan_filter": "off [fixed]", 
+                                        "rx_vlan_offload": "off [fixed]", 
+                                        "rx_vlan_stag_filter": "off [fixed]", 
+                                        "rx_vlan_stag_hw_parse": "off [fixed]", 
+                                        "scatter_gather": "on", 
+                                        "tcp_segmentation_offload": "on", 
+                                        "tx_checksum_fcoe_crc": "off [fixed]", 
+                                        "tx_checksum_ip_generic": "on", 
+                                        "tx_checksum_ipv4": "off [fixed]", 
+                                        "tx_checksum_ipv6": "off [fixed]", 
+                                        "tx_checksum_sctp": "off [fixed]", 
+                                        "tx_checksumming": "on", 
+                                        "tx_fcoe_segmentation": "on", 
+                                        "tx_gre_segmentation": "on", 
+                                        "tx_gso_robust": "on", 
+                                        "tx_ipip_segmentation": "on", 
+                                        "tx_lockless": "on [fixed]", 
+                                        "tx_nocache_copy": "off", 
+                                        "tx_scatter_gather": "on", 
+                                        "tx_scatter_gather_fraglist": "on", 
+                                        "tx_sit_segmentation": "on", 
+                                        "tx_tcp6_segmentation": "on", 
+                                        "tx_tcp_ecn_segmentation": "on", 
+                                        "tx_tcp_segmentation": "on", 
+                                        "tx_udp_tnl_segmentation": "on", 
+                                        "tx_vlan_offload": "on", 
+                                        "tx_vlan_stag_hw_insert": "on", 
+                                        "udp_fragmentation_offload": "on", 
+                                        "vlan_challenged": "off [fixed]"
+                                    }, 
+                                    "hw_timestamp_filters": [], 
+                                    "id": "8000.0242e9e58812", 
+                                    "interfaces": [], 
+                                    "ipv4": {
+                                        "address": "192.168.64.1", 
+                                        "broadcast": "192.168.79.255", 
+                                        "netmask": "255.255.240.0", 
+                                        "network": "192.168.64.0"
+                                    }, 
+                                    "macaddress": "02:42:e9:e5:88:12", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -2605,7 +2682,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242991d7389", 
+                                    "id": "8000.0242d6586d4d", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.19.0.1", 
@@ -2613,7 +2690,75 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.19.0.0"
                                     }, 
-                                    "macaddress": "02:42:99:1d:73:89", 
+                                    "macaddress": "02:42:d6:58:6d:4d", 
+                                    "mtu": 1500, 
+                                    "promisc": false, 
+                                    "stp": false, 
+                                    "timestamping": [
+                                        "rx_software", 
+                                        "software"
+                                    ], 
+                                    "type": "bridge"
+                                }, 
+                                "ansible_br_4e6705de7dc2": {
+                                    "active": false, 
+                                    "device": "br-4e6705de7dc2", 
+                                    "features": {
+                                        "busy_poll": "off [fixed]", 
+                                        "fcoe_mtu": "off [fixed]", 
+                                        "generic_receive_offload": "on", 
+                                        "generic_segmentation_offload": "on", 
+                                        "highdma": "on", 
+                                        "hw_tc_offload": "off [fixed]", 
+                                        "l2_fwd_offload": "off [fixed]", 
+                                        "large_receive_offload": "off [fixed]", 
+                                        "loopback": "off [fixed]", 
+                                        "netns_local": "on [fixed]", 
+                                        "ntuple_filters": "off [fixed]", 
+                                        "receive_hashing": "off [fixed]", 
+                                        "rx_all": "off [fixed]", 
+                                        "rx_checksumming": "off [fixed]", 
+                                        "rx_fcs": "off [fixed]", 
+                                        "rx_vlan_filter": "off [fixed]", 
+                                        "rx_vlan_offload": "off [fixed]", 
+                                        "rx_vlan_stag_filter": "off [fixed]", 
+                                        "rx_vlan_stag_hw_parse": "off [fixed]", 
+                                        "scatter_gather": "on", 
+                                        "tcp_segmentation_offload": "on", 
+                                        "tx_checksum_fcoe_crc": "off [fixed]", 
+                                        "tx_checksum_ip_generic": "on", 
+                                        "tx_checksum_ipv4": "off [fixed]", 
+                                        "tx_checksum_ipv6": "off [fixed]", 
+                                        "tx_checksum_sctp": "off [fixed]", 
+                                        "tx_checksumming": "on", 
+                                        "tx_fcoe_segmentation": "on", 
+                                        "tx_gre_segmentation": "on", 
+                                        "tx_gso_robust": "on", 
+                                        "tx_ipip_segmentation": "on", 
+                                        "tx_lockless": "on [fixed]", 
+                                        "tx_nocache_copy": "off", 
+                                        "tx_scatter_gather": "on", 
+                                        "tx_scatter_gather_fraglist": "on", 
+                                        "tx_sit_segmentation": "on", 
+                                        "tx_tcp6_segmentation": "on", 
+                                        "tx_tcp_ecn_segmentation": "on", 
+                                        "tx_tcp_segmentation": "on", 
+                                        "tx_udp_tnl_segmentation": "on", 
+                                        "tx_vlan_offload": "on", 
+                                        "tx_vlan_stag_hw_insert": "on", 
+                                        "udp_fragmentation_offload": "on", 
+                                        "vlan_challenged": "off [fixed]"
+                                    }, 
+                                    "hw_timestamp_filters": [], 
+                                    "id": "8000.024240b2c41f", 
+                                    "interfaces": [], 
+                                    "ipv4": {
+                                        "address": "192.168.48.1", 
+                                        "broadcast": "192.168.63.255", 
+                                        "netmask": "255.255.240.0", 
+                                        "network": "192.168.48.0"
+                                    }, 
+                                    "macaddress": "02:42:40:b2:c4:1f", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -2673,7 +2818,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.024212571b68", 
+                                    "id": "8000.02420ee99f34", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "192.168.16.1", 
@@ -2681,7 +2826,7 @@
                                         "netmask": "255.255.240.0", 
                                         "network": "192.168.16.0"
                                     }, 
-                                    "macaddress": "02:42:12:57:1b:68", 
+                                    "macaddress": "02:42:0e:e9:9f:34", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -2741,7 +2886,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02422e57ba58", 
+                                    "id": "8000.02421e065052", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.24.0.1", 
@@ -2749,7 +2894,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.24.0.0"
                                     }, 
-                                    "macaddress": "02:42:2e:57:ba:58", 
+                                    "macaddress": "02:42:1e:06:50:52", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -2809,7 +2954,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242439ed37f", 
+                                    "id": "8000.0242f67fe3f6", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.28.0.1", 
@@ -2817,7 +2962,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.28.0.0"
                                     }, 
-                                    "macaddress": "02:42:43:9e:d3:7f", 
+                                    "macaddress": "02:42:f6:7f:e3:f6", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -2877,7 +3022,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.024285050830", 
+                                    "id": "8000.0242d785cd75", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.29.0.1", 
@@ -2885,7 +3030,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.29.0.0"
                                     }, 
-                                    "macaddress": "02:42:85:05:08:30", 
+                                    "macaddress": "02:42:d7:85:cd:75", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -2945,7 +3090,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242e538ff1d", 
+                                    "id": "8000.02424ac5c71a", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.21.0.1", 
@@ -2953,7 +3098,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.21.0.0"
                                     }, 
-                                    "macaddress": "02:42:e5:38:ff:1d", 
+                                    "macaddress": "02:42:4a:c5:c7:1a", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -3013,7 +3158,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02420639dd1c", 
+                                    "id": "8000.024238204af1", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.22.0.1", 
@@ -3021,7 +3166,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.22.0.0"
                                     }, 
-                                    "macaddress": "02:42:06:39:dd:1c", 
+                                    "macaddress": "02:42:38:20:4a:f1", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -3081,7 +3226,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02425905994a", 
+                                    "id": "8000.0242195a6cc4", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.25.0.1", 
@@ -3089,7 +3234,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.25.0.0"
                                     }, 
-                                    "macaddress": "02:42:59:05:99:4a", 
+                                    "macaddress": "02:42:19:5a:6c:c4", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -3149,7 +3294,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02421d2c1d71", 
+                                    "id": "8000.02426af82f63", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "192.168.32.1", 
@@ -3157,14 +3302,7 @@
                                         "netmask": "255.255.240.0", 
                                         "network": "192.168.32.0"
                                     }, 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::42:1dff:fe2c:1d71", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "02:42:1d:2c:1d:71", 
+                                    "macaddress": "02:42:6a:f8:2f:63", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -3224,7 +3362,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242b40d2165", 
+                                    "id": "8000.02421cfc3fc8", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "192.168.0.1", 
@@ -3232,7 +3370,7 @@
                                         "netmask": "255.255.240.0", 
                                         "network": "192.168.0.0"
                                     }, 
-                                    "macaddress": "02:42:b4:0d:21:65", 
+                                    "macaddress": "02:42:1c:fc:3f:c8", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -3292,7 +3430,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02423cde19e4", 
+                                    "id": "8000.0242f7736f08", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.23.0.1", 
@@ -3300,7 +3438,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.23.0.0"
                                     }, 
-                                    "macaddress": "02:42:3c:de:19:e4", 
+                                    "macaddress": "02:42:f7:73:6f:08", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -3360,7 +3498,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02429bf1444a", 
+                                    "id": "8000.024248f280c5", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.18.0.1", 
@@ -3368,7 +3506,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.18.0.0"
                                     }, 
-                                    "macaddress": "02:42:9b:f1:44:4a", 
+                                    "macaddress": "02:42:48:f2:80:c5", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -3428,7 +3566,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.02421851b4c3", 
+                                    "id": "8000.02425b3343c5", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.27.0.1", 
@@ -3436,7 +3574,75 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.27.0.0"
                                     }, 
-                                    "macaddress": "02:42:18:51:b4:c3", 
+                                    "macaddress": "02:42:5b:33:43:c5", 
+                                    "mtu": 1500, 
+                                    "promisc": false, 
+                                    "stp": false, 
+                                    "timestamping": [
+                                        "rx_software", 
+                                        "software"
+                                    ], 
+                                    "type": "bridge"
+                                }, 
+                                "ansible_br_d690b47859cb": {
+                                    "active": false, 
+                                    "device": "br-d690b47859cb", 
+                                    "features": {
+                                        "busy_poll": "off [fixed]", 
+                                        "fcoe_mtu": "off [fixed]", 
+                                        "generic_receive_offload": "on", 
+                                        "generic_segmentation_offload": "on", 
+                                        "highdma": "on", 
+                                        "hw_tc_offload": "off [fixed]", 
+                                        "l2_fwd_offload": "off [fixed]", 
+                                        "large_receive_offload": "off [fixed]", 
+                                        "loopback": "off [fixed]", 
+                                        "netns_local": "on [fixed]", 
+                                        "ntuple_filters": "off [fixed]", 
+                                        "receive_hashing": "off [fixed]", 
+                                        "rx_all": "off [fixed]", 
+                                        "rx_checksumming": "off [fixed]", 
+                                        "rx_fcs": "off [fixed]", 
+                                        "rx_vlan_filter": "off [fixed]", 
+                                        "rx_vlan_offload": "off [fixed]", 
+                                        "rx_vlan_stag_filter": "off [fixed]", 
+                                        "rx_vlan_stag_hw_parse": "off [fixed]", 
+                                        "scatter_gather": "on", 
+                                        "tcp_segmentation_offload": "on", 
+                                        "tx_checksum_fcoe_crc": "off [fixed]", 
+                                        "tx_checksum_ip_generic": "on", 
+                                        "tx_checksum_ipv4": "off [fixed]", 
+                                        "tx_checksum_ipv6": "off [fixed]", 
+                                        "tx_checksum_sctp": "off [fixed]", 
+                                        "tx_checksumming": "on", 
+                                        "tx_fcoe_segmentation": "on", 
+                                        "tx_gre_segmentation": "on", 
+                                        "tx_gso_robust": "on", 
+                                        "tx_ipip_segmentation": "on", 
+                                        "tx_lockless": "on [fixed]", 
+                                        "tx_nocache_copy": "off", 
+                                        "tx_scatter_gather": "on", 
+                                        "tx_scatter_gather_fraglist": "on", 
+                                        "tx_sit_segmentation": "on", 
+                                        "tx_tcp6_segmentation": "on", 
+                                        "tx_tcp_ecn_segmentation": "on", 
+                                        "tx_tcp_segmentation": "on", 
+                                        "tx_udp_tnl_segmentation": "on", 
+                                        "tx_vlan_offload": "on", 
+                                        "tx_vlan_stag_hw_insert": "on", 
+                                        "udp_fragmentation_offload": "on", 
+                                        "vlan_challenged": "off [fixed]"
+                                    }, 
+                                    "hw_timestamp_filters": [], 
+                                    "id": "8000.0242839b908d", 
+                                    "interfaces": [], 
+                                    "ipv4": {
+                                        "address": "192.168.80.1", 
+                                        "broadcast": "192.168.95.255", 
+                                        "netmask": "255.255.240.0", 
+                                        "network": "192.168.80.0"
+                                    }, 
+                                    "macaddress": "02:42:83:9b:90:8d", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -3496,7 +3702,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242fd63a430", 
+                                    "id": "8000.0242e95d6d21", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.30.0.1", 
@@ -3504,7 +3710,88 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.30.0.0"
                                     }, 
-                                    "macaddress": "02:42:fd:63:a4:30", 
+                                    "macaddress": "02:42:e9:5d:6d:21", 
+                                    "mtu": 1500, 
+                                    "promisc": false, 
+                                    "stp": false, 
+                                    "timestamping": [
+                                        "rx_software", 
+                                        "software"
+                                    ], 
+                                    "type": "bridge"
+                                }, 
+                                "ansible_br_f7703225c888": {
+                                    "active": true, 
+                                    "device": "br-f7703225c888", 
+                                    "features": {
+                                        "busy_poll": "off [fixed]", 
+                                        "fcoe_mtu": "off [fixed]", 
+                                        "generic_receive_offload": "on", 
+                                        "generic_segmentation_offload": "on", 
+                                        "highdma": "on", 
+                                        "hw_tc_offload": "off [fixed]", 
+                                        "l2_fwd_offload": "off [fixed]", 
+                                        "large_receive_offload": "off [fixed]", 
+                                        "loopback": "off [fixed]", 
+                                        "netns_local": "on [fixed]", 
+                                        "ntuple_filters": "off [fixed]", 
+                                        "receive_hashing": "off [fixed]", 
+                                        "rx_all": "off [fixed]", 
+                                        "rx_checksumming": "off [fixed]", 
+                                        "rx_fcs": "off [fixed]", 
+                                        "rx_vlan_filter": "off [fixed]", 
+                                        "rx_vlan_offload": "off [fixed]", 
+                                        "rx_vlan_stag_filter": "off [fixed]", 
+                                        "rx_vlan_stag_hw_parse": "off [fixed]", 
+                                        "scatter_gather": "on", 
+                                        "tcp_segmentation_offload": "on", 
+                                        "tx_checksum_fcoe_crc": "off [fixed]", 
+                                        "tx_checksum_ip_generic": "on", 
+                                        "tx_checksum_ipv4": "off [fixed]", 
+                                        "tx_checksum_ipv6": "off [fixed]", 
+                                        "tx_checksum_sctp": "off [fixed]", 
+                                        "tx_checksumming": "on", 
+                                        "tx_fcoe_segmentation": "off [requested on]", 
+                                        "tx_gre_segmentation": "on", 
+                                        "tx_gso_robust": "off [requested on]", 
+                                        "tx_ipip_segmentation": "on", 
+                                        "tx_lockless": "on [fixed]", 
+                                        "tx_nocache_copy": "off", 
+                                        "tx_scatter_gather": "on", 
+                                        "tx_scatter_gather_fraglist": "on", 
+                                        "tx_sit_segmentation": "on", 
+                                        "tx_tcp6_segmentation": "on", 
+                                        "tx_tcp_ecn_segmentation": "on", 
+                                        "tx_tcp_segmentation": "on", 
+                                        "tx_udp_tnl_segmentation": "on", 
+                                        "tx_vlan_offload": "on", 
+                                        "tx_vlan_stag_hw_insert": "on", 
+                                        "udp_fragmentation_offload": "on", 
+                                        "vlan_challenged": "off [fixed]"
+                                    }, 
+                                    "hw_timestamp_filters": [], 
+                                    "id": "8000.0242568c5bdb", 
+                                    "interfaces": [
+                                        "vethc6d6f71", 
+                                        "veth45284c8", 
+                                        "veth0e47954", 
+                                        "veth3c10fbe", 
+                                        "veth25208be"
+                                    ], 
+                                    "ipv4": {
+                                        "address": "192.168.96.1", 
+                                        "broadcast": "192.168.111.255", 
+                                        "netmask": "255.255.240.0", 
+                                        "network": "192.168.96.0"
+                                    }, 
+                                    "ipv6": [
+                                        {
+                                            "address": "fe80::42:56ff:fe8c:5bdb", 
+                                            "prefix": "64", 
+                                            "scope": "link"
+                                        }
+                                    ], 
+                                    "macaddress": "02:42:56:8c:5b:db", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -3522,22 +3809,22 @@
                                     "root": "UUID=84ce5b56-30b1-4479-a864-7296bb549cec"
                                 }, 
                                 "ansible_date_time": {
-                                    "date": "2018-07-16", 
-                                    "day": "16", 
-                                    "epoch": "1531736873", 
-                                    "hour": "10", 
-                                    "iso8601": "2018-07-16T10:27:53Z", 
-                                    "iso8601_basic": "20180716T102753465785", 
-                                    "iso8601_basic_short": "20180716T102753", 
-                                    "iso8601_micro": "2018-07-16T10:27:53.465860Z", 
-                                    "minute": "27", 
+                                    "date": "2018-07-17", 
+                                    "day": "17", 
+                                    "epoch": "1531816841", 
+                                    "hour": "08", 
+                                    "iso8601": "2018-07-17T08:40:41Z", 
+                                    "iso8601_basic": "20180717T084041355741", 
+                                    "iso8601_basic_short": "20180717T084041", 
+                                    "iso8601_micro": "2018-07-17T08:40:41.355836Z", 
+                                    "minute": "40", 
                                     "month": "07", 
-                                    "second": "53", 
-                                    "time": "10:27:53", 
+                                    "second": "41", 
+                                    "time": "08:40:41", 
                                     "tz": "UTC", 
                                     "tz_offset": "+0000", 
-                                    "weekday": "Monday", 
-                                    "weekday_number": "1", 
+                                    "weekday": "Tuesday", 
+                                    "weekday_number": "2", 
                                     "weeknumber": "29", 
                                     "year": "2018"
                                 }, 
@@ -4144,9 +4431,9 @@
                                                         "84ce5b56-30b1-4479-a864-7296bb549cec"
                                                     ]
                                                 }, 
-                                                "sectors": "16775135", 
+                                                "sectors": "209713119", 
                                                 "sectorsize": 512, 
-                                                "size": "8.00 GB", 
+                                                "size": "100.00 GB", 
                                                 "start": "2048", 
                                                 "uuid": "84ce5b56-30b1-4479-a864-7296bb549cec"
                                             }
@@ -4156,9 +4443,9 @@
                                         "sas_address": null, 
                                         "sas_device_handle": null, 
                                         "scheduler_mode": "", 
-                                        "sectors": "16777216", 
+                                        "sectors": "209715200", 
                                         "sectorsize": "512", 
-                                        "size": "8.00 GB", 
+                                        "size": "100.00 GB", 
                                         "support_discard": "0", 
                                         "vendor": null, 
                                         "virtual": 1
@@ -4229,7 +4516,7 @@
                                         "vlan_challenged": "off [fixed]"
                                     }, 
                                     "hw_timestamp_filters": [], 
-                                    "id": "8000.0242fe972c54", 
+                                    "id": "8000.02420cd91710", 
                                     "interfaces": [], 
                                     "ipv4": {
                                         "address": "172.17.0.1", 
@@ -4237,7 +4524,7 @@
                                         "netmask": "255.255.0.0", 
                                         "network": "172.17.0.0"
                                     }, 
-                                    "macaddress": "02:42:fe:97:2c:54", 
+                                    "macaddress": "02:42:0c:d9:17:10", 
                                     "mtu": 1500, 
                                     "promisc": false, 
                                     "stp": false, 
@@ -4259,13 +4546,13 @@
                                     "PWD": "/home/pranjal", 
                                     "SHELL": "/bin/bash", 
                                     "SHLVL": "1", 
-                                    "SSH_CLIENT": "182.71.160.189 49776 22", 
-                                    "SSH_CONNECTION": "182.71.160.189 49776 172.31.43.207 22", 
-                                    "SSH_TTY": "/dev/pts/5", 
+                                    "SSH_CLIENT": "182.71.160.189 36230 22", 
+                                    "SSH_CONNECTION": "182.71.160.189 36230 172.31.43.207 22", 
+                                    "SSH_TTY": "/dev/pts/1", 
                                     "TERM": "xterm-256color", 
                                     "USER": "pranjal", 
                                     "XDG_RUNTIME_DIR": "/run/user/1001", 
-                                    "XDG_SESSION_ID": "23", 
+                                    "XDG_SESSION_ID": "12", 
                                     "_": "/bin/sh"
                                 }, 
                                 "ansible_eth0": {
@@ -4347,25 +4634,34 @@
                                 "ansible_fqdn": "ip-172-31-43-207.ec2.internal", 
                                 "ansible_hostname": "ip-172-31-43-207", 
                                 "ansible_interfaces": [
-                                    "br-5aff799fa136", 
                                     "br-67a7c309198c", 
-                                    "docker0", 
-                                    "br-6797a5eb6b78", 
-                                    "br-00c6581af97a", 
+                                    "vethc6d6f71", 
                                     "br-a59b36bb26ae", 
-                                    "lo", 
-                                    "br-91aef27b04e0", 
+                                    "br-d690b47859cb", 
+                                    "veth0e47954", 
+                                    "docker0", 
+                                    "br-076f2e5817a2", 
+                                    "veth45284c8", 
+                                    "eth0", 
+                                    "veth3c10fbe", 
                                     "br-c379e0d1457e", 
-                                    "br-b65a0cccb0ef", 
-                                    "br-06127395fb4d", 
+                                    "lo", 
+                                    "br-00c6581af97a", 
+                                    "br-8490de481ee1", 
+                                    "br-6797a5eb6b78", 
+                                    "br-8ec54cb7e93e", 
                                     "br-8b02f2c67f5a", 
                                     "br-7614199adfab", 
-                                    "br-8ec54cb7e93e", 
                                     "br-f1310ac44f8d", 
-                                    "br-7b98fd23f359", 
-                                    "br-8490de481ee1", 
+                                    "veth25208be", 
+                                    "br-5aff799fa136", 
+                                    "br-91aef27b04e0", 
+                                    "br-4e6705de7dc2", 
+                                    "br-b65a0cccb0ef", 
                                     "br-3fe3cdba663c", 
-                                    "eth0"
+                                    "br-7b98fd23f359", 
+                                    "br-f7703225c888", 
+                                    "br-06127395fb4d"
                                 ], 
                                 "ansible_is_chroot": false, 
                                 "ansible_iscsi_iqn": "", 
@@ -4451,16 +4747,16 @@
                                 }, 
                                 "ansible_machine": "x86_64", 
                                 "ansible_machine_id": "515858754b2c4e9493aae382f859a88b", 
-                                "ansible_memfree_mb": 175, 
+                                "ansible_memfree_mb": 81, 
                                 "ansible_memory_mb": {
                                     "nocache": {
-                                        "free": 489, 
-                                        "used": 501
+                                        "free": 346, 
+                                        "used": 644
                                     }, 
                                     "real": {
-                                        "free": 175, 
+                                        "free": 81, 
                                         "total": 990, 
-                                        "used": 815
+                                        "used": 909
                                     }, 
                                     "swap": {
                                         "cached": 0, 
@@ -4472,19 +4768,19 @@
                                 "ansible_memtotal_mb": 990, 
                                 "ansible_mounts": [
                                     {
-                                        "block_available": 173880, 
+                                        "block_available": 23249365, 
                                         "block_size": 4096, 
-                                        "block_total": 2016361, 
-                                        "block_used": 1842481, 
+                                        "block_total": 25396035, 
+                                        "block_used": 2146670, 
                                         "device": "/dev/xvda1", 
                                         "fstype": "ext4", 
-                                        "inode_available": 834325, 
-                                        "inode_total": 1024000, 
-                                        "inode_used": 189675, 
+                                        "inode_available": 12583812, 
+                                        "inode_total": 12800000, 
+                                        "inode_used": 216188, 
                                         "mount": "/", 
                                         "options": "rw,relatime,discard,data=ordered", 
-                                        "size_available": 712212480, 
-                                        "size_total": 8259014656, 
+                                        "size_available": 95229399040, 
+                                        "size_total": 104022159360, 
                                         "uuid": "84ce5b56-30b1-4479-a864-7296bb549cec"
                                     }
                                 ], 
@@ -4543,7 +4839,7 @@
                                 ], 
                                 "ansible_system_capabilities_enforced": "True", 
                                 "ansible_system_vendor": "Xen", 
-                                "ansible_uptime_seconds": 17809, 
+                                "ansible_uptime_seconds": 2409, 
                                 "ansible_user_dir": "/home/pranjal", 
                                 "ansible_user_gecos": "", 
                                 "ansible_user_gid": 0, 
@@ -4552,6 +4848,341 @@
                                 "ansible_user_uid": 1001, 
                                 "ansible_userspace_architecture": "x86_64", 
                                 "ansible_userspace_bits": "64", 
+                                "ansible_veth0e47954": {
+                                    "active": true, 
+                                    "device": "veth0e47954", 
+                                    "features": {
+                                        "busy_poll": "off [fixed]", 
+                                        "fcoe_mtu": "off [fixed]", 
+                                        "generic_receive_offload": "on", 
+                                        "generic_segmentation_offload": "on", 
+                                        "highdma": "on", 
+                                        "hw_tc_offload": "off [fixed]", 
+                                        "l2_fwd_offload": "off [fixed]", 
+                                        "large_receive_offload": "off [fixed]", 
+                                        "loopback": "off [fixed]", 
+                                        "netns_local": "off [fixed]", 
+                                        "ntuple_filters": "off [fixed]", 
+                                        "receive_hashing": "off [fixed]", 
+                                        "rx_all": "off [fixed]", 
+                                        "rx_checksumming": "on", 
+                                        "rx_fcs": "off [fixed]", 
+                                        "rx_vlan_filter": "off [fixed]", 
+                                        "rx_vlan_offload": "on", 
+                                        "rx_vlan_stag_filter": "off [fixed]", 
+                                        "rx_vlan_stag_hw_parse": "on", 
+                                        "scatter_gather": "on", 
+                                        "tcp_segmentation_offload": "on", 
+                                        "tx_checksum_fcoe_crc": "off [fixed]", 
+                                        "tx_checksum_ip_generic": "on", 
+                                        "tx_checksum_ipv4": "off [fixed]", 
+                                        "tx_checksum_ipv6": "off [fixed]", 
+                                        "tx_checksum_sctp": "off [fixed]", 
+                                        "tx_checksumming": "on", 
+                                        "tx_fcoe_segmentation": "off [fixed]", 
+                                        "tx_gre_segmentation": "on", 
+                                        "tx_gso_robust": "off [fixed]", 
+                                        "tx_ipip_segmentation": "on", 
+                                        "tx_lockless": "on [fixed]", 
+                                        "tx_nocache_copy": "off", 
+                                        "tx_scatter_gather": "on", 
+                                        "tx_scatter_gather_fraglist": "on", 
+                                        "tx_sit_segmentation": "on", 
+                                        "tx_tcp6_segmentation": "on", 
+                                        "tx_tcp_ecn_segmentation": "on", 
+                                        "tx_tcp_segmentation": "on", 
+                                        "tx_udp_tnl_segmentation": "on", 
+                                        "tx_vlan_offload": "on", 
+                                        "tx_vlan_stag_hw_insert": "on", 
+                                        "udp_fragmentation_offload": "on", 
+                                        "vlan_challenged": "off [fixed]"
+                                    }, 
+                                    "hw_timestamp_filters": [], 
+                                    "ipv6": [
+                                        {
+                                            "address": "fe80::70bf:aff:fedc:4aaf", 
+                                            "prefix": "64", 
+                                            "scope": "link"
+                                        }
+                                    ], 
+                                    "macaddress": "72:bf:0a:dc:4a:af", 
+                                    "mtu": 1500, 
+                                    "promisc": true, 
+                                    "speed": 10000, 
+                                    "timestamping": [
+                                        "rx_software", 
+                                        "software"
+                                    ], 
+                                    "type": "ether"
+                                }, 
+                                "ansible_veth25208be": {
+                                    "active": true, 
+                                    "device": "veth25208be", 
+                                    "features": {
+                                        "busy_poll": "off [fixed]", 
+                                        "fcoe_mtu": "off [fixed]", 
+                                        "generic_receive_offload": "on", 
+                                        "generic_segmentation_offload": "on", 
+                                        "highdma": "on", 
+                                        "hw_tc_offload": "off [fixed]", 
+                                        "l2_fwd_offload": "off [fixed]", 
+                                        "large_receive_offload": "off [fixed]", 
+                                        "loopback": "off [fixed]", 
+                                        "netns_local": "off [fixed]", 
+                                        "ntuple_filters": "off [fixed]", 
+                                        "receive_hashing": "off [fixed]", 
+                                        "rx_all": "off [fixed]", 
+                                        "rx_checksumming": "on", 
+                                        "rx_fcs": "off [fixed]", 
+                                        "rx_vlan_filter": "off [fixed]", 
+                                        "rx_vlan_offload": "on", 
+                                        "rx_vlan_stag_filter": "off [fixed]", 
+                                        "rx_vlan_stag_hw_parse": "on", 
+                                        "scatter_gather": "on", 
+                                        "tcp_segmentation_offload": "on", 
+                                        "tx_checksum_fcoe_crc": "off [fixed]", 
+                                        "tx_checksum_ip_generic": "on", 
+                                        "tx_checksum_ipv4": "off [fixed]", 
+                                        "tx_checksum_ipv6": "off [fixed]", 
+                                        "tx_checksum_sctp": "off [fixed]", 
+                                        "tx_checksumming": "on", 
+                                        "tx_fcoe_segmentation": "off [fixed]", 
+                                        "tx_gre_segmentation": "on", 
+                                        "tx_gso_robust": "off [fixed]", 
+                                        "tx_ipip_segmentation": "on", 
+                                        "tx_lockless": "on [fixed]", 
+                                        "tx_nocache_copy": "off", 
+                                        "tx_scatter_gather": "on", 
+                                        "tx_scatter_gather_fraglist": "on", 
+                                        "tx_sit_segmentation": "on", 
+                                        "tx_tcp6_segmentation": "on", 
+                                        "tx_tcp_ecn_segmentation": "on", 
+                                        "tx_tcp_segmentation": "on", 
+                                        "tx_udp_tnl_segmentation": "on", 
+                                        "tx_vlan_offload": "on", 
+                                        "tx_vlan_stag_hw_insert": "on", 
+                                        "udp_fragmentation_offload": "on", 
+                                        "vlan_challenged": "off [fixed]"
+                                    }, 
+                                    "hw_timestamp_filters": [], 
+                                    "ipv6": [
+                                        {
+                                            "address": "fe80::e8d1:eeff:fe5a:c719", 
+                                            "prefix": "64", 
+                                            "scope": "link"
+                                        }
+                                    ], 
+                                    "macaddress": "ea:d1:ee:5a:c7:19", 
+                                    "mtu": 1500, 
+                                    "promisc": true, 
+                                    "speed": 10000, 
+                                    "timestamping": [
+                                        "rx_software", 
+                                        "software"
+                                    ], 
+                                    "type": "ether"
+                                }, 
+                                "ansible_veth3c10fbe": {
+                                    "active": true, 
+                                    "device": "veth3c10fbe", 
+                                    "features": {
+                                        "busy_poll": "off [fixed]", 
+                                        "fcoe_mtu": "off [fixed]", 
+                                        "generic_receive_offload": "on", 
+                                        "generic_segmentation_offload": "on", 
+                                        "highdma": "on", 
+                                        "hw_tc_offload": "off [fixed]", 
+                                        "l2_fwd_offload": "off [fixed]", 
+                                        "large_receive_offload": "off [fixed]", 
+                                        "loopback": "off [fixed]", 
+                                        "netns_local": "off [fixed]", 
+                                        "ntuple_filters": "off [fixed]", 
+                                        "receive_hashing": "off [fixed]", 
+                                        "rx_all": "off [fixed]", 
+                                        "rx_checksumming": "on", 
+                                        "rx_fcs": "off [fixed]", 
+                                        "rx_vlan_filter": "off [fixed]", 
+                                        "rx_vlan_offload": "on", 
+                                        "rx_vlan_stag_filter": "off [fixed]", 
+                                        "rx_vlan_stag_hw_parse": "on", 
+                                        "scatter_gather": "on", 
+                                        "tcp_segmentation_offload": "on", 
+                                        "tx_checksum_fcoe_crc": "off [fixed]", 
+                                        "tx_checksum_ip_generic": "on", 
+                                        "tx_checksum_ipv4": "off [fixed]", 
+                                        "tx_checksum_ipv6": "off [fixed]", 
+                                        "tx_checksum_sctp": "off [fixed]", 
+                                        "tx_checksumming": "on", 
+                                        "tx_fcoe_segmentation": "off [fixed]", 
+                                        "tx_gre_segmentation": "on", 
+                                        "tx_gso_robust": "off [fixed]", 
+                                        "tx_ipip_segmentation": "on", 
+                                        "tx_lockless": "on [fixed]", 
+                                        "tx_nocache_copy": "off", 
+                                        "tx_scatter_gather": "on", 
+                                        "tx_scatter_gather_fraglist": "on", 
+                                        "tx_sit_segmentation": "on", 
+                                        "tx_tcp6_segmentation": "on", 
+                                        "tx_tcp_ecn_segmentation": "on", 
+                                        "tx_tcp_segmentation": "on", 
+                                        "tx_udp_tnl_segmentation": "on", 
+                                        "tx_vlan_offload": "on", 
+                                        "tx_vlan_stag_hw_insert": "on", 
+                                        "udp_fragmentation_offload": "on", 
+                                        "vlan_challenged": "off [fixed]"
+                                    }, 
+                                    "hw_timestamp_filters": [], 
+                                    "ipv6": [
+                                        {
+                                            "address": "fe80::f8f9:43ff:fed2:dfeb", 
+                                            "prefix": "64", 
+                                            "scope": "link"
+                                        }
+                                    ], 
+                                    "macaddress": "fa:f9:43:d2:df:eb", 
+                                    "mtu": 1500, 
+                                    "promisc": true, 
+                                    "speed": 10000, 
+                                    "timestamping": [
+                                        "rx_software", 
+                                        "software"
+                                    ], 
+                                    "type": "ether"
+                                }, 
+                                "ansible_veth45284c8": {
+                                    "active": true, 
+                                    "device": "veth45284c8", 
+                                    "features": {
+                                        "busy_poll": "off [fixed]", 
+                                        "fcoe_mtu": "off [fixed]", 
+                                        "generic_receive_offload": "on", 
+                                        "generic_segmentation_offload": "on", 
+                                        "highdma": "on", 
+                                        "hw_tc_offload": "off [fixed]", 
+                                        "l2_fwd_offload": "off [fixed]", 
+                                        "large_receive_offload": "off [fixed]", 
+                                        "loopback": "off [fixed]", 
+                                        "netns_local": "off [fixed]", 
+                                        "ntuple_filters": "off [fixed]", 
+                                        "receive_hashing": "off [fixed]", 
+                                        "rx_all": "off [fixed]", 
+                                        "rx_checksumming": "on", 
+                                        "rx_fcs": "off [fixed]", 
+                                        "rx_vlan_filter": "off [fixed]", 
+                                        "rx_vlan_offload": "on", 
+                                        "rx_vlan_stag_filter": "off [fixed]", 
+                                        "rx_vlan_stag_hw_parse": "on", 
+                                        "scatter_gather": "on", 
+                                        "tcp_segmentation_offload": "on", 
+                                        "tx_checksum_fcoe_crc": "off [fixed]", 
+                                        "tx_checksum_ip_generic": "on", 
+                                        "tx_checksum_ipv4": "off [fixed]", 
+                                        "tx_checksum_ipv6": "off [fixed]", 
+                                        "tx_checksum_sctp": "off [fixed]", 
+                                        "tx_checksumming": "on", 
+                                        "tx_fcoe_segmentation": "off [fixed]", 
+                                        "tx_gre_segmentation": "on", 
+                                        "tx_gso_robust": "off [fixed]", 
+                                        "tx_ipip_segmentation": "on", 
+                                        "tx_lockless": "on [fixed]", 
+                                        "tx_nocache_copy": "off", 
+                                        "tx_scatter_gather": "on", 
+                                        "tx_scatter_gather_fraglist": "on", 
+                                        "tx_sit_segmentation": "on", 
+                                        "tx_tcp6_segmentation": "on", 
+                                        "tx_tcp_ecn_segmentation": "on", 
+                                        "tx_tcp_segmentation": "on", 
+                                        "tx_udp_tnl_segmentation": "on", 
+                                        "tx_vlan_offload": "on", 
+                                        "tx_vlan_stag_hw_insert": "on", 
+                                        "udp_fragmentation_offload": "on", 
+                                        "vlan_challenged": "off [fixed]"
+                                    }, 
+                                    "hw_timestamp_filters": [], 
+                                    "ipv6": [
+                                        {
+                                            "address": "fe80::7009:caff:fe10:8ca2", 
+                                            "prefix": "64", 
+                                            "scope": "link"
+                                        }
+                                    ], 
+                                    "macaddress": "72:09:ca:10:8c:a2", 
+                                    "mtu": 1500, 
+                                    "promisc": true, 
+                                    "speed": 10000, 
+                                    "timestamping": [
+                                        "rx_software", 
+                                        "software"
+                                    ], 
+                                    "type": "ether"
+                                }, 
+                                "ansible_vethc6d6f71": {
+                                    "active": true, 
+                                    "device": "vethc6d6f71", 
+                                    "features": {
+                                        "busy_poll": "off [fixed]", 
+                                        "fcoe_mtu": "off [fixed]", 
+                                        "generic_receive_offload": "on", 
+                                        "generic_segmentation_offload": "on", 
+                                        "highdma": "on", 
+                                        "hw_tc_offload": "off [fixed]", 
+                                        "l2_fwd_offload": "off [fixed]", 
+                                        "large_receive_offload": "off [fixed]", 
+                                        "loopback": "off [fixed]", 
+                                        "netns_local": "off [fixed]", 
+                                        "ntuple_filters": "off [fixed]", 
+                                        "receive_hashing": "off [fixed]", 
+                                        "rx_all": "off [fixed]", 
+                                        "rx_checksumming": "on", 
+                                        "rx_fcs": "off [fixed]", 
+                                        "rx_vlan_filter": "off [fixed]", 
+                                        "rx_vlan_offload": "on", 
+                                        "rx_vlan_stag_filter": "off [fixed]", 
+                                        "rx_vlan_stag_hw_parse": "on", 
+                                        "scatter_gather": "on", 
+                                        "tcp_segmentation_offload": "on", 
+                                        "tx_checksum_fcoe_crc": "off [fixed]", 
+                                        "tx_checksum_ip_generic": "on", 
+                                        "tx_checksum_ipv4": "off [fixed]", 
+                                        "tx_checksum_ipv6": "off [fixed]", 
+                                        "tx_checksum_sctp": "off [fixed]", 
+                                        "tx_checksumming": "on", 
+                                        "tx_fcoe_segmentation": "off [fixed]", 
+                                        "tx_gre_segmentation": "on", 
+                                        "tx_gso_robust": "off [fixed]", 
+                                        "tx_ipip_segmentation": "on", 
+                                        "tx_lockless": "on [fixed]", 
+                                        "tx_nocache_copy": "off", 
+                                        "tx_scatter_gather": "on", 
+                                        "tx_scatter_gather_fraglist": "on", 
+                                        "tx_sit_segmentation": "on", 
+                                        "tx_tcp6_segmentation": "on", 
+                                        "tx_tcp_ecn_segmentation": "on", 
+                                        "tx_tcp_segmentation": "on", 
+                                        "tx_udp_tnl_segmentation": "on", 
+                                        "tx_vlan_offload": "on", 
+                                        "tx_vlan_stag_hw_insert": "on", 
+                                        "udp_fragmentation_offload": "on", 
+                                        "vlan_challenged": "off [fixed]"
+                                    }, 
+                                    "hw_timestamp_filters": [], 
+                                    "ipv6": [
+                                        {
+                                            "address": "fe80::7cc6:6aff:fe1a:bafb", 
+                                            "prefix": "64", 
+                                            "scope": "link"
+                                        }
+                                    ], 
+                                    "macaddress": "7e:c6:6a:1a:ba:fb", 
+                                    "mtu": 1500, 
+                                    "promisc": true, 
+                                    "speed": 10000, 
+                                    "timestamping": [
+                                        "rx_software", 
+                                        "software"
+                                    ], 
+                                    "type": "ether"
+                                }, 
                                 "ansible_virtualization_role": "guest", 
                                 "ansible_virtualization_type": "xen", 
                                 "gather_subset": [
@@ -4574,16 +5205,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:27:54.859399Z", 
-                            "start": "2018-07-16T10:27:42.970949Z"
+                            "end": "2018-07-17T08:40:42.966785Z", 
+                            "start": "2018-07-17T08:40:30.514901Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000065", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000066", 
                         "name": "Gathering Facts"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "action": "apt", 
                             "changed": false, 
                             "msg": "All items completed", 
@@ -4599,7 +5230,7 @@
                                     "_ansible_item_result": true, 
                                     "_ansible_no_log": false, 
                                     "_ansible_parsed": true, 
-                                    "cache_update_time": 1531736882, 
+                                    "cache_update_time": 1531816850, 
                                     "cache_updated": true, 
                                     "changed": false, 
                                     "failed": false, 
@@ -4646,16 +5277,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:28:05.724348Z", 
-                            "start": "2018-07-16T10:27:54.918671Z"
+                            "end": "2018-07-17T08:40:51.702181Z", 
+                            "start": "2018-07-17T08:40:43.045016Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000018", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000018", 
                         "name": "docker-install : Installing docker packages"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "apt_key", 
@@ -4677,16 +5308,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:28:13.621002Z", 
-                            "start": "2018-07-16T10:28:05.787545Z"
+                            "end": "2018-07-17T08:41:00.047620Z", 
+                            "start": "2018-07-17T08:40:51.781325Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000019", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000019", 
                         "name": "docker-install : Add Docker's official GPG key"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "apt_key", 
@@ -4708,16 +5339,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:28:20.199466Z", 
-                            "start": "2018-07-16T10:28:13.687290Z"
+                            "end": "2018-07-17T08:41:07.516763Z", 
+                            "start": "2018-07-17T08:41:00.134698Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-00000000001a", 
+                        "id": "c48e8f90-bdcf-982e-1167-00000000001a", 
                         "name": "docker-install : Verifing that we have the key with the fingerprint"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "apt_repository", 
@@ -4741,20 +5372,20 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:28:26.921519Z", 
-                            "start": "2018-07-16T10:28:20.264631Z"
+                            "end": "2018-07-17T08:41:14.533463Z", 
+                            "start": "2018-07-17T08:41:07.599384Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-00000000001b", 
+                        "id": "c48e8f90-bdcf-982e-1167-00000000001b", 
                         "name": "docker-install : Setting up the stable repository"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "apt", 
-                            "cache_update_time": 1531736913, 
+                            "cache_update_time": 1531816883, 
                             "cache_updated": true, 
                             "changed": true, 
                             "invocation": {
@@ -4781,23 +5412,23 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:28:34.394317Z", 
-                            "start": "2018-07-16T10:28:26.983627Z"
+                            "end": "2018-07-17T08:41:24.423735Z", 
+                            "start": "2018-07-17T08:41:14.615918Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-00000000001c", 
+                        "id": "c48e8f90-bdcf-982e-1167-00000000001c", 
                         "name": "docker-install : Updating apt packages"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_notify": [
                                 "Start docker on boot"
                             ], 
                             "_ansible_parsed": true, 
                             "action": "apt", 
-                            "cache_update_time": 1531736921, 
+                            "cache_update_time": 1531816891, 
                             "cache_updated": true, 
                             "changed": false, 
                             "invocation": {
@@ -4827,16 +5458,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:28:42.513170Z", 
-                            "start": "2018-07-16T10:28:34.455961Z"
+                            "end": "2018-07-17T08:41:32.511807Z", 
+                            "start": "2018-07-17T08:41:24.507156Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-00000000001d", 
+                        "id": "c48e8f90-bdcf-982e-1167-00000000001d", 
                         "name": "docker-install : Installing docker"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_notify": [
                                 "reload systemd"
@@ -4894,16 +5525,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:28:54.176280Z", 
-                            "start": "2018-07-16T10:28:42.626772Z"
+                            "end": "2018-07-17T08:41:44.581902Z", 
+                            "start": "2018-07-17T08:41:32.603856Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-00000000001e", 
+                        "id": "c48e8f90-bdcf-982e-1167-00000000001e", 
                         "name": "docker-install : Install unit file"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "service", 
@@ -4923,18 +5554,18 @@
                             "name": "docker", 
                             "state": "started", 
                             "status": {
-                                "ActiveEnterTimestamp": "Mon 2018-07-16 08:40:29 UTC", 
-                                "ActiveEnterTimestampMonotonic": "11364895397", 
-                                "ActiveExitTimestamp": "Mon 2018-07-16 08:40:27 UTC", 
-                                "ActiveExitTimestampMonotonic": "11363460093", 
+                                "ActiveEnterTimestamp": "Tue 2018-07-17 08:29:31 UTC", 
+                                "ActiveEnterTimestampMonotonic": "1739430928", 
+                                "ActiveExitTimestamp": "Tue 2018-07-17 08:29:29 UTC", 
+                                "ActiveExitTimestampMonotonic": "1737888519", 
                                 "ActiveState": "active", 
-                                "After": "firewalld.service basic.target docker.socket sysinit.target network-online.target systemd-journald.socket system.slice", 
+                                "After": "network-online.target docker.socket firewalld.service basic.target sysinit.target system.slice systemd-journald.socket", 
                                 "AllowIsolate": "no", 
                                 "AmbientCapabilities": "0", 
                                 "AssertResult": "yes", 
-                                "AssertTimestamp": "Mon 2018-07-16 08:40:28 UTC", 
-                                "AssertTimestampMonotonic": "11364463764", 
-                                "Before": "shutdown.target multi-user.target", 
+                                "AssertTimestamp": "Tue 2018-07-17 08:29:30 UTC", 
+                                "AssertTimestampMonotonic": "1738894889", 
+                                "Before": "multi-user.target shutdown.target", 
                                 "BlockIOAccounting": "no", 
                                 "BlockIOWeight": "18446744073709551615", 
                                 "CPUAccounting": "no", 
@@ -4943,15 +5574,15 @@
                                 "CPUSchedulingPriority": "0", 
                                 "CPUSchedulingResetOnFork": "no", 
                                 "CPUShares": "18446744073709551615", 
-                                "CPUUsageNSec": "17602073005", 
+                                "CPUUsageNSec": "15737524432", 
                                 "CanIsolate": "no", 
                                 "CanReload": "yes", 
                                 "CanStart": "yes", 
                                 "CanStop": "yes", 
                                 "CapabilityBoundingSet": "18446744073709551615", 
                                 "ConditionResult": "yes", 
-                                "ConditionTimestamp": "Mon 2018-07-16 08:40:28 UTC", 
-                                "ConditionTimestampMonotonic": "11364463763", 
+                                "ConditionTimestamp": "Tue 2018-07-17 08:29:30 UTC", 
+                                "ConditionTimestampMonotonic": "1738894888", 
                                 "Conflicts": "shutdown.target", 
                                 "ConsistsOf": "docker.socket", 
                                 "ControlGroup": "/system.slice/docker.service", 
@@ -4963,12 +5594,12 @@
                                 "Documentation": "https://docs.docker.com", 
                                 "ExecMainCode": "0", 
                                 "ExecMainExitTimestampMonotonic": "0", 
-                                "ExecMainPID": "12338", 
-                                "ExecMainStartTimestamp": "Mon 2018-07-16 08:40:28 UTC", 
-                                "ExecMainStartTimestampMonotonic": "11364464275", 
+                                "ExecMainPID": "26889", 
+                                "ExecMainStartTimestamp": "Tue 2018-07-17 08:29:30 UTC", 
+                                "ExecMainStartTimestampMonotonic": "1738895356", 
                                 "ExecMainStatus": "0", 
                                 "ExecReload": "{ path=/bin/kill ; argv[]=/bin/kill -s HUP $MAINPID ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", 
-                                "ExecStart": "{ path=/usr/bin/dockerd ; argv[]=/usr/bin/dockerd -H tcp://127.0.0.1:2735 -H fd:// ; ignore_errors=no ; start_time=[Mon 2018-07-16 08:40:28 UTC] ; stop_time=[n/a] ; pid=12338 ; code=(null) ; status=0/0 }", 
+                                "ExecStart": "{ path=/usr/bin/dockerd ; argv[]=/usr/bin/dockerd -H tcp://127.0.0.1:2735 -H fd:// ; ignore_errors=no ; start_time=[Tue 2018-07-17 08:29:30 UTC] ; stop_time=[n/a] ; pid=26889 ; code=(null) ; status=0/0 }", 
                                 "FailureAction": "none", 
                                 "FileDescriptorStoreMax": "0", 
                                 "FragmentPath": "/lib/systemd/system/docker.service", 
@@ -4977,10 +5608,10 @@
                                 "Id": "docker.service", 
                                 "IgnoreOnIsolate": "no", 
                                 "IgnoreSIGPIPE": "yes", 
-                                "InactiveEnterTimestamp": "Mon 2018-07-16 08:40:28 UTC", 
-                                "InactiveEnterTimestampMonotonic": "11364461637", 
-                                "InactiveExitTimestamp": "Mon 2018-07-16 08:40:28 UTC", 
-                                "InactiveExitTimestampMonotonic": "11364464300", 
+                                "InactiveEnterTimestamp": "Tue 2018-07-17 08:29:30 UTC", 
+                                "InactiveEnterTimestampMonotonic": "1738892837", 
+                                "InactiveExitTimestamp": "Tue 2018-07-17 08:29:30 UTC", 
+                                "InactiveExitTimestampMonotonic": "1738895382", 
                                 "JobTimeoutAction": "none", 
                                 "JobTimeoutUSec": "infinity", 
                                 "KillMode": "process", 
@@ -5018,9 +5649,9 @@
                                 "LimitSTACK": "18446744073709551615", 
                                 "LimitSTACKSoft": "8388608", 
                                 "LoadState": "loaded", 
-                                "MainPID": "12338", 
+                                "MainPID": "26889", 
                                 "MemoryAccounting": "no", 
-                                "MemoryCurrent": "87252992", 
+                                "MemoryCurrent": "83689472", 
                                 "MemoryLimit": "18446744073709551615", 
                                 "MountFlags": "0", 
                                 "NFileDescriptorStore": "0", 
@@ -5041,7 +5672,7 @@
                                 "RefuseManualStart": "no", 
                                 "RefuseManualStop": "no", 
                                 "RemainAfterExit": "no", 
-                                "Requires": "docker.socket sysinit.target system.slice", 
+                                "Requires": "sysinit.target system.slice docker.socket", 
                                 "Restart": "on-failure", 
                                 "RestartUSec": "100ms", 
                                 "Result": "success", 
@@ -5061,8 +5692,8 @@
                                 "StartLimitInterval": "60000000", 
                                 "StartupBlockIOWeight": "18446744073709551615", 
                                 "StartupCPUShares": "18446744073709551615", 
-                                "StateChangeTimestamp": "Mon 2018-07-16 08:40:29 UTC", 
-                                "StateChangeTimestampMonotonic": "11364895397", 
+                                "StateChangeTimestamp": "Tue 2018-07-17 08:29:31 UTC", 
+                                "StateChangeTimestampMonotonic": "1739430928", 
                                 "StatusErrno": "0", 
                                 "StopWhenUnneeded": "no", 
                                 "SubState": "running", 
@@ -5075,7 +5706,7 @@
                                 "TTYVHangup": "no", 
                                 "TTYVTDisallocate": "no", 
                                 "TasksAccounting": "no", 
-                                "TasksCurrent": "31", 
+                                "TasksCurrent": "99", 
                                 "TasksMax": "18446744073709551615", 
                                 "TimeoutStartUSec": "infinity", 
                                 "TimeoutStopUSec": "1min 30s", 
@@ -5089,28 +5720,28 @@
                                 "UtmpMode": "init", 
                                 "WantedBy": "multi-user.target", 
                                 "Wants": "network-online.target", 
-                                "WatchdogTimestamp": "Mon 2018-07-16 08:40:29 UTC", 
-                                "WatchdogTimestampMonotonic": "11364895396", 
+                                "WatchdogTimestamp": "Tue 2018-07-17 08:29:31 UTC", 
+                                "WatchdogTimestampMonotonic": "1739430926", 
                                 "WatchdogUSec": "0"
                             }
                         }
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:29:03.220295Z", 
-                            "start": "2018-07-16T10:28:54.290271Z"
+                            "end": "2018-07-17T08:41:55.756722Z", 
+                            "start": "2018-07-17T08:41:44.719273Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-00000000001f", 
+                        "id": "c48e8f90-bdcf-982e-1167-00000000001f", 
                         "name": "docker-install : Restart service docker"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "apt", 
-                            "cache_update_time": 1531736950, 
+                            "cache_update_time": 1531816923, 
                             "cache_updated": true, 
                             "changed": false, 
                             "invocation": {
@@ -5140,16 +5771,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:29:11.283015Z", 
-                            "start": "2018-07-16T10:29:03.283252Z"
+                            "end": "2018-07-17T08:42:04.354309Z", 
+                            "start": "2018-07-17T08:41:55.838081Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000020", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000020", 
                         "name": "docker-install : Installing docker-compose"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "debconf", 
@@ -5175,16 +5806,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:29:18.657313Z", 
-                            "start": "2018-07-16T10:29:11.345301Z"
+                            "end": "2018-07-17T08:42:12.126044Z", 
+                            "start": "2018-07-17T08:42:04.433732Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000028", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000028", 
                         "name": "mysql : Set MySQL root password before installing"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "debconf", 
@@ -5210,16 +5841,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:29:24.946733Z", 
-                            "start": "2018-07-16T10:29:18.723395Z"
+                            "end": "2018-07-17T08:42:19.401049Z", 
+                            "start": "2018-07-17T08:42:12.207659Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000029", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000029", 
                         "name": "mysql : Confirm MySQL root password before installing"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "action": "apt", 
                             "changed": false, 
                             "msg": "All items completed", 
@@ -5237,7 +5868,7 @@
                                         "mysql"
                                     ], 
                                     "_ansible_parsed": true, 
-                                    "cache_update_time": 1531736971, 
+                                    "cache_update_time": 1531816946, 
                                     "cache_updated": true, 
                                     "changed": false, 
                                     "failed": false, 
@@ -5281,16 +5912,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:29:32.705914Z", 
-                            "start": "2018-07-16T10:29:25.010087Z"
+                            "end": "2018-07-17T08:42:27.857575Z", 
+                            "start": "2018-07-17T08:42:19.482705Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-00000000002a", 
+                        "id": "c48e8f90-bdcf-982e-1167-00000000002a", 
                         "name": "mysql : Install MySQL"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "copy", 
@@ -5322,7 +5953,7 @@
                                     "serole": null, 
                                     "setype": null, 
                                     "seuser": null, 
-                                    "src": "/home/pranjal/.ansible/tmp/ansible-tmp-1531736972.85-188563510293421/source", 
+                                    "src": "/home/pranjal/.ansible/tmp/ansible-tmp-1531816948.02-215190114636566/source", 
                                     "unsafe_writes": null, 
                                     "validate": null
                                 }
@@ -5331,23 +5962,23 @@
                             "mode": "01204", 
                             "owner": "root", 
                             "size": 925, 
-                            "src": "/home/pranjal/.ansible/tmp/ansible-tmp-1531736972.85-188563510293421/source", 
+                            "src": "/home/pranjal/.ansible/tmp/ansible-tmp-1531816948.02-215190114636566/source", 
                             "state": "file", 
                             "uid": 0
                         }
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:29:52.412525Z", 
-                            "start": "2018-07-16T10:29:32.803027Z"
+                            "end": "2018-07-17T08:42:45.072261Z", 
+                            "start": "2018-07-17T08:42:27.939016Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-00000000002b", 
+                        "id": "c48e8f90-bdcf-982e-1167-00000000002b", 
                         "name": "mysql : export mysql config file"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "service", 
@@ -5367,18 +5998,18 @@
                             "name": "mysql", 
                             "state": "started", 
                             "status": {
-                                "ActiveEnterTimestamp": "Mon 2018-07-16 08:41:53 UTC", 
-                                "ActiveEnterTimestampMonotonic": "11449695380", 
-                                "ActiveExitTimestamp": "Mon 2018-07-16 08:41:22 UTC", 
-                                "ActiveExitTimestampMonotonic": "11417832696", 
+                                "ActiveEnterTimestamp": "Tue 2018-07-17 08:27:40 UTC", 
+                                "ActiveEnterTimestampMonotonic": "1629081799", 
+                                "ActiveExitTimestamp": "Tue 2018-07-17 08:27:36 UTC", 
+                                "ActiveExitTimestampMonotonic": "1624605937", 
                                 "ActiveState": "active", 
-                                "After": "sysinit.target basic.target systemd-journald.socket network.target system.slice", 
+                                "After": "sysinit.target systemd-journald.socket system.slice network.target basic.target", 
                                 "AllowIsolate": "no", 
                                 "AmbientCapabilities": "0", 
                                 "AssertResult": "yes", 
-                                "AssertTimestamp": "Mon 2018-07-16 08:41:23 UTC", 
-                                "AssertTimestampMonotonic": "11419577459", 
-                                "Before": "shutdown.target multi-user.target", 
+                                "AssertTimestamp": "Tue 2018-07-17 08:27:39 UTC", 
+                                "AssertTimestampMonotonic": "1628045800", 
+                                "Before": "multi-user.target shutdown.target", 
                                 "BlockIOAccounting": "no", 
                                 "BlockIOWeight": "18446744073709551615", 
                                 "CPUAccounting": "no", 
@@ -5387,15 +6018,15 @@
                                 "CPUSchedulingPriority": "0", 
                                 "CPUSchedulingResetOnFork": "no", 
                                 "CPUShares": "18446744073709551615", 
-                                "CPUUsageNSec": "2754923780", 
+                                "CPUUsageNSec": "548957413", 
                                 "CanIsolate": "no", 
                                 "CanReload": "no", 
                                 "CanStart": "yes", 
                                 "CanStop": "yes", 
                                 "CapabilityBoundingSet": "18446744073709551615", 
                                 "ConditionResult": "yes", 
-                                "ConditionTimestamp": "Mon 2018-07-16 08:41:23 UTC", 
-                                "ConditionTimestampMonotonic": "11419577459", 
+                                "ConditionTimestamp": "Tue 2018-07-17 08:27:39 UTC", 
+                                "ConditionTimestampMonotonic": "1628045800", 
                                 "Conflicts": "shutdown.target", 
                                 "ControlGroup": "/system.slice/mysql.service", 
                                 "ControlPID": "0", 
@@ -5405,13 +6036,13 @@
                                 "DevicePolicy": "auto", 
                                 "ExecMainCode": "0", 
                                 "ExecMainExitTimestampMonotonic": "0", 
-                                "ExecMainPID": "13613", 
-                                "ExecMainStartTimestamp": "Mon 2018-07-16 08:41:23 UTC", 
-                                "ExecMainStartTimestampMonotonic": "11419603814", 
+                                "ExecMainPID": "24078", 
+                                "ExecMainStartTimestamp": "Tue 2018-07-17 08:27:39 UTC", 
+                                "ExecMainStartTimestampMonotonic": "1628060445", 
                                 "ExecMainStatus": "0", 
-                                "ExecStart": "{ path=/usr/sbin/mysqld ; argv[]=/usr/sbin/mysqld ; ignore_errors=no ; start_time=[Mon 2018-07-16 08:41:23 UTC] ; stop_time=[n/a] ; pid=13613 ; code=(null) ; status=0/0 }", 
-                                "ExecStartPost": "{ path=/usr/share/mysql/mysql-systemd-start ; argv[]=/usr/share/mysql/mysql-systemd-start post ; ignore_errors=no ; start_time=[Mon 2018-07-16 08:41:23 UTC] ; stop_time=[Mon 2018-07-16 08:41:53 UTC] ; pid=13614 ; code=exited ; status=0 }", 
-                                "ExecStartPre": "{ path=/usr/share/mysql/mysql-systemd-start ; argv[]=/usr/share/mysql/mysql-systemd-start pre ; ignore_errors=no ; start_time=[Mon 2018-07-16 08:41:23 UTC] ; stop_time=[Mon 2018-07-16 08:41:23 UTC] ; pid=13604 ; code=exited ; status=0 }", 
+                                "ExecStart": "{ path=/usr/sbin/mysqld ; argv[]=/usr/sbin/mysqld ; ignore_errors=no ; start_time=[Tue 2018-07-17 08:27:39 UTC] ; stop_time=[n/a] ; pid=24078 ; code=(null) ; status=0/0 }", 
+                                "ExecStartPost": "{ path=/usr/share/mysql/mysql-systemd-start ; argv[]=/usr/share/mysql/mysql-systemd-start post ; ignore_errors=no ; start_time=[Tue 2018-07-17 08:27:39 UTC] ; stop_time=[Tue 2018-07-17 08:27:40 UTC] ; pid=24079 ; code=exited ; status=0 }", 
+                                "ExecStartPre": "{ path=/usr/share/mysql/mysql-systemd-start ; argv[]=/usr/share/mysql/mysql-systemd-start pre ; ignore_errors=no ; start_time=[Tue 2018-07-17 08:27:39 UTC] ; stop_time=[Tue 2018-07-17 08:27:39 UTC] ; pid=24068 ; code=exited ; status=0 }", 
                                 "FailureAction": "none", 
                                 "FileDescriptorStoreMax": "0", 
                                 "FragmentPath": "/lib/systemd/system/mysql.service", 
@@ -5421,10 +6052,10 @@
                                 "Id": "mysql.service", 
                                 "IgnoreOnIsolate": "no", 
                                 "IgnoreSIGPIPE": "yes", 
-                                "InactiveEnterTimestamp": "Mon 2018-07-16 08:41:23 UTC", 
-                                "InactiveEnterTimestampMonotonic": "11419576888", 
-                                "InactiveExitTimestamp": "Mon 2018-07-16 08:41:23 UTC", 
-                                "InactiveExitTimestampMonotonic": "11419578059", 
+                                "InactiveEnterTimestamp": "Tue 2018-07-17 08:27:39 UTC", 
+                                "InactiveEnterTimestampMonotonic": "1628045137", 
+                                "InactiveExitTimestamp": "Tue 2018-07-17 08:27:39 UTC", 
+                                "InactiveExitTimestampMonotonic": "1628046432", 
                                 "JobTimeoutAction": "none", 
                                 "JobTimeoutUSec": "infinity", 
                                 "KillMode": "control-group", 
@@ -5462,9 +6093,9 @@
                                 "LimitSTACK": "18446744073709551615", 
                                 "LimitSTACKSoft": "8388608", 
                                 "LoadState": "loaded", 
-                                "MainPID": "13613", 
+                                "MainPID": "24078", 
                                 "MemoryAccounting": "no", 
-                                "MemoryCurrent": "173969408", 
+                                "MemoryCurrent": "154439680", 
                                 "MemoryLimit": "18446744073709551615", 
                                 "MountFlags": "0", 
                                 "NFileDescriptorStore": "0", 
@@ -5485,7 +6116,7 @@
                                 "RefuseManualStart": "no", 
                                 "RefuseManualStop": "no", 
                                 "RemainAfterExit": "no", 
-                                "Requires": "sysinit.target system.slice", 
+                                "Requires": "system.slice sysinit.target", 
                                 "Restart": "on-failure", 
                                 "RestartUSec": "100ms", 
                                 "Result": "success", 
@@ -5506,8 +6137,8 @@
                                 "StartLimitInterval": "10000000", 
                                 "StartupBlockIOWeight": "18446744073709551615", 
                                 "StartupCPUShares": "18446744073709551615", 
-                                "StateChangeTimestamp": "Mon 2018-07-16 08:41:53 UTC", 
-                                "StateChangeTimestampMonotonic": "11449695380", 
+                                "StateChangeTimestamp": "Tue 2018-07-17 08:27:40 UTC", 
+                                "StateChangeTimestampMonotonic": "1629081799", 
                                 "StatusErrno": "0", 
                                 "StopWhenUnneeded": "no", 
                                 "SubState": "running", 
@@ -5533,24 +6164,24 @@
                                 "User": "mysql", 
                                 "UtmpMode": "init", 
                                 "WantedBy": "multi-user.target", 
-                                "WatchdogTimestamp": "Mon 2018-07-16 08:41:23 UTC", 
-                                "WatchdogTimestampMonotonic": "11419603832", 
+                                "WatchdogTimestamp": "Tue 2018-07-17 08:27:39 UTC", 
+                                "WatchdogTimestampMonotonic": "1628060468", 
                                 "WatchdogUSec": "0"
                             }
                         }
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:30:31.999168Z", 
-                            "start": "2018-07-16T10:29:52.472171Z"
+                            "end": "2018-07-17T08:43:23.468096Z", 
+                            "start": "2018-07-17T08:42:45.152786Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-00000000002c", 
+                        "id": "c48e8f90-bdcf-982e-1167-00000000002c", 
                         "name": "mysql : restart mysql"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "apt_key", 
@@ -5572,16 +6203,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:30:38.651942Z", 
-                            "start": "2018-07-16T10:30:32.079687Z"
+                            "end": "2018-07-17T08:43:30.972430Z", 
+                            "start": "2018-07-17T08:43:23.554377Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000032", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000032", 
                         "name": "mongodb : Add mongo ppa key"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "apt_repository", 
@@ -5605,23 +6236,23 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:30:45.252116Z", 
-                            "start": "2018-07-16T10:30:38.718277Z"
+                            "end": "2018-07-17T08:43:37.998201Z", 
+                            "start": "2018-07-17T08:43:31.052618Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000033", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000033", 
                         "name": "mongodb : Add mongo sources list"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_notify": [
                                 "Start mongodb on boot"
                             ], 
                             "_ansible_parsed": true, 
                             "action": "apt", 
-                            "cache_update_time": 1531737052, 
+                            "cache_update_time": 1531817025, 
                             "cache_updated": true, 
                             "changed": false, 
                             "invocation": {
@@ -5651,16 +6282,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:30:53.629667Z", 
-                            "start": "2018-07-16T10:30:45.348183Z"
+                            "end": "2018-07-17T08:43:46.168323Z", 
+                            "start": "2018-07-17T08:43:38.075763Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000034", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000034", 
                         "name": "mongodb : Install mongo"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "copy", 
@@ -5715,16 +6346,16 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:31:04.587932Z", 
-                            "start": "2018-07-16T10:30:53.696833Z"
+                            "end": "2018-07-17T08:43:57.865384Z", 
+                            "start": "2018-07-17T08:43:46.251071Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000035", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000035", 
                         "name": "mongodb : export mongo config file"
                     }
                 }, 
                 {
                     "hosts": {
-                        "52.90.242.38": {
+                        "54.86.8.78": {
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "service", 
@@ -5744,16 +6375,16 @@
                             "name": "mongod", 
                             "state": "started", 
                             "status": {
-                                "ActiveEnterTimestamp": "Mon 2018-07-16 08:42:39 UTC", 
-                                "ActiveEnterTimestampMonotonic": "11494838426", 
+                                "ActiveEnterTimestamp": "Tue 2018-07-17 08:10:30 UTC", 
+                                "ActiveEnterTimestampMonotonic": "598469280", 
                                 "ActiveExitTimestampMonotonic": "0", 
                                 "ActiveState": "active", 
-                                "After": "basic.target sysinit.target system.slice network.target systemd-journald.socket", 
+                                "After": "sysinit.target system.slice systemd-journald.socket basic.target network.target", 
                                 "AllowIsolate": "no", 
                                 "AmbientCapabilities": "0", 
                                 "AssertResult": "yes", 
-                                "AssertTimestamp": "Mon 2018-07-16 08:42:39 UTC", 
-                                "AssertTimestampMonotonic": "11494837810", 
+                                "AssertTimestamp": "Tue 2018-07-17 08:10:30 UTC", 
+                                "AssertTimestampMonotonic": "598468652", 
                                 "Before": "shutdown.target", 
                                 "BlockIOAccounting": "no", 
                                 "BlockIOWeight": "18446744073709551615", 
@@ -5763,15 +6394,15 @@
                                 "CPUSchedulingPriority": "0", 
                                 "CPUSchedulingResetOnFork": "no", 
                                 "CPUShares": "18446744073709551615", 
-                                "CPUUsageNSec": "21032858468", 
+                                "CPUUsageNSec": "7246361804", 
                                 "CanIsolate": "no", 
                                 "CanReload": "no", 
                                 "CanStart": "yes", 
                                 "CanStop": "yes", 
                                 "CapabilityBoundingSet": "18446744073709551615", 
                                 "ConditionResult": "yes", 
-                                "ConditionTimestamp": "Mon 2018-07-16 08:42:39 UTC", 
-                                "ConditionTimestampMonotonic": "11494837809", 
+                                "ConditionTimestamp": "Tue 2018-07-17 08:10:30 UTC", 
+                                "ConditionTimestampMonotonic": "598468651", 
                                 "Conflicts": "shutdown.target", 
                                 "ControlGroup": "/system.slice/mongod.service", 
                                 "ControlPID": "0", 
@@ -5782,11 +6413,11 @@
                                 "Documentation": "https://docs.mongodb.org/manual", 
                                 "ExecMainCode": "0", 
                                 "ExecMainExitTimestampMonotonic": "0", 
-                                "ExecMainPID": "14284", 
-                                "ExecMainStartTimestamp": "Mon 2018-07-16 08:42:39 UTC", 
-                                "ExecMainStartTimestampMonotonic": "11494838402", 
+                                "ExecMainPID": "7379", 
+                                "ExecMainStartTimestamp": "Tue 2018-07-17 08:10:30 UTC", 
+                                "ExecMainStartTimestampMonotonic": "598469256", 
                                 "ExecMainStatus": "0", 
-                                "ExecStart": "{ path=/usr/bin/mongod ; argv[]=/usr/bin/mongod --config /etc/mongod.conf ; ignore_errors=no ; start_time=[Mon 2018-07-16 08:42:39 UTC] ; stop_time=[n/a] ; pid=14284 ; code=(null) ; status=0/0 }", 
+                                "ExecStart": "{ path=/usr/bin/mongod ; argv[]=/usr/bin/mongod --config /etc/mongod.conf ; ignore_errors=no ; start_time=[Tue 2018-07-17 08:10:30 UTC] ; stop_time=[n/a] ; pid=7379 ; code=(null) ; status=0/0 }", 
                                 "FailureAction": "none", 
                                 "FileDescriptorStoreMax": "0", 
                                 "FragmentPath": "/lib/systemd/system/mongod.service", 
@@ -5797,8 +6428,8 @@
                                 "IgnoreOnIsolate": "no", 
                                 "IgnoreSIGPIPE": "yes", 
                                 "InactiveEnterTimestampMonotonic": "0", 
-                                "InactiveExitTimestamp": "Mon 2018-07-16 08:42:39 UTC", 
-                                "InactiveExitTimestampMonotonic": "11494838426", 
+                                "InactiveExitTimestamp": "Tue 2018-07-17 08:10:30 UTC", 
+                                "InactiveExitTimestampMonotonic": "598469280", 
                                 "JobTimeoutAction": "none", 
                                 "JobTimeoutUSec": "infinity", 
                                 "KillMode": "control-group", 
@@ -5836,9 +6467,9 @@
                                 "LimitSTACK": "18446744073709551615", 
                                 "LimitSTACKSoft": "8388608", 
                                 "LoadState": "loaded", 
-                                "MainPID": "14284", 
+                                "MainPID": "7379", 
                                 "MemoryAccounting": "no", 
-                                "MemoryCurrent": "37007360", 
+                                "MemoryCurrent": "43261952", 
                                 "MemoryLimit": "18446744073709551615", 
                                 "MountFlags": "0", 
                                 "NFileDescriptorStore": "0", 
@@ -5860,7 +6491,7 @@
                                 "RefuseManualStart": "no", 
                                 "RefuseManualStop": "no", 
                                 "RemainAfterExit": "no", 
-                                "Requires": "sysinit.target system.slice", 
+                                "Requires": "system.slice sysinit.target", 
                                 "Restart": "no", 
                                 "RestartUSec": "100ms", 
                                 "Result": "success", 
@@ -5880,8 +6511,8 @@
                                 "StartLimitInterval": "10000000", 
                                 "StartupBlockIOWeight": "18446744073709551615", 
                                 "StartupCPUShares": "18446744073709551615", 
-                                "StateChangeTimestamp": "Mon 2018-07-16 08:42:39 UTC", 
-                                "StateChangeTimestampMonotonic": "11494838426", 
+                                "StateChangeTimestamp": "Tue 2018-07-17 08:10:30 UTC", 
+                                "StateChangeTimestampMonotonic": "598469280", 
                                 "StatusErrno": "0", 
                                 "StopWhenUnneeded": "no", 
                                 "SubState": "running", 
@@ -5906,18 +6537,18 @@
                                 "UnitFileState": "disabled", 
                                 "User": "mongodb", 
                                 "UtmpMode": "init", 
-                                "WatchdogTimestamp": "Mon 2018-07-16 08:42:39 UTC", 
-                                "WatchdogTimestampMonotonic": "11494838424", 
+                                "WatchdogTimestamp": "Tue 2018-07-17 08:10:30 UTC", 
+                                "WatchdogTimestampMonotonic": "598469278", 
                                 "WatchdogUSec": "0"
                             }
                         }
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-16T10:31:11.827624Z", 
-                            "start": "2018-07-16T10:31:04.650045Z"
+                            "end": "2018-07-17T08:44:04.768685Z", 
+                            "start": "2018-07-17T08:43:57.946593Z"
                         }, 
-                        "id": "c48e8f90-bdcf-0ee1-bb2b-000000000036", 
+                        "id": "c48e8f90-bdcf-982e-1167-000000000036", 
                         "name": "mongodb : restart mongod"
                     }
                 }
@@ -5925,7 +6556,7 @@
         }
     ], 
     "stats": {
-        "52.90.242.38": {
+        "54.86.8.78": {
             "changed": 7, 
             "failures": 0, 
             "ok": 20, 

@@ -140,28 +140,28 @@ def approvedsuccessfully(request, id):
         return render(request, "dashboard/error.html", {'msg': msg })
 
     print("hi")
-    try:
-        execplaybook(id)
-    except:
-        msg = "Error in executing  Ansible Playbook"
-        return render(request, "dashboard/error.html", {'msg': msg })
+    # try:
+    #     execplaybook(id)
+    # except:
+    #     msg = "Error in executing  Ansible Playbook"
+    #     return render(request, "dashboard/error.html", {'msg': msg })
   
     
-    jsonfile = currpost.project_name
-    appname = currpost.application_name
-    hostip = currpost.hostIp
-    try:
-        buildinfo(request,id,jsonfile,hostip)
-    except:
-        msg = "Error in fetching final status"
-        return render(request, "dashboard/error.html", {'msg': msg })
+    # jsonfile = currpost.project_name
+    # appname = currpost.application_name
+    # hostip = currpost.hostIp
+    # try:
+    #     buildinfo(request,id,jsonfile,hostip)
+    # except:
+    #     msg = "Error in fetching final status"
+    #     return render(request, "dashboard/error.html", {'msg': msg })
   
-    try:
-        add_cname_record(request,id,jsonfile,appname,hostip)
+    # try:
+    #     add_cname_record(request,id,jsonfile,appname,hostip)
     
-    except:
-        msg = "Error in adding A record in AWS Route53"
-        return render(request, "dashboard/error.html", {'msg': msg })
+    # except:
+    #     msg = "Error in adding A record in AWS Route53"
+    #     return render(request, "dashboard/error.html", {'msg': msg })
     currpost.approvedBy = request.user.email
     currpost.status = 'Approved'
     currpost.save()
@@ -305,8 +305,35 @@ def checkstatus(request, id):
             print sshstatus
             break
     
+    checkstackoutput = hostcheck.checkStack(projectname, hostip)
+    print checkstackoutput
+    varnishstatus = checkstackoutput['varnishstatus']
+    redisstatus = checkstackoutput['redisstatus']
+    nginxstatus = checkstackoutput['nginxstatus']
+    if(varnishstatus == True):
+        varnishstatus = 'Connection to Varnish established'
+    else:
+        varnishstatus = "Can't Connect to Varnish"
+
+    if(redisstatus == True):
+        redisstatus = 'Connection to Redis established'
+    else:
+        redisstatus = "Can't Connect to Redis"
+
+    if(nginxstatus == True):
+        nginxstatus = 'Connection to Nginx established'
+    else:
+        nginxstatus = "Can't Connect to Nginx"
+    
+    varnishid = checkstackoutput['varnishid']
+    redisid =  checkstackoutput['redisid']
+    nginxid = checkstackoutput['nginxid']
+    mongoid = checkstackoutput['mongoid']
+    mysqlid = checkstackoutput['mysqlid']
+
+    
     status.objects.all().delete()
-    statusentry = status(projectname=projectname,sshstatus=sshstatus, dockerstatus=dockerstatus, urlstatus=urlstatus, mongostatus=mongostatus, mysqlstatus=mysqlstatus)
+    statusentry = status(projectname=projectname,sshstatus=sshstatus, dockerstatus=dockerstatus, urlstatus=urlstatus, mongostatus=mongostatus, mysqlstatus=mysqlstatus, nginxstatus=nginxstatus, varnishstatus=varnishstatus, redisstatus=redisstatus, mysqlid=mysqlid, mongoid=mongoid, varnishid=varnishid, nginxid=nginxid, redisid=redisid )
     statusentry.save()
     allstatus = status.objects.all()
     return render(request, "dashboard/detailform.html", {'posts': posts, 'allstatus': allstatus })
