@@ -76,7 +76,7 @@ def makeenvfile(myid):
                             randomport = random.randint(6000,6999)
                     if(statusql == False):
                         sqlport = randomport
-                        newport = Ports(port = mysqlport, status = '0', projectname = pname, ptype = 'sqlport')
+                        newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'sqlport')
                         newport.save()
                         break
                 statumongo = False
@@ -98,22 +98,20 @@ def makeenvfile(myid):
         for o1 in obj:
                 print(o1.port)
                 nginxport = o1.port
-                print("hello2")
                 obj2 = Ports.objects.all().filter(projectname=pname).filter(ptype='varnish')
                 for o2 in obj2:
-                    print("hello3")
                     varnishport = o2.port
+	            print(varnishport)
                 obj3 = Ports.objects.all().filter(projectname=pname).filter(ptype='sshport')
                 for o3 in obj3:
-                    print("hello4")
                     sshnginxhport = o3.port
+		    print(sshnginxport)
                 obj4 = Ports.objects.all().filter(projectname=pname).filter(ptype='sqlport')
                 for o4 in obj4:
-                    print("hello4")
                     sqlport = o4.port
+                    print(sqlport)
                 obj5 = Ports.objects.all().filter(projectname=pname).filter(ptype='mongoport')
                 for o5 in obj5:
-                    print("hello5")
                     mongohport = o5.port
 
       

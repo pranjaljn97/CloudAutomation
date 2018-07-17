@@ -133,11 +133,11 @@ def approvedsuccessfully(request, id):
     
     posts = Project.objects.all()
     hostInfo = Host.objects.all()
-    try:
-        makeenvfile(id)
-    except:
-        msg = "Error in making Env File"
-        return render(request, "dashboard/error.html", {'msg': msg })
+    #try:
+    makeenvfile(id)
+   # except:
+    #    msg = "Error in making Env File"
+     #   return render(request, "dashboard/error.html", {'msg': msg })
 
     print("hi")
     try:
