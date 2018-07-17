@@ -38,8 +38,8 @@
   become: true
   shell: |
     cd /home/"{{ user.project_name }}" 
-    sudo docker-compose up -d
-    docker ps
+    sudo docker stack deploy -c docker-compose.yml "{{ user.project_name }}"
+    docker stack ps "{{ user.project_name }}"
   register: result 
 
 - name: clone a private repository
