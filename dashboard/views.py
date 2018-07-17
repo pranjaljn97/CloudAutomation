@@ -310,6 +310,21 @@ def checkstatus(request, id):
     varnishstatus = checkstackoutput['varnishstatus']
     redisstatus = checkstackoutput['redisstatus']
     nginxstatus = checkstackoutput['nginxstatus']
+    if(varnishstatus == True):
+        varnishstatus = 'Connection to Varnish established'
+    else:
+        varnishstatus = "Can't Connect to Varnish"
+
+    if(redisstatus == True):
+        redisstatus = 'Connection to Redis established'
+    else:
+        redisstatus = "Can't Connect to Redis"
+
+    if(nginxstatus == True):
+        nginxstatus = 'Connection to Nginx established'
+    else:
+        nginxstatus = "Can't Connect to Nginx"
+    
     varnishid = checkstackoutput['varnishid']
     redisid =  checkstackoutput['redisid']
     nginxid = checkstackoutput['nginxid']
