@@ -42,6 +42,14 @@ class status(models.Model):
     urlstatus = models.CharField(blank=True, max_length=1000)
     mongostatus = models.CharField(blank=True, max_length=1000)
     mysqlstatus = models.CharField(blank=True, max_length=1000)
+    nginxstatus = models.CharField(blank=True, max_length=1000)
+    varnishstatus = models.CharField(blank=True, max_length=1000)
+    redisstatus = models.CharField(blank=True, max_length=1000)
+    mysqlid = models.CharField(blank=True, max_length=1000)
+    mongoid = models.CharField(blank=True, max_length=1000)
+    varnishid = models.CharField(blank=True, max_length=1000)
+    nginxid = models.CharField(blank=True, max_length=1000)
+    redisid = models.CharField(blank=True, max_length=1000)
 
 
     
