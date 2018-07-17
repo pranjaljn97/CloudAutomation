@@ -12,6 +12,8 @@ import random
 global nginxport
 global varnishport
 global sshnginxhport
+global mongoport
+global sqlport
 
 
 def makeenvfile(myid):
@@ -64,6 +66,32 @@ def makeenvfile(myid):
                         newport = Ports(port = sshnginxhport, status = '0', projectname = pname, ptype = 'sshport')
                         newport.save()
                         break
+                statusql = False
+                randomport = random.randint(8000,8999)
+                while(statusql == False):
+                    allports = Ports.objects.all()
+                    for oneport in allports:
+                        if(oneport.port == str(randomport)):
+                            statusql = True
+                            randomport = random.randint(6000,6999)
+                    if(statusql == False):
+                        sqlport = randomport
+                        newport = Ports(port = mysqlport, status = '0', projectname = pname, ptype = 'sqlport')
+                        newport.save()
+                        break
+                statumongo = False
+                randomport = random.randint(8000,8999)
+                while(statumongo == False):
+                    allports = Ports.objects.all()
+                    for oneport in allports:
+                        if(oneport.port == str(randomport)):
+                            statumongo = True
+                            randomport = random.randint(7000,7999)
+                    if(statumongo == False):
+                        mongoport = randomport
+                        newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongoport')
+                        newport.save()
+                        break
                         
                 
     else:
@@ -79,6 +107,14 @@ def makeenvfile(myid):
                 for o3 in obj3:
                     print("hello4")
                     sshnginxhport = o3.port
+                obj4 = Ports.objects.all().filter(projectname=pname).filter(ptype='sqlport')
+                for o4 in obj4:
+                    print("hello4")
+                    sqlport = o4.port
+                obj5 = Ports.objects.all().filter(projectname=pname).filter(ptype='mongoport')
+                for o5 in obj5:
+                    print("hello5")
+                    mongohport = o5.port
 
       
     currpost = Project.objects.get(pk=myid)
@@ -157,7 +193,8 @@ def makeenvfile(myid):
                             'volumes': {
                                 
                             },
-                            'ports': '3308'
+                            'ports': '3308',
+                            'sqlport': sqlport
                             },
                         
             "mongodb": { 'enable': True,
@@ -171,14 +208,15 @@ def makeenvfile(myid):
                             'volumes': {
                                 
                             },
-                            'ports': '27019'
+                            'ports': '27019',
+                            'mongoport': mongoport
                         },
                         
             'varnish' : {
                             'enable': True,
                             'image': varnishImage,
                             'envi': {
-                            'VARNISH_BACKEND_HOST': 'nginx_php',
+                            'VARNISH_BACKEND_HOST': projectname+'_nginx_php',
                             'VARNISH_BACKEND_PORT': post.VARNISH_BACKEND_PORT_VALUE,
                             'VARNISH_PORT_VALUE': post.VARNISH_PORT_VALUE,
                             'varnish_version': post.varnish_version},
