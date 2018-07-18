@@ -34,6 +34,8 @@ from dashboard.makehostentry import hostentry
 from dashboard.checkStatus import HostCheck
 from dashboard.models import status
 from dashboard.models import Myform
+from dashboard.models import mongoform
+from dashboard.models import mongorequest
 import datetime
 import io
 import json
@@ -393,6 +395,27 @@ def rerun(request,id):
     return render(request, "dashboard/rerun.html", {'posts': posts })
 
     # return render(request, "dashboard/rerun.html", {'posts': posts })
+
+
+@login_required(login_url='/login/')
+def mongoformpage(request):
+   
+    # hostInfo = Host.objects.values_list('hostIdentifier',flat=True)  
+    hostInfo = Host.objects.all()  
+    
+    if request.method == 'POST':
+        print "hi"
+        form = mongorequest(request.POST)
+        if form.is_valid():
+            form.save()
+            # sendmail(request,form,'submit')
+            return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
+        else:
+            print(form.errors)   
+    else:
+        form = mongorequest()
+    return render(request, 'dashboard/mongoForm.html', {'form': form,'hostInfo': hostInfo})
+
 
 
 
