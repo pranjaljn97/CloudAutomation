@@ -1,6 +1,5 @@
 import MySQLdb
 def buildMysql(host,user,passwd,uname,upwd,udb):
-    host = 'localhost'
     mydb = MySQLdb.connect(host=host, port=3306,user=user, passwd=passwd)
     print "hello Connection Successfull"
     cursor = mydb.cursor()
