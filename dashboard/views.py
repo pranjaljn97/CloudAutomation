@@ -8,6 +8,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.shortcuts import render
 from .models import HostForm
+from .models import mysqlForm
+from .models import mysqluser
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.utils import timezone
@@ -18,6 +20,7 @@ from .models import runningstack
 from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 from dashboard.makeenv import makeenvfile
+from dashboard.mysql import buildMysql
 from dashboard.makeenv import makeEnvHost
 from dashboard.mail import sendmail
 from dashboard.mail2 import fmail
@@ -390,6 +393,99 @@ def rerun(request,id):
     return render(request, "dashboard/rerun.html", {'posts': posts })
 
     # return render(request, "dashboard/rerun.html", {'posts': posts })
+
+
+
+@login_required(login_url='/login/')
+def mysqlform(request):
+    # hostInfo = Host.objects.values_list('hostIdentifier',flat=True)  
+    hostInfo = Host.objects.all() 
+    
+    if request.method == 'POST':
+        form = mysqlForm(request.POST)
+        if form.is_valid():
+
+            form.save()
+            sendmail(request,form,'mysqlsubmit')
+         
+            return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
+        else:
+            print(form.errors)   
+    else:
+        form = mysqlForm()
+    return render(request, 'dashboard/mysqlhome.html', {'form': form,'hostInfo': hostInfo})
+
+
+@login_required(login_url='/login/')
+def submittedmysql(request,requester):
+#   today = datetime.datetime.now().date()
+    uname = request.user.email
+    posts = mysqluser.objects.all().filter(requester=requester)
+    return render(request, "dashboard/submittedmysql.html", {'posts': posts })
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def forapprovalmysql(request):
+#   today = datetime.datetime.now().date()
+     posts = mysqluser.objects.all()
+     hostInfo = Host.objects.all()  
+     return render(request, "dashboard/forapprovalmysql.html", {'posts': posts, 'hostInfo': hostInfo })
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def approvedmysql(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = mysqluser.objects.all()
+     return render(request, "dashboard/approvedmysql.html", {'posts': posts })
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def rejectedmysql(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = mysqluser.objects.all()
+     return render(request, "dashboard/rejectedmysql.html", {'posts': posts })
+
+
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def approvedsuccessfullymysql(request, id):
+    
+    currpost = mysqluser.objects.get(id=id)
+    ip = currpost.hostIp
+    posts = Host.objects.all().filter(hostIp=ip)
+
+    for post in posts:
+        user = post.mysqlUsername
+        passwd = post.mysqlPassword
+    host = currpost.hostIp
+    uname = currpost.MYSQL_USER_NAME_VALUE
+    upwd = currpost.MYSQL_PASSWORD_VALUE
+    udb = currpost.MYSQL_DATABASE_NAME_VALUE
+
+    buildMysql(host,user,passwd,uname,upwd,udb)
+
+    currpost.status = 'Approved'
+    currpost.save()
+
+    posts2 = mysqluser.objects.all()
+
+     #mail functionality
+    sendmail(request,id,'approvedmysql')
+    return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
+
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def rejectedsuccessfullymysql(request, id):
+    
+    currpost = mysqluser.objects.get(id=id)
+    currpost.status = 'Rejected'
+    currpost.save()
+    posts = mysqluser.objects.get(pk=id)
+    posts2 = mysqluser.objects.all()
+
+     #mail functionality
+    sendmail(request,id,'rejectmysql')
+    return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
 
 
 

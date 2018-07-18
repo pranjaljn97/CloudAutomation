@@ -171,5 +171,22 @@ class RequestForm(ModelForm):
 
 class Myform(forms.Form):
     newbranch = forms.CharField(max_length=40)
+
+
+
+class mysqluser(models.Model):
+        requester = models.CharField(blank=True,max_length=100)
+        id = models.AutoField(primary_key=True)
+        hostIp = models.CharField(blank=True, max_length=30)
+        MYSQL_DATABASE_NAME_VALUE = models.CharField( blank=True,max_length=100)
+        MYSQL_USER_NAME_VALUE = models.CharField( blank=True,max_length=100)
+        MYSQL_PASSWORD_VALUE = models.CharField( blank=True,max_length=100)
+        status = models.CharField(default='submitted', max_length=30)
+class mysqlForm(ModelForm):
+    class Meta:
+        model = mysqluser
+        fields = ['requester','hostIp','MYSQL_DATABASE_NAME_VALUE','MYSQL_USER_NAME_VALUE','MYSQL_PASSWORD_VALUE',]
+
+
     
 

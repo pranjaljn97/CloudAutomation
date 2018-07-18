@@ -23,6 +23,13 @@ urlpatterns = [
     url(r'^rstackview/', views.rstackview, name='rstackview'),
     url(r'^checkstatus/(?P<id>[0-9]+)', views.checkstatus, name='checkstatus'),
     url(r'^rerun/?(?P<id>[0-9]+)', views.rerun, name='rerun'),
+    url(r'^mysqlform/', views.mysqlform, name='mysqlform'),
+    url(r'^submittedmysql/(?P<requester>[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4})/$',views.submittedmysql, name='submittedmysql'),
+    url(r'^forapprovalmysql/', views.forapprovalmysql, name='forapprovalmysql'),
+    url(r'^approvedmysql/', views.approvedmysql, name='approvedmysql'),
+    url(r'^rejectedmysql/', views.rejectedmysql, name='rejectedmysql'),
+    url(r'^rejectedsuccessfullymysql/(?P<id>[0-9]+)', views.rejectedsuccessfullymysql, name='rejectedsuccessfullymysql'),
+    url(r'^approvedsuccessfullymysql/(?P<id>[0-9]+)', views.approvedsuccessfullymysql, name='approvedsuccessfullymysql'),
 
 
 ]

@@ -16,7 +16,7 @@
     <!-- Bootstrap core CSS     -->
     <link href="{% static "dashboard/assets/css/bootstrap.min.css" %}" rel="stylesheet" />
 
-    <!-- Animation library for notifications   -->
+    <!-- Animation library for notifications -->  
     <link href="{% static "dashboard/assets/css/animate.min.css" %}" rel="stylesheet"/>
 
     <!--  Light Bootstrap Table core CSS    -->
@@ -48,79 +48,50 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
 
-                    <center>
-                            <h4> Hello Developer</h4>
-                         </center>
-
-            </div>
-
-            <ul class="nav">
+                <center>
+                        <h4> Hello Developer</h4>
+                     </center>
+    
+                </div>
+              <ul class="nav">
                 <li class="active">
-                    <a href="{% url "dashboard" %}">
-                        <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
-                    </a>
+                  <a href="{% url "dashboard" %}">
+                    <i class="pe-7s-graph">
+                    </i>
+                    <p>Dashboard
+                    </p>
+                  </a>
                 </li>
                 <li>
-                    <a href="{% url "drupalform" %}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Php Stack</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url "mysqlform" %}">
-                        <i class="pe-7s-note2"></i>
-                        <p>Mysql Access</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{% url "userprofile" %}">
-                        <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                
-                
-                
-
-                <!--<li>
-
-
-
-
-                    <a href="typography.html">
-                        <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="icons.html">
-                        <i class="pe-7s-science"></i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-				<li class="active-pro">
-                    <a href="upgrade.html">
-                        <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>-->
-            </ul>
-    	</div>
-    </div>
+                  <a href="{% url "submittedmysql" user.email %}">
+                          <i class="pe-7s-note2"></i>
+                          <p>Submitted</p>
+                      </a>
+                  </li>
+        {% if perms.login.view_content %}
+        <li>
+                      <a href="{% url "forapprovalmysql" %}">
+                          <i class="pe-7s-user"></i>
+                          <p>For Approval</p>
+                      </a>
+                  </li>
+              <li>
+                          <a href="{% url "approvedmysql" %}">
+                              <i class="pe-7s-note2"></i>
+                              <p>Approved</p>
+                          </a>
+                      </li>
+            <li>
+                              <a href="{% url "rejectedmysql" %}">
+                                  <i class="pe-7s-graph"></i>
+                                  <p>Rejected</p>
+                              </a>
+                          </li>
+        {% endif %}
+    
+                  </ul>
+                </div>
+          </div>
 
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
@@ -146,10 +117,7 @@
                 </div>
             </div>
         </nav>
-
         {% block content %}{% endblock %}
-
-
     </div>
 </div>
 
@@ -178,7 +146,7 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="{% static "dashboard/assets/js/demo.js" %}"></script>
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
     	$(document).ready(function(){
 
         	demo.initChartist();
@@ -193,7 +161,7 @@
             });
 
     	});
-	</script>
+	</script> -->
 
 </html>
 {% else %}
