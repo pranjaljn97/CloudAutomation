@@ -286,15 +286,15 @@ def checkstatus(request, id):
     print dockerstatus
     print urlstatus
     #3rd method
-    with open(destpath + posts.project_name+ '_' + str(posts.id)+'.json') as data_file:
-        data_loaded = json.load(data_file)
-        mysqlport = data_loaded['mysql']['ports']
-        mongoport = data_loaded['mongodb']['ports']
-        mysqlstatus = hostcheck.checkMysql(hostip, mysqlport, mysqluser, mysqlpass)
-        mongostatus = hostcheck.checkMongo(hostip, mongoport, mongouser, mongopass)
-        # mysqlstatus = hostcheck.checkMysql('10.1.203.82', 3306, 'root', 'noida123')
-        print mysqlstatus
-        print mongostatus
+    # with open(destpath + posts.project_name+ '_' + str(posts.id)+'.json') as data_file:
+    #     data_loaded = json.load(data_file)
+    #     mysqlport = data_loaded['mysql']['ports']
+    #     mongoport = data_loaded['mongodb']['ports']
+    #     # mysqlstatus = hostcheck.checkMysql(hostip, mysqlport, mysqluser, mysqlpass)
+    #     # mongostatus = hostcheck.checkMongo(hostip, mongoport, mongouser, mongopass)
+    #     # mysqlstatus = hostcheck.checkMysql('10.1.203.82', 3306, 'root', 'noida123')
+    #     print mysqlstatus
+    #     print mongostatus
     
    
     for host in hosts:
@@ -310,6 +310,8 @@ def checkstatus(request, id):
     varnishstatus = checkstackoutput['varnishstatus']
     redisstatus = checkstackoutput['redisstatus']
     nginxstatus = checkstackoutput['nginxstatus']
+    mongostatus = checkstackoutput['mongostatus']
+    mysqlstatus = checkstackoutput['mysqlstatus']
     if(varnishstatus == True):
         varnishstatus = 'Connection to Varnish established'
     else:
@@ -324,6 +326,19 @@ def checkstatus(request, id):
         nginxstatus = 'Connection to Nginx established'
     else:
         nginxstatus = "Can't Connect to Nginx"
+
+    
+    if(mysqlstatus == True):
+        mysqlstatus = 'Connection to MySql established'
+    else:
+        mysqlstatus = "Can't Connect to MySql"
+    
+
+    if(mongostatus == True):
+        mongostatus = 'Connection to Mongo DB established'
+    else:
+        mongostatus = "Can't Connect to Mongo DB"
+    
     
     varnishid = checkstackoutput['varnishid']
     redisid =  checkstackoutput['redisid']

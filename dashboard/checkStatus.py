@@ -36,25 +36,25 @@ class HostCheck():
             return "Url is not working"
             
 
-    def checkMysql(self,mysqlHostname, mysqlPort, mysqlUsername, mysqlPassword):
-        try:
-            myDB = MySQLdb.connect(host="mysqlHostname", port="mysqlPort", user="mysqlUsername", passwd="mysqlPassword")
-            handler = myDB.cursor()
-            handler.execute("SELECT VERSION()")
-            results = handler.fetchall()
-            for items in results:
-                return "MySql working fine:" + str(items[0]) 
-        except:
-            return "Can't connect to mysql"
+    # def checkMysql(self,mysqlHostname, mysqlPort, mysqlUsername, mysqlPassword):
+    #     try:
+    #         myDB = MySQLdb.connect(host="mysqlHostname", port="mysqlPort", user="mysqlUsername", passwd="mysqlPassword")
+    #         handler = myDB.cursor()
+    #         handler.execute("SELECT VERSION()")
+    #         results = handler.fetchall()
+    #         for items in results:
+    #             return "MySql working fine:" + str(items[0]) 
+    #     except:
+    #         return "Can't connect to mysql"
 
-    def checkMongo(self,mongoHostname, mongoPort, mongoUsername, mongoPassword):
-        client = MongoClient("mongodb://" + mongoUsername + ":" + mongoPassword + "@" + mongoHostname + ":" + mongoPort,serverSelectionTimeoutMS=10,connectTimeoutMS=1000 )
-        try:
-            info = client.server_info()
-            mongoRes = str(info['version'])
-            return "Mongo working fine:" +  mongoRes
-        except:
-            return "Can't connect to mongo"
+    # def checkMongo(self,mongoHostname, mongoPort, mongoUsername, mongoPassword):
+    #     client = MongoClient("mongodb://" + mongoUsername + ":" + mongoPassword + "@" + mongoHostname + ":" + mongoPort,serverSelectionTimeoutMS=10,connectTimeoutMS=1000 )
+    #     try:
+    #         info = client.server_info()
+    #         mongoRes = str(info['version'])
+    #         return "Mongo working fine:" +  mongoRes
+    #     except:
+    #         return "Can't connect to mongo"
     
     def checkStack(self,Projectname,Host):
     	projectname = Projectname
@@ -74,19 +74,32 @@ class HostCheck():
             print "Connection timed out!!!"
 
     
-    	# mysqlres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_mysql"'"]}').json()
-    	# if mysqlres[0]['Spec']['Mode']['Replicated']['Replicas']==1:
-	    #  print "\n"+mysqlres[0]['Spec']['Name'] + " is running."
-        # elif mysqlres[0]['Spec']['Mode']['Replicated']['Replicas']==0:
+
+        mysqlstatusval = False
+        try:
+    	    mysqlres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_mysql"'"]}').json()
+    	    if mysqlres[0]['Spec']['Mode']['Replicated']['Replicas']==1:
+	    #  "\n"+mysqlres[0]['Spec']['Name'] + " is running."
+                mysqlstatusval = True
+            elif mysqlres[0]['Spec']['Mode']['Replicated']['Replicas']==0:
+                mysqlstatusval = False
+        except:
+            print "Connection timed out"
 	    #  print "\n"+mysqlres[0]['Spec']['Name'] + " is not running."
         # else:
 	    #  print "Service isn't in replicated mode."
 
-        # mongores=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_mongodb"'"]}').json()
-        # if mongores[0]['Spec']['Mode']['Replicated']['Replicas']==1:
+        mongostatusval = False
+        try:
+            mongores=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_mongodb"'"]}').json()
+            if mongores[0]['Spec']['Mode']['Replicated']['Replicas']==1:
 	    #  print "\n"+mongores[0]['Spec']['Name'] + " is running."
-        # elif mongores[0]['Spec']['Mode']['Replicated']['Replicas']==0:
-	    #  print "\n"+mongores[0]['Spec']['Name'] + " is not running."
+                mongostatusval = True
+            elif mongores[0]['Spec']['Mode']['Replicated']['Replicas']==0:
+	            mongostatusval = False
+        except:
+            print "Connection timed out"
+            # print "\n"+monglseores[0]['Spec']['Name'] + " is not running."
         # else:
 	    #  print "Service isn't in replicated mode."
 	
@@ -151,6 +164,8 @@ class HostCheck():
         checkstackoutput['nginxstatus'] = nginxstatusval
         checkstackoutput['redisstatus'] = redisstatusval
         checkstackoutput['varnishstatus'] = varnishstatusval
+        checkstackoutput['mongostatus'] = mongostatusval
+        checkstackoutput['mysqlstatus'] = mysqlstatusval
         checkstackoutput['nginxid'] = ngnixidval
         checkstackoutput['mysqlid'] = mysqlidval
         checkstackoutput['mongoid'] = mongoidval
