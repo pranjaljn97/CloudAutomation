@@ -4,10 +4,10 @@
         {
             "play": {
                 "duration": {
-                    "end": "2018-07-17T12:27:04.416426Z", 
-                    "start": "2018-07-17T12:27:03.177683Z"
+                    "end": "2018-07-18T06:29:04.994074Z", 
+                    "start": "2018-07-18T06:29:03.878803Z"
                 }, 
-                "id": "12f99170-ddbe-1a62-3aca-00000000000b", 
+                "id": "12f99170-ddbe-852c-b193-00000000000c", 
                 "name": "Initial Task"
             }, 
             "tasks": [
@@ -46,18 +46,9 @@
                                     "172.30.0.1"
                                 ], 
                                 "ansible_all_ipv6_addresses": [
-                                    "fe80::fc5a:4fff:febb:f948", 
-                                    "fe80::884a:57ff:fe67:ccca", 
-                                    "fe80::f0fe:96ff:fe2c:9175", 
+                                    "fe80::10d3:b7ff:fe87:2390", 
                                     "fe80::10f9:91ff:fe70:ddbe", 
-                                    "fe80::142f:afff:feec:2280", 
-                                    "fe80::42:63ff:fe39:f321", 
-                                    "fe80::f0e2:eff:fef3:7e20", 
-                                    "fe80::1c:d0ff:fe44:9448", 
-                                    "fe80::fc29:78ff:fe8d:4b94", 
-                                    "fe80::c459:85ff:fe40:d155", 
-                                    "fe80::18e7:e6ff:fec1:84fd", 
-                                    "fe80::541d:91ff:fe4d:d4b5"
+                                    "fe80::42:63ff:fe39:f321"
                                 ], 
                                 "ansible_apparmor": {
                                     "status": "enabled"
@@ -1501,22 +1492,22 @@
                                     "root": "UUID=84ce5b56-30b1-4479-a864-7296bb549cec"
                                 }, 
                                 "ansible_date_time": {
-                                    "date": "2018-07-17", 
-                                    "day": "17", 
-                                    "epoch": "1531830423", 
-                                    "hour": "12", 
-                                    "iso8601": "2018-07-17T12:27:03Z", 
-                                    "iso8601_basic": "20180717T122703690974", 
-                                    "iso8601_basic_short": "20180717T122703", 
-                                    "iso8601_micro": "2018-07-17T12:27:03.691048Z", 
-                                    "minute": "27", 
+                                    "date": "2018-07-18", 
+                                    "day": "18", 
+                                    "epoch": "1531895344", 
+                                    "hour": "06", 
+                                    "iso8601": "2018-07-18T06:29:04Z", 
+                                    "iso8601_basic": "20180718T062904401349", 
+                                    "iso8601_basic_short": "20180718T062904", 
+                                    "iso8601_micro": "2018-07-18T06:29:04.401422Z", 
+                                    "minute": "29", 
                                     "month": "07", 
-                                    "second": "03", 
-                                    "time": "12:27:03", 
+                                    "second": "04", 
+                                    "time": "06:29:04", 
                                     "tz": "UTC", 
                                     "tz_offset": "+0000", 
-                                    "weekday": "Tuesday", 
-                                    "weekday_number": "2", 
+                                    "weekday": "Wednesday", 
+                                    "weekday_number": "3", 
                                     "weeknumber": "29", 
                                     "year": "2018"
                                 }, 
@@ -2278,16 +2269,7 @@
                                     "hw_timestamp_filters": [], 
                                     "id": "8000.02426339f321", 
                                     "interfaces": [
-                                        "veth989a07a", 
-                                        "vethc24fc79", 
-                                        "vethc7d375d", 
-                                        "vethe415674", 
-                                        "vethe6c9312", 
-                                        "veth8ece7e8", 
-                                        "veth9b2b9b9", 
-                                        "veth75dbcf6", 
-                                        "veth823e021", 
-                                        "vethdf3becd"
+                                        "veth36dcfe5"
                                     ], 
                                     "ipv4": {
                                         "address": "192.168.128.1", 
@@ -2324,7 +2306,7 @@
                                     "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin", 
                                     "PWD": "/home/s2p/ansibledir", 
                                     "SHELL": "/bin/bash", 
-                                    "SUDO_COMMAND": "/usr/bin/ansible-playbook ./ansibledir/addHost.yml --extra-vars @/tmp/QA2`_35.174.136.31/QA2`_2.json", 
+                                    "SUDO_COMMAND": "/usr/bin/ansible-playbook ./ansibledir/addHost.yml --extra-vars @/tmp/checksever`_35.174.136.31/checksever`_5.json", 
                                     "SUDO_GID": "1000", 
                                     "SUDO_UID": "1000", 
                                     "SUDO_USER": "ubuntu", 
@@ -2413,15 +2395,11 @@
                                 "ansible_hostname": "ip-172-31-43-207", 
                                 "ansible_interfaces": [
                                     "br-67a7c309198c", 
-                                    "vethe415674", 
                                     "br-00c6581af97a", 
                                     "br-a59b36bb26ae", 
                                     "br-d690b47859cb", 
-                                    "veth75dbcf6", 
-                                    "vethc7d375d", 
                                     "docker0", 
                                     "br-076f2e5817a2", 
-                                    "veth9b2b9b9", 
                                     "eth0", 
                                     "br-c379e0d1457e", 
                                     "lo", 
@@ -2430,23 +2408,18 @@
                                     "br-c08cc4755890", 
                                     "br-6797a5eb6b78", 
                                     "br-8ec54cb7e93e", 
-                                    "veth989a07a", 
-                                    "br-5aff799fa136", 
+                                    "br-8b02f2c67f5a", 
                                     "br-7614199adfab", 
                                     "br-f1310ac44f8d", 
-                                    "veth8ece7e8", 
-                                    "br-8b02f2c67f5a", 
-                                    "vethc24fc79", 
+                                    "br-5aff799fa136", 
                                     "br-91aef27b04e0", 
-                                    "vethe6c9312", 
                                     "br-4e6705de7dc2", 
                                     "br-b65a0cccb0ef", 
                                     "br-3fe3cdba663c", 
-                                    "vethdf3becd", 
+                                    "veth36dcfe5", 
                                     "br-7b98fd23f359", 
                                     "br-f7703225c888", 
-                                    "br-06127395fb4d", 
-                                    "veth823e021"
+                                    "br-06127395fb4d"
                                 ], 
                                 "ansible_is_chroot": false, 
                                 "ansible_iscsi_iqn": "iqn.1993-08.org.debian:01:1f432aacabf", 
@@ -2537,16 +2510,16 @@
                                 }, 
                                 "ansible_machine": "x86_64", 
                                 "ansible_machine_id": "515858754b2c4e9493aae382f859a88b", 
-                                "ansible_memfree_mb": 1879, 
+                                "ansible_memfree_mb": 1618, 
                                 "ansible_memory_mb": {
                                     "nocache": {
-                                        "free": 2788, 
-                                        "used": 1162
+                                        "free": 3185, 
+                                        "used": 765
                                     }, 
                                     "real": {
-                                        "free": 1879, 
+                                        "free": 1618, 
                                         "total": 3950, 
-                                        "used": 2071
+                                        "used": 2332
                                     }, 
                                     "swap": {
                                         "cached": 0, 
@@ -2558,18 +2531,18 @@
                                 "ansible_memtotal_mb": 3950, 
                                 "ansible_mounts": [
                                     {
-                                        "block_available": 23566087, 
+                                        "block_available": 23341473, 
                                         "block_size": 4096, 
                                         "block_total": 25396035, 
-                                        "block_used": 1829948, 
+                                        "block_used": 2054562, 
                                         "device": "/dev/xvda1", 
                                         "fstype": "ext4", 
-                                        "inode_available": 12564688, 
+                                        "inode_available": 12564364, 
                                         "inode_total": 12800000, 
-                                        "inode_used": 235312, 
+                                        "inode_used": 235636, 
                                         "mount": "/", 
                                         "options": "rw,relatime,discard,data=ordered", 
-                                        "size_available": 96526692352, 
+                                        "size_available": 95606673408, 
                                         "size_total": 104022159360, 
                                         "uuid": "84ce5b56-30b1-4479-a864-7296bb549cec"
                                     }
@@ -2669,7 +2642,7 @@
                                 ], 
                                 "ansible_system_capabilities_enforced": "True", 
                                 "ansible_system_vendor": "Xen", 
-                                "ansible_uptime_seconds": 825, 
+                                "ansible_uptime_seconds": 65746, 
                                 "ansible_user_dir": "/root", 
                                 "ansible_user_gecos": "root", 
                                 "ansible_user_gid": 0, 
@@ -2678,9 +2651,9 @@
                                 "ansible_user_uid": 0, 
                                 "ansible_userspace_architecture": "x86_64", 
                                 "ansible_userspace_bits": "64", 
-                                "ansible_veth75dbcf6": {
+                                "ansible_veth36dcfe5": {
                                     "active": true, 
-                                    "device": "veth75dbcf6", 
+                                    "device": "veth36dcfe5", 
                                     "features": {
                                         "busy_poll": "off [fixed]", 
                                         "fcoe_mtu": "off [fixed]", 
@@ -2730,615 +2703,12 @@
                                     "hw_timestamp_filters": [], 
                                     "ipv6": [
                                         {
-                                            "address": "fe80::541d:91ff:fe4d:d4b5", 
+                                            "address": "fe80::10d3:b7ff:fe87:2390", 
                                             "prefix": "64", 
                                             "scope": "link"
                                         }
                                     ], 
-                                    "macaddress": "56:1d:91:4d:d4:b5", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_veth823e021": {
-                                    "active": true, 
-                                    "device": "veth823e021", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::18e7:e6ff:fec1:84fd", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "1a:e7:e6:c1:84:fd", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_veth8ece7e8": {
-                                    "active": true, 
-                                    "device": "veth8ece7e8", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::fc29:78ff:fe8d:4b94", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "fe:29:78:8d:4b:94", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_veth989a07a": {
-                                    "active": true, 
-                                    "device": "veth989a07a", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::f0fe:96ff:fe2c:9175", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "f2:fe:96:2c:91:75", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_veth9b2b9b9": {
-                                    "active": true, 
-                                    "device": "veth9b2b9b9", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::1c:d0ff:fe44:9448", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "02:1c:d0:44:94:48", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethc24fc79": {
-                                    "active": true, 
-                                    "device": "vethc24fc79", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::884a:57ff:fe67:ccca", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "8a:4a:57:67:cc:ca", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethc7d375d": {
-                                    "active": true, 
-                                    "device": "vethc7d375d", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::fc5a:4fff:febb:f948", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "fe:5a:4f:bb:f9:48", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethdf3becd": {
-                                    "active": true, 
-                                    "device": "vethdf3becd", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::c459:85ff:fe40:d155", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "c6:59:85:40:d1:55", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethe415674": {
-                                    "active": true, 
-                                    "device": "vethe415674", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::f0e2:eff:fef3:7e20", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "f2:e2:0e:f3:7e:20", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethe6c9312": {
-                                    "active": true, 
-                                    "device": "vethe6c9312", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::142f:afff:feec:2280", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "16:2f:af:ec:22:80", 
+                                    "macaddress": "12:d3:b7:87:23:90", 
                                     "mtu": 1500, 
                                     "promisc": true, 
                                     "speed": 10000, 
@@ -3370,10 +2740,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:04.322450Z", 
-                            "start": "2018-07-17T12:27:03.186924Z"
+                            "end": "2018-07-18T06:29:04.911727Z", 
+                            "start": "2018-07-18T06:29:03.888232Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-000000000034", 
+                        "id": "12f99170-ddbe-852c-b193-000000000035", 
                         "name": "Gathering Facts"
                     }
                 }, 
@@ -3396,10 +2766,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:04.416426Z", 
-                            "start": "2018-07-17T12:27:04.391261Z"
+                            "end": "2018-07-18T06:29:04.994074Z", 
+                            "start": "2018-07-18T06:29:04.967154Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-000000000010", 
+                        "id": "12f99170-ddbe-852c-b193-000000000011", 
                         "name": "add-hosts : add newly created instances to newly_created group"
                     }
                 }
@@ -3408,10 +2778,10 @@
         {
             "play": {
                 "duration": {
-                    "end": "2018-07-17T12:27:26.932330Z", 
-                    "start": "2018-07-17T12:27:04.425396Z"
+                    "end": "2018-07-18T06:29:27.593797Z", 
+                    "start": "2018-07-18T06:29:05.004696Z"
                 }, 
-                "id": "12f99170-ddbe-1a62-3aca-000000000011", 
+                "id": "12f99170-ddbe-852c-b193-000000000012", 
                 "name": "New instances"
             }, 
             "tasks": [
@@ -3450,18 +2820,9 @@
                                     "172.30.0.1"
                                 ], 
                                 "ansible_all_ipv6_addresses": [
-                                    "fe80::fc5a:4fff:febb:f948", 
-                                    "fe80::884a:57ff:fe67:ccca", 
-                                    "fe80::f0fe:96ff:fe2c:9175", 
+                                    "fe80::10d3:b7ff:fe87:2390", 
                                     "fe80::10f9:91ff:fe70:ddbe", 
-                                    "fe80::142f:afff:feec:2280", 
-                                    "fe80::42:63ff:fe39:f321", 
-                                    "fe80::f0e2:eff:fef3:7e20", 
-                                    "fe80::1c:d0ff:fe44:9448", 
-                                    "fe80::fc29:78ff:fe8d:4b94", 
-                                    "fe80::c459:85ff:fe40:d155", 
-                                    "fe80::18e7:e6ff:fec1:84fd", 
-                                    "fe80::541d:91ff:fe4d:d4b5"
+                                    "fe80::42:63ff:fe39:f321"
                                 ], 
                                 "ansible_apparmor": {
                                     "status": "enabled"
@@ -4905,22 +4266,22 @@
                                     "root": "UUID=84ce5b56-30b1-4479-a864-7296bb549cec"
                                 }, 
                                 "ansible_date_time": {
-                                    "date": "2018-07-17", 
-                                    "day": "17", 
-                                    "epoch": "1531830425", 
-                                    "hour": "12", 
-                                    "iso8601": "2018-07-17T12:27:05Z", 
-                                    "iso8601_basic": "20180717T122705997878", 
-                                    "iso8601_basic_short": "20180717T122705", 
-                                    "iso8601_micro": "2018-07-17T12:27:05.997957Z", 
-                                    "minute": "27", 
+                                    "date": "2018-07-18", 
+                                    "day": "18", 
+                                    "epoch": "1531895346", 
+                                    "hour": "06", 
+                                    "iso8601": "2018-07-18T06:29:06Z", 
+                                    "iso8601_basic": "20180718T062906579774", 
+                                    "iso8601_basic_short": "20180718T062906", 
+                                    "iso8601_micro": "2018-07-18T06:29:06.579856Z", 
+                                    "minute": "29", 
                                     "month": "07", 
-                                    "second": "05", 
-                                    "time": "12:27:05", 
+                                    "second": "06", 
+                                    "time": "06:29:06", 
                                     "tz": "UTC", 
                                     "tz_offset": "+0000", 
-                                    "weekday": "Tuesday", 
-                                    "weekday_number": "2", 
+                                    "weekday": "Wednesday", 
+                                    "weekday_number": "3", 
                                     "weeknumber": "29", 
                                     "year": "2018"
                                 }, 
@@ -5682,16 +5043,7 @@
                                     "hw_timestamp_filters": [], 
                                     "id": "8000.02426339f321", 
                                     "interfaces": [
-                                        "veth989a07a", 
-                                        "vethc24fc79", 
-                                        "vethc7d375d", 
-                                        "vethe415674", 
-                                        "vethe6c9312", 
-                                        "veth8ece7e8", 
-                                        "veth9b2b9b9", 
-                                        "veth75dbcf6", 
-                                        "veth823e021", 
-                                        "vethdf3becd"
+                                        "veth36dcfe5"
                                     ], 
                                     "ipv4": {
                                         "address": "192.168.128.1", 
@@ -5728,13 +5080,13 @@
                                     "PWD": "/home/pranjal", 
                                     "SHELL": "/bin/bash", 
                                     "SHLVL": "1", 
-                                    "SSH_CLIENT": "35.174.136.31 45582 22", 
-                                    "SSH_CONNECTION": "35.174.136.31 45582 172.31.43.207 22", 
-                                    "SSH_TTY": "/dev/pts/3", 
+                                    "SSH_CLIENT": "35.174.136.31 47202 22", 
+                                    "SSH_CONNECTION": "35.174.136.31 47202 172.31.43.207 22", 
+                                    "SSH_TTY": "/dev/pts/4", 
                                     "TERM": "xterm-256color", 
                                     "USER": "pranjal", 
                                     "XDG_RUNTIME_DIR": "/run/user/1001", 
-                                    "XDG_SESSION_ID": "5", 
+                                    "XDG_SESSION_ID": "255", 
                                     "_": "/bin/sh"
                                 }, 
                                 "ansible_eth0": {
@@ -5817,15 +5169,11 @@
                                 "ansible_hostname": "ip-172-31-43-207", 
                                 "ansible_interfaces": [
                                     "br-67a7c309198c", 
-                                    "vethe415674", 
                                     "br-00c6581af97a", 
                                     "br-a59b36bb26ae", 
                                     "br-d690b47859cb", 
-                                    "veth75dbcf6", 
-                                    "vethc7d375d", 
                                     "docker0", 
                                     "br-076f2e5817a2", 
-                                    "veth9b2b9b9", 
                                     "eth0", 
                                     "br-c379e0d1457e", 
                                     "lo", 
@@ -5834,23 +5182,18 @@
                                     "br-c08cc4755890", 
                                     "br-6797a5eb6b78", 
                                     "br-8ec54cb7e93e", 
-                                    "veth989a07a", 
-                                    "br-5aff799fa136", 
+                                    "br-8b02f2c67f5a", 
                                     "br-7614199adfab", 
                                     "br-f1310ac44f8d", 
-                                    "veth8ece7e8", 
-                                    "br-8b02f2c67f5a", 
-                                    "vethc24fc79", 
+                                    "br-5aff799fa136", 
                                     "br-91aef27b04e0", 
-                                    "vethe6c9312", 
                                     "br-4e6705de7dc2", 
                                     "br-b65a0cccb0ef", 
                                     "br-3fe3cdba663c", 
-                                    "vethdf3becd", 
+                                    "veth36dcfe5", 
                                     "br-7b98fd23f359", 
                                     "br-f7703225c888", 
-                                    "br-06127395fb4d", 
-                                    "veth823e021"
+                                    "br-06127395fb4d"
                                 ], 
                                 "ansible_is_chroot": false, 
                                 "ansible_iscsi_iqn": "", 
@@ -5936,16 +5279,16 @@
                                 }, 
                                 "ansible_machine": "x86_64", 
                                 "ansible_machine_id": "515858754b2c4e9493aae382f859a88b", 
-                                "ansible_memfree_mb": 1887, 
+                                "ansible_memfree_mb": 1627, 
                                 "ansible_memory_mb": {
                                     "nocache": {
-                                        "free": 2797, 
-                                        "used": 1153
+                                        "free": 3194, 
+                                        "used": 756
                                     }, 
                                     "real": {
-                                        "free": 1887, 
+                                        "free": 1627, 
                                         "total": 3950, 
-                                        "used": 2063
+                                        "used": 2323
                                     }, 
                                     "swap": {
                                         "cached": 0, 
@@ -5957,18 +5300,18 @@
                                 "ansible_memtotal_mb": 3950, 
                                 "ansible_mounts": [
                                     {
-                                        "block_available": 23566086, 
+                                        "block_available": 23341472, 
                                         "block_size": 4096, 
                                         "block_total": 25396035, 
-                                        "block_used": 1829949, 
+                                        "block_used": 2054563, 
                                         "device": "/dev/xvda1", 
                                         "fstype": "ext4", 
-                                        "inode_available": 12564687, 
+                                        "inode_available": 12564363, 
                                         "inode_total": 12800000, 
-                                        "inode_used": 235313, 
+                                        "inode_used": 235637, 
                                         "mount": "/", 
                                         "options": "rw,relatime,discard,data=ordered", 
-                                        "size_available": 96526688256, 
+                                        "size_available": 95606669312, 
                                         "size_total": 104022159360, 
                                         "uuid": "84ce5b56-30b1-4479-a864-7296bb549cec"
                                     }
@@ -6031,7 +5374,7 @@
                                 ], 
                                 "ansible_system_capabilities_enforced": "True", 
                                 "ansible_system_vendor": "Xen", 
-                                "ansible_uptime_seconds": 827, 
+                                "ansible_uptime_seconds": 65748, 
                                 "ansible_user_dir": "/home/pranjal", 
                                 "ansible_user_gecos": "", 
                                 "ansible_user_gid": 0, 
@@ -6040,9 +5383,9 @@
                                 "ansible_user_uid": 1001, 
                                 "ansible_userspace_architecture": "x86_64", 
                                 "ansible_userspace_bits": "64", 
-                                "ansible_veth75dbcf6": {
+                                "ansible_veth36dcfe5": {
                                     "active": true, 
-                                    "device": "veth75dbcf6", 
+                                    "device": "veth36dcfe5", 
                                     "features": {
                                         "busy_poll": "off [fixed]", 
                                         "fcoe_mtu": "off [fixed]", 
@@ -6092,615 +5435,12 @@
                                     "hw_timestamp_filters": [], 
                                     "ipv6": [
                                         {
-                                            "address": "fe80::541d:91ff:fe4d:d4b5", 
+                                            "address": "fe80::10d3:b7ff:fe87:2390", 
                                             "prefix": "64", 
                                             "scope": "link"
                                         }
                                     ], 
-                                    "macaddress": "56:1d:91:4d:d4:b5", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_veth823e021": {
-                                    "active": true, 
-                                    "device": "veth823e021", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::18e7:e6ff:fec1:84fd", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "1a:e7:e6:c1:84:fd", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_veth8ece7e8": {
-                                    "active": true, 
-                                    "device": "veth8ece7e8", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::fc29:78ff:fe8d:4b94", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "fe:29:78:8d:4b:94", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_veth989a07a": {
-                                    "active": true, 
-                                    "device": "veth989a07a", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::f0fe:96ff:fe2c:9175", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "f2:fe:96:2c:91:75", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_veth9b2b9b9": {
-                                    "active": true, 
-                                    "device": "veth9b2b9b9", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::1c:d0ff:fe44:9448", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "02:1c:d0:44:94:48", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethc24fc79": {
-                                    "active": true, 
-                                    "device": "vethc24fc79", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::884a:57ff:fe67:ccca", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "8a:4a:57:67:cc:ca", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethc7d375d": {
-                                    "active": true, 
-                                    "device": "vethc7d375d", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::fc5a:4fff:febb:f948", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "fe:5a:4f:bb:f9:48", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethdf3becd": {
-                                    "active": true, 
-                                    "device": "vethdf3becd", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::c459:85ff:fe40:d155", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "c6:59:85:40:d1:55", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethe415674": {
-                                    "active": true, 
-                                    "device": "vethe415674", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::f0e2:eff:fef3:7e20", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "f2:e2:0e:f3:7e:20", 
-                                    "mtu": 1500, 
-                                    "promisc": true, 
-                                    "speed": 10000, 
-                                    "timestamping": [
-                                        "rx_software", 
-                                        "software"
-                                    ], 
-                                    "type": "ether"
-                                }, 
-                                "ansible_vethe6c9312": {
-                                    "active": true, 
-                                    "device": "vethe6c9312", 
-                                    "features": {
-                                        "busy_poll": "off [fixed]", 
-                                        "fcoe_mtu": "off [fixed]", 
-                                        "generic_receive_offload": "on", 
-                                        "generic_segmentation_offload": "on", 
-                                        "highdma": "on", 
-                                        "hw_tc_offload": "off [fixed]", 
-                                        "l2_fwd_offload": "off [fixed]", 
-                                        "large_receive_offload": "off [fixed]", 
-                                        "loopback": "off [fixed]", 
-                                        "netns_local": "off [fixed]", 
-                                        "ntuple_filters": "off [fixed]", 
-                                        "receive_hashing": "off [fixed]", 
-                                        "rx_all": "off [fixed]", 
-                                        "rx_checksumming": "on", 
-                                        "rx_fcs": "off [fixed]", 
-                                        "rx_vlan_filter": "off [fixed]", 
-                                        "rx_vlan_offload": "on", 
-                                        "rx_vlan_stag_filter": "off [fixed]", 
-                                        "rx_vlan_stag_hw_parse": "on", 
-                                        "scatter_gather": "on", 
-                                        "tcp_segmentation_offload": "on", 
-                                        "tx_checksum_fcoe_crc": "off [fixed]", 
-                                        "tx_checksum_ip_generic": "on", 
-                                        "tx_checksum_ipv4": "off [fixed]", 
-                                        "tx_checksum_ipv6": "off [fixed]", 
-                                        "tx_checksum_sctp": "off [fixed]", 
-                                        "tx_checksumming": "on", 
-                                        "tx_fcoe_segmentation": "off [fixed]", 
-                                        "tx_gre_segmentation": "on", 
-                                        "tx_gso_robust": "off [fixed]", 
-                                        "tx_ipip_segmentation": "on", 
-                                        "tx_lockless": "on [fixed]", 
-                                        "tx_nocache_copy": "off", 
-                                        "tx_scatter_gather": "on", 
-                                        "tx_scatter_gather_fraglist": "on", 
-                                        "tx_sit_segmentation": "on", 
-                                        "tx_tcp6_segmentation": "on", 
-                                        "tx_tcp_ecn_segmentation": "on", 
-                                        "tx_tcp_segmentation": "on", 
-                                        "tx_udp_tnl_segmentation": "on", 
-                                        "tx_vlan_offload": "on", 
-                                        "tx_vlan_stag_hw_insert": "on", 
-                                        "udp_fragmentation_offload": "on", 
-                                        "vlan_challenged": "off [fixed]"
-                                    }, 
-                                    "hw_timestamp_filters": [], 
-                                    "ipv6": [
-                                        {
-                                            "address": "fe80::142f:afff:feec:2280", 
-                                            "prefix": "64", 
-                                            "scope": "link"
-                                        }
-                                    ], 
-                                    "macaddress": "16:2f:af:ec:22:80", 
+                                    "macaddress": "12:d3:b7:87:23:90", 
                                     "mtu": 1500, 
                                     "promisc": true, 
                                     "speed": 10000, 
@@ -6732,10 +5472,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:06.711261Z", 
-                            "start": "2018-07-17T12:27:04.431336Z"
+                            "end": "2018-07-18T06:29:07.139780Z", 
+                            "start": "2018-07-18T06:29:05.011618Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-000000000058", 
+                        "id": "12f99170-ddbe-852c-b193-000000000058", 
                         "name": "Gathering Facts"
                     }
                 }, 
@@ -6757,7 +5497,7 @@
                                     "_ansible_item_result": true, 
                                     "_ansible_no_log": false, 
                                     "_ansible_parsed": true, 
-                                    "cache_update_time": 1531830428, 
+                                    "cache_update_time": 1531895348, 
                                     "cache_updated": true, 
                                     "changed": false, 
                                     "failed": false, 
@@ -6804,10 +5544,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:08.765113Z", 
-                            "start": "2018-07-17T12:27:06.777722Z"
+                            "end": "2018-07-18T06:29:11.546519Z", 
+                            "start": "2018-07-18T06:29:07.232202Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-000000000017", 
+                        "id": "12f99170-ddbe-852c-b193-000000000018", 
                         "name": "docker-install : Installing docker packages"
                     }
                 }, 
@@ -6835,10 +5575,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:09.605843Z", 
-                            "start": "2018-07-17T12:27:08.833067Z"
+                            "end": "2018-07-18T06:29:12.384443Z", 
+                            "start": "2018-07-18T06:29:11.601085Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-000000000018", 
+                        "id": "12f99170-ddbe-852c-b193-000000000019", 
                         "name": "docker-install : Add Docker's official GPG key"
                     }
                 }, 
@@ -6866,10 +5606,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:10.071841Z", 
-                            "start": "2018-07-17T12:27:09.674862Z"
+                            "end": "2018-07-18T06:29:12.851889Z", 
+                            "start": "2018-07-18T06:29:12.439064Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-000000000019", 
+                        "id": "12f99170-ddbe-852c-b193-00000000001a", 
                         "name": "docker-install : Verifing that we have the key with the fingerprint"
                     }
                 }, 
@@ -6899,10 +5639,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:10.682574Z", 
-                            "start": "2018-07-17T12:27:10.139617Z"
+                            "end": "2018-07-18T06:29:13.393660Z", 
+                            "start": "2018-07-18T06:29:12.907194Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-00000000001a", 
+                        "id": "12f99170-ddbe-852c-b193-00000000001b", 
                         "name": "docker-install : Setting up the stable repository"
                     }
                 }, 
@@ -6912,7 +5652,7 @@
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "apt", 
-                            "cache_update_time": 1531830431, 
+                            "cache_update_time": 1531895354, 
                             "cache_updated": true, 
                             "changed": true, 
                             "invocation": {
@@ -6939,10 +5679,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:12.074520Z", 
-                            "start": "2018-07-17T12:27:10.750226Z"
+                            "end": "2018-07-18T06:29:14.717049Z", 
+                            "start": "2018-07-18T06:29:13.448834Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-00000000001b", 
+                        "id": "12f99170-ddbe-852c-b193-00000000001c", 
                         "name": "docker-install : Updating apt packages"
                     }
                 }, 
@@ -6955,7 +5695,7 @@
                             ], 
                             "_ansible_parsed": true, 
                             "action": "apt", 
-                            "cache_update_time": 1531830433, 
+                            "cache_update_time": 1531895355, 
                             "cache_updated": true, 
                             "changed": false, 
                             "invocation": {
@@ -6985,10 +5725,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:13.806261Z", 
-                            "start": "2018-07-17T12:27:12.142385Z"
+                            "end": "2018-07-18T06:29:16.303549Z", 
+                            "start": "2018-07-18T06:29:14.771075Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-00000000001c", 
+                        "id": "12f99170-ddbe-852c-b193-00000000001d", 
                         "name": "docker-install : Installing docker"
                     }
                 }, 
@@ -7002,7 +5742,7 @@
                             "_ansible_parsed": true, 
                             "action": "copy", 
                             "changed": false, 
-                            "checksum": "a537504b4444fbb8963741b27be176a4b63c0c53", 
+                            "checksum": "175bc2cfe92ff664a2ea67fef05d9e7ada5d412e", 
                             "dest": "/lib/systemd/system/docker.service", 
                             "diff": {
                                 "after": {
@@ -7045,17 +5785,17 @@
                             "mode": "01204", 
                             "owner": "root", 
                             "path": "/lib/systemd/system/docker.service", 
-                            "size": 1208, 
+                            "size": 1206, 
                             "state": "file", 
                             "uid": 0
                         }
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:14.557145Z", 
-                            "start": "2018-07-17T12:27:13.876105Z"
+                            "end": "2018-07-18T06:29:17.048066Z", 
+                            "start": "2018-07-18T06:29:16.359736Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-00000000001d", 
+                        "id": "12f99170-ddbe-852c-b193-00000000001e", 
                         "name": "docker-install : Install unit file"
                     }
                 }, 
@@ -7081,17 +5821,18 @@
                             "name": "docker", 
                             "state": "started", 
                             "status": {
-                                "ActiveEnterTimestamp": "Tue 2018-07-17 12:13:30 UTC", 
-                                "ActiveEnterTimestampMonotonic": "12022595", 
-                                "ActiveExitTimestampMonotonic": "0", 
+                                "ActiveEnterTimestamp": "Wed 2018-07-18 05:53:36 UTC", 
+                                "ActiveEnterTimestampMonotonic": "63618776785", 
+                                "ActiveExitTimestamp": "Wed 2018-07-18 05:52:51 UTC", 
+                                "ActiveExitTimestampMonotonic": "63573092328", 
                                 "ActiveState": "active", 
-                                "After": "systemd-journald.socket sysinit.target basic.target firewalld.service system.slice network-online.target docker.socket", 
+                                "After": "network-online.target firewalld.service basic.target systemd-journald.socket docker.socket sysinit.target system.slice", 
                                 "AllowIsolate": "no", 
                                 "AmbientCapabilities": "0", 
                                 "AssertResult": "yes", 
-                                "AssertTimestamp": "Tue 2018-07-17 12:13:25 UTC", 
-                                "AssertTimestampMonotonic": "7286088", 
-                                "Before": "shutdown.target multi-user.target", 
+                                "AssertTimestamp": "Wed 2018-07-18 05:53:34 UTC", 
+                                "AssertTimestampMonotonic": "63616051850", 
+                                "Before": "multi-user.target shutdown.target", 
                                 "BlockIOAccounting": "no", 
                                 "BlockIOWeight": "18446744073709551615", 
                                 "CPUAccounting": "no", 
@@ -7100,15 +5841,15 @@
                                 "CPUSchedulingPriority": "0", 
                                 "CPUSchedulingResetOnFork": "no", 
                                 "CPUShares": "18446744073709551615", 
-                                "CPUUsageNSec": "15648287735", 
+                                "CPUUsageNSec": "36872546862", 
                                 "CanIsolate": "no", 
                                 "CanReload": "yes", 
                                 "CanStart": "yes", 
                                 "CanStop": "yes", 
                                 "CapabilityBoundingSet": "18446744073709551615", 
                                 "ConditionResult": "yes", 
-                                "ConditionTimestamp": "Tue 2018-07-17 12:13:25 UTC", 
-                                "ConditionTimestampMonotonic": "7286088", 
+                                "ConditionTimestamp": "Wed 2018-07-18 05:53:34 UTC", 
+                                "ConditionTimestampMonotonic": "63616051849", 
                                 "Conflicts": "shutdown.target", 
                                 "ConsistsOf": "docker.socket", 
                                 "ControlGroup": "/system.slice/docker.service", 
@@ -7120,12 +5861,12 @@
                                 "Documentation": "https://docs.docker.com", 
                                 "ExecMainCode": "0", 
                                 "ExecMainExitTimestampMonotonic": "0", 
-                                "ExecMainPID": "1119", 
-                                "ExecMainStartTimestamp": "Tue 2018-07-17 12:13:25 UTC", 
-                                "ExecMainStartTimestampMonotonic": "7286779", 
+                                "ExecMainPID": "2430", 
+                                "ExecMainStartTimestamp": "Wed 2018-07-18 05:53:34 UTC", 
+                                "ExecMainStartTimestampMonotonic": "63616072191", 
                                 "ExecMainStatus": "0", 
                                 "ExecReload": "{ path=/bin/kill ; argv[]=/bin/kill -s HUP $MAINPID ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", 
-                                "ExecStart": "{ path=/usr/bin/dockerd ; argv[]=/usr/bin/dockerd -H tcp://127.0.0.1:2735 -H fd:// ; ignore_errors=no ; start_time=[Tue 2018-07-17 12:13:25 UTC] ; stop_time=[n/a] ; pid=1119 ; code=(null) ; status=0/0 }", 
+                                "ExecStart": "{ path=/usr/bin/dockerd ; argv[]=/usr/bin/dockerd -H tcp://0.0.0.0:2735 -H fd:// ; ignore_errors=no ; start_time=[Wed 2018-07-18 05:53:34 UTC] ; stop_time=[n/a] ; pid=2430 ; code=(null) ; status=0/0 }", 
                                 "FailureAction": "none", 
                                 "FileDescriptorStoreMax": "0", 
                                 "FragmentPath": "/lib/systemd/system/docker.service", 
@@ -7134,9 +5875,10 @@
                                 "Id": "docker.service", 
                                 "IgnoreOnIsolate": "no", 
                                 "IgnoreSIGPIPE": "yes", 
-                                "InactiveEnterTimestampMonotonic": "0", 
-                                "InactiveExitTimestamp": "Tue 2018-07-17 12:13:25 UTC", 
-                                "InactiveExitTimestampMonotonic": "7286810", 
+                                "InactiveEnterTimestamp": "Wed 2018-07-18 05:52:56 UTC", 
+                                "InactiveEnterTimestampMonotonic": "63578801102", 
+                                "InactiveExitTimestamp": "Wed 2018-07-18 05:53:34 UTC", 
+                                "InactiveExitTimestampMonotonic": "63616072235", 
                                 "JobTimeoutAction": "none", 
                                 "JobTimeoutUSec": "infinity", 
                                 "KillMode": "process", 
@@ -7174,9 +5916,9 @@
                                 "LimitSTACK": "18446744073709551615", 
                                 "LimitSTACKSoft": "8388608", 
                                 "LoadState": "loaded", 
-                                "MainPID": "1119", 
+                                "MainPID": "2430", 
                                 "MemoryAccounting": "no", 
-                                "MemoryCurrent": "261787648", 
+                                "MemoryCurrent": "119418880", 
                                 "MemoryLimit": "18446744073709551615", 
                                 "MountFlags": "0", 
                                 "NFileDescriptorStore": "0", 
@@ -7197,7 +5939,7 @@
                                 "RefuseManualStart": "no", 
                                 "RefuseManualStop": "no", 
                                 "RemainAfterExit": "no", 
-                                "Requires": "system.slice sysinit.target docker.socket", 
+                                "Requires": "system.slice docker.socket sysinit.target", 
                                 "Restart": "on-failure", 
                                 "RestartUSec": "100ms", 
                                 "Result": "success", 
@@ -7217,8 +5959,8 @@
                                 "StartLimitInterval": "60000000", 
                                 "StartupBlockIOWeight": "18446744073709551615", 
                                 "StartupCPUShares": "18446744073709551615", 
-                                "StateChangeTimestamp": "Tue 2018-07-17 12:13:30 UTC", 
-                                "StateChangeTimestampMonotonic": "12022595", 
+                                "StateChangeTimestamp": "Wed 2018-07-18 05:53:36 UTC", 
+                                "StateChangeTimestampMonotonic": "63618776785", 
                                 "StatusErrno": "0", 
                                 "StopWhenUnneeded": "no", 
                                 "SubState": "running", 
@@ -7231,7 +5973,7 @@
                                 "TTYVHangup": "no", 
                                 "TTYVTDisallocate": "no", 
                                 "TasksAccounting": "no", 
-                                "TasksCurrent": "132", 
+                                "TasksCurrent": "87", 
                                 "TasksMax": "18446744073709551615", 
                                 "TimeoutStartUSec": "infinity", 
                                 "TimeoutStopUSec": "1min 30s", 
@@ -7245,18 +5987,18 @@
                                 "UtmpMode": "init", 
                                 "WantedBy": "multi-user.target", 
                                 "Wants": "network-online.target", 
-                                "WatchdogTimestamp": "Tue 2018-07-17 12:13:30 UTC", 
-                                "WatchdogTimestampMonotonic": "12022593", 
+                                "WatchdogTimestamp": "Wed 2018-07-18 05:53:36 UTC", 
+                                "WatchdogTimestampMonotonic": "63618776783", 
                                 "WatchdogUSec": "0"
                             }
                         }
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:21.961894Z", 
-                            "start": "2018-07-17T12:27:14.626453Z"
+                            "end": "2018-07-18T06:29:21.603947Z", 
+                            "start": "2018-07-18T06:29:17.103520Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-00000000001e", 
+                        "id": "12f99170-ddbe-852c-b193-00000000001f", 
                         "name": "docker-install : Restart service docker"
                     }
                 }, 
@@ -7266,7 +6008,7 @@
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "apt", 
-                            "cache_update_time": 1531830443, 
+                            "cache_update_time": 1531895363, 
                             "cache_updated": true, 
                             "changed": false, 
                             "invocation": {
@@ -7296,10 +6038,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:23.723979Z", 
-                            "start": "2018-07-17T12:27:22.063041Z"
+                            "end": "2018-07-18T06:29:24.401272Z", 
+                            "start": "2018-07-18T06:29:21.663763Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-00000000001f", 
+                        "id": "12f99170-ddbe-852c-b193-000000000020", 
                         "name": "docker-install : Installing docker-compose"
                     }
                 }, 
@@ -7327,10 +6069,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:24.191341Z", 
-                            "start": "2018-07-17T12:27:23.792457Z"
+                            "end": "2018-07-18T06:29:24.872938Z", 
+                            "start": "2018-07-18T06:29:24.454992Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-000000000027", 
+                        "id": "12f99170-ddbe-852c-b193-000000000028", 
                         "name": "mongodb : Add mongo ppa key"
                     }
                 }, 
@@ -7360,10 +6102,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:24.622960Z", 
-                            "start": "2018-07-17T12:27:24.260833Z"
+                            "end": "2018-07-18T06:29:25.315367Z", 
+                            "start": "2018-07-18T06:29:24.928605Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-000000000028", 
+                        "id": "12f99170-ddbe-852c-b193-000000000029", 
                         "name": "mongodb : Add mongo sources list"
                     }
                 }, 
@@ -7376,7 +6118,7 @@
                             ], 
                             "_ansible_parsed": true, 
                             "action": "apt", 
-                            "cache_update_time": 1531830445, 
+                            "cache_update_time": 1531895366, 
                             "cache_updated": true, 
                             "changed": false, 
                             "invocation": {
@@ -7406,10 +6148,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:26.131768Z", 
-                            "start": "2018-07-17T12:27:24.692462Z"
+                            "end": "2018-07-18T06:29:26.815027Z", 
+                            "start": "2018-07-18T06:29:25.371593Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-000000000029", 
+                        "id": "12f99170-ddbe-852c-b193-00000000002a", 
                         "name": "mongodb : Install mongo"
                     }
                 }, 
@@ -7470,10 +6212,10 @@
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:26.593265Z", 
-                            "start": "2018-07-17T12:27:26.199942Z"
+                            "end": "2018-07-18T06:29:27.276508Z", 
+                            "start": "2018-07-18T06:29:26.870102Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-00000000002a", 
+                        "id": "12f99170-ddbe-852c-b193-00000000002b", 
                         "name": "mongodb : export mongo config file"
                     }
                 }, 
@@ -7483,7 +6225,7 @@
                             "_ansible_no_log": false, 
                             "_ansible_parsed": true, 
                             "action": "systemd", 
-                            "changed": true, 
+                            "changed": false, 
                             "invocation": {
                                 "module_args": {
                                     "daemon_reload": false, 
@@ -7499,14 +6241,16 @@
                             "name": "mongod", 
                             "state": "started", 
                             "status": {
-                                "ActiveEnterTimestampMonotonic": "0", 
+                                "ActiveEnterTimestamp": "Tue 2018-07-17 12:27:26 UTC", 
+                                "ActiveEnterTimestampMonotonic": "848808196", 
                                 "ActiveExitTimestampMonotonic": "0", 
-                                "ActiveState": "inactive", 
-                                "After": "systemd-journald.socket basic.target sysinit.target network.target system.slice", 
+                                "ActiveState": "active", 
+                                "After": "network.target systemd-journald.socket sysinit.target system.slice basic.target", 
                                 "AllowIsolate": "no", 
                                 "AmbientCapabilities": "0", 
-                                "AssertResult": "no", 
-                                "AssertTimestampMonotonic": "0", 
+                                "AssertResult": "yes", 
+                                "AssertTimestamp": "Tue 2018-07-17 12:27:26 UTC", 
+                                "AssertTimestampMonotonic": "848796610", 
                                 "Before": "shutdown.target", 
                                 "BlockIOAccounting": "no", 
                                 "BlockIOWeight": "18446744073709551615", 
@@ -7516,15 +6260,17 @@
                                 "CPUSchedulingPriority": "0", 
                                 "CPUSchedulingResetOnFork": "no", 
                                 "CPUShares": "18446744073709551615", 
-                                "CPUUsageNSec": "18446744073709551615", 
+                                "CPUUsageNSec": "254194415455", 
                                 "CanIsolate": "no", 
                                 "CanReload": "no", 
                                 "CanStart": "yes", 
                                 "CanStop": "yes", 
                                 "CapabilityBoundingSet": "18446744073709551615", 
-                                "ConditionResult": "no", 
-                                "ConditionTimestampMonotonic": "0", 
+                                "ConditionResult": "yes", 
+                                "ConditionTimestamp": "Tue 2018-07-17 12:27:26 UTC", 
+                                "ConditionTimestampMonotonic": "848796610", 
                                 "Conflicts": "shutdown.target", 
+                                "ControlGroup": "/system.slice/mongod.service", 
                                 "ControlPID": "0", 
                                 "DefaultDependencies": "yes", 
                                 "Delegate": "no", 
@@ -7533,8 +6279,9 @@
                                 "Documentation": "https://docs.mongodb.org/manual", 
                                 "ExecMainCode": "0", 
                                 "ExecMainExitTimestampMonotonic": "0", 
-                                "ExecMainPID": "0", 
-                                "ExecMainStartTimestampMonotonic": "0", 
+                                "ExecMainPID": "13726", 
+                                "ExecMainStartTimestamp": "Tue 2018-07-17 12:27:26 UTC", 
+                                "ExecMainStartTimestampMonotonic": "848808165", 
                                 "ExecMainStatus": "0", 
                                 "ExecStart": "{ path=/usr/bin/mongod ; argv[]=/usr/bin/mongod --config /etc/mongod.conf ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", 
                                 "FailureAction": "none", 
@@ -7547,7 +6294,8 @@
                                 "IgnoreOnIsolate": "no", 
                                 "IgnoreSIGPIPE": "yes", 
                                 "InactiveEnterTimestampMonotonic": "0", 
-                                "InactiveExitTimestampMonotonic": "0", 
+                                "InactiveExitTimestamp": "Tue 2018-07-17 12:27:26 UTC", 
+                                "InactiveExitTimestampMonotonic": "848808196", 
                                 "JobTimeoutAction": "none", 
                                 "JobTimeoutUSec": "infinity", 
                                 "KillMode": "control-group", 
@@ -7585,9 +6333,9 @@
                                 "LimitSTACK": "18446744073709551615", 
                                 "LimitSTACKSoft": "8388608", 
                                 "LoadState": "loaded", 
-                                "MainPID": "0", 
+                                "MainPID": "13726", 
                                 "MemoryAccounting": "no", 
-                                "MemoryCurrent": "18446744073709551615", 
+                                "MemoryCurrent": "174321664", 
                                 "MemoryLimit": "18446744073709551615", 
                                 "MountFlags": "0", 
                                 "NFileDescriptorStore": "0", 
@@ -7629,10 +6377,11 @@
                                 "StartLimitInterval": "10000000", 
                                 "StartupBlockIOWeight": "18446744073709551615", 
                                 "StartupCPUShares": "18446744073709551615", 
-                                "StateChangeTimestampMonotonic": "0", 
+                                "StateChangeTimestamp": "Tue 2018-07-17 12:27:26 UTC", 
+                                "StateChangeTimestampMonotonic": "848808196", 
                                 "StatusErrno": "0", 
                                 "StopWhenUnneeded": "no", 
-                                "SubState": "dead", 
+                                "SubState": "running", 
                                 "SyslogFacility": "3", 
                                 "SyslogLevel": "6", 
                                 "SyslogLevelPrefix": "yes", 
@@ -7642,7 +6391,7 @@
                                 "TTYVHangup": "no", 
                                 "TTYVTDisallocate": "no", 
                                 "TasksAccounting": "no", 
-                                "TasksCurrent": "18446744073709551615", 
+                                "TasksCurrent": "20", 
                                 "TasksMax": "18446744073709551615", 
                                 "TimeoutStartUSec": "1min 30s", 
                                 "TimeoutStopUSec": "1min 30s", 
@@ -7654,17 +6403,18 @@
                                 "UnitFileState": "disabled", 
                                 "User": "mongodb", 
                                 "UtmpMode": "init", 
-                                "WatchdogTimestampMonotonic": "0", 
+                                "WatchdogTimestamp": "Tue 2018-07-17 12:27:26 UTC", 
+                                "WatchdogTimestampMonotonic": "848808191", 
                                 "WatchdogUSec": "0"
                             }
                         }
                     }, 
                     "task": {
                         "duration": {
-                            "end": "2018-07-17T12:27:26.932330Z", 
-                            "start": "2018-07-17T12:27:26.662549Z"
+                            "end": "2018-07-18T06:29:27.593797Z", 
+                            "start": "2018-07-18T06:29:27.332376Z"
                         }, 
-                        "id": "12f99170-ddbe-1a62-3aca-00000000002b", 
+                        "id": "12f99170-ddbe-852c-b193-00000000002c", 
                         "name": "mongodb : restart mongod"
                     }
                 }
@@ -7673,7 +6423,7 @@
     ], 
     "stats": {
         "35.174.136.31": {
-            "changed": 3, 
+            "changed": 2, 
             "failures": 0, 
             "ok": 15, 
             "skipped": 0, 

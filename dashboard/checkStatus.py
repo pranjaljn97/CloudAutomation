@@ -29,7 +29,7 @@ class HostCheck():
 
     def checkUrlStatus(self,projectname,appname):
         try:    
-            res = requests.get('http://' + projectname+'-'+appname+'@tothenew.tk')
+            res = requests.get('http://' + projectname+'-'+appname+'.tothenew.tk')
             response =  str(res)
             return "Url is working: " + response
         except:
