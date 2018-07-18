@@ -238,6 +238,7 @@ def makeenvfile(myid):
                         'image': redisImage,
                             'envi': {
                             'REDIS_PASSWORD': post.REDIS_PASSWORD_VALUE,
+                            'REDIS_LOGFILE': '/home/redis.log' ,
                             'redis_version': post.redis_version },
                             'volumes': {
                                 
