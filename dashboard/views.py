@@ -141,10 +141,10 @@ def approvedsuccessfully(request, id):
 
     print("hi")
     try:
-         execplaybook(id)
+        execplaybook(id)
     except:
-         msg = "Error in executing  Ansible Playbook"
-         return render(request, "dashboard/error.html", {'msg': msg })
+        msg = "Error in executing  Ansible Playbook"
+        return render(request, "dashboard/error.html", {'msg': msg })
   
     
     jsonfile = currpost.project_name
@@ -187,24 +187,24 @@ def rejectedsuccessfully(request, id):
 @login_required(login_url='/login/')
 def detailform(request,id):
 #   today = datetime.datetime.now().date()
-     uname = request.user.get_username()
-     posts = Project.objects.get(pk=id)
-     return render(request, "dashboard/detailform.html", {'posts': posts })
+    uname = request.user.get_username()
+    posts = Project.objects.get(pk=id)
+    return render(request, "dashboard/detailform.html", {'posts': posts })
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 @login_required(login_url='/login/')
 def hostdetailform(request,id):
 #   today = datetime.datetime.now().date()
      
-     posts = Host.objects.get(pk=id)
-     return render(request, "dashboard/hostdetailform.html", {'posts': posts })
+    posts = Host.objects.get(pk=id)
+    return render(request, "dashboard/hostdetailform.html", {'posts': posts })
 
 @login_required(login_url='/login/')
 def submitted(request,requester):
 #   today = datetime.datetime.now().date()
-     uname = request.user.email
-     posts = Project.objects.all().filter(requester=requester)
-     return render(request, "dashboard/submitted.html", {'posts': posts })
+    uname = request.user.email
+    posts = Project.objects.all().filter(requester=requester)
+    return render(request, "dashboard/submitted.html", {'posts': posts })
 
 
 
