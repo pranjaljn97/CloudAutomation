@@ -406,7 +406,7 @@ def mysqlform(request):
         if form.is_valid():
 
             form.save()
-            sendmail(request,form,'mysqlsubmit')
+        #    sendmail(request,form,'mysqlsubmit')
          
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
         else:
@@ -471,7 +471,7 @@ def approvedsuccessfullymysql(request, id):
     posts2 = mysqluser.objects.all()
 
      #mail functionality
-    sendmail(request,id,'approvedmysql')
+  #  sendmail(request,id,'approvedmysql')
     return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
@@ -484,7 +484,7 @@ def rejectedsuccessfullymysql(request, id):
     posts2 = mysqluser.objects.all()
 
      #mail functionality
-    sendmail(request,id,'rejectmysql')
+   # sendmail(request,id,'rejectmysql')
     return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
 
 

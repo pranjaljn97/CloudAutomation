@@ -13,13 +13,21 @@ def buildMysql(host,user,passwd,uname,upwd,udb):
         results = cursor.execute(setpass)
         print "Setting of password returned", results
         dbname = udb
-        dbcreation = "CREATE DATABASE '%s'@'%s'" %(dbname, host)
+        dbcreation = "CREATE DATABASE %s" %(dbname)
         results = cursor.execute(dbcreation)
         print "DB creation returned", results
-        granting = "GRANT ALL ON udb.* TO '%s'@'%s'" %(mkuser, host)
+
+ 
+	dbc2 = "FLUSH PRIVILEGES"
+        results = cursor.execute(dbc2)
+        print "DB c 2", results
+
+
+
+        granting = "GRANT ALL ON %s.* TO '%s'@'%s'" %(udb, mkuser, host)
         results = cursor.execute(granting)
         print "Granting of privileges returned", results
-        granting = "REVOKE ALL PRIVILEGES ON udb.* FROM '%s'@'%s'" %(mkuser, host)
+        granting = "REVOKE ALL PRIVILEGES ON %s.* FROM '%s'@'%s'" %(udb,mkuser, host)
         results = cursor.execute(granting)
         print "Revoking of privileges returned", results
     except MySQLdb.Error, e:
