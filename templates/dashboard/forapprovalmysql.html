@@ -1,0 +1,129 @@
+
+{% extends "dashboard/mysqlside2.html" %}
+
+{% block content %}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+
+                    
+                    {% for post in posts %}
+                    {% if post.status == 'Approved' %}
+                    <div class="col-md-4" style="cursor: pointer">
+
+                        
+                        <div class="card" style="cursor: pointer; background-color:lightgreen;">
+                            <div class="header">
+                                <br>
+                                <h5 class="title"><b>Requester: {{ post.requester }}</b></h5>
+                                    <br>
+                                    
+
+
+                                    <p class="category"></p>
+                                    <br>
+                                    <i class="fa fa-circle text-info"></i> Host IP: {{ post.hostIp }} <br>
+                                    <i class="fa fa-circle text-info"></i> Database Name: {{ post.MYSQL_DATABASE_NAME_VALUE }}<br>
+                                    <i class="fa fa-circle text-info"></i> Username: {{ post.MYSQL_USER_NAME_VALUE }}<br>
+                                    <i class="fa fa-circle text-info"></i> Password: {{ post.MYSQL_PASSWORD_VALUE }}<br>
+                                   
+                                    
+
+                                    <br>
+
+                                    <center>
+                                    
+                                    
+                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "rejectedsuccessfullymysql" post.id %}';" name="rejectbtn">
+                                   
+                                    <br>
+                                    </center>
+                            </div>
+                            
+                        </div>
+                    </div>
+                 
+
+                    {% elif post.status == 'Rejected' %}
+                    <div class="col-md-4" style="cursor: pointer">
+
+                        
+                        <div class="card" style="cursor: pointer; background-color:lightcoral;">
+                            <div class="header">
+                                <br>
+                                <h5 class="title"><b>Requester: {{ post.requester }}</b></h5>
+                                    <br>
+                                    
+
+
+                                    <p class="category"></p>
+                                    <br>
+                                    <i class="fa fa-circle text-info"></i> Host IP: {{ post.hostIp }} <br>
+                                    <i class="fa fa-circle text-info"></i> Database Name: {{ post.MYSQL_DATABASE_NAME_VALUE }}<br>
+                                    <i class="fa fa-circle text-info"></i> Username: {{ post.MYSQL_USER_NAME_VALUE }}<br>
+                                    <i class="fa fa-circle text-info"></i> Password: {{ post.MYSQL_PASSWORD_VALUE }}<br>
+                                    
+                                    
+
+                                    <br>
+
+                                    <center>
+                                    
+                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "approvedsuccessfullymysql" post.id %}';" name="approvebtn">
+                                    
+                                    </center>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    {% elif post.status == 'submitted' %}
+                    <div class="col-md-4" style="cursor: pointer" >
+
+                        
+                        <div class="card" style="cursor: pointer; ">
+                            <div class="header">
+                                <br>
+                                <h5 class="title"><b>Requester: {{ post.requester }}</b></h5>
+                                    <br>
+                                    
+
+
+                                    <p class="category"></p>
+                                    <br>
+                                    <i class="fa fa-circle text-info"></i> Host IP: {{ post.hostIp }} <br>
+                                    <i class="fa fa-circle text-info"></i> Database Name: {{ post.MYSQL_DATABASE_NAME_VALUE }}<br>
+                                    <i class="fa fa-circle text-info"></i> Username: {{ post.MYSQL_USER_NAME_VALUE }}<br>
+                                    <i class="fa fa-circle text-info"></i> Password: {{ post.MYSQL_PASSWORD_VALUE }}<br>
+                                   
+                                    
+
+                                    <br>
+
+                                    <center>
+                                    
+                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "approvedsuccessfullymysql" post.id %}';" name="approvebtn">
+                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "rejectedsuccessfullymysql" post.id %}';" name="rejectbtn">
+                                   
+                                    <br>
+                                    </center> 
+                            </div>
+                            
+                        </div>
+                    </div>
+                    {% else %}
+                    {% endif %}
+                    {% endfor %}
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+       
+        {% endblock %}

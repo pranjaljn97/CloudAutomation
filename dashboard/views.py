@@ -8,6 +8,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.shortcuts import render
 from .models import HostForm
+from .models import mysqlForm
+from .models import mysqluser
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.utils import timezone
@@ -18,6 +20,7 @@ from .models import runningstack
 from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 from dashboard.makeenv import makeenvfile
+from dashboard.mysql import buildMysql
 from dashboard.makeenv import makeEnvHost
 from dashboard.mail import sendmail
 from dashboard.mail2 import fmail
@@ -31,6 +34,8 @@ from dashboard.makehostentry import hostentry
 from dashboard.checkStatus import HostCheck
 from dashboard.models import status
 from dashboard.models import Myform
+from dashboard.models import mongoform
+from dashboard.models import mongorequest
 import datetime
 import io
 import json
@@ -286,15 +291,15 @@ def checkstatus(request, id):
     print dockerstatus
     print urlstatus
     #3rd method
-    with open(destpath + posts.project_name+ '_' + str(posts.id)+'.json') as data_file:
-        data_loaded = json.load(data_file)
-        mysqlport = data_loaded['mysql']['ports']
-        mongoport = data_loaded['mongodb']['ports']
-        mysqlstatus = hostcheck.checkMysql(hostip, mysqlport, mysqluser, mysqlpass)
-        mongostatus = hostcheck.checkMongo(hostip, mongoport, mongouser, mongopass)
-        # mysqlstatus = hostcheck.checkMysql('10.1.203.82', 3306, 'root', 'noida123')
-        print mysqlstatus
-        print mongostatus
+    # with open(destpath + posts.project_name+ '_' + str(posts.id)+'.json') as data_file:
+    #     data_loaded = json.load(data_file)
+    #     mysqlport = data_loaded['mysql']['ports']
+    #     mongoport = data_loaded['mongodb']['ports']
+    #     # mysqlstatus = hostcheck.checkMysql(hostip, mysqlport, mysqluser, mysqlpass)
+    #     # mongostatus = hostcheck.checkMongo(hostip, mongoport, mongouser, mongopass)
+    #     # mysqlstatus = hostcheck.checkMysql('10.1.203.82', 3306, 'root', 'noida123')
+    #     print mysqlstatus
+    #     print mongostatus
     
    
     for host in hosts:
@@ -310,6 +315,8 @@ def checkstatus(request, id):
     varnishstatus = checkstackoutput['varnishstatus']
     redisstatus = checkstackoutput['redisstatus']
     nginxstatus = checkstackoutput['nginxstatus']
+    mongostatus = checkstackoutput['mongostatus']
+    mysqlstatus = checkstackoutput['mysqlstatus']
     if(varnishstatus == True):
         varnishstatus = 'Connection to Varnish established'
     else:
@@ -324,6 +331,19 @@ def checkstatus(request, id):
         nginxstatus = 'Connection to Nginx established'
     else:
         nginxstatus = "Can't Connect to Nginx"
+
+    
+    if(mysqlstatus == True):
+        mysqlstatus = 'Connection to MySql established'
+    else:
+        mysqlstatus = "Can't Connect to MySql"
+    
+
+    if(mongostatus == True):
+        mongostatus = 'Connection to Mongo DB established'
+    else:
+        mongostatus = "Can't Connect to Mongo DB"
+    
     
     varnishid = checkstackoutput['varnishid']
     redisid =  checkstackoutput['redisid']
@@ -375,6 +395,120 @@ def rerun(request,id):
     return render(request, "dashboard/rerun.html", {'posts': posts })
 
     # return render(request, "dashboard/rerun.html", {'posts': posts })
+
+
+@login_required(login_url='/login/')
+def mongoformpage(request):
+   
+    # hostInfo = Host.objects.values_list('hostIdentifier',flat=True)  
+    hostInfo = Host.objects.all()  
+    
+    if request.method == 'POST':
+        print "hi"
+        form = mongorequest(request.POST)
+        if form.is_valid():
+            form.save()
+            # sendmail(request,form,'submit')
+            return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
+        else:
+            print(form.errors)   
+    else:
+        form = mongorequest()
+    return render(request, 'dashboard/mongoForm.html', {'form': form,'hostInfo': hostInfo})
+
+
+
+
+@login_required(login_url='/login/')
+def mysqlform(request):
+    # hostInfo = Host.objects.values_list('hostIdentifier',flat=True)  
+    hostInfo = Host.objects.all() 
+    
+    if request.method == 'POST':
+        form = mysqlForm(request.POST)
+        if form.is_valid():
+
+            form.save()
+            sendmail(request,form,'mysqlsubmit')
+         
+            return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
+        else:
+            print(form.errors)   
+    else:
+        form = mysqlForm()
+    return render(request, 'dashboard/mysqlhome.html', {'form': form,'hostInfo': hostInfo})
+
+
+@login_required(login_url='/login/')
+def submittedmysql(request,requester):
+#   today = datetime.datetime.now().date()
+    uname = request.user.email
+    posts = mysqluser.objects.all().filter(requester=requester)
+    return render(request, "dashboard/submittedmysql.html", {'posts': posts })
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def forapprovalmysql(request):
+#   today = datetime.datetime.now().date()
+     posts = mysqluser.objects.all()
+     hostInfo = Host.objects.all()  
+     return render(request, "dashboard/forapprovalmysql.html", {'posts': posts, 'hostInfo': hostInfo })
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def approvedmysql(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = mysqluser.objects.all()
+     return render(request, "dashboard/approvedmysql.html", {'posts': posts })
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def rejectedmysql(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = mysqluser.objects.all()
+     return render(request, "dashboard/rejectedmysql.html", {'posts': posts })
+
+
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def approvedsuccessfullymysql(request, id):
+    
+    currpost = mysqluser.objects.get(id=id)
+    ip = currpost.hostIp
+    posts = Host.objects.all().filter(hostIp=ip)
+
+    for post in posts:
+        user = post.mysqlUsername
+        passwd = post.mysqlPassword
+    host = currpost.hostIp
+    uname = currpost.MYSQL_USER_NAME_VALUE
+    upwd = currpost.MYSQL_PASSWORD_VALUE
+    udb = currpost.MYSQL_DATABASE_NAME_VALUE
+
+    buildMysql(host,user,passwd,uname,upwd,udb)
+
+    currpost.status = 'Approved'
+    currpost.save()
+
+    posts2 = mysqluser.objects.all()
+
+     #mail functionality
+    sendmail(request,id,'approvedmysql')
+    return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
+
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def rejectedsuccessfullymysql(request, id):
+    
+    currpost = mysqluser.objects.get(id=id)
+    currpost.status = 'Rejected'
+    currpost.save()
+    posts = mysqluser.objects.get(pk=id)
+    posts2 = mysqluser.objects.all()
+
+     #mail functionality
+    sendmail(request,id,'rejectmysql')
+    return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
 
 
 
