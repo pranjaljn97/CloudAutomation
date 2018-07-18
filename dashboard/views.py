@@ -346,14 +346,28 @@ def checkstatus(request, id):
     
     
     varnishid = checkstackoutput['varnishid']
+    varnishname = checkstackoutput['varnishname']
+    varnishst = checkstackoutput['varnishst']
+
     redisid =  checkstackoutput['redisid']
+    redisname =  checkstackoutput['redisname']
+    redisst =  checkstackoutput['redisst']
+
     nginxid = checkstackoutput['nginxid']
+    nginxname = checkstackoutput['nginxname']
+    nginxst = checkstackoutput['nginxst']
+
     mongoid = checkstackoutput['mongoid']
+    mongoname = checkstackoutput['mongoname']
+    mongost = checkstackoutput['mongost']
+
     mysqlid = checkstackoutput['mysqlid']
+    mysqlname = checkstackoutput['mysqlname']
+    mysqlst = checkstackoutput['mysqlst']
 
     
     status.objects.all().delete()
-    statusentry = status(projectname=projectname,sshstatus=sshstatus, dockerstatus=dockerstatus, urlstatus=urlstatus, mongostatus=mongostatus, mysqlstatus=mysqlstatus, nginxstatus=nginxstatus, varnishstatus=varnishstatus, redisstatus=redisstatus, mysqlid=mysqlid, mongoid=mongoid, varnishid=varnishid, nginxid=nginxid, redisid=redisid )
+    statusentry = status(projectname=projectname,sshstatus=sshstatus, dockerstatus=dockerstatus, urlstatus=urlstatus, mongostatus=mongostatus, mysqlstatus=mysqlstatus, nginxstatus=nginxstatus, varnishstatus=varnishstatus, redisstatus=redisstatus, mysqlid=mysqlid, mysqlname=mysqlname, mysqlst=mysqlst, mongoid=mongoid, mongoname=mongoname, mongost=mongost, varnishid=varnishid, varnishname=varnishname, varnishst=varnishst, nginxid=nginxid, nginxname=nginxname, nginxst=nginxst, redisid=redisid,redisname=redisname,redisst=redisst )
     statusentry.save()
     allstatus = status.objects.all()
     return render(request, "dashboard/detailform.html", {'posts': posts, 'allstatus': allstatus })

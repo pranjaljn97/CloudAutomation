@@ -63,15 +63,23 @@ class status(models.Model):
     varnishstatus = models.CharField(blank=True, max_length=1000)
     redisstatus = models.CharField(blank=True, max_length=1000)
     mysqlid = models.CharField(blank=True, max_length=1000)
+    mysqlname = models.CharField(blank=True, max_length=1000)
+    mysqlst = models.CharField(blank=True, max_length=1000)
     mongoid = models.CharField(blank=True, max_length=1000)
+    mongoname = models.CharField(blank=True, max_length=1000)
+    mongost = models.CharField(blank=True, max_length=1000)
     varnishid = models.CharField(blank=True, max_length=1000)
+    varnishname = models.CharField(blank=True, max_length=1000)
+    varnishst = models.CharField(blank=True, max_length=1000)
     nginxid = models.CharField(blank=True, max_length=1000)
+    nginxname = models.CharField(blank=True, max_length=1000)
+    nginxst = models.CharField(blank=True, max_length=1000)
     redisid = models.CharField(blank=True, max_length=1000)
+    redisname = models.CharField(blank=True, max_length=1000)
+    redisst = models.CharField(blank=True, max_length=1000)
 
 
     
-
-
 class Host(models.Model):
         id = models.AutoField(primary_key=True)
         hostIdentifier = models.CharField(blank=True, max_length=30)
