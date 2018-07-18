@@ -21,7 +21,20 @@
     - { dest: '/home/{{ user.project_name }}/mysql', mode: '0775'}
     - { dest: '/home/{{ user.project_name }}/mongodb', mode: '0775'}
     - { dest: '/home/{{ user.project_name }}/code', mode: '0775'}
-    - { dest: '/home/{{ user.project_name }}/logs', mode: '0775'} 
+    - { dest: '/home/{{ user.project_name }}/redis', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/logs', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/logs/nginx', mode: '0775'} 
+    - { dest: '/home/{{ user.project_name }}/logs/mysql', mode: '0775'} 
+    - { dest: '/home/{{ user.project_name }}/logs/mongodb', mode: '0775'}  
+    - { dest: '/home/{{ user.project_name }}/logs/redis', mode: '0775'}
+
+- name: touch redis log file
+  file:
+    path: "/home/{{ user.project_name }}/logs/redis/redis.log"
+    owner: 100
+    group: 100
+    mode: 0775
+    state: touch    
 
 - name: Copying Template into remote
   become: true
