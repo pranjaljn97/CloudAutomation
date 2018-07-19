@@ -1,0 +1,57 @@
+
+{% extends "dashboard/mongoside2.html" %}
+
+{% block content %}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    
+                    {% for post in posts %}
+                        <!-- {% if post.status == 'Rejected' %} -->
+                            <div class="col-md-4" style="cursor: pointer;">
+                                <div class="card">
+                                    <div class="header">
+                                        <h5 class="title"><b>Requester: {{ post.requester }}</b></h5>
+                                            <br>
+                                            
+                                            <p class="category"></p>
+                                            <br>
+                                            <i class="fa fa-circle text-info"></i> Host IP: {{ post.hostip }} <br>
+                                            <i class="fa fa-circle text-info"></i> Database Name: {{ post.MONGO_INITDB_DATABASE_VALUE }}<br>
+                                            <i class="fa fa-circle text-info"></i> Username: {{ post.MONGO_INITDB_ROOT_USERNAME_VALUE }}<br>
+                                            <i class="fa fa-circle text-info"></i> Password: {{ post.MONGO_INITDB_ROOT_PASSWORD_VALUE }}<br>
+                                   
+                                    
+
+                                            <br>
+
+                                           <br>
+                                            <br>
+                                    </div>
+                                    <!--<div class="content">
+                                        <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                                        <div class="footer">
+                                            <div class="legend">
+                                                <i class="fa fa-circle text-info"></i> Requested
+                                                <i class="fa fa-circle text-danger"></i> Pending
+                                                <i class="fa fa-circle text-warning"></i> Rejected
+                                            </div
+                                            <hr>
+                                            <div class="stats">
+                                                <i class="fa fa-clock-o"></i> {{ user.username }}
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+
+
+
+
+                   
+
+        {% endblock %}

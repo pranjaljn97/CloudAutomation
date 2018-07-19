@@ -1,10 +1,15 @@
-{% extends "dashboard/mongoside.html" %} {% load static %} {% block content %}
+{% extends "dashboard/mongoside.html" %}
+ {% load static %} 
+ {% block content %}
 <div class="content">
 
   <form id="regForm" action="." method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <!-- One "tab" for each step in the form: -->
-    <h2>Mongo DB User Creation</h2>
+    <h2>Mongo User Creation</h2>
+    <!-- ================================STEP 1 BASIC DETAILS======================================= -->
+
+
     <div class="row">
       <div class="col-md-5">
         <div class="form-group">
@@ -13,9 +18,10 @@
           <input type="text" class="form-control" readonly placeholder="{{ user.email }}" value="{{ user.email }}" name="requester">
         </div>
       </div>
-      <div class="col-md-5">
+
+      <div class="col-md-2">
         <div class="form-group">
-          <label>Choose Host &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+          <label>Choose Host</label>
           <select name=hostIp>
 
             {% for i in hostInfo %} {% if i.status == 'Added Successfully' %}
@@ -27,6 +33,7 @@
       </div>
     </div>
 
+    <!-- ================================STEP 4 MONGO DETAILS================================== -->
     <div class="tab">
 
 
@@ -44,7 +51,8 @@
         <div class="col-md-6">
           <div class="form-group">
             <label>Key #1</label>
-            <input type="text" class="form-control" disabled="disabled" value="MONGO_INITDB_DATABASE" name='mongodb' />
+            <input type="text" class="form-control" disabled="disabled" value="MONGO_INITDB_DATABASE" name='mongodb'
+            />
           </div>
         </div>
         <div class="col-md-6">
@@ -59,13 +67,15 @@
         <div class="col-md-6">
           <div class="form-group">
             <label>Key #2</label>
-            <input type="text" class="form-control" disabled="disabled" value="MONGO_INITDB_ROOT_USERNAME" name='mongouser' />
+            <input type="text" class="form-control" disabled="disabled" value="MONGO_INITDB_ROOT_USERNAME"
+              name='mongouser' />
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label>Value #2</label>
-            <input type="text" class="form-control" name='MONGO_INITDB_ROOT_USERNAME_VALUE' value='user' />
+            <input type="text" class="form-control" name='MONGO_INITDB_ROOT_USERNAME_VALUE' value='user'
+            />
           </div>
         </div>
       </div>
@@ -74,17 +84,19 @@
         <div class="col-md-6">
           <div class="form-group">
             <label>Key #3</label>
-            <input type="text" class="form-control" disabled="disabled" value="MONGO_INITDB_ROOT_PASSWORD" name="mongopassword" />
+            <input type="text" class="form-control" disabled="disabled" value="MONGO_INITDB_ROOT_PASSWORD"
+              name="mongopassword" />
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label>Value #3</label>
-            <input type="text" class="form-control" name='MONGO_INITDB_ROOT_PASSWORD_VALUE' value='1234' />
+            <input type="text" class="form-control" name='MONGO_INITDB_ROOT_PASSWORD_VALUE' value='1234'
+            />
           </div>
         </div>
       </div>
-
+      
 
     </div>
 

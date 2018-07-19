@@ -21,6 +21,7 @@ from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 from dashboard.makeenv import makeenvfile
 from dashboard.mysql import buildMysql
+from dashboard.mongo import buildMongo
 from dashboard.makeenv import makeEnvHost
 from dashboard.mail import sendmail
 from dashboard.mail2 import fmail
@@ -376,19 +377,19 @@ def rerun(request,id):
             #except:
              #   msg = "Error in making Env File"
               #  return render(request, "dashboard/error.html", {'msg': msg })
-            try:
-                execplaybook(id)
-            except:
-                msg = "Error in executing  Ansible Playbook"
-                return render(request, "dashboard/error.html", {'msg': msg })
-            jsonfile = posts.project_name
-            appname = posts.application_name
-            hostip = posts.hostIp
-            try:
-                buildinfo(request,id,jsonfile,hostip)
-            except:
-                msg = "Error in fetching final status"
-                return render(request, "dashboard/error.html", {'msg': msg })
+            # try:
+            #     execplaybook(id)
+            # except:
+            #     msg = "Error in executing  Ansible Playbook"
+            #     return render(request, "dashboard/error.html", {'msg': msg })
+            # jsonfile = posts.project_name
+            # appname = posts.application_name
+            # hostip = posts.hostIp
+            # try:
+            #     buildinfo(request,id,jsonfile,hostip)
+            # except:
+            #     msg = "Error in fetching final status"
+            #     return render(request, "dashboard/error.html", {'msg': msg })
             return HttpResponseRedirect('/dashboard/detailform' + id + '.html')
     else:
         form = Myform()
@@ -425,6 +426,7 @@ def mysqlform(request):
     hostInfo = Host.objects.all() 
     
     if request.method == 'POST':
+        print "hi"
         form = mysqlForm(request.POST)
         if form.is_valid():
 
@@ -509,6 +511,102 @@ def rejectedsuccessfullymysql(request, id):
      #mail functionality
     sendmail(request,id,'rejectmysql')
     return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@login_required(login_url='/login/')
+def submittedmongo(request,requester):
+#   today = datetime.datetime.now().date()
+    uname = request.user.email
+    posts = mongoform.objects.all().filter(requester=requester)
+    return render(request, "dashboard/submittedmongo.html", {'posts': posts })
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def forapprovalmongo(request):
+#   today = datetime.datetime.now().date()
+     posts = mongoform.objects.all()
+     hostInfo = Host.objects.all()  
+     return render(request, "dashboard/forapprovalmongo.html", {'posts': posts, 'hostInfo': hostInfo })
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def approvedmongo(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = mongoform.objects.all()
+     return render(request, "dashboard/approvedmongo.html", {'posts': posts })
+
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def rejectedmongo(request):
+#   today = datetime.datetime.now().date()
+     uname = request.user.get_username()
+     posts = mongoform.objects.all()
+     return render(request, "dashboard/rejectedmongo.html", {'posts': posts })
+
+
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def approvedsuccessfullymongo(request, id):
+    
+    currpost = mongoform.objects.get(id=id)
+    ip = currpost.hostip
+    posts = Host.objects.all().filter(hostIp=ip)
+
+    # for post in posts:
+    #     user = post.mysqlUsername
+    #     passwd = post.mysqlPassword
+    # host = currpost.hostIp
+    uname = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
+    upwd = currpost.MONGO_INITDB_ROOT_PASSWORD_VALUE
+    udb = currpost.MONGO_INITDB_DATABASE_VALUE
+
+    rootuser = 'tom'
+    rootpass = 'jerry'
+    rootdb = 'admin'
+    
+    # try:
+    buildMongo(rootuser, rootpass, rootdb,uname,upwd,udb)
+    # except:
+    #      msg = "Unable to process your request"
+    #      return render(request, "dashboard/error.html", {'msg': msg })
+    
+    currpost.status = 'Approved'
+    currpost.save()
+
+    posts2 = mongoform.objects.all()
+
+     #mail functionality
+    # sendmail(request,id,'approvedmysql')
+    return render(request, "dashboard/forapprovalmongo.html", {'posts': posts2 })
+
+# @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+# def rejectedsuccessfullymysql(request, id):
+    
+#     currpost = mysqluser.objects.get(id=id)
+#     currpost.status = 'Rejected'
+#     currpost.save()
+#     posts = mysqluser.objects.get(pk=id)
+#     posts2 = mysqluser.objects.all()
+
+#      #mail functionality
+#     sendmail(request,id,'rejectmysql')
+#     return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
 
 
 

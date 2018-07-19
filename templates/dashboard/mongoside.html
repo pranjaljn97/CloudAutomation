@@ -52,50 +52,32 @@
               </a>
             </li>
             <li>
-              <a href="{% url "submitted" user.email %}">
+              <a href="{% url "submittedmongo" user.email %}">
                       <i class="pe-7s-note2"></i>
                       <p>Submitted</p>
                   </a>
               </li>
     {% if perms.login.view_content %}
     <li>
-                  <a href="{% url "forapproval" %}">
+                  <a href="{% url "forapprovalmongo" %}">
                       <i class="pe-7s-user"></i>
                       <p>For Approval</p>
                   </a>
               </li>
           <li>
-                      <a href="{% url "approved" %}">
+                      <a href="{% url "approvedmongo" %}">
                           <i class="pe-7s-note2"></i>
                           <p>Approved</p>
                       </a>
                   </li>
         <li>
-                          <a href="{% url "rejected" %}">
+                          <a href="{% url "rejectedmongo" %}">
                               <i class="pe-7s-graph"></i>
                               <p>Rejected</p>
                           </a>
                       </li>
-          <li>
-                              <a href="{% url "rstackview" %}">
-                                  <i class="pe-7s-note2"></i>
-                                  <p>Running Stacks</p>
-                              </a>
-                          </li>
     {% endif %}
 
-              <li>
-
-              <li>
-              
-              {% if perms.login.view_content %}
-              <li>
-                  <a href="{% url "cprovider" %}">
-                      <i class="pe-7s-note2"></i>
-                      <p>Cloud Provider</p>
-                  </a>
-              </li>
-              {% endif %}
               </ul>
             </div>
       </div>
@@ -142,6 +124,9 @@
                 <div class="card">
 
                     {% block content %}{% endblock %}
+
+
+
            <!-- Next and previous buttons -->
            <div style="overflow:auto;">
               <div style="float:right;">
@@ -152,22 +137,9 @@
               </div>
             </div>
             
-            <!-- Circles which indicates the steps of the form: -->
-            <div style="text-align:center;margin-top:40px;">
-              <span class="step">
-              </span>
-              <span class="step">
-              </span>
-              <span class="step">
-              </span>
-              <span class="step">
-              </span>
-              <span class="step">
-              </span>
-              <span class="step">
-                </span>
-          </div>
+            
         </form>
+      
     </div>
   </div>
 </div>

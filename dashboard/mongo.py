@@ -1,6 +1,5 @@
 from pymongo import MongoClient
-def buildMongo(uname,upwd,udb):
+def buildMongo(rootuser, rootpass, rootdb, uname, upwd, udb):
     client = MongoClient('localhost:27017')   
-    client.admin.authenticate('root', '1234')
-    db = client[udb]
-    client.testdb.add_user(uname,upwd, roles=[{'role':'readWrite','db':db}])
+    client.admin.authenticate(rootuser, rootpass)
+    client.db.add_user(uname,upwd, roles=[{'role':'readWrite','db':udb}])

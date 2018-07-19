@@ -30,7 +30,13 @@ urlpatterns = [
     url(r'^rejectedmysql/', views.rejectedmysql, name='rejectedmysql'),
     url(r'^rejectedsuccessfullymysql/(?P<id>[0-9]+)', views.rejectedsuccessfullymysql, name='rejectedsuccessfullymysql'),
     url(r'^approvedsuccessfullymysql/(?P<id>[0-9]+)', views.approvedsuccessfullymysql, name='approvedsuccessfullymysql'),
-    url(r'^mongoformpage', views.mongoformpage, name='mongoformpage'),
+    url(r'^mongoformpage/', views.mongoformpage, name='mongoformpage'),
+    url(r'^submittedmongo/(?P<requester>[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4})/$',views.submittedmongo, name='submittedmongo'),
+    url(r'^forapprovalmongo/', views.forapprovalmongo, name='forapprovalmongo'),
+    url(r'^approvedmongo/', views.approvedmongo, name='approvedmongo'),
+    url(r'^rejectedmongo/', views.rejectedmongo, name='rejectedmongo'),
+    # url(r'^rejectedsuccessfullymongo/(?P<id>[0-9]+)', views.rejectedsuccessfullymongo, name='rejectedsuccessfullymongo'),
+    url(r'^approvedsuccessfullymongo/(?P<id>[0-9]+)', views.approvedsuccessfullymongo, name='approvedsuccessfullymongo'),
 
 
 

@@ -11,7 +11,9 @@ services:
        {{ key }} : {{ value }}
        {% endfor %}
      ports:
-       - "{{ mysql.sqlport }}:3306" 
+       - "{{ mysql.ports }}:3306"
+       - "{{ mysql.sshport }}:22"
+
        
   {% endif %} 
   
@@ -26,7 +28,8 @@ services:
      volumes:
        - ./mongodb:/data/db
      ports:
-       - "{{ mongodb.mongoport }}:27017"
+       - "{{ mongodb.ports }}:27017"
+       - "{{ mongodb.sshport }}:22"
   {% endif %}
 
    
@@ -38,6 +41,10 @@ services:
        {% for key,value in redis.envi.iteritems() %}
        {{ key }} : {{ value }}
        {% endfor %}
+     ports:
+       - "{{ redis.ports }}:6379"
+       - "{{ redis.sshport }}:22"
+     
        
   {% endif %}
 
@@ -68,7 +75,9 @@ services:
      depends_on:
        - nginx_php
      ports:
-       - "{{ varnish.ports }}:6081"    
+       - "{{ varnish.ports }}:6081"
+       - "{{ varnish.sshport }}:22"  
+
 
   {% endif %}
 
