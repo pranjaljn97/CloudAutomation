@@ -21,7 +21,7 @@ def execplaybook(id):
     print newpath
     subprocess.check_call(['./ansibledir/runplaybook.sh', './ansibledir/main.yml', destpath + jsonfilepath, destpath + 'hostoutput_latest.json'])
 
-    a = destpath + 'hostoutput_latset.json'
+    a = destpath + 'hostoutput_latest.json'
     b = destpath + 'hostoutput' +'_'+ datetime.datetime.now().strftime("%Y%m%d-%H%M%S") +'_.json'
     with open(a, 'rb') as src, open(b, 'wb') as dst:
      copyfileobj_example(src, dst)
