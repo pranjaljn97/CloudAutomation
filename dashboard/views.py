@@ -139,18 +139,18 @@ def approvedsuccessfully(request, id):
     
     posts = Project.objects.all()
     hostInfo = Host.objects.all()
-    #try:
-    makeenvfile(id)
-   # except:
-    #    msg = "Error in making Env File"
-     #   return render(request, "dashboard/error.html", {'msg': msg })
+    try:
+  	  makeenvfile(id)
+    except:
+        msg = "Error in making Env File"
+        return render(request, "dashboard/error.html", {'msg': msg })
 
     print("hi")
-    try:
-        execplaybook(id)
-    except:
-        msg = "Error in executing  Ansible Playbook"
-        return render(request, "dashboard/error.html", {'msg': msg })
+    #try:
+    execplaybook(id)
+   # except:
+     #   msg = "Error in executing  Ansible Playbook"
+     #   return render(request, "dashboard/error.html", {'msg': msg })
   
     
     jsonfile = currpost.project_name

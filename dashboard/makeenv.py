@@ -575,7 +575,7 @@ def makeenvfile(myid):
                     separators=(',', ': '), ensure_ascii=False)
         outfile.write(to_unicode(str_))
         filecurrpath = "./" + post.project_name + '_' + str(post.id) + '_latest.json'
-        filename = post.project_name + '_' + str(post.id) + '_latset.json'
+        filename = post.project_name + '_' + str(post.id) + '_latest.json'
         print destpath + filename
         os.rename(filecurrpath, destpath + filename)
 

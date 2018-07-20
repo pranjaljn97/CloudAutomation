@@ -1,0 +1,82 @@
+{
+    "mongodb": {
+        "enable": true,
+        "envi": {
+            "MONGO_INITDB_DATABASE": "mongodb",
+            "MONGO_INITDB_ROOT_PASSWORD": "1234",
+            "MONGO_INITDB_ROOT_USERNAME": "user",
+            "mongo_version": "3.2"
+        },
+        "image": "mongo:3.2",
+        "ports": "6133",
+        "sshport": "3470",
+        "volumes": {}
+    },
+    "mysql": {
+        "enable": true,
+        "envi": {
+            "MYSQL_CLIENT_DEFAULT_CHARACTER_SET": "utf-8",
+            "MYSQL_DATABASE": "db",
+            "MYSQL_PASSWORD": "dipesh1234",
+            "MYSQL_ROOT_PASSWORD": "admin@1234",
+            "MYSQL_USER": "dipesh",
+            "mysql_version": "latest"
+        },
+        "image": "mysql",
+        "ports": "7507",
+        "sshport": "2626",
+        "volumes": {}
+    },
+    "nginx_php": {
+        "enable": true,
+        "envi": {
+            "PHP_MODULES": "",
+            "PHP_VERSION": "5.6",
+            "WEB_DOCUMENT_ROOT": "/var/www/html/"
+        },
+        "image": "webdevops/php-nginx:5.6",
+        "ports": "9628",
+        "sshport": "404",
+        "volumes": {}
+    },
+    "redis": {
+        "enable": true,
+        "envi": {
+            "REDIS_LOGFILE": "/home/redis.log",
+            "REDIS_PASSWORD": "",
+            "redis_version": "3"
+        },
+        "image": "wodby/redis:3",
+        "ports": "5180",
+        "sshport": "4915",
+        "volumes": {}
+    },
+    "user": {
+        "GITHUB_BRANCH": "uat",
+        "GITHUB_TOKEN": "5338dc8bca1bd89f7a65894638db2ee778cce4b9",
+        "GITHUB_URL": "github.com/pranjaljn97/s2p.git",
+        "GITHUB_USERNAME": "pranjaljn97",
+        "USERNAME": "dipeshgarg017@gmail.com",
+        "application_name": "First",
+        "datetime": "20180720-092055",
+        "envtype": "Docker",
+        "hostip": "34.224.87.40",
+        "id": 1,
+        "platform": "PHP",
+        "project_name": "Test1",
+        "repo_type": "private"
+    },
+    "varnish": {
+        "enable": true,
+        "envi": {
+            "VARNISH_BACKEND_HOST": "Test1_nginx_php",
+            "VARNISH_BACKEND_PORT": "80",
+            "VARNISH_PORT_VALUE": "6081",
+            "varnish_version": "4"
+        },
+        "image": "wodby/varnish:4",
+        "ports": "8554",
+        "sshport": "1443",
+        "volumes": {}
+    }
+}
