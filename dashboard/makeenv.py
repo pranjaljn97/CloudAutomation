@@ -31,7 +31,6 @@ global mysqlflag
 global mongoflag
 
 
-
 def makeenvfile(myid):
 
     curr = Project.objects.get(pk=myid)
