@@ -20,9 +20,6 @@ def buildMysql(host,user,passwd,uname,upwd,udb):
         granting = "GRANT ALL ON %s.* TO '%s'@'%s'" %(dbname, mkuser,'%')
         results = cursor.execute(granting)
         print "Granting of privileges returned", results
-        granting = "REVOKE ALL PRIVILEGES ON udb.* FROM '%s'@'%s'" %(mkuser, '%')
-        results = cursor.execute(granting)
-        print "Revoking of privileges returned", results
 
         res = 't'
         return res

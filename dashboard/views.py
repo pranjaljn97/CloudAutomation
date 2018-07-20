@@ -512,7 +512,7 @@ def approvedsuccessfullymysql(request, id):
         sendmail(request,id,'approvedmysql')
     else:
          msg = "Error in approving, May be username already exists!"
-         return render(request, "dashboard/error.html", {'msg': msg })
+         return render(request, "dashboard/error2.html", {'msg': msg })
 
     posts2 = mysqluser.objects.all()
     return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
