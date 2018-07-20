@@ -6,6 +6,7 @@ services:
      image: mysql:5.7
      volumes:
        - ./mysql:/var/lib/mysql
+       - ./logs/mysql:/var/log/mysql
      environment:
        {% for key,value in mysql.envi.iteritems() %}
        {{ key }} : {{ value }}
@@ -27,6 +28,7 @@ services:
        
      volumes:
        - ./mongodb:/data/db
+       - ./logs/mongodb:/var/log/mongodb
      ports:
        - "{{ mongodb.ports }}:27017"
        - "{{ mongodb.sshport }}:22"
@@ -36,7 +38,9 @@ services:
 
   {% if redis.enable==true %}
    redis:
-     image: wodby/redis 
+     image: wodby/redis
+     volumes:
+       - ./logs/redis:/home 
      environment:
        {% for key,value in redis.envi.iteritems() %}
        {{ key }} : {{ value }}
@@ -61,6 +65,7 @@ services:
        - "{{ nginx_php.sshport }}:22"
      volumes:
       - ./code:/var/www/html
+      - ./logs/nginx:/var/log/nginx
           
   {% endif %}    
   
