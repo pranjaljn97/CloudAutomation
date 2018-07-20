@@ -147,7 +147,7 @@ def approvedsuccessfully(request, id):
 
     print("hi")
     try:
-    execplaybook(id)
+  	  execplaybook(id)
     except:
         msg = "Error in executing  Ansible Playbook"
         return render(request, "dashboard/error.html", {'msg': msg })
