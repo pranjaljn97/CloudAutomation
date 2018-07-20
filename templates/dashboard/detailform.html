@@ -390,15 +390,6 @@
                                         <th>Nginx-PHP Status</th>
                                         <th>Varnish Status</th>
                                         <th>Redis Status</th>
-                                        <th>MySql Details</th>
-                                        <th>Mongo Details</th>
-                                        <th>Nginx Details</th>
-                                        <th>Varnish Details</th>
-                                        <th>Redis Details</th>
-
-                                        
-                                        
-                                    	
                                     </thead>
                                     <tbody>
                                         <tr>
@@ -411,48 +402,58 @@
                                             <td>{{ statusentry.nginxstatus }} </td>
                                             <td>{{ statusentry.varnishstatus }} </td>
                                             <td>{{ statusentry.redisstatus }} </td>
+                                        </tr>
+                                    </tbody>    
+                                </table>
+                                
+                                <table class="table table-hover" >
+                                        <thead>    
+                                            <th>Container Details</th>
+                                            <th>Container Status</th>
+                                            <th>Container Name</th>
+                                            <th>Container ID</th>
+                                        </thead>
+                                        <tr>
+                                            <td>MySql Details</td>
+                                            <td>{{ statusentry.mysqlst }} </td>
+                                            <td>{{ statusentry.mysqlname }} </td>
                                             <td>{{ statusentry.mysqlid }} </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>MongoDB Details</td>
+                                            <td>{{ statusentry.mongost }} </td>
+                                            <td>{{ statusentry.mongoname }} </td>
                                             <td>{{ statusentry.mongoid }} </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Nginx-PHP Details</td>
+                                            <td>{{ statusentry.nginxst }} </td>
+                                            <td>{{ statusentry.nginxname }} </td>
                                             <td>{{ statusentry.nginxid }} </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Varnish Details</td>
+                                            <td>{{ statusentry.varnishst }} </td>
+                                            <td>{{ statusentry.varnishname }} </td>
                                             <td>{{ statusentry.varnishid }} </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Redis Details</td>
+                                            <td>{{ statusentry.redisst }} </td>
+                                            <td>{{ statusentry.redisname }} </td>
                                             <td>{{ statusentry.redisid }} </td>
                                         </tr>
-                                        
-                                    </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
                     {% endfor %}
-
-
-
-
-
-
-
-
-
-
                 </div>
-            </div>
-            <!-- <div id="form" class="col-md-12" style="display: none;">
-                    <div class="card">
-                        <div class = "col-md-12">
-                        <div class="header">
-                            <p class="category">Please Enter New Details</p>
-                        </div>
-                        <div class="content table-responsive table-full-width">
-                            <div class="col-md-12">
-                          
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            </div> -->
-            
-                
+            </div>                
                
             </div>
             
@@ -491,48 +492,12 @@
 
                 {% endif %}
                 </center>
-
-
-
-                <!-- <div class="col-md-2">
-                    <button class="btn btn-default btn-block">Re-Run</button>
-                </div> -->
             </div>
         </div>
         </div>
 
 
-        <!--<footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                </p>
-            </div>
-        </footer>-->
+        
     </div>
 </div>
 

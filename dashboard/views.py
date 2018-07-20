@@ -34,6 +34,8 @@ from dashboard.makehostentry import hostentry
 from dashboard.checkStatus import HostCheck
 from dashboard.models import status
 from dashboard.models import Myform
+from dashboard.models import mongoform
+from dashboard.models import mongorequest
 import datetime
 import io
 import json
@@ -344,14 +346,28 @@ def checkstatus(request, id):
     
     
     varnishid = checkstackoutput['varnishid']
+    varnishname = checkstackoutput['varnishname']
+    varnishst = checkstackoutput['varnishst']
+
     redisid =  checkstackoutput['redisid']
+    redisname =  checkstackoutput['redisname']
+    redisst =  checkstackoutput['redisst']
+
     nginxid = checkstackoutput['nginxid']
+    nginxname = checkstackoutput['nginxname']
+    nginxst = checkstackoutput['nginxst']
+
     mongoid = checkstackoutput['mongoid']
+    mongoname = checkstackoutput['mongoname']
+    mongost = checkstackoutput['mongost']
+
     mysqlid = checkstackoutput['mysqlid']
+    mysqlname = checkstackoutput['mysqlname']
+    mysqlst = checkstackoutput['mysqlst']
 
     
     status.objects.all().delete()
-    statusentry = status(projectname=projectname,sshstatus=sshstatus, dockerstatus=dockerstatus, urlstatus=urlstatus, mongostatus=mongostatus, mysqlstatus=mysqlstatus, nginxstatus=nginxstatus, varnishstatus=varnishstatus, redisstatus=redisstatus, mysqlid=mysqlid, mongoid=mongoid, varnishid=varnishid, nginxid=nginxid, redisid=redisid )
+    statusentry = status(projectname=projectname,sshstatus=sshstatus, dockerstatus=dockerstatus, urlstatus=urlstatus, mongostatus=mongostatus, mysqlstatus=mysqlstatus, nginxstatus=nginxstatus, varnishstatus=varnishstatus, redisstatus=redisstatus, mysqlid=mysqlid, mysqlname=mysqlname, mysqlst=mysqlst, mongoid=mongoid, mongoname=mongoname, mongost=mongost, varnishid=varnishid, varnishname=varnishname, varnishst=varnishst, nginxid=nginxid, nginxname=nginxname, nginxst=nginxst, redisid=redisid,redisname=redisname,redisst=redisst )
     statusentry.save()
     allstatus = status.objects.all()
     return render(request, "dashboard/detailform.html", {'posts': posts, 'allstatus': allstatus })
@@ -395,6 +411,27 @@ def rerun(request,id):
     # return render(request, "dashboard/rerun.html", {'posts': posts })
 
 
+@login_required(login_url='/login/')
+def mongoformpage(request):
+   
+    # hostInfo = Host.objects.values_list('hostIdentifier',flat=True)  
+    hostInfo = Host.objects.all()  
+    
+    if request.method == 'POST':
+        print "hi"
+        form = mongorequest(request.POST)
+        if form.is_valid():
+            form.save()
+            # sendmail(request,form,'submit')
+            return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
+        else:
+            print(form.errors)   
+    else:
+        form = mongorequest()
+    return render(request, 'dashboard/mongoForm.html', {'form': form,'hostInfo': hostInfo})
+
+
+
 
 @login_required(login_url='/login/')
 def mysqlform(request):
@@ -406,7 +443,7 @@ def mysqlform(request):
         if form.is_valid():
 
             form.save()
-        #    sendmail(request,form,'mysqlsubmit')
+            sendmail(request,form,'mysqlsubmit')
          
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
         else:
@@ -463,15 +500,19 @@ def approvedsuccessfullymysql(request, id):
     upwd = currpost.MYSQL_PASSWORD_VALUE
     udb = currpost.MYSQL_DATABASE_NAME_VALUE
 
-    buildMysql(host,user,passwd,uname,upwd,udb)
+    res = buildMysql(host,user,passwd,uname,upwd,udb)
 
-    currpost.status = 'Approved'
-    currpost.save()
+    if res == 't':
+
+        currpost.status = 'Approved'
+        currpost.save()
+        posts2 = mysqluser.objects.all()
+        sendmail(request,id,'approvedmysql')
+    else:
+         msg = "Error in approving, May be username already exists!"
+         return render(request, "dashboard/error.html", {'msg': msg })
 
     posts2 = mysqluser.objects.all()
-
-     #mail functionality
-  #  sendmail(request,id,'approvedmysql')
     return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
@@ -484,7 +525,7 @@ def rejectedsuccessfullymysql(request, id):
     posts2 = mysqluser.objects.all()
 
      #mail functionality
-   # sendmail(request,id,'rejectmysql')
+    sendmail(request,id,'rejectmysql')
     return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
 
 

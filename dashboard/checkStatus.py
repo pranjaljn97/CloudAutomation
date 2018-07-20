@@ -134,31 +134,58 @@ class HostCheck():
         
         try:
             nginxphpres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_nginx_php"'"]}').json()
-            ngnixidval = str(nginxphpres[0]['Id']) + " | " + str(nginxphpres[0]['Names'][0]) + " | " + str(nginxphpres[0]['Status'])
+            #ngnixidval = str(nginxphpres[0]['Id']) + " | " + str(nginxphpres[0]['Names'][0]) + " | " + str(nginxphpres[0]['Status'])
+            ngnixidval = str(nginxphpres[0]['Id'])
+            nginxnameval = str(nginxphpres[0]['Names'][0])
+            nginxstval = str(nginxphpres[0]['Status'])
         except:
             ngnixidval = "Unable to fetch nginx details"
+            nginxnameval = "Unable to fetch nginx details"
+            nginxstval = "Unable to fetch nginx details"
 
         try:
             mysqlres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_mysql"'"]}').json()
-            mysqlidval = str(mysqlres[0]['Id']) + " | " + str(mysqlres[0]['Names'][0]) + " | " + str(mysqlres[0]['Status'])
+            #mysqlidval = str(mysqlres[0]['Id']) + " | " + str(mysqlres[0]['Names'][0]) + " | " + str(mysqlres[0]['Status'])
+            mysqlidval = str(mysqlres[0]['Id'])
+            mysqlnameval = str(mysqlres[0]['Names'][0])
+            mysqlstval = str(mysqlres[0]['Status'])
         except:
             mysqlidval = "Unable to fetch mysql details"
+            mysqlnameval = "Unable to fetch mysql details"
+            mysqlstval = "Unable to fetch mysql details"
         
         try:
             mongores=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_mongodb"'"]}').json()
-            mongoidval = str(mongores[0]['Id']) + " | " + str(mongores[0]['Names'][0]) + " | " + str(mongores[0]['Status'])
+            #mongoidval = str(mongores[0]['Id']) + " | " + str(mongores[0]['Names'][0]) + " | " + str(mongores[0]['Status'])
+            mongoidval = str(mongores[0]['Id'])
+            mongonameval = str(mongores[0]['Names'][0])
+            mongostval = str(mongores[0]['Status'])
         except:
             mongoidval = "Unable to fetch mongo details"
+            mongonameval = "Unable to fetch mongo details"
+            mongostval = "Unable to fetch mongo details"
+        
         try:
             varnishres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_varnish"'"]}').json()
-            varnishidval = (varnishres[0]['Id']) + " | " + str(varnishres[0]['Names'][0]) + " | " + str(varnishres[0]['Status'])
+            #varnishidval = (varnishres[0]['Id']) + " | " + str(varnishres[0]['Names'][0]) + " | " + str(varnishres[0]['Status'])
+            varnishidval = str(varnishres[0]['Id'])
+            varnishnameval = str(varnishres[0]['Names'][0])
+            varnishstval = str(varnishres[0]['Status'])
         except:
             varnishidval = "Unable to fetch varnish details"
+            varnishnameval = "Unable to fetch varnish details"
+            varnishstval = "Unable to fetch varnish details"
+
         try:
             redisres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_redis"'"]}').json()
-            redisidval = (redisres[0]['Id']) + " | " + str(redisres[0]['Names'][0]) + " | " + str(redisres[0]['Status'])
+            # redisidval = (redisres[0]['Id']) + " | " + str(redisres[0]['Names'][0]) + " | " + str(redisres[0]['Status'])
+            redisidval = str(redisres[0]['Id']) 
+            redisnameval = str(redisres[0]['Names'][0])
+            redisstval =  str(redisres[0]['Status'])
         except:
             redisidval = "Unable to fetch redis details"
+            redisnameval = "Unable to fetch redis details"
+            redisstval = "Unable to fetch redis details"
 
         checkstackoutput = dict()
         checkstackoutput['nginxstatus'] = nginxstatusval
@@ -166,11 +193,26 @@ class HostCheck():
         checkstackoutput['varnishstatus'] = varnishstatusval
         checkstackoutput['mongostatus'] = mongostatusval
         checkstackoutput['mysqlstatus'] = mysqlstatusval
+        
         checkstackoutput['nginxid'] = ngnixidval
+        checkstackoutput['nginxname'] = nginxnameval
+        checkstackoutput['nginxst'] = nginxstval
+
         checkstackoutput['mysqlid'] = mysqlidval
+        checkstackoutput['mysqlname'] = mysqlnameval
+        checkstackoutput['mysqlst'] = mysqlstval
+
         checkstackoutput['mongoid'] = mongoidval
+        checkstackoutput['mongoname'] = mongonameval
+        checkstackoutput['mongost'] = mongostval
+
         checkstackoutput['varnishid'] = varnishidval
+        checkstackoutput['varnishname'] = varnishnameval
+        checkstackoutput['varnishst'] = varnishstval
+
         checkstackoutput['redisid'] = redisidval
+        checkstackoutput['redisname'] = redisnameval
+        checkstackoutput['redisst'] = redisstval
         return checkstackoutput
 
         

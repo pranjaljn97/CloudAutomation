@@ -9,6 +9,23 @@ from django import forms
 from django.utils import timezone
 
 
+class mongoform(models.Model):
+    requester = models.CharField(blank=True,max_length=100)
+    id = models.AutoField(primary_key=True)
+    hostip = models.CharField( blank=True,max_length=500)
+    MONGO_INITDB_DATABASE_VALUE = models.CharField( blank=True,max_length=500)
+    MONGO_INITDB_ROOT_USERNAME_VALUE = models.CharField( blank=True,max_length=500)
+    MONGO_INITDB_ROOT_PASSWORD_VALUE = models.CharField( blank=True,max_length=500)
+    status = models.CharField(default='submitted', max_length=30)
+
+    
+
+class mongorequest(ModelForm):
+    class Meta:
+        model = mongoform
+        fields = ['requester','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE', 'MONGO_INITDB_ROOT_PASSWORD_VALUE', 'status',]
+
+    
 class Ports(models.Model):
     id = models.AutoField(primary_key=True)
     port = models.CharField(blank=True, max_length=30)
@@ -46,15 +63,23 @@ class status(models.Model):
     varnishstatus = models.CharField(blank=True, max_length=1000)
     redisstatus = models.CharField(blank=True, max_length=1000)
     mysqlid = models.CharField(blank=True, max_length=1000)
+    mysqlname = models.CharField(blank=True, max_length=1000)
+    mysqlst = models.CharField(blank=True, max_length=1000)
     mongoid = models.CharField(blank=True, max_length=1000)
+    mongoname = models.CharField(blank=True, max_length=1000)
+    mongost = models.CharField(blank=True, max_length=1000)
     varnishid = models.CharField(blank=True, max_length=1000)
+    varnishname = models.CharField(blank=True, max_length=1000)
+    varnishst = models.CharField(blank=True, max_length=1000)
     nginxid = models.CharField(blank=True, max_length=1000)
+    nginxname = models.CharField(blank=True, max_length=1000)
+    nginxst = models.CharField(blank=True, max_length=1000)
     redisid = models.CharField(blank=True, max_length=1000)
+    redisname = models.CharField(blank=True, max_length=1000)
+    redisst = models.CharField(blank=True, max_length=1000)
 
 
     
-
-
 class Host(models.Model):
         id = models.AutoField(primary_key=True)
         hostIdentifier = models.CharField(blank=True, max_length=30)

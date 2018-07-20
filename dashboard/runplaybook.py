@@ -14,7 +14,25 @@ def execplaybook(id):
     hostip = post.hostIp
     ansiblePath=os.getcwd()+"/ansibledir"
 
-    jsonfilepath = projectname + "_" + str(post.id) + ".json"
+    jsonfilepath = projectname + "_" + str(post.id) + "_latest.json"
     newpath = '''"''' +  jsonfilepath + '''"'''
     print newpath
-    subprocess.check_call(['./ansibledir/runplaybook.sh', './ansibledir/main.yml', destpath + jsonfilepath, destpath + 'hostoutput2.json'])
+    subprocess.check_call(['./ansibledir/runplaybook.sh', './ansibledir/main.yml', destpath + jsonfilepath, destpath + 'hostoutput_latset.json'])
+
+    a = destpath + 'hostoutput_latset.json'
+    b = destpath + 'hostoutput' +'_'+ datetime.datetime.now().strftime("%Y%m%d-%H%M%S") +'_.json'
+    with open(a, 'rb') as src, open(b, 'wb') as dst:
+     copyfileobj_example(src, dst)
+     print("done")
+
+def copyfileobj_example(source, dest, buffer_size=1024*1024):
+    """      
+    Copy a file from source to dest. source and dest
+    must be file-like objects, i.e. any object with a read or
+    write method, like for example StringIO.
+    """
+    while True:
+        copy_buffer = source.read(buffer_size)
+        if not copy_buffer:
+            break
+        dest.write(copy_buffer)

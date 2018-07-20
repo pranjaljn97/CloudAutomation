@@ -30,6 +30,8 @@ urlpatterns = [
     url(r'^rejectedmysql/', views.rejectedmysql, name='rejectedmysql'),
     url(r'^rejectedsuccessfullymysql/(?P<id>[0-9]+)', views.rejectedsuccessfullymysql, name='rejectedsuccessfullymysql'),
     url(r'^approvedsuccessfullymysql/(?P<id>[0-9]+)', views.approvedsuccessfullymysql, name='approvedsuccessfullymysql'),
+    url(r'^mongoformpage', views.mongoformpage, name='mongoformpage'),
+
 
 
 ]

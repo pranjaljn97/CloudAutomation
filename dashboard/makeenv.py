@@ -9,6 +9,8 @@ from dashboard.models import Host
 from dashboard.models import Ports
 from django.conf import settings
 import random
+from datetime import datetime
+import datetime
 global nginxport
 global varnishport
 global sshnginxhport
@@ -162,6 +164,7 @@ def makeenvfile(myid):
                         'GITHUB_BRANCH': post.git_branch,
                         'envtype': post.envtype,
                         'platform': post.platform,
+			'datetime': datetime.datetime.now().strftime("%Y%m%d-%H%M%S"),
                         'hostip': post.hostIp },
 
             'nginx_php': { 'enable': True,
@@ -238,6 +241,7 @@ def makeenvfile(myid):
                         'image': redisImage,
                             'envi': {
                             'REDIS_PASSWORD': post.REDIS_PASSWORD_VALUE,
+                            'REDIS_LOGFILE': '/home/redis.log' ,
                             'redis_version': post.redis_version },
                             'volumes': {
                                 
@@ -253,27 +257,34 @@ def makeenvfile(myid):
                         
 
 # Write JSON file
-    with io.open(post.project_name+ '_' + str(post.id)+'.json', 'w', encoding='utf8') as outfile:
+    with io.open(post.project_name+ '_' + str(post.id)+'_latest.json', 'w', encoding='utf8') as outfile:
         str_ = json.dumps(data,
                     indent=4, sort_keys=True,
                     separators=(',', ': '), ensure_ascii=False)
         outfile.write(to_unicode(str_))
-        filecurrpath = "./" + post.project_name + '_' + str(post.id) + '.json'
-        filename = post.project_name + '_' + str(post.id) + '.json'
+        filecurrpath = "./" + post.project_name + '_' + str(post.id) + '_latest.json'
+        filename = post.project_name + '_' + str(post.id) + '_latset.json'
         print destpath + filename
         os.rename(filecurrpath, destpath + filename)
 
-# Read JSON file
-    with open(destpath + post.project_name+ '_' + str(post.id)+'.json') as data_file:
-        data_loaded = json.load(data_file)
-
-
-    #sys.exit()
-
-
+    a = destpath + filename
+    b = destpath + post.project_name + '_' + str(post.id) +'_'+ datetime.datetime.now().strftime("%Y%m%d-%H%M%S") +'_.json'
+    with open(a, 'rb') as src, open(b, 'wb') as dst:
+     copyfileobj_example(src, dst)
+     print("done")
 # makeenvfile()
 
-
+def copyfileobj_example(source, dest, buffer_size=1024*1024):
+    """      
+    Copy a file from source to dest. source and dest
+    must be file-like objects, i.e. any object with a read or
+    write method, like for example StringIO.
+    """
+    while True:
+        copy_buffer = source.read(buffer_size)
+        if not copy_buffer:
+            break
+        dest.write(copy_buffer)
 
 def makeEnvHost(id):
     post = Host.objects.get(pk=id)

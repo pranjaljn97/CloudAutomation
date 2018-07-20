@@ -1,4 +1,4 @@
- {% extends "dashboard/phpform.html" %}
+{% extends "dashboard/phpform.html" %}
 {% load static %}
 {% block content %}
                   <script type="text/javascript">
@@ -145,13 +145,12 @@
                                                 
                               </div>
           <!-- ================================STEP 2 PHP NGINX DETAILS================================== -->                  
-                            <div class="tab"><b>PHP-Nginx</b>
+                            <div class="tab">PHP-Nginx
                             
                                 <div class="row">
                                   <div class="col-md-6">
                                     <div class="form-group">
-                                      <label><h4> Version</h4>
-                                      </label><br>
+                                      <label> Version  </label>
                                       <select name="PHP_VERSION">
                                        <option value="5.6">5.6
                                         </option>
@@ -270,13 +269,12 @@
 
                             </div>
    <!-- ================================STEP 3 MYSQL DETAILS================================== -->  
-                            <div class="tab">MySQL:
+                            <div class="tab">MySQL
                               
                                   <div class="row">
                                       <div class="col-md-4">
                                           <div class="form-group">
                                               <label>MySQl Version</label>
-                                                  <br>
                                                   <select name="mysql_version">
                                                       <option value="latest">latest</option>
                                                       <option value="8.0">8.0</option>
@@ -434,7 +432,7 @@
                                         <div class="row">
                                           <div class="col-md-4">
                                             <div class="form-group">
-                                              <label>Mongo DB Version</label><br />
+                                              <label>Mongo DB Version</label>
                                               <select name="mongo_version">
                                
                                                 <option value="3.2">
@@ -457,7 +455,7 @@
                                             </div>
                                           </div>
                                         </div>
-                                        <div class="row"></div>
+                                        <!-- <div class="row"></div> -->
                                         <div class="row">
                                           <hr />
                                           <div class="header">
@@ -533,8 +531,7 @@
                                       
                               </div>
  <!-- ================================STEP 5 VARNISH DETAILS================================== -->  
-
-                            <div class="tab">Varnish:      
+                            <div class="tab">Varnish      
                                   <div class="row">
                                     <div class="col-md-4">
                                       <div class="form-group">
@@ -635,10 +632,8 @@
                                     </div>
                                   </div>
                                   </div>
-
    <!-- ================================STEP 6 REDIS DETAILS================================== -->  
-
-                            <div class="tab">Redis:
+                            <div class="tab">Redis
                                 
                                     <div class="row">
                                       <div class="col-md-4">
