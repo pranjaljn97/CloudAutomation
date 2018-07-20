@@ -29,6 +29,7 @@
     - { dest: '/home/{{ user.project_name }}/logs/redis', mode: '0775'}
 
 - name: touch redis log file
+  become: true
   file:
     path: "/home/{{ user.project_name }}/logs/redis/redis.log"
     owner: 100
