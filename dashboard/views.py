@@ -386,24 +386,24 @@ def rerun(request,id):
             print newbranch
             posts.git_branch = newbranch
             posts.save()
-            #try:
-            makeenvfile(id)
-            #except:
-             #   msg = "Error in making Env File"
-              #  return render(request, "dashboard/error.html", {'msg': msg })
-            # try:
-            #     execplaybook(id)
-            # except:
-            #     msg = "Error in executing  Ansible Playbook"
-            #     return render(request, "dashboard/error.html", {'msg': msg })
-            # jsonfile = posts.project_name
-            # appname = posts.application_name
-            # hostip = posts.hostIp
-            # try:
-            #     buildinfo(request,id,jsonfile,hostip)
-            # except:
-            #     msg = "Error in fetching final status"
-            #     return render(request, "dashboard/error.html", {'msg': msg })
+            try:
+               makeenvfile(id)
+            except:
+               msg = "Error in making Env File"
+               return render(request, "dashboard/error.html", {'msg': msg })
+            try:
+                execplaybook(id)
+            except:
+                msg = "Error in executing  Ansible Playbook"
+                return render(request, "dashboard/error.html", {'msg': msg })
+            jsonfile = posts.project_name
+            appname = posts.application_name
+            hostip = posts.hostIp
+            try:
+                buildinfo(request,id,jsonfile,hostip)
+            except:
+                msg = "Error in fetching final status"
+                return render(request, "dashboard/error.html", {'msg': msg })
             return HttpResponseRedirect('/dashboard/detailform' + id + '.html')
     else:
         form = Myform()
@@ -423,7 +423,7 @@ def mongoformpage(request):
         form = mongorequest(request.POST)
         if form.is_valid():
             form.save()
-            # sendmail(request,form,'submit')
+            sendmail(request,form,'mongosubmit')
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
         else:
             print(form.errors)   
@@ -599,7 +599,7 @@ def approvedsuccessfullymongo(request, id):
     rootdb = 'admin'
     
     # try:
-    buildMongo(rootuser, rootpass, rootdb,uname,upwd,udb)
+    buildMongo(rootuser, rootpass, rootdb,uname,upwd,udb,ip)
     # except:
     #      msg = "Unable to process your request"
     #      return render(request, "dashboard/error.html", {'msg': msg })
@@ -610,21 +610,21 @@ def approvedsuccessfullymongo(request, id):
     posts2 = mongoform.objects.all()
 
      #mail functionality
-    # sendmail(request,id,'approvedmysql')
+    sendmail(request,id,'approvedmongo')
     return render(request, "dashboard/forapprovalmongo.html", {'posts': posts2 })
 
-# @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
-# def rejectedsuccessfullymysql(request, id):
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def rejectedsuccessfullymongo(request, id):
     
-#     currpost = mysqluser.objects.get(id=id)
-#     currpost.status = 'Rejected'
-#     currpost.save()
-#     posts = mysqluser.objects.get(pk=id)
-#     posts2 = mysqluser.objects.all()
+    currpost = mongoform.objects.get(id=id)
+    currpost.status = 'Rejected'
+    currpost.save()
+    posts = mongoform.objects.get(pk=id)
+    posts2 = mongoform.objects.all()
 
-#      #mail functionality
-#     sendmail(request,id,'rejectmysql')
-#     return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
+     #mail functionality
+    sendmail(request,id,'rejectmongo')
+    return render(request, "dashboard/forapprovalmongo.html", {'posts': posts2 })
 
 
 

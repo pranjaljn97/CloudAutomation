@@ -35,7 +35,7 @@ urlpatterns = [
     url(r'^forapprovalmongo/', views.forapprovalmongo, name='forapprovalmongo'),
     url(r'^approvedmongo/', views.approvedmongo, name='approvedmongo'),
     url(r'^rejectedmongo/', views.rejectedmongo, name='rejectedmongo'),
-    # url(r'^rejectedsuccessfullymongo/(?P<id>[0-9]+)', views.rejectedsuccessfullymongo, name='rejectedsuccessfullymongo'),
+    url(r'^rejectedsuccessfullymongo/(?P<id>[0-9]+)', views.rejectedsuccessfullymongo, name='rejectedsuccessfullymongo'),
     url(r'^approvedsuccessfullymongo/(?P<id>[0-9]+)', views.approvedsuccessfullymongo, name='approvedsuccessfullymongo'),
 
 

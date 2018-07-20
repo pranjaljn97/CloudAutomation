@@ -35,7 +35,7 @@
                                     <center>
                                     
                                     
-                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "rejectedsuccessfullymysql" post.id %}';" name="rejectbtn">
+                                    <input type="submit" id="rejectbtn" value="Reject" onclick="window.location='{% url "rejectedsuccessfullymongo" post.id %}';" name="rejectbtn">
                                    
                                     <br>
                                     </center>
@@ -69,7 +69,8 @@
                                     <br>
                                     <center>
                                     
-                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "approvedsuccessfullymysql" post.id %}';" name="approvebtn">
+                                    <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "approvedsuccessfullymongo" post.id %}';" name="approvebtn">
+
                                     
                                     </center>
                             </div>
@@ -101,7 +102,8 @@
                                     <center>
                                     
                                         <input type="submit" id="statusbtn" value="Approve" onclick="window.location='{% url "approvedsuccessfullymongo" post.id %}';" name="approvebtn">
-                                       
+                                        <input type="submit" id="statusbtn" value="Reject" onclick="window.location='{% url "rejectedsuccessfullymongo" post.id %}';" name="rejectbtn">
+
                                         <br>
                                     </center> 
 

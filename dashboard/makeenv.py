@@ -22,12 +22,49 @@ global sshsqlport #range(2000-3000)
 global mongoport #6000-7000
 global sqlport #range(7000-8000)
 global redisport #5000-6000
+#conatiner flags
+
+global nginxflag
+global varnishflag
+global redisflag
+global mysqlflag
+global mongoflag
+
 
 
 def makeenvfile(myid):
 
     curr = Project.objects.get(pk=myid)
     pname = curr.project_name
+
+    #flag checking
+    #nginx-php
+    if curr.PHP_VERSION == 'NA':
+        nginxflag = False
+    else:
+        nginxflag = True
+    #varnish
+    if curr.varnish_version == 'NA':
+        varnishflag = False
+    else:
+        varnishflag = True
+    #mysql
+    if curr.mysql_version == 'NA':
+        mysqlflag = False
+    else:
+        mysqlflag = True
+    #mongo db
+    if curr.mongo_version == 'NA':
+        mongoflag = False
+    else:
+        mongoflag = True
+    #redis
+    if curr.redis_version == 'NA':
+        redisflag = False
+    else:
+        redisflag = True
+
+
     
 
     obj = Ports.objects.all().filter(projectname=pname).filter(ptype='nginx')
@@ -448,7 +485,7 @@ def makeenvfile(myid):
 			'datetime': datetime.datetime.now().strftime("%Y%m%d-%H%M%S"),
                         'hostip': post.hostIp },
 
-            'nginx_php': { 'enable': True,
+            'nginx_php': { 'enable': nginxflag,
                             'image': phpImage,
                             'envi': {
                             'PHP_VERSION': post.PHP_VERSION,
@@ -462,7 +499,7 @@ def makeenvfile(myid):
                             },
                             'ports': nginxport,
                             'sshport': sshnginxport},
-            'mysql' : { 'enable': True,
+            'mysql' : { 'enable': mysqlflag,
                         'image': mysqlImage,
                         'envi': {
                             'mysql_version': post.mysql_version,
@@ -481,7 +518,7 @@ def makeenvfile(myid):
                             'sshport': sshsqlport
                             },
                         
-            "mongodb": { 'enable': True,
+            "mongodb": { 'enable': mongoflag,
                           'image': mongoImage,
                             'envi': {
                             'MONGO_INITDB_DATABASE': post.MONGO_INITDB_DATABASE_VALUE,
@@ -497,16 +534,13 @@ def makeenvfile(myid):
                         },
                         
             'varnish' : {
-                            'enable': True,
+                            'enable': varnishflag,
                             'image': varnishImage,
                             'envi': {
                             'VARNISH_BACKEND_HOST': projectname+'_nginx_php',
                             'VARNISH_BACKEND_PORT': post.VARNISH_BACKEND_PORT_VALUE,
                             'VARNISH_PORT_VALUE': post.VARNISH_PORT_VALUE,
                             'varnish_version': post.varnish_version},
-                            'volumes': {
-                                
-                            },
                             'volumes': {
                                 
                             },
@@ -517,7 +551,7 @@ def makeenvfile(myid):
 
                             
             'redis' : {
-                        'enable': True,
+                        'enable': redisflag,
                         'image': redisImage,
                             'envi': {
                             'REDIS_PASSWORD': post.REDIS_PASSWORD_VALUE,

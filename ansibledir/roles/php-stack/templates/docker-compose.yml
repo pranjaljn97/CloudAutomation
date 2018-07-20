@@ -3,7 +3,7 @@ version: '3.0'
 services:
   {% if mysql.enable==true %}
    mysql:  
-     image: mysql:5.7
+     image: pranjaljn97/mysql-ssh
      volumes:
        - ./mysql:/var/lib/mysql
        - ./logs/mysql:/var/log/mysql
@@ -20,7 +20,7 @@ services:
   
   {% if mongodb.enable==true %}
    mongodb:
-     image: mongo
+     image: pranjaljn97/mongodb-ssh
      environment:
        {% for key,value in mongodb.envi.iteritems() %}
        {{ key }} : {{ value }}
@@ -38,7 +38,7 @@ services:
 
   {% if redis.enable==true %}
    redis:
-     image: wodby/redis
+     image: pranjaljn97/redis-ssh
      volumes:
        - ./logs/redis:/home 
      environment:
@@ -71,7 +71,7 @@ services:
   
   {% if varnish.enable==true %} 
    varnish:
-     image: wodby/varnish
+     image: pranjaljn97/varnish-ssh
      environment:
        {% for key,value in varnish.envi.iteritems() %}
        {{ key }} : {{ value }}
