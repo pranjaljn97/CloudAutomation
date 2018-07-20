@@ -6,7 +6,7 @@ def buildinfo(request,id,jsonfile,hostip):
     currpost = Project.objects.get(pk=id)
     projectname = currpost.project_name
     appname = currpost.application_name
-    name = settings.ENVFILE_PATH + projectname + '_' + appname + '/hostoutput2.json'
+    name = settings.ENVFILE_PATH + projectname + '_' + appname + '/hostoutput_latest.json'
     with open(name, 'r') as f:
         plays = json.load(f)
     message = ""

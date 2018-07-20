@@ -11,6 +11,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
 import json
+from dashboard.models import Ports
 
 
 def fmail(request,id,posts,jsonfile):

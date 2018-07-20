@@ -4,6 +4,8 @@ import subprocess
 from dashboard.models import Project
 from django.conf import settings
 
+from datetime import datetime
+import datetime
 
 def execplaybook(id):
     
@@ -17,7 +19,7 @@ def execplaybook(id):
     jsonfilepath = projectname + "_" + str(post.id) + "_latest.json"
     newpath = '''"''' +  jsonfilepath + '''"'''
     print newpath
-    subprocess.check_call(['./ansibledir/runplaybook.sh', './ansibledir/main.yml', destpath + jsonfilepath, destpath + 'hostoutput_latset.json'])
+    subprocess.check_call(['./ansibledir/runplaybook.sh', './ansibledir/main.yml', destpath + jsonfilepath, destpath + 'hostoutput_latest.json'])
 
     a = destpath + 'hostoutput_latset.json'
     b = destpath + 'hostoutput' +'_'+ datetime.datetime.now().strftime("%Y%m%d-%H%M%S") +'_.json'
