@@ -157,7 +157,7 @@ def approvedsuccessfully(request, id):
     appname = currpost.application_name
     hostip = currpost.hostIp
     try:
-    buildinfo(request,id,jsonfile,hostip)
+	    buildinfo(request,id,jsonfile,hostip)
     except:
          msg = "Error in fetching final status"
          return render(request, "dashboard/error.html", {'msg': msg })
