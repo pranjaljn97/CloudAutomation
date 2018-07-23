@@ -7,6 +7,7 @@ from django.forms import ModelForm
 import datetime
 from django import forms
 from django.utils import timezone
+import os
 
 
 
@@ -102,6 +103,11 @@ class HostForm(ModelForm):
         model = Host
         fields = ['hostIdentifier','hostIp','hostUsername','hostPassword','hostDocker','hostNginx','hostMysql','hostMongo','mysqlUsername','mysqlPassword',]
 
+
+
+def unique_file_path(instance, filename):
+    return 'documents/{0}/{1}'.format(instance.project_name, filename)
+
 class Project(models.Model):
         
         #requester = models.ForeignKey(User,default=1)
@@ -130,7 +136,7 @@ class Project(models.Model):
         PHP_VERSION = models.CharField(blank=True,max_length=256)
         PHP_MODULES = models.CharField(blank=True,max_length=256)
         fileopp = models.CharField(blank=True,max_length=30)
-        document = models.FileField(upload_to='documents/',blank=True)
+        document = models.FileField(upload_to=unique_file_path,blank=True)
         # NGINX_BACKEND_HOST_VALUE = models.CharField(blank=True,max_length=500)
         # NGINX_SERVER_NAME_VALUE = models.CharField( blank=True,max_length=500)
         NGINX_SERVER_ROOT_VALUE = models.CharField( blank=True,max_length=500)

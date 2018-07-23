@@ -11,7 +11,7 @@
                     function ShowHideDiv2() {
                         var filepass = document.getElementById("filepass");
                         var fileopt = document.getElementById("fileopt");
-                        fileopt.style.display = filepass.value == 'yes' ? "block" : "none";
+                        fileopt.style.display = filepass.value == 'true' ? "block" : "none";
                         
 
                     }
@@ -169,8 +169,8 @@
                                    
                                         <label>Upload an Env File &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                           <select id = "filepass" name="fileopp" onchange = "ShowHideDiv2()">
-                                              <option value="no">No</option>
-                                              <option value="yes">Yes</option>  
+                                              <option value="false">No</option>
+                                              <option value="true">Yes</option>  
                                           </select>
                                     
                                       <div id="fileopt" style="display: none">

@@ -55,7 +55,7 @@ def fmail(request,id,posts,jsonfile):
                 'mysqlport':mysqlport,
                 'mongoport':mongoport,
                 'redisport':redisport,
-                'dns':[settings.dns],}               
+                'dns':settings.DNS,}               
     html_content = render_to_string('dashboard/mail2.html', c)
     text_msg = "Final Status"
     subject = "Your requested Stack status"

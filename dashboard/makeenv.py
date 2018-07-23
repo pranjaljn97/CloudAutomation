@@ -12,6 +12,7 @@ import random
 from datetime import datetime
 import datetime
 
+
 global nginxport #range(9000-10000)
 global varnishport #range(8000-9000)
 global sshnginxport #range(1-1000)
@@ -425,18 +426,6 @@ def makeenvfile(myid):
             for o10 in obj10:
                 print(o10.port)
                 sshredisport = o10.port
-
-
-
-                
-
-
-
-
-                
-
-                
-
       
     currpost = Project.objects.get(pk=myid)
     projectname = currpost.project_name
@@ -469,6 +458,14 @@ def makeenvfile(myid):
     varnishImage = str(play["varnish"]["version"][varnishVersion])
     redisImage = str(play["redis"]["version"][redisVersion])
 
+    pathdir = "documents/" + post.project_name 
+
+    for root, dirs, files in os.walk(pathdir):
+        for file in files:
+            if file.endswith('.json'):
+                env_path = root + "/" + file
+            else:
+                env_path = 'false'
 
     data = {'user': {'id': post.id,
                         'USERNAME': post.requester,
@@ -486,6 +483,8 @@ def makeenvfile(myid):
 
             'nginx_php': { 'enable': nginxflag,
                             'image': phpImage,
+                            'env_file': post.fileopp,
+                            'env_path': env_path,
                             'envi': {
                             'PHP_VERSION': post.PHP_VERSION,
                             'PHP_MODULES': post.PHP_MODULES,

@@ -14,14 +14,18 @@ import os
 import sys
 sys.path.insert(0, '/home/dipesh/repos3/')
 
-import extravar
+import extravariables
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DIR = "/home/dipesh/repos3/"
 
 
-from extravar import EMAIL_USE_TLS, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, ADMIN_MAIL, ENVFILE_PATH, DB_ENGINE, DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, Access_key_ID, Secret_access_key, HostedZone, dns
+from extravariables import EMAIL_USE_TLS, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, ADMIN_MAIL, ENVFILE_PATH, DB_ENGINE, DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, ACCESS_KEY_ID, SECRET_ACCESS_KEY, HOSTEDZONE, DNS
+ACCESS_KEY_ID = ACCESS_KEY_ID
+SECRET_ACCESS_KEY = SECRET_ACCESS_KEY
+HOSTEDZONE = HOSTEDZONE
+DNS = DNS
 EMAIL_USE_TLS = EMAIL_USE_TLS
 EMAIL_HOST = EMAIL_HOST
 EMAIL_HOST_USER = EMAIL_HOST_USER
@@ -29,21 +33,12 @@ EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 EMAIL_PORT = EMAIL_PORT
 ADMIN_MAIL = ADMIN_MAIL
 ENVFILE_PATH = ENVFILE_PATH
-
 DB_ENGINE = DB_ENGINE
 DB_NAME = DB_NAME
 DB_USER = DB_USER
 DB_PASSWORD = DB_PASSWORD
 DB_HOST = DB_HOST
 DB_PORT = DB_PORT 
-
-
-Access_key_ID = Access_key_ID
-Secret_access_key = Secret_access_key
-HostedZone = HostedZone
-dns = dns
-
-
 
 
 # Quick-start development settings - unsuitable for production

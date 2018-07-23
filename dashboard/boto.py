@@ -1,16 +1,15 @@
 import boto3
 import os
 from django.conf import settings
-
-client = boto3.client('route53',aws_access_key_id=[settings.Access_key_ID], aws_secret_access_key=[settings.Secret_access_key])
+client = boto3.client('route53',aws_access_key_id=settings.ACCESS_KEY_ID, aws_secret_access_key=settings.SECRET_ACCESS_KEY)
 
 
 def add_cname_record(request,id,projectname,appname,ip):
 	try:
 		target = ip
-		source = projectname + "-" + appname + ".tothenew.tk."
+		source = projectname + "-" + appname + settings.DNS
 		response = client.change_resource_record_sets(
-        HostedZoneId=[settings.HostedZone],	
+        HostedZoneId=settings.HOSTEDZONE,	
 		ChangeBatch= {
 						'Comment': 'add %s -> %s' % (source, target),
 						'Changes': [
@@ -29,9 +28,9 @@ def add_cname_record(request,id,projectname,appname,ip):
 def add_host_record(name,ip):
 	try:
 		target = ip
-		source = name+ ".tothenew.tk."
+		source = name+ settings.DNS
 		response = client.change_resource_record_sets(
-        HostedZoneId=[settings.HostedZone],	
+        HostedZoneId=settings.HOSTEDZONE,	
 		ChangeBatch= {
 						'Comment': 'add %s -> %s' % (source, target),
 						'Changes': [
