@@ -284,6 +284,36 @@
                                 </table>
 
                             </div>
+                    {% for statusentry in allstatus %}
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <p class="category">Current Status</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th>SSH Status</th>
+                                    	<th>Docker Status</th>
+                                        <th>MySql Status</th>
+                                        <th>Mongo DB Status</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        	<td>{{ statusentry.sshstatus }}</td>
+                                        	<td>{{ statusentry.dockerstatus }}</td>
+                                            <td>{{ statusentry.mysqlstatus }} </td>
+                                            <td>{{ statusentry.mongostatus }} </td>
+                                            
+                                        </tr>
+                                    </tbody>    
+                                </table>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
                         </div>
                     </div>
 
@@ -298,7 +328,20 @@
                                 
                                     <div class="col-md-2 col-md-offset-3">
                                         <center>
+                                        {% if posts.status == 'initiated' %}
                                         <button class="btn btn-default btn-block" onclick="window.location='{% url "hostadded" posts.id %}';">Approve</button>
+                                        {% endif %}
+                                        {% if posts.status == 'Failed' %}
+                                        <button class="btn btn-default btn-block" onclick="window.location='{% url "hostadded" posts.id %}';">Approve</button>
+                                        {% endif %}
+
+                                        {% if posts.status == 'Added Successfully' %}
+                                        <button class="btn btn-default btn-block" onclick="window.location='{% url "deployhost" posts.id %}';">Run Playbook</button>
+                                        {% endif %}
+                                        {% if posts.status == 'Deployed Successfully' %}
+                                        <button class="btn btn-default btn-block" onclick="window.location='{% url "hostcheckstatus" posts.id %}';">Check Status</button>
+                                        {% endif %}
+
                                         </center>
                                     </div>
                                  
@@ -314,44 +357,7 @@
 
                 </div>
             </div>
-            <div class="row">
-                <center>
-                {% if perms.login.view_content %}
-
-                {% if posts.status == 'Rejected' %}
-                <div class="col-md-2 col-md-offset-3">
-                    <button class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">Approve</button>
-                </div>
-                {% endif %}
-                {% if posts.status == 'Approved' %}
-                <div class="col-md-2">
-                    <button class="btn btn-default btn-block">Delete</button>
-                </div>
-                {% endif %}
-                {% if posts.status == 'submitted' %}
-                <div class="col-md-2 col-md-offset-3">
-                        <button class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">Approve</button>
-                </div>
-                <div class="col-md-2">
-                        <button class="btn btn-default btn-block" onclick="window.location='{% url "rejectedsuccessfully" posts.id %}';">Reject</button>
-                    </div>
-                {% endif %}
-
-                {% endif %}
-
-                {% if posts.status == 'Approved' %}
-                <div class="col-md-2">
-                    <button class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">Re-Run</button>
-                </div>
-                {% endif %}
-                </center>
-
-
-
-                <!-- <div class="col-md-2">
-                    <button class="btn btn-default btn-block">Re-Run</button>
-                </div> -->
-            </div>
+            
         </div>
         </div>
 

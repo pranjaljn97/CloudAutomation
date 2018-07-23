@@ -32,7 +32,7 @@ def hostentry(id):
         okstatus = stats[ipAddress]['ok']
         failurestatus = stats[ipAddress]['failures']
         if(okstatus != 0 and failurestatus == 0):
-            host.status = 'Added Successfully'
+            host.status = 'Deployed Successfully'
             host.save()
             with io.FileIO("/etc/ansible/hosts", "a+") as file:
                 file.write("\n" + ipAddress + " ansible_connection=ssh ansible_user=" + username + " ansible_ssh_pass=" + password + " ansible_sudo_pass=" + password)

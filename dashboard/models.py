@@ -72,6 +72,15 @@ class status(models.Model):
     redisname = models.CharField(blank=True, max_length=1000)
     redisst = models.CharField(blank=True, max_length=1000)
 
+class hoststatus(models.Model):
+    id = models.AutoField(primary_key=True)
+    sshstatus = models.CharField(blank=True, max_length=1000)
+    dockerstatus = models.CharField(blank=True, max_length=1000)
+    mongostatus = models.CharField(blank=True, max_length=1000)
+    mysqlstatus = models.CharField(blank=True, max_length=1000)
+
+
+
 
     
 class Host(models.Model):
