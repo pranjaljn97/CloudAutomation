@@ -19,6 +19,9 @@ class Ports(models.Model):
     projectname = models.CharField(blank=True, max_length=30)
     ptype = models.CharField(blank=True, max_length=30)
 
+    def __str__(self):
+          return self.projectname
+
 class runningstack(models.Model):
     id = models.AutoField(primary_key=True)
     projectname = models.CharField(blank=True, max_length=50)
@@ -36,6 +39,10 @@ class runningstack(models.Model):
     mongoupwd = models.CharField(blank=True, max_length=50)
     mongostatus = models.CharField(blank=True, max_length=50)
     approvedBy = models.CharField(blank=True,max_length=256)
+
+    def __str__(self):
+          return self.projectname
+
 
 class status(models.Model):
     id = models.AutoField(primary_key=True)
@@ -83,6 +90,12 @@ class Host(models.Model):
                 permissions = (
                     ('view_content', 'View content'),
                  )
+        def __str__(self):
+          return self.hostIdentifier
+
+       
+       
+
 
 class HostForm(ModelForm):
     class Meta:
@@ -193,6 +206,9 @@ class mysqluser(models.Model):
         MYSQL_USER_NAME_VALUE = models.CharField( blank=True,max_length=100)
         MYSQL_PASSWORD_VALUE = models.CharField( blank=True,max_length=100)
         status = models.CharField(default='submitted', max_length=30)
+        def __str__(self):
+          return self.requester
+        
 class mysqlForm(ModelForm):
     class Meta:
         model = mysqluser
@@ -211,7 +227,7 @@ class mongorequest(ModelForm):
     class Meta:
         model = mongoform
         fields = ['requester','hostip','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE', 'MONGO_INITDB_ROOT_PASSWORD_VALUE',]
-
-
+    def __str__(self):
+          return self.requester
     
 
