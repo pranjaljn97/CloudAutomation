@@ -27,6 +27,7 @@
     - { dest: '/home/{{ user.project_name }}/logs/mysql', mode: '0775'} 
     - { dest: '/home/{{ user.project_name }}/logs/mongodb', mode: '0775'}  
     - { dest: '/home/{{ user.project_name }}/logs/redis', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/nginx-conf', mode: '0775'}  
 
 - name: touch redis log file
   become: true
@@ -57,10 +58,10 @@
 - name: Copy env file into remote  
   become: true
   copy: 
-    src:  docker-compose.yml
+    src:  '../{{ nginx_php.env_path }}'
     dest: /home/{{ user.project_name }}/nginx-php.env  
     mode: 644  
-  when: nginx_php.envfile == 'true'
+  when: nginx_php.env_file == 'true'
 
 
 

@@ -59,7 +59,7 @@ services:
      {% if nginx_php.envfile==true %}
      env_file:
        - nginx-php.env
-     {% endfor %}  
+     {% endif %}  
      environment:
        {% for key,value in nginx_php.envi.iteritems() %}
        {{ key }} : {{ value }}
@@ -70,7 +70,7 @@ services:
      volumes:
       - ./code:/var/www/html
       - ./logs/nginx:/var/log/nginx
-          
+      - ./nginx-conf:/etc/nginx    
   {% endif %}    
   
   {% if varnish.enable==true %} 
