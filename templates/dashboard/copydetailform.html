@@ -410,47 +410,9 @@
                         </div>
                     </div>
 
-                    {% if posts.status == 'Approved' %}
 
 
-                    <div class="col-md-12">
-                            <div class="card">
-                                <div class="header">
-                                    <p class="category">Current Status</p>
-                                </div>
-                                <div class="content table-responsive table-full-width">
-                                    <table class="table table-hover">
-                                        <thead><center>
-						<div class="col-md-1">
-                                               
-                                                </div>
-
-                                                <div class="col-md-2">
-                                                <button class="btn btn-default btn-block" onclick="mymysql()">Mysql</button>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <button class="btn btn-default btn-block" onclick="mymymongo()">MongoDB</button>
-                                                </div><div class="col-md-2">
-                                                    <button class="btn btn-default btn-block" onclick="mynginx()">Php-Nginx</button>
-                                                </div><div class="col-md-2">
-                                                    <button class="btn btn-default btn-block" onclick="myvarnish()">Varnish</button>
-                                                </div><div class="col-md-2">
-                                                    <button class="btn btn-default btn-block" onclick="myredis()">Redis</button>
-                                                </div>
-                                            </center>
-                                        </thead>
-                                        
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-    
-        
-                {% endif %}
-
-
-
-                                <div class="col-md-12" id="mysql" style="display: none">
+                                <div class="col-md-12">
                                         <div class="card">
                                             <div class="header">
                                                 <p class="category">MySql Container Details</p>
@@ -461,7 +423,7 @@
                                                         <th>Conatiner Status</th>
                                                         <th>Container Name</th>
                                                         <th> Container ID</th>
-                                
+                                                        
                                                     </thead>
                                                     <tbody>
                                                         <tr>
@@ -478,7 +440,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12" id="mongo" style="display: none">
+                                    <div class="col-md-12">
                                             <div class="card">
                                                 <div class="header">
                                                     <p class="category">MongoDB Container Details</p>
@@ -506,7 +468,7 @@
                                             </div>
                                         </div>
                 
-                                        <div class="col-md-12" id="nginx" style="display: none">
+                                        <div class="col-md-12">
                                                 <div class="card">
                                                     <div class="header">
                                                         <p class="category">Nginx-Php Container Details</p>
@@ -534,7 +496,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12" id="varnish" style="display: none">
+                                            <div class="col-md-12">
                                                     <div class="card">
                                                         <div class="header">
                                                             <p class="category">Varnish Container Details</p>
@@ -562,7 +524,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                                <div class="col-md-12" id="redis" style="display: none">
+                                                <div class="col-md-12">
                                                         <div class="card">
                                                             <div class="header">
                                                                 <p class="category">Redis Container Details</p>
@@ -642,57 +604,6 @@
         
     </div>
 </div>
-
-    <script>
-        function mymysql() {
-            var x = document.getElementById("mysql");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-        function mymymongo() {
-            var x = document.getElementById("mongo");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-
-    function mynginx() {
-            var x = document.getElementById("nginx");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-
-        function myvarnish() {
-            var x = document.getElementById("varnish");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-
-
-        function myredis() {
-            var x = document.getElementById("redis");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-
-
-
-        </script>
-        
 
 
 </body>
