@@ -54,6 +54,16 @@
     mode: 0644
 
 
+- name: Copy env file into remote  
+  become: true
+  copy: 
+    src:  docker-compose.yml
+    dest: /home/{{ user.project_name }}/nginx-php.env  
+    mode: 644  
+  when: nginx_php.envfile == 'true'
+
+
+
 - name: Docker
   become: true
   shell: |
