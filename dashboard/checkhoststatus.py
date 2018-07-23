@@ -29,8 +29,9 @@ class HoststatusCheck():
     
     def checkhostMysql(self,mysqlHostname, mysqlPort, mysqlUsername, mysqlPassword):
         try:
-            myDB = MySQLdb.connect(host="mysqlHostname", port="mysqlPort", user="mysqlUsername", passwd="mysqlPassword")
+            myDB = MySQLdb.connect(host=mysqlHostname, port=mysqlPort, user=mysqlUsername, passwd=mysqlPassword)
             handler = myDB.cursor()
+            print handler
             handler.execute("SELECT VERSION()")
             results = handler.fetchall()
             for items in results:
