@@ -294,16 +294,29 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <th>SSH Status</th>
-                                    	<th>Docker Status</th>
+                                        {% if statusentry.dockerstatus != 'NA' %}
+                                        <th>Docker Status</th>
+                                        {% endif %}
+                                        {% if statusentry.mysqlstatus != 'NA' %}
                                         <th>MySql Status</th>
+                                        {% endif %}
+                                        {% if statusentry.mongostatus != 'NA' %}
                                         <th>Mongo DB Status</th>
+                                        {% endif %}
                                     </thead>
                                     <tbody>
                                         <tr>
-                                        	<td>{{ statusentry.sshstatus }}</td>
-                                        	<td>{{ statusentry.dockerstatus }}</td>
+
+                                            <td>{{ statusentry.sshstatus }}</td>
+                                            {% if statusentry.dockerstatus != 'NA' %}
+                                            <td>{{ statusentry.dockerstatus }}</td>
+                                            {% endif %}
+                                            {% if statusentry.mysqlstatus != 'NA' %}
                                             <td>{{ statusentry.mysqlstatus }} </td>
+                                            {% endif %}
+                                            {% if statusentry.mongostatus != 'NA' %}
                                             <td>{{ statusentry.mongostatus }} </td>
+                                            {% endif %}
                                             
                                         </tr>
                                     </tbody>    

@@ -123,19 +123,29 @@ def hostcheckstatus(request, id):
     sqluser = posts.mysqlUsername
     sqlpass = posts.mysqlPassword
 
+    
     hostcheck = HoststatusCheck()
     # 1 method
-    dockerstatus = hostcheck.checkhostDockerStatus(hostip)
-    print dockerstatus
+    if(posts.hostDocker == 'true'):
+        dockerstatus = hostcheck.checkhostDockerStatus(hostip)
+        print dockerstatus
+    else:
+        dockerstatus = 'NA'
     #2nd method
     sshstatus = hostcheck.checkhostSSHStatus(hostip, sshuser, sshpass)
     print sshstatus
     #3rd method
-    mysqlstatus = hostcheck.checkhostMysql(hostip,3306,sqluser,sqlpass)
-    print mysqlstatus
+    if(posts.hostMysql == 'true'):
+        mysqlstatus = hostcheck.checkhostMysql(hostip,3306,sqluser,sqlpass)
+        print mysqlstatus
+    else:
+        mysqlstatus = 'NA'
     #4th method
-    mongostatus = hostcheck.checkhostMongo(hostip,27017)
-    print mongostatus
+    if(posts.hostMongo == 'true'):
+        mongostatus = hostcheck.checkhostMongo(hostip,27017)
+        print mongostatus
+    else:
+        mongostatus = 'NA'
 
     hoststatus.objects.all().delete()
     statusentry = hoststatus(sshstatus=sshstatus, dockerstatus=dockerstatus, mongostatus=mongostatus, mysqlstatus=mysqlstatus)

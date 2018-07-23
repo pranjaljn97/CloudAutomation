@@ -12,13 +12,12 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import sys
-sys.path.insert(0, '/home/dipesh/repos3/')
-
+sys.path.insert(0, '/home/mudit1804/djangoprojects/')
 import extravariables
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DIR = "/home/dipesh/repos3/"
+# DIR = "/home/dipesh/repos3/"
 
 
 from extravariables import EMAIL_USE_TLS, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, ADMIN_MAIL, ENVFILE_PATH, DB_ENGINE, DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, ACCESS_KEY_ID, SECRET_ACCESS_KEY, HOSTEDZONE, DNS

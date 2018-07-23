@@ -238,11 +238,13 @@ class mongoform(models.Model):
     MONGO_INITDB_ROOT_USERNAME_VALUE = models.CharField( blank=True,max_length=500)
     MONGO_INITDB_ROOT_PASSWORD_VALUE = models.CharField( blank=True,max_length=500)
     status = models.CharField(default='submitted', max_length=30)
+    def __str__(self):
+          return self.requester
+    
 class mongorequest(ModelForm):
     class Meta:
         model = mongoform
         fields = ['requester','hostip','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE', 'MONGO_INITDB_ROOT_PASSWORD_VALUE',]
-    def __str__(self):
-          return self.requester
+    
     
 
