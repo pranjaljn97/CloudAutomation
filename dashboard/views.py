@@ -330,7 +330,9 @@ def drupalform(request):
             print(form.errors)   
     else:
         form = RequestForm()
-    return render(request, 'dashboard/drupal-home.html', {'form': form,'hostInfo': hostInfo})
+    with open('dashboard/version.json') as data_file:
+        data_loaded = json.load(data_file)
+    return render(request, 'dashboard/drupal-home.html', {'form': form,'hostInfo': hostInfo,'data':data_loaded})
 # Create your views here.
 
 @login_required(login_url='/login/')

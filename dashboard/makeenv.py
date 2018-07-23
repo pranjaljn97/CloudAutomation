@@ -459,7 +459,7 @@ def makeenvfile(myid):
     redisImage = str(play["redis"]["version"][redisVersion])
 
     pathdir = "documents/" + post.project_name 
-
+    env_path = 'false'
     for root, dirs, files in os.walk(pathdir):
         for file in files:
             if file.endswith('.json'):
@@ -483,7 +483,7 @@ def makeenvfile(myid):
 
             'nginx_php': { 'enable': nginxflag,
                             'image': phpImage,
-                            'env_file': post.fileopp,
+                            'envfile': post.fileopp,
                             'env_path': env_path,
                             'envi': {
                             'PHP_VERSION': post.PHP_VERSION,

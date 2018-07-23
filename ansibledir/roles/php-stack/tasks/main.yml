@@ -46,15 +46,6 @@
     owner: bin
     mode: 0644
 
-- name: Copying Template into remote
-  become: true
-  template:
-    src: docker-compose.yml
-    dest: '/home/dipesh/repos3/s2p/documents/{{ user.project_name }}'
-    owner: bin
-    mode: 0644
-  delegate_to: 127.0.0.1
-  
 - name: Copying compose file with datetime
   become: true
   template:
