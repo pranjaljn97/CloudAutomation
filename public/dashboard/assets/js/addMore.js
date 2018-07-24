@@ -16,3 +16,18 @@ divtest.innerHTML = '<div class="col-md-6"><div class="form-group"><label>Key #'
 
 objTo.appendChild(divtest)
 }
+
+function add_fields2() {
+
+    
+    
+    var x = document.getElementById("extraenv");
+                
+    x.style.display = "block";
+
+    var x = document.getElementById("room_fields2");
+
+    x.style.display = "none";
+           
+    }
+

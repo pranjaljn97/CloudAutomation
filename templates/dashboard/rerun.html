@@ -412,30 +412,7 @@
 
                 </div>
             </div>
-	     <div id="room_fields">
-                                <div class="content">
-                                  <div class="row">
-
-                                  </div>
-                                </div>
-                              </div>
-                                <div class="col-md-6">
-                                  <div class="form-group">
-                                      <label>Extra key Value pair added</label>
-                                        <input type="text" class="form-control" id="total" name="total" value="0" readonly />                   
-                                  </div>
-                                </div>
-                                </div>
-                                <div class="row">
-                                <div class="col-md-3">
-                                  <div class="form-group">
-                                        <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add More" />        
-                                  </div>
-                                </div>
-
-                                </div>
-
-                            </div>
+	     
 
             <div id="form" class="col-md-12">
                     <div class="card">
@@ -474,20 +451,42 @@
                                     </div>
                                     {% endfor %}
 
-                                    <div id="room_fields">                                              
+                                    </div>
+
+                                    <div class="row">
+                                            <div class="col-md-3">
+                                              <div class="form-group">
+                                                    <input type="button" class="btncls" id="more_fields" onclick="add_fields2();" value="Add New" />        
+                                              </div>
+                                    </div>
+                                    
+                                    <div id="room_fields2" style="display: none">
+                                    <div id="room_fields">
                                             <div class="content">
                                               <div class="row">
-                            
+            
                                               </div>
                                             </div>
+                                          </div>
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>Extra key Value pair added</label>
+                                                    <input type="text" class="form-control" id="total" name="total" value="0" readonly />                   
+                                              </div>
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-md-3">
+                                              <div class="form-group">
+                                                    <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add More" />        
+                                              </div>
+                                            </div>
+            
+                                            </div>
+            
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                        <center>
-                                        <div class="col-md-3">
-                                          <div class="form-group">                                          
-                                                <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Delete these & Add new" /> 
-                                            </center>                                 
-                                     </div>
+
                                     <br>
                                     <input type="submit" value="Submit" onclick="window.location='{% url "rerun" posts.id %}';"/>
                                     <br>
@@ -586,30 +585,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
 
-        
-
-var key=0;
-var val=0;
-
-        function add_fields2() {
-            var x = document.getElementById("extraenv");
-                
-            x.style.display = "block";
-            key++;
-            val++;
-
-            
-
-            var objTo = document.getElementById('room_fields');
-            var divtest = document.createElement("div");
-
-            divtest.innerHTML = '<div class="col-md-6"><div class="form-group"><label>Key #' +key+ '</label> <input type="text" class="form-control" name="key' +key+ '" /></div></div> <div class="col-md-6"><div class="form-group"><label>Value #'+val+'</label><input type="text" class="form-control"name="value' +val+ '"></div></div> ';
-
-            objTo.appendChild(divtest)
-        }
-  </script>
 
 
 </body>
