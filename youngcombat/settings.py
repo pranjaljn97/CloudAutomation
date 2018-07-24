@@ -11,9 +11,33 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+import sys
+sys.path.insert(0, '/home/dipesh/repos3')
+import extravariables
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# DIR = "/home/dipesh/repos3/"
+
+
+from extravariables import EMAIL_USE_TLS, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, ADMIN_MAIL, ENVFILE_PATH, DB_ENGINE, DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, ACCESS_KEY_ID, SECRET_ACCESS_KEY, HOSTEDZONE, DNS
+ACCESS_KEY_ID = ACCESS_KEY_ID
+SECRET_ACCESS_KEY = SECRET_ACCESS_KEY
+HOSTEDZONE = HOSTEDZONE
+DNS = DNS
+EMAIL_USE_TLS = EMAIL_USE_TLS
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_PORT = EMAIL_PORT
+ADMIN_MAIL = ADMIN_MAIL
+ENVFILE_PATH = ENVFILE_PATH
+DB_ENGINE = DB_ENGINE
+DB_NAME = DB_NAME
+DB_USER = DB_USER
+DB_PASSWORD = DB_PASSWORD
+DB_HOST = DB_HOST
+DB_PORT = DB_PORT 
 
 
 # Quick-start development settings - unsuitable for production
@@ -86,14 +110,15 @@ TEMPLATES = [
 #   }
 #}
 
+
 DATABASES = {
         'default': {
-        'ENGINE': os.environ['DB_ENGINE'], # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.environ['DB_NAME'],                       # Or path to database file if using sqlite3.
-        'USER': os.environ['DB_USER'],                      # Not used with sqlite3.
-        'PASSWORD': os.environ['DB_PASSWORD'],                  # Not used with sqlite3.
-        'HOST': os.environ['DB_HOST'],                         # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': os.environ['DB_PORT'],    
+        'ENGINE': DB_ENGINE, # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': DB_NAME,                   # Or path to database file if using sqlite3.
+        'USER': DB_USER,           # Not used with sqlite3.
+        'PASSWORD': DB_PASSWORD,            # Not used with sqlite3.
+        'HOST': DB_HOST,                  # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': DB_PORT,
     }
 }
 
@@ -147,17 +172,9 @@ print STATICFILES_DIRS
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
+) 
 
 #for email use
-from dashboard.extravar import EMAIL_USE_TLS, EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, ADMIN_MAIL, ENVFILE_PATH
-EMAIL_USE_TLS = EMAIL_USE_TLS
-EMAIL_HOST = EMAIL_HOST
-EMAIL_HOST_USER = EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
-EMAIL_PORT = EMAIL_PORT
-ADMIN_MAIL = ADMIN_MAIL
-ENVFILE_PATH = ENVFILE_PATH
 
 
 

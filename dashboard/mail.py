@@ -16,7 +16,7 @@ from django.utils import timezone
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.template.loader import get_template, render_to_string
-
+ 
 def sendmail(request,form,stat):
         if stat == "submit":
     #message = "Your form has been submitted \n Please verify your details:" + "Project Name:" + projectname

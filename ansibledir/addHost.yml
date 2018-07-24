@@ -14,8 +14,8 @@
     ansible_ssh_user: "{{ hostUsername }}"
     ansible_ssh_pass: "{{ hostPassword }}"
   roles:
-    - { role: docker-install, when: hostDocker == 'Docker' }
-    - { role: mongodb, when: hostMongo == 'Mongo' }
-    - { role: mysql, when: hostMysql == 'Mysql' }
+    - { role: docker-install, when: hostDocker == 'true' }
+    - { role: mongodb, when: hostMongo == 'true' }
+    - { role: mysql, when: hostMysql == 'true' }
 
 

@@ -70,15 +70,7 @@
     owner: root 
     mode: 644
   notify:
-    - reload systemd
- 
-    
-- name: Restart service docker
-  become: true
-  service:
-    name: docker
-    state: restarted
-
+    - reload systemd      
 
 # sudo apt-get install docker-compose
 - name: Installing docker-compose
@@ -89,4 +81,14 @@
     update_cache: yes
   tags:
     - docker
+
+- name: flush hanlers
+  meta: flush_handlers
+
+- name: Restart service docker
+  become: true
+  service:
+    name: docker
+    state: restarted
+
 

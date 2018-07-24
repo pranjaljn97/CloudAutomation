@@ -7,6 +7,7 @@ from django.forms import ModelForm
 import datetime
 from django import forms
 from django.utils import timezone
+import os
 
 
 
@@ -18,6 +19,9 @@ class Ports(models.Model):
     status = models.CharField(blank=True, max_length=30)
     projectname = models.CharField(blank=True, max_length=30)
     ptype = models.CharField(blank=True, max_length=30)
+
+    def __str__(self):
+          return self.projectname
 
 class runningstack(models.Model):
     id = models.AutoField(primary_key=True)
@@ -36,6 +40,10 @@ class runningstack(models.Model):
     mongoupwd = models.CharField(blank=True, max_length=50)
     mongostatus = models.CharField(blank=True, max_length=50)
     approvedBy = models.CharField(blank=True,max_length=256)
+
+    def __str__(self):
+          return self.projectname
+
 
 class status(models.Model):
     id = models.AutoField(primary_key=True)
@@ -64,6 +72,15 @@ class status(models.Model):
     redisname = models.CharField(blank=True, max_length=1000)
     redisst = models.CharField(blank=True, max_length=1000)
 
+class hoststatus(models.Model):
+    id = models.AutoField(primary_key=True)
+    sshstatus = models.CharField(blank=True, max_length=1000)
+    dockerstatus = models.CharField(blank=True, max_length=1000)
+    mongostatus = models.CharField(blank=True, max_length=1000)
+    mysqlstatus = models.CharField(blank=True, max_length=1000)
+
+
+
 
     
 class Host(models.Model):
@@ -83,11 +100,22 @@ class Host(models.Model):
                 permissions = (
                     ('view_content', 'View content'),
                  )
+        def __str__(self):
+          return self.hostIdentifier
+
+       
+       
+
 
 class HostForm(ModelForm):
     class Meta:
         model = Host
         fields = ['hostIdentifier','hostIp','hostUsername','hostPassword','hostDocker','hostNginx','hostMysql','hostMongo','mysqlUsername','mysqlPassword',]
+
+
+
+def unique_file_path(instance, filename):
+    return 'documents/{0}/{1}'.format(instance.project_name, filename)
 
 class Project(models.Model):
         
@@ -117,7 +145,7 @@ class Project(models.Model):
         PHP_VERSION = models.CharField(blank=True,max_length=256)
         PHP_MODULES = models.CharField(blank=True,max_length=256)
         fileopp = models.CharField(blank=True,max_length=30)
-        document = models.FileField(upload_to='documents/',blank=True)
+        document = models.FileField(upload_to=unique_file_path,blank=True)
         # NGINX_BACKEND_HOST_VALUE = models.CharField(blank=True,max_length=500)
         # NGINX_SERVER_NAME_VALUE = models.CharField( blank=True,max_length=500)
         NGINX_SERVER_ROOT_VALUE = models.CharField( blank=True,max_length=500)
@@ -193,6 +221,9 @@ class mysqluser(models.Model):
         MYSQL_USER_NAME_VALUE = models.CharField( blank=True,max_length=100)
         MYSQL_PASSWORD_VALUE = models.CharField( blank=True,max_length=100)
         status = models.CharField(default='submitted', max_length=30)
+        def __str__(self):
+          return self.requester
+        
 class mysqlForm(ModelForm):
     class Meta:
         model = mysqluser
@@ -207,11 +238,13 @@ class mongoform(models.Model):
     MONGO_INITDB_ROOT_USERNAME_VALUE = models.CharField( blank=True,max_length=500)
     MONGO_INITDB_ROOT_PASSWORD_VALUE = models.CharField( blank=True,max_length=500)
     status = models.CharField(default='submitted', max_length=30)
+    def __str__(self):
+          return self.requester
+    
 class mongorequest(ModelForm):
     class Meta:
         model = mongoform
         fields = ['requester','hostip','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE', 'MONGO_INITDB_ROOT_PASSWORD_VALUE',]
-
-
+    
     
 

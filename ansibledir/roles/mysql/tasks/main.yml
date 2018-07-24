@@ -19,8 +19,8 @@
 - name: export mysql config file
   become: true
   copy:
-    src: my.cnf
-    dest: /etc/
+    src: mysqld.cnf
+    dest: /etc/mysql/mysql.conf.d/
     owner: root
     mode: 644
 
@@ -31,4 +31,12 @@
     state: restarted
 
 
-               
+- name: set mysql user grant all priv
+  become: true
+  mysql_user:
+    login_user: root
+    login_password: "{{ mysqlPassword }}"
+    name: root
+    append_privs: true
+    priv: '*.*:ALL,GRANT'
+    state: present               

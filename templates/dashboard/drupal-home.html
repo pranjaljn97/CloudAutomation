@@ -1,6 +1,9 @@
 {% extends "dashboard/phpform.html" %}
 {% load static %}
 {% block content %}
+
+
+  
                   <script type="text/javascript">
                     function ShowHideDiv() {
                         var ddlPassport = document.getElementById("ddlPassport");
@@ -11,7 +14,7 @@
                     function ShowHideDiv2() {
                         var filepass = document.getElementById("filepass");
                         var fileopt = document.getElementById("fileopt");
-                        fileopt.style.display = filepass.value == 'yes' ? "block" : "none";
+                        fileopt.style.display = filepass.value == 'true' ? "block" : "none";
                         
 
                     }
@@ -152,25 +155,19 @@
                                     <div class="form-group">
                                       <label> Version  </label>
                                       <select name="PHP_VERSION">
-                                       <option value="5.6">5.6
+
+                                      {% for value in data.nginx_php.version %}
+                                      <option value={{ value }}>{{ value }}
                                         </option>
-                                        <option value="7.0">7.0
-                                        </option>
-                                        <option value="7.1">7.1
-                                        </option>
-                                        <option value="7.2">7.2
-                                        </option>
-				                                <option value="NA">
-                                            NA
-                                          </option>
+                                      {% endfor %}
 
                                       </select>
                                       </div>
                                    
                                         <label>Upload an Env File &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                           <select id = "filepass" name="fileopp" onchange = "ShowHideDiv2()">
-                                              <option value="no">No</option>
-                                              <option value="yes">Yes</option>  
+                                              <option value="false">No</option>
+                                              <option value="true">Yes</option>  
                                           </select>
                                     
                                       <div id="fileopt" style="display: none">
@@ -276,14 +273,10 @@
                                           <div class="form-group">
                                               <label>MySQl Version</label>
                                                   <select name="mysql_version">
-                                                      <option value="latest">latest</option>
-                                                      <option value="8.0">8.0</option>
-                                                      <option value="5.7">5.7</option>
-                                                      <option value="5.6">5.6</option>
-                                                      <option value="5.5">5.5</option>
-							   <option value="NA">
-                                                          NA
+                                                      {% for value in data.mysql.version %}
+                                                      <option value={{ value }}>{{ value }}
                                                         </option>
+                                                      {% endfor %}
 
                                                     </select>                                                     
   
@@ -435,21 +428,10 @@
                                               <label>Mongo DB Version</label>
                                               <select name="mongo_version">
                                
-                                                <option value="3.2">
-                                                  3.2
-                                                </option>
-                                                <option value="3.4">
-                                                  3.4                
-		                               </option>
-                                                <option value="3.6">
-                                                  3.6
-                                                </option>
-                                                <option value="4.0">
-                                                  4.0
-                                                </option>
-					   <option value="NA">
-                                                         NA
-                                                        </option>
+                                                  {% for value in data.mongodb.version %}
+                                                  <option value={{ value }}>{{ value }}
+                                                    </option>
+                                                  {% endfor %}
 
                                               </select>
                                             </div>
@@ -540,12 +522,10 @@
 
                                       <select name="varnish_version">
                                   
-                                          <option value="4">4</option>
-                                          <option value="4.1">4.1</option>
-                                          <option value="latest">Latest</option>
-				           <option value="NA">
-                                              NA
+                                          {% for value in data.varnish.version %}
+                                          <option value={{ value }}>{{ value }}
                                             </option>
+                                          {% endfor %}
 
                                         </select>
                                     </div>
@@ -642,13 +622,10 @@
                                           </label>
                                           <select name="redis_version">
                                          
-                                              <option value="3">3</option>
-                                              <option value="3.2">3.2</option>
-                                              <option value="4.0">4.0</option>
-                                              <option value="latest">latest</option>
-					      <option value="NA">
-                                              NA
-                                            </option>
+                                              {% for value in data.redis.version %}
+                                              <option value={{ value }}>{{ value }}
+                                                </option>
+                                              {% endfor %}
 
                                             </select>                       
                                   </div>

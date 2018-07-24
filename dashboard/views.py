@@ -33,7 +33,9 @@ from dashboard.rstackpy import rstack
 from dashboard.runplaybook import execplaybook
 from dashboard.makehostentry import hostentry
 from dashboard.checkStatus import HostCheck
+from dashboard.checkhoststatus import HoststatusCheck
 from dashboard.models import status
+from dashboard.models import hoststatus
 from dashboard.models import Myform
 from dashboard.models import mongoform
 from dashboard.models import mongorequest
@@ -73,14 +75,90 @@ def cprovider(request):
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def hostadded(request, id):
-    makeEnvHost(id)
-    hostentry(id)
-    currpost = Host.objects.get(id=id)
-    name = currpost.hostIdentifier
-    ip = currpost.hostIp
-    add_host_record(name,ip)
+    try:
+        makeEnvHost(id)
+        currpost = Host.objects.get(id=id)
+        currpost.status = 'Added Successfully'
+        currpost.save()
+    except:
+        msg = "Error in making Host Env File"
+        return render(request, "dashboard/error.html", {'msg': msg })
+
+    # hostentry(id)
+    # currpost = Host.objects.get(id=id)
+    # name = currpost.hostIdentifier
+    # ip = currpost.hostIp
+    # add_host_record(name,ip)
     posts = Host.objects.get(pk=id)
     return render(request, "dashboard/hostdetailform.html", {'posts': posts })
+
+@user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
+def deployhost(request, id):
+    try:
+        hostentry(id)
+        currpost = Host.objects.get(id=id)
+        name = currpost.hostIdentifier
+        ip = currpost.hostIp
+        add_host_record(name,ip)
+       
+    except:
+        msg = "Error in making Host Env File"
+        return render(request, "dashboard/error.html", {'msg': msg })
+
+    posts = Host.objects.get(pk=id)
+    return render(request, "dashboard/hostdetailform.html", {'posts': posts })
+
+@login_required(login_url='/login/')
+def hostcheckstatus(request, id):
+    global mysqlstatus
+    global mongostatus
+    global sshstatus
+    # global nginxstatus
+
+    posts = Host.objects.get(pk=id)
+
+    hostip = posts.hostIp
+    sshuser = posts.hostUsername
+    sshpass = posts.hostPassword
+    sqluser = posts.mysqlUsername
+    sqlpass = posts.mysqlPassword
+
+    
+    hostcheck = HoststatusCheck()
+    # 1 method
+    if(posts.hostDocker == 'true'):
+        dockerstatus = hostcheck.checkhostDockerStatus(hostip)
+        print dockerstatus
+    else:
+        dockerstatus = 'NA'
+    #2nd method
+    sshstatus = hostcheck.checkhostSSHStatus(hostip, sshuser, sshpass)
+    print sshstatus
+    #3rd method
+    if(posts.hostMysql == 'true'):
+        mysqlstatus = hostcheck.checkhostMysql(hostip,3306,sqluser,sqlpass)
+        print mysqlstatus
+    else:
+        mysqlstatus = 'NA'
+    #4th method
+    if(posts.hostMongo == 'true'):
+        mongostatus = hostcheck.checkhostMongo(hostip,27017)
+        print mongostatus
+    else:
+        mongostatus = 'NA'
+
+    hoststatus.objects.all().delete()
+    statusentry = hoststatus(sshstatus=sshstatus, dockerstatus=dockerstatus, mongostatus=mongostatus, mysqlstatus=mysqlstatus)
+    statusentry.save()
+    allstatus = hoststatus.objects.all()
+    return render(request, "dashboard/hostdetailform.html", {'posts': posts, 'allstatus': allstatus })
+
+
+
+    
+
+
+
     
     
 
@@ -252,7 +330,9 @@ def drupalform(request):
             print(form.errors)   
     else:
         form = RequestForm()
-    return render(request, 'dashboard/drupal-home.html', {'form': form,'hostInfo': hostInfo})
+    with open('dashboard/version.json') as data_file:
+        data_loaded = json.load(data_file)
+    return render(request, 'dashboard/drupal-home.html', {'form': form,'hostInfo': hostInfo,'data':data_loaded})
 # Create your views here.
 
 @login_required(login_url='/login/')
