@@ -24,6 +24,7 @@ def add_cname_record(request,id,projectname,appname,ip):
 						}]
 		})
 	except Exception as e:
+			 print(e)
                          print("Error in DNS entry")
 def add_host_record(name,ip):
 	try:
