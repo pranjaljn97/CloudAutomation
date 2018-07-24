@@ -20,6 +20,8 @@
 
     <!-- Animation library for notifications   -->
     <link href="{% static "dashboard/assets/css/animate.min.css" %}" rel="stylesheet"/>
+     <!--  CSS for add more button     -->
+     <link href="{% static "dashboard/assets/css/addMore.css" %}" rel="stylesheet" />
 
     <!--  Light Bootstrap Table core CSS    -->
     <link href="{% static "dashboard/assets/css/light-bootstrap-dashboard.css" %}" rel="stylesheet"/>
@@ -410,10 +412,16 @@
                     {% endfor %}
 
 
+
+
+
+
+
+
+
+
                 </div>
             </div>
-	     
-
             <div id="form" class="col-md-12">
                     <div class="card">
                         <div class = "col-md-12">
@@ -428,7 +436,6 @@
                                     Environment Variables:
                                     <br>
                                     {% for env_key, env_value in jsondata.items %}
-                                    <div id="extraenv">
                                     <div class="row">
                                                 
                                         <div class="col-md-6">
@@ -437,7 +444,7 @@
                                           <div class="form-group">
                                             <label>Key
                                             </label>
-                                            <input type="text" class="form-control" required  value= {{ env_key }} name= {{ env_key }}>
+                                            <input type="text" class="form-control" required disabled value= {{ env_key }} name= {{ env_key }}>
                                           </div>
                                         </div>
                                         <div class="col-md-6">
@@ -448,45 +455,29 @@
                                           </div>
                                         </div>
                                       </div>
-                                    </div>
+
                                     {% endfor %}
-
-                                    </div>
-
-                                    <div class="row">
-                                            <div class="col-md-3">
-                                              <div class="form-group">
-                                                    <input type="button" class="btncls" id="more_fields" onclick="add_fields2();" value="Add New" />        
-                                              </div>
-                                    </div>
-                                    
-                                    <div id="room_fields2" style="display: none">
-                                    <div id="room_fields">
+                                    <div id="room_fields">                                              
                                             <div class="content">
                                               <div class="row">
-            
+                            
                                               </div>
                                             </div>
                                           </div>
                                             <div class="col-md-6">
                                               <div class="form-group">
-                                                  <label>Extra key Value pair added</label>
-                                                    <input type="text" class="form-control" id="total" name="total" value="0" readonly />                   
+                                                  <label>Extra key Value pair added</label>                                          
+                                                    <input type="text" class="form-control" id="total" name="total" value="0" readonly />                                  
                                               </div>
-                                            </div>
                                             </div>
                                             <div class="row">
                                             <div class="col-md-3">
-                                              <div class="form-group">
-                                                    <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add More" />        
+                                              <div class="form-group">                                          
+                                                    <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add More" />                                  
                                               </div>
                                             </div>
             
                                             </div>
-            
-                                        </div>
-                                    </div>
-
                                     <br>
                                     <input type="submit" value="Submit" onclick="window.location='{% url "rerun" posts.id %}';"/>
                                     <br>
@@ -551,41 +542,9 @@
         </div>
 
 
-        <!--<footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                </p>
-            </div>
-        </footer>-->
+       
     </div>
 </div>
-
-
 
 
 </body>
@@ -613,7 +572,6 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
     <script src="{% static "dashboard/assets/js/demo.js" %}"></script>
-    
     <!-- JS file for add more button -->
     <script src="{% static "dashboard/assets/js/addMore.js" %}"></script>
 
