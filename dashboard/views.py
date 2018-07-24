@@ -570,6 +570,44 @@ def rerun(request,id):
             posts.git_branch = newbranch
             posts.save()
 
+            maxkey  = 0
+            maxkey = int(form.cleaned_data['total'])
+            tot = 0
+            maxkey += 1
+            lst = []
+            d = {}
+            for x in range(1,maxkey):
+                y = x
+                tot += 1
+                name = 'key' + str(x) 
+                name2 = 'value' + str(x) 
+                print(name)
+                print(form.cleaned_data[name])
+                a = form.cleaned_data[name]
+                b = form.cleaned_data[name2]
+
+                d[a]=b
+            lst.append(d)
+                        
+            final = json.dumps(lst)
+            
+            proj = form.cleaned_data['project_name']
+            newpath = r'./documents/' + proj 
+            if not os.path.exists(newpath):
+                os.makedirs(newpath)
+            try:
+                to_unicode = unicode
+            except NameError:
+                to_unicode = str
+            
+            p1 = newpath + '/extraenv.json'
+            with io.open(p1, 'w', encoding='utf8') as outfile:
+                str_ = json.dumps(d,
+                            indent=4, sort_keys=True,
+                            separators=(',', ': '), ensure_ascii=False)
+                outfile.write(to_unicode(str_))
+                filecurrpath = "./" + 'extravar.json'
+
 
             try:
                makeenvfile(id)

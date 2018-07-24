@@ -444,14 +444,14 @@
                                           <div class="form-group">
                                             <label>Key
                                             </label>
-                                            <input type="text" class="form-control" required disabled value= {{ env_key }} name= {{ env_key }}>
+                                            <input type="text" class="form-control"  disabled value= {{ env_key }} name= {{ env_key }}>
                                           </div>
                                         </div>
                                         <div class="col-md-6">
                                           <div class="form-group">
                                             <label>Value
                                             </label>
-                                            <input type="text" class="form-control" required value= {{ env_value }}>
+                                            <input type="text" class="form-control" disabled value= {{ env_value }}>
                                           </div>
                                         </div>
                                       </div>
@@ -467,7 +467,8 @@
                                           <div class="row">
                                             <div class="col-md-6">
                                               <div class="form-group">
-                                                  <label>Extra key Value pair added</label>                                          
+                                                  <label>New Extra key Value pair added</label>    
+                                                  <label>Please Note : Adding New Variables will override all previous ones</label>                                       
                                                     <input type="text" class="form-control" id="total" name="total" value="0" readonly />                                  
                                               </div>
                                             </div>
@@ -475,7 +476,7 @@
                                             <div class="row">
                                             <div class="col-md-3">
                                               <div class="form-group">                                          
-                                                    <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add More" />                                  
+                                                    <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add New" />                                  
                                               </div>
                                             </div>
             
