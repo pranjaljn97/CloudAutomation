@@ -69,7 +69,11 @@ services:
        - "{{ nginx_php.sshport }}:22"
      volumes:
       - ./code:/var/www/html
+<<<<<<< HEAD
       - ./logs/nginx:/var/log/nginx 
+=======
+      - ./logs/nginx:/var/log/nginx    
+>>>>>>> c954e6cb05edfdfb47af920b5607753d15390303
   {% endif %}    
   
   {% if varnish.enable==true %} 

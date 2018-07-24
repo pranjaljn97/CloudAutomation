@@ -42,6 +42,7 @@ from dashboard.models import mongorequest
 import datetime
 import io
 import json
+import os
 
 
 @login_required(login_url='/login/')
@@ -321,6 +322,46 @@ def drupalform(request):
     if request.method == 'POST':
         form = RequestForm(request.POST, request.FILES)
         if form.is_valid():
+            maxkey  = 0
+            maxkey = int(form.cleaned_data['total'])
+            tot = 0
+            maxkey += 1
+            lst = []
+            d = {}
+            for x in range(1,maxkey):
+                y = x
+                tot += 1
+                name = 'key' + str(x) 
+                name2 = 'value' + str(x) 
+                print(name)
+                print(form.cleaned_data[name])
+                a = form.cleaned_data[name]
+                b = form.cleaned_data[name2]
+
+                d[a]=b
+            lst.append(d)
+                        
+            final = json.dumps(lst)
+            
+            proj = form.cleaned_data['project_name']
+            newpath = r'./documents/' + proj 
+            if not os.path.exists(newpath):
+                os.makedirs(newpath)
+            try:
+                to_unicode = unicode
+            except NameError:
+                to_unicode = str
+            
+            p1 = newpath + '/extraenv.json'
+            with io.open(p1, 'w', encoding='utf8') as outfile:
+                str_ = json.dumps(d,
+                            indent=4, sort_keys=True,
+                            separators=(',', ': '), ensure_ascii=False)
+                outfile.write(to_unicode(str_))
+                filecurrpath = "./" + 'extravar.json'
+                
+                
+
 
             form.save()
             sendmail(request,form,'submit')
@@ -462,10 +503,13 @@ def rerun(request,id):
         print "int"
         form = Myform(request.POST)
         if form.is_valid():
+
             newbranch = form.cleaned_data['newbranch']
             print newbranch
             posts.git_branch = newbranch
             posts.save()
+
+
             try:
                makeenvfile(id)
             except:
@@ -487,9 +531,13 @@ def rerun(request,id):
             return HttpResponseRedirect('/dashboard/detailform' + id + '.html')
     else:
         form = Myform()
-    return render(request, "dashboard/rerun.html", {'posts': posts })
-
-    # return render(request, "dashboard/rerun.html", {'posts': posts })
+    proj = posts.project_name
+    newpath = r'./documents/' + proj 
+    p1 = newpath + '/extraenv.json'
+    with open(p1) as data_file:
+        jsondata = json.load(data_file)
+       
+    return render(request, "dashboard/rerun.html", {'posts': posts, 'jsondata': jsondata })
 
 
 @login_required(login_url='/login/')
