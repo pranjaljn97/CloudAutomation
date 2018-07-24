@@ -128,7 +128,7 @@
                     <a class="navbar-brand" href="#">Hi {{ user.username }} !</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
+                    <!-- <ul class="nav navbar-nav navbar-left">
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-dashboard"></i>
@@ -147,10 +147,10 @@
                               </a>
                               <ul class="dropdown-menu">
                                 <li><a href="#">Welcome</a></li>
-                                <!--<li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 2</a></li>
                                 <li><a href="#">Notification 3</a></li>
                                 <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>-->
+                                <li><a href="#">Another notification</a></li>
                               </ul>
                         </li>
                         <li>
@@ -159,11 +159,11 @@
 								<p class="hidden-lg hidden-md">Search</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
 
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+                        <!-- <li>
                            <a href="#">
                                <p>FAQ</p>
                             </a>
@@ -175,7 +175,7 @@
 										<b class="caret"></b>
 									</p>
                               </a>
-                             <!-- <ul class="dropdown-menu">
+                              <ul class="dropdown-menu"> 
                                 <li><a href="#">Action</a></li>
                                 <li><a href="#">Another action</a></li>
                                 <li><a href="#">Something</a></li>
@@ -183,8 +183,8 @@
                                 <li><a href="#">Something</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
-                              </ul>-->
-                        </li>
+                              </ul>
+                        </li>-->
                         <li>
                             <a href="{% url 'logout' %}">
                                 <p>Log out</p>
@@ -324,7 +324,7 @@
                                         <tr>
                                         	<td>{{ posts.varnish_version }}</td>
                                         	<td>{{ posts.VARNISH_BACKEND_HOST_VALUE }}</td>
-                                        	<td> {{ VARNISH_BACKEND_PORT_VALUE }}</td>
+                                        	<td>{{ posts.VARNISH_BACKEND_PORT_VALUE }}</td>
                                             <td>{{ posts.VARNISH_PORT_VALUE }}</td>
                                             <td>{{ posts.redis_version }}</td>
                                             <td>{{ posts.REDIS_PASSWORD_VALUE }}</td>
@@ -342,30 +342,25 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <p class="category">Mongo DB Details</p>
+                                <p class="category">Docker stack Details</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover">
-                                    <thead>
-                                        <th>Mongo DB Version</th>
-                                    	<th>Database Name</th>
-                                    	<th>Mongo DB Root UserName</th>
-                                        <th>Mongo DB Root Password</th>
-                                        
-                                        
-                                    	
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        	<td>{{ posts.mongo_version }}</td>
-                                        	<td>{{ posts.MONGO_INITDB_DATABASE_VALUE }}</td>
-                                        	<td>{{ posts.MONGO_INITDB_ROOT_USERNAME_VALUE }}</td>
-                                            <td>{{ posts.MONGO_INITDB_ROOT_PASSWORD_VALUE}} </td>
-                                           
-                                        	
-                                        </tr>
-                                        
-                                    </tbody>
+                                    <tr>
+                                    <td>To see all containers inside {{posts.project_name}} stack</td>
+                                    <td>docker -H {{posts.hostIp}}:2735 stack ps {{posts.project_name}} </td>
+                                    </tr>
+
+                                    <!-- <tr>
+                                    <td>To see all the stacks running on Host</td>
+                                    <td>docker -H {{posts.hostIp}}:2735 stack ls </td>
+                                    </tr>
+
+                                    <tr>
+                                    <td>To see all the services running on Host</td>
+                                    <td>docker -H {{posts.hostIp}}:2735 service ls </td>
+                                    </tr> -->
+                                    
                                 </table>
 
                             </div>
@@ -610,7 +605,7 @@
                 {% endif %}
                 {% if posts.status == 'Approved' %}
                 <div class="col-md-2">
-                    <button class="btn btn-default btn-block">Delete</button>
+                    <button class="btn btn-default btn-block" onclick="window.location='{% url "deleteProject" posts.id %}';">Delete Project</button>
                 </div>
                 {% endif %}
                 {% if posts.status == 'submitted' %}

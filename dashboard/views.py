@@ -36,7 +36,8 @@ from dashboard.checkStatus import HostCheck
 from dashboard.checkhoststatus import HoststatusCheck
 from dashboard.models import status
 from dashboard.models import hoststatus
-from dashboard.models import Myform
+from dashboard.deleteProj import deleteProj
+from dashboard.models import Myform,Ports
 from dashboard.models import mongoform
 from dashboard.models import mongorequest
 import datetime
@@ -388,6 +389,66 @@ def nodeform(request):
         form = RequestForm()
     return render(request, 'dashboard/node-home.html', {'form': form})
 
+
+
+@login_required(login_url='/login/')
+def deleteProject(request,id):
+    posts = Project.objects.get(pk=id)
+    hosts = Host.objects.all()
+    hostip = posts.hostIp
+    projectname = posts.project_name
+    appname = posts.application_name
+
+    deleteproj = deleteProj()
+    
+    # code to delete nginx config file
+    for host in hosts:
+        if(host.hostIp == hostip):
+            user = host.hostUsername
+            passwd = host.hostPassword
+            nginxConfigFile = deleteproj.nginxVirtual(hostip,user,passwd,projectname)
+            print nginxConfigFile
+            break 
+    
+    #code to remove user
+    for host in hosts:
+        if(host.hostIp == hostip):
+            user = host.hostUsername
+            passwd = host.hostPassword
+            userDel = deleteproj.userDelete(hostip,user,passwd,projectname)
+            print userDel
+            break 
+
+    # code to free all project related ports
+    instance = Ports.objects.filter(projectname=projectname)
+    try:
+        for i in instance:
+            i.delete()
+        portSt = "All ports are free now"
+        print portSt
+    except:
+        portSt = "No such project exist"
+        return portSt
+
+    # remove DNS entry from route53
+    deleteDNS = deleteproj.deleteDNSEntry(projectname,appname,hostip)
+    print deleteDNS
+
+    # delete all running containers
+    deleteContainer = deleteproj.deleteContainers(hostip,projectname)
+    print deleteContainer
+
+    deleteprojectoutput = dict()
+    deleteprojectoutput['nginxconfig'] = nginxConfigFile
+    deleteprojectoutput['userdel'] = userDel
+    deleteprojectoutput['portst'] = portSt
+    deleteprojectoutput['deletedns'] = deleteDNS
+    deleteprojectoutput['deletecontainer'] = deleteContainer
+
+    return render(request,"dashboard/deleteProject.html", {'deleteprojectoutput' : deleteprojectoutput}) 
+
+
+
 @login_required(login_url='/login/')
 def checkstatus(request, id):
     global mysqlstatus
@@ -657,23 +718,6 @@ def rejectedsuccessfullymysql(request, id):
      #mail functionality
     sendmail(request,id,'rejectmysql')
     return render(request, "dashboard/forapprovalmysql.html", {'posts': posts2 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @login_required(login_url='/login/')
 def submittedmongo(request,requester):

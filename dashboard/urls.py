@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^rstackview/', views.rstackview, name='rstackview'),
     url(r'^checkstatus/(?P<id>[0-9]+)', views.checkstatus, name='checkstatus'),
     url(r'^hostcheckstatus/(?P<id>[0-9]+)', views.hostcheckstatus, name='hostcheckstatus'),
+    url(r'^deleteProject/?(?P<id>[0-9]+)', views.deleteProject, name='deleteProject'),
     url(r'^rerun/?(?P<id>[0-9]+)', views.rerun, name='rerun'),
     url(r'^mysqlform/', views.mysqlform, name='mysqlform'),
     url(r'^submittedmysql/(?P<requester>[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4})/$',views.submittedmysql, name='submittedmysql'),
