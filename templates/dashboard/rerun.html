@@ -410,14 +410,6 @@
                     {% endfor %}
 
 
-
-
-
-
-
-
-
-
                 </div>
             </div>
             <div id="form" class="col-md-12">
@@ -430,8 +422,32 @@
                             <div class="col-md-12">
                                 <form action="" method="POST">
                                     {% csrf_token %}
-                                    New Git Branch <input type="text" name="newbranch"/>
-                                    <br><br>
+                                    New Git Branch <input type="text" name="newbranch" placeholder= {{ posts.git_branch }}><br><br>
+                                    Environment Variables:
+                                    <br>
+                                    {% for env_key, env_value in jsondata.items %}
+                                    <div class="row">
+                                                
+                                        <div class="col-md-6">
+                                            <span style="color: red">
+                                              </span>
+                                          <div class="form-group">
+                                            <label>Key
+                                            </label>
+                                            <input type="text" class="form-control" required disabled value= {{ env_key }} name= {{ env_key }}>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label>Value
+                                            </label>
+                                            <input type="text" class="form-control" required value= {{ env_value }}>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                    {% endfor %}
+                                    <br>
                                     <input type="submit" value="Submit" onclick="window.location='{% url "rerun" posts.id %}';"/>
                                     <br>
                                     <br>
