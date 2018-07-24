@@ -56,7 +56,7 @@ services:
   {% if nginx_php.enable==true %}
    nginx_php:
      image: {{ nginx_php.image }}
-     {% if nginx_php.env_file=="true" %}
+     {% if nginx_php.envfile=="true" %}
      env_file:
        - nginx-php.env
      {% endif %}  
@@ -69,8 +69,7 @@ services:
        - "{{ nginx_php.sshport }}:22"
      volumes:
       - ./code:/var/www/html
-      - ./logs/nginx:/var/log/nginx
-      - ./nginx-conf:/etc/nginx    
+      - ./logs/nginx:/var/log/nginx 
   {% endif %}    
   
   {% if varnish.enable==true %} 
