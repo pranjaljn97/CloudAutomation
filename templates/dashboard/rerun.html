@@ -426,6 +426,7 @@
                                     Environment Variables:
                                     <br>
                                     {% for env_key, env_value in jsondata.items %}
+                                    <div id="extraenv">
                                     <div class="row">
                                                 
                                         <div class="col-md-6">
@@ -434,7 +435,7 @@
                                           <div class="form-group">
                                             <label>Key
                                             </label>
-                                            <input type="text" class="form-control" required disabled value= {{ env_key }} name= {{ env_key }}>
+                                            <input type="text" class="form-control" required  value= {{ env_key }} name= {{ env_key }}>
                                           </div>
                                         </div>
                                         <div class="col-md-6">
@@ -445,8 +446,16 @@
                                           </div>
                                         </div>
                                       </div>
-
+                                    </div>
                                     {% endfor %}
+
+                                    <div class="row">
+                                        <center>
+                                        <div class="col-md-3">
+                                          <div class="form-group">                                          
+                                                <input type="button" class="btncls" id="more_fields" onclick="add_fields2();" value="Delete these & Add new" /> 
+                                            </center>                                 
+                                     </div>
                                     <br>
                                     <input type="submit" value="Submit" onclick="window.location='{% url "rerun" posts.id %}';"/>
                                     <br>
@@ -544,6 +553,34 @@
         </footer>-->
     </div>
 </div>
+
+<script type="text/javascript">
+
+        
+
+        function add_fields2() {
+
+        var x = document.getElementById("extraenv");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "block";
+            }
+        key = 0;
+        val = 0;
+        key++;
+        val++;
+
+        document.getElementById('total').value = key;
+
+        var objTo = document.getElementById('room_fields')
+        var divtest = document.createElement("div");
+
+        divtest.innerHTML = '<div class="col-md-6"><div class="form-group"><label>Key #' +key+ '</label> <input type="text" class="form-control" name="key' +key+ '" /></div></div> <div class="col-md-6"><div class="form-group"><label>Value #'+val+'</label><input type="text" class="form-control"name="value' +val+ '"></div></div> ';
+
+        objTo.appendChild(divtest)
+        }
+  </script>
 
 
 </body>
