@@ -211,6 +211,7 @@ class RequestForm(ModelForm):
 
 class Myform(forms.Form):
     newbranch = forms.CharField(max_length=40)
+    total = forms.CharField(max_length=40)
 
 
 
