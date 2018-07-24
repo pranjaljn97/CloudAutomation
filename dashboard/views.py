@@ -503,10 +503,13 @@ def rerun(request,id):
         print "int"
         form = Myform(request.POST)
         if form.is_valid():
+
             newbranch = form.cleaned_data['newbranch']
             print newbranch
             posts.git_branch = newbranch
             posts.save()
+
+
             try:
                makeenvfile(id)
             except:
@@ -528,9 +531,13 @@ def rerun(request,id):
             return HttpResponseRedirect('/dashboard/detailform' + id + '.html')
     else:
         form = Myform()
-    return render(request, "dashboard/rerun.html", {'posts': posts })
-
-    # return render(request, "dashboard/rerun.html", {'posts': posts })
+    proj = posts.project_name
+    newpath = r'./documents/' + proj 
+    p1 = newpath + '/extraenv.json'
+    with open(p1) as data_file:
+        jsondata = json.load(data_file)
+       
+    return render(request, "dashboard/rerun.html", {'posts': posts, 'jsondata': jsondata })
 
 
 @login_required(login_url='/login/')
