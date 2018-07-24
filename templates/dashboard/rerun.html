@@ -566,19 +566,7 @@
             } else {
                 x.style.display = "block";
             }
-        key = 0;
-        val = 0;
-        key++;
-        val++;
-
-        document.getElementById('total').value = key;
-
-        var objTo = document.getElementById('room_fields')
-        var divtest = document.createElement("div");
-
-        divtest.innerHTML = '<div class="col-md-6"><div class="form-group"><label>Key #' +key+ '</label> <input type="text" class="form-control" name="key' +key+ '" /></div></div> <div class="col-md-6"><div class="form-group"><label>Value #'+val+'</label><input type="text" class="form-control"name="value' +val+ '"></div></div> ';
-
-        objTo.appendChild(divtest)
+            add_fields();
         }
   </script>
 
@@ -607,7 +595,10 @@
 	<script src="{% static "dashboard/assets/js/light-bootstrap-dashboard.js" %}"></script>
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="{% static "dashboard/assets/js/demo.js" %}"></script>
+    <script src="{% static "dashboard/assets/js/demo.js" %}"></script>
+    
+    <!-- JS file for add more button -->
+    <script src="{% static "dashboard/assets/js/addMore.js" %}"></script>
 
 	
 
