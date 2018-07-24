@@ -412,6 +412,31 @@
 
                 </div>
             </div>
+	     <div id="room_fields">
+                                <div class="content">
+                                  <div class="row">
+
+                                  </div>
+                                </div>
+                              </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label>Extra key Value pair added</label>
+                                        <input type="text" class="form-control" id="total" name="total" value="0" readonly />                   
+                                  </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-3">
+                                  <div class="form-group">
+                                        <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add More" />        
+                                  </div>
+                                </div>
+
+                                </div>
+
+                            </div>
+
             <div id="form" class="col-md-12">
                     <div class="card">
                         <div class = "col-md-12">
@@ -460,7 +485,7 @@
                                         <center>
                                         <div class="col-md-3">
                                           <div class="form-group">                                          
-                                                <input type="button" class="btncls" id="more_fields" onclick="add_fields2()" value="Delete these & Add new" /> 
+                                                <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Delete these & Add new" /> 
                                             </center>                                 
                                      </div>
                                     <br>
@@ -575,9 +600,9 @@ var val=0;
             key++;
             val++;
 
-            document.getElementById('total').value = key;
+            
 
-            var objTo = document.getElementById('room_fields')
+            var objTo = document.getElementById('room_fields');
             var divtest = document.createElement("div");
 
             divtest.innerHTML = '<div class="col-md-6"><div class="form-group"><label>Key #' +key+ '</label> <input type="text" class="form-control" name="key' +key+ '" /></div></div> <div class="col-md-6"><div class="form-group"><label>Value #'+val+'</label><input type="text" class="form-control"name="value' +val+ '"></div></div> ';
