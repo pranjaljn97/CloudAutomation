@@ -3,8 +3,12 @@ var key=0;
 var val=0;
 
 function add_fields() {
+
 key++;
 val++;
+
+document.getElementById('total').value = key;
+
 var objTo = document.getElementById('room_fields')
 var divtest = document.createElement("div");
 
