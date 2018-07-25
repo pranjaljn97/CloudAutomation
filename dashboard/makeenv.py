@@ -696,7 +696,9 @@ def makeEnvHost(id):
             'hostMysql': post.hostMysql,
             'hostMongo': post.hostMongo,
             'mysqlUsername': post.mysqlUsername,
-            'mysqlPassword': post.mysqlPassword,}
+            'mysqlPassword': post.mysqlPassword,
+            'mongoUsername': post.mongoUsername,
+            'mongoPassword': post.mongoPassword,}
 
 
     with io.open(post.hostIdentifier+ '_' + str(post.id)+'.json', 'w', encoding='utf8') as outfile:
