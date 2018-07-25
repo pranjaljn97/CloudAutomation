@@ -22,6 +22,21 @@
   notify: 
     - Start mongodb on boot
 
+- name: export mongo config file
+  become: true
+  copy:
+    src: mongod.conf
+    dest: /etc/
+    owner: root
+    mode: 644
+   
+- name: restart mongod
+  become: true
+  systemd:
+    name: mongod
+    state: started
+
+
 
 - name: Install Pip
   become: true
@@ -40,13 +55,7 @@
     roles: root
     state: present
 
-- name: export mongo config file
-  become: true
-  copy:
-    src: mongod.conf
-    dest: /etc/
-    owner: root
-    mode: 644
+
    
 - name: restart mongod
   become: true
