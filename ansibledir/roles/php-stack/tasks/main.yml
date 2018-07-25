@@ -46,14 +46,7 @@
     owner: bin
     mode: 0644
 
-- name: Copying Template into local
-  become: true
-  delegate_to: 127.0.0.1
-  template:
-    src: docker-compose.yml
-    dest: '/tmp/{{ user.project_name }}_{{ user.application_name }}/docker-compose.yml'
-    owner: bin
-    mode: 0644
+
 
 - name: Copying compose file with datetime
   become: true

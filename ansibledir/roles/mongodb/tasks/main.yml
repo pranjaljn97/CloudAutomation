@@ -22,6 +22,17 @@
   notify: 
     - Start mongodb on boot
 
+
+- name: Install Pip
+  become: true
+  apt: name=python-pip state=present
+
+- name: Install pymongo
+  become: true
+  pip: name=pymongo state=present
+
+
+
 - mongodb_user:
     database: admin
     name: "{{ mongoUsername }}"
