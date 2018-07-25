@@ -514,6 +514,9 @@ def deleteProject(request,id):
     deleteContainer = deleteproj.deleteContainers(hostip,projectname)
     print deleteContainer
 
+    posts.status = 'Deleted'
+    posts.save()
+    
     deleteprojectoutput = dict()
     deleteprojectoutput['nginxconfig'] = nginxConfigFile
     deleteprojectoutput['userdel'] = userDel
