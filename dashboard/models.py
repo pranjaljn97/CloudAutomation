@@ -86,7 +86,7 @@ class hoststatus(models.Model):
 class Host(models.Model):
         id = models.AutoField(primary_key=True)
         hostIdentifier = models.CharField(blank=True, max_length=30)
-        hostIp = models.CharField(blank=True, max_length=30)
+        hostIp = models.CharField(blank=True, max_length=30, unique=True)
         hostUsername = models.CharField(blank=True,max_length=30)
         hostPassword = models.CharField(blank=True,max_length=30)
         status = models.CharField(default='initiated', max_length=30)
