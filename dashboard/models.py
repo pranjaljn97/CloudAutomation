@@ -129,6 +129,8 @@ class Project(models.Model):
 
         platform = models.CharField(blank=True,max_length=30)
         hostIp = models.CharField(blank=True, max_length=30)
+        hostIp_mysql = models.CharField(blank=True, max_length=30)
+        legacy1 = models.CharField(default='Yes', max_length=30)
         envtype = models.CharField(blank=True,max_length=30)
         project_name = models.CharField(blank=True,max_length=30,unique=True)
         application_name = models.CharField(blank=True,max_length=30)
@@ -233,7 +235,6 @@ class Myform(forms.Form):
     key10 = forms.CharField(max_length=40)
     value10 = forms.CharField(max_length=40)
 
-
 class mysqluser(models.Model):
         requester = models.CharField(blank=True,max_length=100)
         id = models.AutoField(primary_key=True)
@@ -266,6 +267,19 @@ class mongorequest(ModelForm):
     class Meta:
         model = mongoform
         fields = ['requester','hostip','MONGO_INITDB_DATABASE_VALUE','MONGO_INITDB_ROOT_USERNAME_VALUE', 'MONGO_INITDB_ROOT_PASSWORD_VALUE',]
+
+
+class hostdeploy(models.Model):
+    id = models.AutoField(primary_key=True)
+    hostipdeploy = models.CharField( blank=True,max_length=500)
+    hostiplegacy = models.CharField( blank=True,max_length=500)
+
+class HostdeployForm(ModelForm):
+    class Meta:
+        model = hostdeploy
+        fields = ['hostipdeploy','hostiplegacy']
+
+    
     
     
 

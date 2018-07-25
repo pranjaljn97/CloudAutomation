@@ -49,12 +49,14 @@ def makeenvfile(myid):
     else:
         varnishflag = True
     #mysql
-    if curr.mysql_version == 'NA':
+    if curr.mysql_version == 'NA' or curr.hostIp_mysql != 'NA':
+        print "no sql"
         mysqlflag = False
     else:
         mysqlflag = True
     #mongo db
-    if curr.mongo_version == 'NA':
+    if curr.mongo_version == 'NA' or curr.hostIp_mysql != 'NA':
+        print "no mongo"
         mongoflag = False
     else:
         mongoflag = True
@@ -483,7 +485,7 @@ def makeenvfile(myid):
 
             'nginx_php': { 'enable': nginxflag,
                             'image': phpImage,
-                            'envfile': post.fileopp,
+                            'env_file': post.fileopp,
                             'env_path': env_path,
                             'envi': {
                             'PHP_VERSION': post.PHP_VERSION,

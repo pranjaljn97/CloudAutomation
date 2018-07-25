@@ -37,7 +37,9 @@ from dashboard.checkhoststatus import HoststatusCheck
 from dashboard.models import status
 from dashboard.models import hoststatus
 from dashboard.deleteProj import deleteProj
-from dashboard.models import Myform,Ports
+from dashboard.models import Ports
+from dashboard.models import Myform
+from dashboard.models import HostdeployForm
 from dashboard.models import mongoform
 from dashboard.models import mongorequest
 import datetime
@@ -214,25 +216,88 @@ def rejected(request):
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def approvedsuccessfully(request, id):
-    
+    print "in approved"
     currpost = Project.objects.get(id=id)
     
     posts = Project.objects.all()
     hostInfo = Host.objects.all()
-    try:
-  	  makeenvfile(id)
-    except:
-        msg = "Error in making Env File"
-        return render(request, "dashboard/error.html", {'msg': msg })
+    if request.method == 'POST':
+        form = HostdeployForm(request.POST)
+        if form.is_valid():
+            print "inpost"
+            
+            ip = form.cleaned_data['hostipdeploy']
+            print ip
+            currpost.hostIp = ip
+            
+            status = request.POST.get('legacy')
+            print status
+            currpost.legacy1 = status
 
-    print("hi")
-   # try:
-    execplaybook(id)
-   # except:
-   #     msg = "Error in executing  Ansible Playbook"
- #       return render(request, "dashboard/error.html", {'msg': msg })
-  
+            mysqlip = form.cleaned_data['hostiplegacy']
+            if(currpost.legacy1 == 'No'):
+                mysqlip = 'NA'
+            
+            currpost.hostIp_mysql = mysqlip
+               
+            print mysqlip
+            currpost.save()
+
+            #handling mysql and mongo
+            if(currpost.hostIp_mysql != 'NA'):
+                ip = currpost.hostIp_mysql
+                hosts = Host.objects.all().filter(hostIp=ip)
+                for post in hosts:
+                    user = post.mysqlUsername
+                    passwd = post.mysqlPassword
+                
+                uname = currpost.MYSQL_USER_NAME_VALUE
+                upwd = currpost.MYSQL_PASSWORD_VALUE
+                udb = currpost.MYSQL_DATABASE_NAME_VALUE
+                print ip
+                print user
+                print passwd
+                print uname 
+                print upwd
+                print udb 
+                
+                try:
+                    buildMysql(ip,user,passwd,uname,upwd,udb)
+                except:
+                     msg = "Unable to make mysql request"
+                     return render(request, "dashboard/error.html", {'msg': msg })
+
+
+                uname = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
+                upwd = currpost.MONGO_INITDB_ROOT_PASSWORD_VALUE
+                udb = currpost.MONGO_INITDB_DATABASE_VALUE
+
+                rootuser = 'tom'
+                rootpass = 'jerry'
+                rootdb = 'admin'
+                
+                try:
+                    buildMongo(rootuser, rootpass, rootdb,uname,upwd,udb,ip)
+                except:
+                     msg = "Unable to make mongo request"
+                     return render(request, "dashboard/error.html", {'msg': msg })
+
+
+            
+            try:
+                makeenvfile(id)
+            except:
+                msg = "Error in making Env File"
+                return render(request, "dashboard/error.html", {'msg': msg })
+
+            print("hi")
+            # try:
+            execplaybook(id)
+            # except:
+            #         msg = "Error in executing  Ansible Playbook"
+            #       return render(request, "dashboard/error.html", {'msg': msg })
     
+<<<<<<< Updated upstream
     jsonfile = currpost.project_name
     appname = currpost.application_name
     hostip = currpost.hostIp
@@ -255,6 +320,33 @@ def approvedsuccessfully(request, id):
     fmail(request,id,currpost,jsonfile)
 
     return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
+=======
+        
+            jsonfile = currpost.project_name
+            appname = currpost.application_name
+            hostip = currpost.hostIp
+            try:
+                buildinfo(request,id,jsonfile,hostip)
+            except:
+                msg = "Error in fetching final status"
+                return render(request, "dashboard/error.html", {'msg': msg })
+    
+            try:
+                add_cname_record(request,id,jsonfile,appname,hostip)
+        
+            except:
+                msg = "Error in adding A record in AWS Route53"
+                return render(request, "dashboard/error.html", {'msg': msg })
+                currpost.approvedBy = request.user.email
+                currpost.status = 'Approved'
+                currpost.save()
+    
+            fmail(request,id,currpost,jsonfile)
+    else:
+        print "in else"
+        form = HostdeployForm()
+    return render(request, "dashboard/approvedetailform.html", {'posts': currpost, 'hostInfo': hostInfo })
+>>>>>>> Stashed changes
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def rejectedsuccessfully(request, id):
@@ -276,6 +368,9 @@ def detailform(request,id):
     uname = request.user.get_username()
     posts = Project.objects.get(pk=id)
     return render(request, "dashboard/detailform.html", {'posts': posts })
+
+
+
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 @login_required(login_url='/login/')
@@ -564,12 +659,19 @@ def rerun(request,id):
         print "int"
         form = Myform(request.POST)
         if form.is_valid():
+<<<<<<< Updated upstream
+=======
+            
+
+            
+>>>>>>> Stashed changes
 
             newbranch = form.cleaned_data['newbranch']
             print newbranch
             posts.git_branch = newbranch
             posts.save()
 
+<<<<<<< Updated upstream
             maxkey  = 0
             maxkey = int(form.cleaned_data['total'])
             tot = 0
@@ -608,6 +710,8 @@ def rerun(request,id):
                 outfile.write(to_unicode(str_))
                 filecurrpath = "./" + 'extravar.json'
 
+=======
+>>>>>>> Stashed changes
 
             try:
                makeenvfile(id)
@@ -630,6 +734,7 @@ def rerun(request,id):
             return HttpResponseRedirect('/dashboard/detailform' + id + '.html')
     else:
         form = Myform()
+<<<<<<< Updated upstream
     proj = posts.project_name
     newpath = r'./documents/' + proj 
     p1 = newpath + '/extraenv.json'
@@ -637,6 +742,13 @@ def rerun(request,id):
         jsondata = json.load(data_file)
        
     return render(request, "dashboard/rerun.html", {'posts': posts, 'jsondata': jsondata })
+=======
+    with open('dashboard/env.json') as data_file:
+        jsondata = json.load(data_file)
+    return render(request, "dashboard/rerun.html", {'posts': posts, 'jsondata': jsondata })
+
+    # return render(request, "dashboard/rerun.html", {'posts': posts })
+>>>>>>> Stashed changes
 
 
 @login_required(login_url='/login/')
@@ -730,6 +842,8 @@ def approvedsuccessfullymysql(request, id):
     udb = currpost.MYSQL_DATABASE_NAME_VALUE
 
     res = buildMysql(host,user,passwd,uname,upwd,udb)
+
+    
 
     if res == 't':
 
