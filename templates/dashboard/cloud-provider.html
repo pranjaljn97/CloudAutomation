@@ -5,10 +5,11 @@
     function ShowHideDiv(chkBox) {
         var chkValue = document.getElementById("chkValue");
         chkValue.style.display = chkBox.checked ? "block" : "none";
+    }
 
-    function ShowHideDiv2(chkBox2) {
+        function ShowHide(chkBox) {
         var chkValue2 = document.getElementById("chkValue2");
-        chkValue2.style.display = chkBox2.checked ? "block" : "none";
+        chkValue2.style.display = chkBox.checked ? "block" : "none";
     }
 </script>
 <style type="text/css">
@@ -29,7 +30,6 @@
         font-size: 1.4em;
         margin-bottom: 10px;
     }
-
     .form-style-5 legend2 {
         font-size: 1.2em;
         margin-bottom: 10px;
@@ -38,8 +38,6 @@
         display: block;
         margin-bottom: 8px;
     }
-
-
     .form-style-5 input[type="text"],
     .form-style-5 input[type="date"],
     .form-style-5 input[type="datetime"],
@@ -143,21 +141,20 @@
                             <input type="checkbox" name="hostDocker" value="true"> <legend2>Docker</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="checkbox" name="hostNginx" value="true"> <legend2>Nginx</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="checkbox" name="hostMysql" value="true" id="chkBox" onclick="ShowHideDiv(this)" /> <legend2>Mysql</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="hostMongo" value="true" id="chkBox2" onclick="ShowHideDiv2(this)" /> <legend2>Mongo</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                            <input type="checkbox" name="hostMongo" value="true" id="chkBox" onclick="ShowHide(this)"> <legend2>Mongo</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
                         </fieldset>
                         <br>
                         <fieldset id="chkValue" style="display: none">
                                 <legend><span class="number">4</span>Mysql Info</legend>
-                                <input type="text" name="mysqlUsername" value="root" readonly>
+                                <input type="text" name="mysqlUsername" value="root" readonlys>
                                 <input type="text" name="mysqlPassword" placeholder="Mysql Password">
-                            </fieldset>
-                        <br>
+                        </fieldset>
                         <fieldset id="chkValue2" style="display: none">
-                                <legend><span class="number">5</span>Mongo Info</legend>
-                                <input type="text" name="mongoUsername" placeholder="Mongo Username">
-                                <input type="text" name="mongoPassword" placeholder="Mongo Password">
-                            </fieldset>
-                                
+                                    <legend><span class="number">5</span>Mongo Info</legend>
+                                    <input type="text" name="mongoUsername"placeholder="Mongo Username">
+                                    <input type="text" name="mongoPassword" placeholder="Mongo Password">
+                        </fieldset>
+                        
                         <input type="submit" value="Add Host" style="background-image: url(/static/dashboard/assets/img/sidebar-10.png) "/>
                         </form>
                         </div>
@@ -233,5 +230,3 @@
         </footer>-->
 
 {% endblock %}
-
-      
