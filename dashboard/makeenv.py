@@ -528,6 +528,11 @@ def makeenvfile(myid):
     varnishImage = str(play["varnish"]["version"][varnishVersion])
     redisImage = str(play["redis"]["version"][redisVersion])
 
+
+    fileopp = 'true'
+    if post.total == '0':
+        fileopp = 'false'
+
     pathdir = "documents/" + post.project_name 
     env_path = 'false'
     for root, dirs, files in os.walk(pathdir):
@@ -553,7 +558,7 @@ def makeenvfile(myid):
 
             'nginx_php': { 'enable': nginxflag,
                             'image': phpImage,
-                            'env_file': post.fileopp,
+                            'env_file': fileopp,
                             'env_path': env_path,
                             'envi': {
                             'PHP_VERSION': post.PHP_VERSION,
