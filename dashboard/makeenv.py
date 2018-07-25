@@ -440,6 +440,11 @@ def makeenvfile(myid):
         nginxflag = False
         nginxport = 'false'
         sshnginxport = 'false'
+        newport = Ports(port = nginxport, status = '0', projectname = pname, ptype = 'nginx')
+        newport.save()
+        newport1 = Ports(port = sshnginxport, status = '0', projectname = pname, ptype = 'nginx')
+        newport1.save()
+
     else:
         nginxflag = True
     #varnish
@@ -447,6 +452,10 @@ def makeenvfile(myid):
         varnishflag = False
         varnishport = 'false'
         sshvarnishport = 'false'
+        newport = Ports(port = varnishport, status = '0', projectname = pname, ptype = 'varnish')
+        newport.save()
+        newport1 = Ports(port = sshvarnishport, status = '0', projectname = pname, ptype = 'varnish')
+        newport1.save()
     else:
         varnishflag = True
     #mysql
@@ -455,6 +464,10 @@ def makeenvfile(myid):
         mysqlflag = False
         sqlport = 'false'
         sshsqlport = 'false'
+        newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'mysql')
+        newport.save()
+        newport1 = Ports(port = sshsqlport, status = '0', projectname = pname, ptype = 'mysql')
+        newport1.save()
     else:
         mysqlflag = True
     #mongo db
@@ -463,6 +476,10 @@ def makeenvfile(myid):
         mongoflag = False
         mongoport = 'false'
         sshmongoport = 'false'
+        newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongo db')
+        newport.save()
+        newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db')
+        newport.save()
     else:
         mongoflag = True
     #redis
@@ -470,6 +487,10 @@ def makeenvfile(myid):
         redisflag = False
         redisport = 'false'
         sshredisport = 'false'
+        newport = Ports(port = redisport, status = '0', projectname = pname, ptype = 'redis')
+        newport.save()
+        newport = Ports(port = sshredisport, status = '0', projectname = pname, ptype = 'redis')
+        newport.save()
     else:
         redisflag = True
         

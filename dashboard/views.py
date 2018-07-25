@@ -319,7 +319,7 @@ def approvedsuccessfully(request, id):
             currpost.save()
     
             fmail(request,id,currpost,jsonfile)
-            return HttpResponseRedirect('/dashboard/detailform1.html')
+        return HttpResponseRedirect('/dashboard/detailform1.html')
 
     else:
         print "in else"
