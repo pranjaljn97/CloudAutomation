@@ -284,11 +284,11 @@ def approvedsuccessfully(request, id):
 
 
             
-            try:
-                makeenvfile(id)
-            except:
-                msg = "Error in making Env File"
-                return render(request, "dashboard/error.html", {'msg': msg })
+            # try:
+            makeenvfile(id)
+            # except:
+            #     msg = "Error in making Env File"
+            #     return render(request, "dashboard/error.html", {'msg': msg })
 
             print("hi")
             # try:
@@ -301,11 +301,11 @@ def approvedsuccessfully(request, id):
             jsonfile = currpost.project_name
             appname = currpost.application_name
             hostip = currpost.hostIp
-            try:
-                buildinfo(request,id,jsonfile,hostip)
-            except:
-                msg = "Error in fetching final status"
-                return render(request, "dashboard/error.html", {'msg': msg })
+            # try:
+            buildinfo(request,id,jsonfile,hostip)
+            # except:
+            #     msg = "Error in fetching final status"
+            #     return render(request, "dashboard/error.html", {'msg': msg })
     
             try:
                 add_cname_record(request,id,jsonfile,appname,hostip)

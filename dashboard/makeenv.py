@@ -33,6 +33,8 @@ global mongoflag
 
 
 def makeenvfile(myid):
+    curr = Project.objects.get(pk=myid)
+    pname = curr.project_name
 
     # curr = Project.objects.get(pk=myid)
     # pname = curr.project_name
@@ -430,8 +432,7 @@ def makeenvfile(myid):
                 sshredisport = o10.port
     
 
-    curr = Project.objects.get(pk=myid)
-    pname = curr.project_name
+    
 
     #flag checking
     #nginx-php
@@ -467,10 +468,11 @@ def makeenvfile(myid):
     #redis
     if curr.redis_version == 'NA':
         redisflag = False
-    else:
-        redisflag = True
         redisport = 'false'
         sshredisport = 'false'
+    else:
+        redisflag = True
+        
 
 
       
