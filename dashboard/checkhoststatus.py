@@ -11,7 +11,7 @@ class HoststatusCheck():
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
         try:    
-            client.connect(HOST,username=USER,password=PASS)
+            client.connect(HOST,username=USER,password=PASS, timeout=10)
             print "SSH connection to %s established" %HOST
             client.close()
             print "Logged out of device %s" %HOST

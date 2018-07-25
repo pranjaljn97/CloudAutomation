@@ -11,7 +11,7 @@ class HostCheck():
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
         try:    
-            client.connect(HOST,username=USER,password=PASS)
+            client.connect(HOST,username=USER,password=PASS, timeout=10)
             print "SSH connection to %s established" %HOST
             client.close()
             print "Logged out of device %s" %HOST
@@ -22,6 +22,7 @@ class HostCheck():
     def checkDockerStatus(self,Host):
         try:
             dockerVer = docker.DockerClient(base_url='tcp://'+Host+':2735').version()
+            print dockerVer
             dockerres = str(dockerVer['Components'][0]['Version'])
             return "Docker working:" + dockerres
         except:
