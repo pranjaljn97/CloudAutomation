@@ -297,30 +297,6 @@ def approvedsuccessfully(request, id):
             #         msg = "Error in executing  Ansible Playbook"
             #       return render(request, "dashboard/error.html", {'msg': msg })
     
-<<<<<<< Updated upstream
-    jsonfile = currpost.project_name
-    appname = currpost.application_name
-    hostip = currpost.hostIp
-    #try:
-    buildinfo(request,id,jsonfile,hostip)
-    #except:
-     #    msg = "Error in fetching final status"
-      #   return render(request, "dashboard/error.html", {'msg': msg })
-  
-    #try:
-    add_cname_record(request,id,jsonfile,appname,hostip)
-    
-   # except:
-    #     msg = "Error in adding A record in AWS Route53"
-     #    return render(request, "dashboard/error.html", {'msg': msg })
-    currpost.approvedBy = request.user.email
-    currpost.status = 'Approved'
-    currpost.save()
-   
-    fmail(request,id,currpost,jsonfile)
-
-    return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
-=======
         
             jsonfile = currpost.project_name
             appname = currpost.application_name
@@ -346,7 +322,6 @@ def approvedsuccessfully(request, id):
         print "in else"
         form = HostdeployForm()
     return render(request, "dashboard/approvedetailform.html", {'posts': currpost, 'hostInfo': hostInfo })
->>>>>>> Stashed changes
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def rejectedsuccessfully(request, id):
@@ -659,19 +634,11 @@ def rerun(request,id):
         print "int"
         form = Myform(request.POST)
         if form.is_valid():
-<<<<<<< Updated upstream
-=======
-            
-
-            
->>>>>>> Stashed changes
-
             newbranch = form.cleaned_data['newbranch']
             print newbranch
             posts.git_branch = newbranch
             posts.save()
 
-<<<<<<< Updated upstream
             maxkey  = 0
             maxkey = int(form.cleaned_data['total'])
             tot = 0
@@ -710,8 +677,6 @@ def rerun(request,id):
                 outfile.write(to_unicode(str_))
                 filecurrpath = "./" + 'extravar.json'
 
-=======
->>>>>>> Stashed changes
 
             try:
                makeenvfile(id)
@@ -734,7 +699,6 @@ def rerun(request,id):
             return HttpResponseRedirect('/dashboard/detailform' + id + '.html')
     else:
         form = Myform()
-<<<<<<< Updated upstream
     proj = posts.project_name
     newpath = r'./documents/' + proj 
     p1 = newpath + '/extraenv.json'
@@ -742,13 +706,6 @@ def rerun(request,id):
         jsondata = json.load(data_file)
        
     return render(request, "dashboard/rerun.html", {'posts': posts, 'jsondata': jsondata })
-=======
-    with open('dashboard/env.json') as data_file:
-        jsondata = json.load(data_file)
-    return render(request, "dashboard/rerun.html", {'posts': posts, 'jsondata': jsondata })
-
-    # return render(request, "dashboard/rerun.html", {'posts': posts })
->>>>>>> Stashed changes
 
 
 @login_required(login_url='/login/')
