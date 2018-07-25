@@ -212,7 +212,26 @@ class RequestForm(ModelForm):
 class Myform(forms.Form):
     newbranch = forms.CharField(max_length=40)
     total = forms.CharField(max_length=40)
-
+    key1 = forms.CharField(max_length=40)
+    value1 = forms.CharField(max_length=40)
+    key2 = forms.CharField(max_length=40)
+    value2 = forms.CharField(max_length=40)
+    key3 = forms.CharField(max_length=40)
+    value3 = forms.CharField(max_length=40)
+    key4 = forms.CharField(max_length=40)
+    value4 = forms.CharField(max_length=40)
+    key5 = forms.CharField(max_length=40)
+    value5 = forms.CharField(max_length=40)
+    key6 = forms.CharField(max_length=40)
+    value6 = forms.CharField(max_length=40)
+    key7 = forms.CharField(max_length=40)
+    value7 = forms.CharField(max_length=40)
+    key8 = forms.CharField(max_length=40)
+    value8 = forms.CharField(max_length=40)
+    key9 = forms.CharField(max_length=40)
+    value9 = forms.CharField(max_length=40)
+    key10 = forms.CharField(max_length=40)
+    value10 = forms.CharField(max_length=40)
 
 
 class mysqluser(models.Model):
