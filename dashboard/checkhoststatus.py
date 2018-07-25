@@ -21,7 +21,7 @@ class HoststatusCheck():
     
     def checkhostDockerStatus(self,Host):
         try:
-            dockerVer = docker.DockerClient(base_url='tcp://'+Host+':2735').version()
+            dockerVer = docker.DockerClient(base_url='tcp://'+Host+':2735', timeout=10).version()
             dockerres = str(dockerVer['Components'][0]['Version'])
             return "Docker working:" + dockerres
         except:

@@ -21,12 +21,16 @@ class HostCheck():
 
     def checkDockerStatus(self,Host):
         try:
-            dockerVer = docker.DockerClient(base_url='tcp://'+Host+':2735').version()
+            print "in docker status"
+            dockerVer = docker.DockerClient(base_url='tcp://'+Host+':2735', timeout=10).version()
             print dockerVer
-            dockerres = str(dockerVer['Components'][0]['Version'])
-            return "Docker working:" + dockerres
         except:
             return "Docker not working"
+
+        #     dockerres = str(dockerVer['Components'][0]['Version'])
+        #     return "Docker working:" + dockerres
+        # except:
+        #     return "Docker not working"
 
     def checkUrlStatus(self,projectname,appname):
         try:    
@@ -62,7 +66,7 @@ class HostCheck():
         host = Host
         nginxstatusval = False
         try:
-            nginxphpres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_nginx_php"'"]}').json()
+            nginxphpres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_nginx_php"'"]}', timeout=10).json()
             if nginxphpres[0]['Spec']['Mode']['Replicated']['Replicas']==1:
 	    #  print "\n"+nginxphpres[0]['Spec']['Name'] + " is running."
                 nginxstatusval = True
@@ -78,7 +82,7 @@ class HostCheck():
 
         mysqlstatusval = False
         try:
-    	    mysqlres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_mysql"'"]}').json()
+    	    mysqlres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_mysql"'"]}', timeout=10).json()
     	    if mysqlres[0]['Spec']['Mode']['Replicated']['Replicas']==1:
 	    #  "\n"+mysqlres[0]['Spec']['Name'] + " is running."
                 mysqlstatusval = True
@@ -92,7 +96,7 @@ class HostCheck():
 
         mongostatusval = False
         try:
-            mongores=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_mongodb"'"]}').json()
+            mongores=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_mongodb"'"]}', timeout=10).json()
             if mongores[0]['Spec']['Mode']['Replicated']['Replicas']==1:
 	    #  print "\n"+mongores[0]['Spec']['Name'] + " is running."
                 mongostatusval = True
@@ -107,7 +111,7 @@ class HostCheck():
 
         redisstatusval = False
         try:
-            redisres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_redis"'"]}').json()
+            redisres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_redis"'"]}', timeout=10).json()
             if redisres[0]['Spec']['Mode']['Replicated']['Replicas']==1:
 	        #  print "\n"+redisres[0]['Spec']['Name'] + " is running."
                 redisstatusval = True
@@ -121,7 +125,7 @@ class HostCheck():
 
         varnishstatusval = False
         try:
-            varnishres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_varnish"'"]}').json()
+            varnishres=requests.get('http://'+host+':2735/services?filters={"mode":["replicated"],"name":["'+projectname+"_varnish"'"]}', timeout=10).json()
             if varnishres[0]['Spec']['Mode']['Replicated']['Replicas']==1:
                 varnishstatusval = True
 	    #  print "\n"+varnishres[0]['Spec']['Name'] + " is running."
@@ -134,7 +138,7 @@ class HostCheck():
             print "Connection timed out!!!"
         
         try:
-            nginxphpres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_nginx_php"'"]}').json()
+            nginxphpres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_nginx_php"'"]}', timeout=10).json()
             #ngnixidval = str(nginxphpres[0]['Id']) + " | " + str(nginxphpres[0]['Names'][0]) + " | " + str(nginxphpres[0]['Status'])
             ngnixidval = str(nginxphpres[0]['Id'])
             nginxnameval = str(nginxphpres[0]['Names'][0])
@@ -145,7 +149,7 @@ class HostCheck():
             nginxstval = "Unable to fetch nginx details"
 
         try:
-            mysqlres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_mysql"'"]}').json()
+            mysqlres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_mysql"'"]}', timeout=10).json()
             #mysqlidval = str(mysqlres[0]['Id']) + " | " + str(mysqlres[0]['Names'][0]) + " | " + str(mysqlres[0]['Status'])
             mysqlidval = str(mysqlres[0]['Id'])
             mysqlnameval = str(mysqlres[0]['Names'][0])
@@ -156,7 +160,7 @@ class HostCheck():
             mysqlstval = "Unable to fetch mysql details"
         
         try:
-            mongores=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_mongodb"'"]}').json()
+            mongores=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_mongodb"'"]}', timeout=10).json()
             #mongoidval = str(mongores[0]['Id']) + " | " + str(mongores[0]['Names'][0]) + " | " + str(mongores[0]['Status'])
             mongoidval = str(mongores[0]['Id'])
             mongonameval = str(mongores[0]['Names'][0])
@@ -167,7 +171,7 @@ class HostCheck():
             mongostval = "Unable to fetch mongo details"
         
         try:
-            varnishres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_varnish"'"]}').json()
+            varnishres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_varnish"'"]}', timeout=10).json()
             #varnishidval = (varnishres[0]['Id']) + " | " + str(varnishres[0]['Names'][0]) + " | " + str(varnishres[0]['Status'])
             varnishidval = str(varnishres[0]['Id'])
             varnishnameval = str(varnishres[0]['Names'][0])
@@ -178,7 +182,7 @@ class HostCheck():
             varnishstval = "Unable to fetch varnish details"
 
         try:
-            redisres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_redis"'"]}').json()
+            redisres=requests.get('http://'+host+':2735/containers/json?all=1&filters={ "name":["'+projectname+"_redis"'"]}', timeout=10).json()
             # redisidval = (redisres[0]['Id']) + " | " + str(redisres[0]['Names'][0]) + " | " + str(redisres[0]['Status'])
             redisidval = str(redisres[0]['Id']) 
             redisnameval = str(redisres[0]['Names'][0])

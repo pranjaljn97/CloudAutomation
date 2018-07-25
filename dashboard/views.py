@@ -547,6 +547,7 @@ def checkstatus(request, id):
 
     hostcheck = HostCheck()
     # 1 method
+    print "checking docker status"
     dockerstatus = hostcheck.checkDockerStatus(hostip)
     #2nd method
     urlstatus = hostcheck.checkUrlStatus(projectname,appname)
