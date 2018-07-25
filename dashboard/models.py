@@ -96,6 +96,8 @@ class Host(models.Model):
         hostMongo = models.CharField(blank=True,max_length=30)
         mysqlUsername = models.CharField(blank=True,max_length=50)
         mysqlPassword = models.CharField(blank=True,max_length=50)
+        mongoUsername = models.CharField(blank=True,max_length=50)
+        mongoPassword = models.CharField(blank=True,max_length=50)
         class Meta:
                 permissions = (
                     ('view_content', 'View content'),
@@ -110,7 +112,7 @@ class Host(models.Model):
 class HostForm(ModelForm):
     class Meta:
         model = Host
-        fields = ['hostIdentifier','hostIp','hostUsername','hostPassword','hostDocker','hostNginx','hostMysql','hostMongo','mysqlUsername','mysqlPassword',]
+        fields = ['hostIdentifier','hostIp','hostUsername','hostPassword','hostDocker','hostNginx','hostMysql','hostMongo','mysqlUsername','mysqlPassword','mongoUsername', 'mongoPassword']
 
 
 

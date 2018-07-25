@@ -79,14 +79,14 @@ def cprovider(request):
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def hostadded(request, id):
-    try:
-        makeEnvHost(id)
-        currpost = Host.objects.get(id=id)
-        currpost.status = 'Added Successfully'
-        currpost.save()
-    except:
-        msg = "Error in making Host Env File"
-        return render(request, "dashboard/error.html", {'msg': msg })
+    # try:
+    makeEnvHost(id)
+    currpost = Host.objects.get(id=id)
+    currpost.status = 'Added Successfully'
+    currpost.save()
+    # except:
+    #     msg = "Error in making Host Env File"
+    #     return render(request, "dashboard/error.html", {'msg': msg })
 
     # hostentry(id)
     # currpost = Host.objects.get(id=id)
@@ -272,8 +272,11 @@ def approvedsuccessfully(request, id):
                 upwd = currpost.MONGO_INITDB_ROOT_PASSWORD_VALUE
                 udb = currpost.MONGO_INITDB_DATABASE_VALUE
 
-                rootuser = 'tom'
-                rootpass = 'jerry'
+                for post in hosts:
+                    rootuser = post.mongoUsername
+                    rootpass = post.mongoPassword
+                # rootuser = 'tom'
+                # rootpass = 'jerry'
                 rootdb = 'admin'
                 
                 try:
