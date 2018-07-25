@@ -6,54 +6,6 @@ from paramiko import client
 import docker
 import MySQLdb
 
-def checkMysql(mysqlHostname, mysqlPort, mysqlUsername, mysqlPassword):
-    res = 'False'
-    try:
-        myDB = MySQLdb.connect(host=mysqlHostname, port=mysqlPort, user=mysqlUsername, passwd=mysqlPassword)
-        handler = myDB.cursor()
-        handler.execute("SELECT VERSION()")
-        results = handler.fetchall()
-        for items in results:
-            print items[0]
-        res = 'True'
-    except:
-        print "Can't connect to mysql"
-        res = 'False'
-    return res
-
-def checkSSHStatus(hip):
-    print("Helloddddddddddddd")
-    res = "False"
-    try:
-        host = Host.objects.all().filter(hostIp=hip)
-        for h1 in host:
-            HOST = h1.hostIp
-            USER = h1.hostUsername
-            PASS = h1.hostPassword
-            client = paramiko.SSHClient()
-            client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            try:
-                client.connect(HOST,username=USER,password=PASS)
-                print "SSH connection to %s established" %HOST
-                client.close()
-                print "Logged out of device %s" %HOST
-                res = "True"
-            except:
-                print "failed to ssh to %s" %HOST
-                res = "False"
-    except:
-        res = "False" 
-    return res
-def checkUrlStatus(url):
-    res = 'False'
-    try:
-        if requests.get(url) == '<Response [200]>':
-            res = 'True'
-        else:
-            res = "False"
-    except:
-        res = "False" 
-    return res    
 
 def rstack(posts):
     for post in posts:
@@ -74,9 +26,9 @@ def rstack(posts):
         approvedBy = post.approvedBy
 
         url = projname +'-'+ appname +'.tothenew.tk'
-        urlstatus = checkUrlStatus(url)
+       
         hip = post.hostIp
-        hstatus = checkSSHStatus(hip)
+      
         mysqluname = post.MYSQL_USER_NAME_VALUE
         mysqlupwd = post.MYSQL_PASSWORD_VALUE
         mongouname = post.MONGO_INITDB_ROOT_USERNAME_VALUE
@@ -91,17 +43,13 @@ def rstack(posts):
         currpost = runningstack.objects.get(projectname=projname)
 
         currpost.status = 'Approved'
-        currpost.url = url
-        currpost.urlStatus = urlstatus
-        currpost.hostIp = post.hostIp
-        currpost.hostStatus = hstatus
+        currpost.url = url      
+        currpost.hostIp = post.hostIp   
         currpost.approvedBy = approvedBy
         currpost.nginxport = nginxport
         currpost.varnishport = varnishport
         currpost.mysqluname = mysqluname
         currpost.mysqlupwd = mysqlupwd
-        currpost.mysqlstatus = checkMysql(hip,'3306', mysqluname, mysqlupwd)
         currpost.mongouname = mongouname
         currpost.mongoupwd = mongoupwd
-        currpost.mongostatus = 'Check Mongo Status'
         currpost.save()
