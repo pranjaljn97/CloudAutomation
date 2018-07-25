@@ -24,8 +24,8 @@
 
 - mongodb_user:
     database: admin
-    name: "{{ MongoUsername }}"
-    password: "{{ MongoPassword }}"
+    name: "{{ mongoUsername }}"
+    password: "{{ mongoPassword }}"
     roles: root
     state: present
 
