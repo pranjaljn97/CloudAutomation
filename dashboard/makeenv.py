@@ -34,37 +34,37 @@ global mongoflag
 
 def makeenvfile(myid):
 
-    curr = Project.objects.get(pk=myid)
-    pname = curr.project_name
+    # curr = Project.objects.get(pk=myid)
+    # pname = curr.project_name
 
-    #flag checking
-    #nginx-php
-    if curr.PHP_VERSION == 'NA':
-        nginxflag = False
-    else:
-        nginxflag = True
-    #varnish
-    if curr.varnish_version == 'NA':
-        varnishflag = False
-    else:
-        varnishflag = True
-    #mysql
-    if curr.mysql_version == 'NA' or curr.hostIp_mysql != 'NA':
-        print "no sql"
-        mysqlflag = False
-    else:
-        mysqlflag = True
-    #mongo db
-    if curr.mongo_version == 'NA' or curr.hostIp_mysql != 'NA':
-        print "no mongo"
-        mongoflag = False
-    else:
-        mongoflag = True
-    #redis
-    if curr.redis_version == 'NA':
-        redisflag = False
-    else:
-        redisflag = True
+    # #flag checking
+    # #nginx-php
+    # if curr.PHP_VERSION == 'NA':
+    #     nginxflag = False
+    # else:
+    #     nginxflag = True
+    # #varnish
+    # if curr.varnish_version == 'NA':
+    #     varnishflag = False
+    # else:
+    #     varnishflag = True
+    # #mysql
+    # if curr.mysql_version == 'NA' or curr.hostIp_mysql != 'NA':
+    #     print "no sql"
+    #     mysqlflag = False
+    # else:
+    #     mysqlflag = True
+    # #mongo db
+    # if curr.mongo_version == 'NA' or curr.hostIp_mysql != 'NA':
+    #     print "no mongo"
+    #     mongoflag = False
+    # else:
+    #     mongoflag = True
+    # #redis
+    # if curr.redis_version == 'NA':
+    #     redisflag = False
+    # else:
+    #     redisflag = True
 
 
     
@@ -428,6 +428,51 @@ def makeenvfile(myid):
             for o10 in obj10:
                 print(o10.port)
                 sshredisport = o10.port
+    
+
+    curr = Project.objects.get(pk=myid)
+    pname = curr.project_name
+
+    #flag checking
+    #nginx-php
+    if curr.PHP_VERSION == 'NA':
+        nginxflag = False
+        nginxport = 'false'
+        sshnginxport = 'false'
+    else:
+        nginxflag = True
+    #varnish
+    if curr.varnish_version == 'NA':
+        varnishflag = False
+        varnishport = 'false'
+        sshvarnishport = 'false'
+    else:
+        varnishflag = True
+    #mysql
+    if curr.mysql_version == 'NA' or curr.hostIp_mysql != 'NA':
+        print "no sql"
+        mysqlflag = False
+        sqlport = 'false'
+        sshsqlport = 'false'
+    else:
+        mysqlflag = True
+    #mongo db
+    if curr.mongo_version == 'NA' or curr.hostIp_mysql != 'NA':
+        print "no mongo"
+        mongoflag = False
+        mongoport = 'false'
+        sshmongoport = 'false'
+    else:
+        mongoflag = True
+    #redis
+    if curr.redis_version == 'NA':
+        redisflag = False
+    else:
+        redisflag = True
+        redisport = 'false'
+        sshredisport = 'false'
+
+
       
     currpost = Project.objects.get(pk=myid)
     projectname = currpost.project_name

@@ -25,7 +25,7 @@ def sendmail(request,form,stat):
                 c = {'uname': form.cleaned_data.get('requester'),
                         'projectname': form.cleaned_data.get('project_name'),
                         'appname': form.cleaned_data.get('application_name'),
-                        'hostIp': form.cleaned_data.get('hostIp'),
+                        'hostIp': 'NA',
                         'git_url': form.cleaned_data.get('git_url'),
                         'git_token': form.cleaned_data.get('git_token'),
                         'status': form.cleaned_data.get('status'),}            

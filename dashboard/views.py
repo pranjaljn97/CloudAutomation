@@ -313,11 +313,14 @@ def approvedsuccessfully(request, id):
             except:
                 msg = "Error in adding A record in AWS Route53"
                 return render(request, "dashboard/error.html", {'msg': msg })
-                currpost.approvedBy = request.user.email
-                currpost.status = 'Approved'
-                currpost.save()
+                
+            currpost.approvedBy = request.user.email
+            currpost.status = 'Approved'
+            currpost.save()
     
             fmail(request,id,currpost,jsonfile)
+            return HttpResponseRedirect('/dashboard/detailform1.html')
+
     else:
         print "in else"
         form = HostdeployForm()
