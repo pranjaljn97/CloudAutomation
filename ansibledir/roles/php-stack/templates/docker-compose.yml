@@ -55,8 +55,8 @@ services:
   
   {% if nginx_php.enable==true %}
    nginx_php:
-     image: {{ nginx_php.image }}
-     {% if nginx_php.envfile=="true" %}
+     image: pranjaljn97/php-nginx-ssh
+     {% if nginx_php.env_file==true %}
      env_file:
        - nginx-php.env
      {% endif %}  

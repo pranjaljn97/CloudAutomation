@@ -3,6 +3,23 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <script type="text/javascript">
+        function showlegacy(legacy) {
+            
+            var chkValue = document.getElementById("mysqlip");
+            chkValue.style.display = legacy.checked ? "block" : "none";
+            
+            // var chk2 = document.getElementById('legacy0');
+            // chk2.checked = false;
+        }
+        function showlegacyno(legacy) {
+            
+            var chkValue = document.getElementById("mysqlip");
+            chkValue.style.display = legacy.checked ? "none" : "block";
+            // var chk2 = document.getElementById('legacy0');
+            // chk2.checked = false;
+        }
+    </script>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -128,7 +145,7 @@
                     <a class="navbar-brand" href="#">Hi {{ user.username }} !</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <!-- <ul class="nav navbar-nav navbar-left">
+                    <ul class="nav navbar-nav navbar-left">
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-dashboard"></i>
@@ -147,10 +164,10 @@
                               </a>
                               <ul class="dropdown-menu">
                                 <li><a href="#">Welcome</a></li>
-                                <li><a href="#">Notification 2</a></li>
+                                <!--<li><a href="#">Notification 2</a></li>
                                 <li><a href="#">Notification 3</a></li>
                                 <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
+                                <li><a href="#">Another notification</a></li>-->
                               </ul>
                         </li>
                         <li>
@@ -159,11 +176,11 @@
 								<p class="hidden-lg hidden-md">Search</p>
                             </a>
                         </li>
-                    </ul> -->
+                    </ul>
 
 
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- <li>
+                        <li>
                            <a href="#">
                                <p>FAQ</p>
                             </a>
@@ -175,7 +192,7 @@
 										<b class="caret"></b>
 									</p>
                               </a>
-                              <ul class="dropdown-menu"> 
+                             <!-- <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
                                 <li><a href="#">Another action</a></li>
                                 <li><a href="#">Something</a></li>
@@ -183,8 +200,8 @@
                                 <li><a href="#">Something</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
-                              </ul>
-                        </li>-->
+                              </ul>-->
+                        </li>
                         <li>
                             <a href="{% url 'logout' %}">
                                 <p>Log out</p>
@@ -213,10 +230,7 @@
                                         <th>Project Name</th>
                                         <th>Application Name</th>
                                         <th>Status</th>
-                                        <th>Host Ip</th>
-                                        {% if posts.hostIp_mysql != 'NA' %}
-                                            <th> Legacy Host </th>
-                                        {% endif %}
+                                    	<th>Host Ip</th>
                                         <th>Git Url</th>
                                         <th>Git Branch</th>
                                     </thead>
@@ -226,11 +240,7 @@
                                             <td>{{ posts.project_name }}</td>
                                             <td>{{ posts.application_name }}</td>
                                             <td>{{ posts.status }}</td>
-                                            <td>{{ posts.hostIp }}</td>
-                                            {% if posts.hostIp_mysql != 'NA' %}
-                                                <td> {{ posts.hostIp_mysql }} </td>
-                                            {% endif %}
-                                            
+                                        	<td>{{ posts.hostIp }}</td>
                                             <td>{{ posts.git_url }}</td>
                                             <td>{{ posts.git_branch }}</td>
                                         </tr>
@@ -331,7 +341,7 @@
                                         <tr>
                                         	<td>{{ posts.varnish_version }}</td>
                                         	<td>{{ posts.VARNISH_BACKEND_HOST_VALUE }}</td>
-                                        	<td>{{ posts.VARNISH_BACKEND_PORT_VALUE }}</td>
+                                        	<td> {{ VARNISH_BACKEND_PORT_VALUE }}</td>
                                             <td>{{ posts.VARNISH_PORT_VALUE }}</td>
                                             <td>{{ posts.redis_version }}</td>
                                             <td>{{ posts.REDIS_PASSWORD_VALUE }}</td>
@@ -349,30 +359,95 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <p class="category">Docker stack Details</p>
+                                <p class="category">Mongo DB Details</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover">
-                                    <tr>
-                                    <td>To see all containers inside {{posts.project_name}} stack</td>
-                                    <td>docker -H {{posts.hostIp}}:2735 stack ps {{posts.project_name}} </td>
-                                    </tr>
-
-                                    <!-- <tr>
-                                    <td>To see all the stacks running on Host</td>
-                                    <td>docker -H {{posts.hostIp}}:2735 stack ls </td>
-                                    </tr>
-
-                                    <tr>
-                                    <td>To see all the services running on Host</td>
-                                    <td>docker -H {{posts.hostIp}}:2735 service ls </td>
-                                    </tr> -->
-                                    
+                                    <thead>
+                                        <th>Mongo DB Version</th>
+                                    	<th>Database Name</th>
+                                    	<th>Mongo DB Root UserName</th>
+                                        <th>Mongo DB Root Password</th>
+                                        
+                                        
+                                    	
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        	<td>{{ posts.mongo_version }}</td>
+                                        	<td>{{ posts.MONGO_INITDB_DATABASE_VALUE }}</td>
+                                        	<td>{{ posts.MONGO_INITDB_ROOT_USERNAME_VALUE }}</td>
+                                            <td>{{ posts.MONGO_INITDB_ROOT_PASSWORD_VALUE}} </td>
+                                           
+                                        	
+                                        </tr>
+                                        
+                                    </tbody>
                                 </table>
 
                             </div>
                         </div>
                     </div>
+                    <form action="" method="POST">
+                    {% csrf_token %}
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <p class="category">Choose Host:</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th>Nginx-Varnish-Redis</th>
+                                        <th>Legacy</th>
+                                        <th>MySql-Mongo</th>
+                                    	
+                                        
+                                        
+                                    	
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                                                                                        
+                                                <td><select name="hostipdeploy">
+                                   
+                                                            {% for i in hostInfo %}
+                                                              {% if i.status == 'Deployed Successfully' %}
+                                                            <option value ="{{ i.hostIp }}">{{ i.hostIdentifier }}</option>
+                                                              {% endif %}
+                                                            {% endfor %}  
+                                                </select></td>
+                                                <td>
+                                                
+                                                <input type="radio" name="legacy" value="Yes" onclick="showlegacy(this)">Yes <br>
+                                                <input type="radio" name="legacy" value="No" checked onclick="showlegacyno(this)">No<br>
+                                                </td>
+                                                <td><select name="hostiplegacy" id="mysqlip" style="display: none;">
+                                               
+                                                            {% for i in hostInfo %}
+                                                              {% if posts.legacy1 == 'Yes' %}
+                                                                    {% if i.status == 'Deployed Successfully' and i.hostMysql == 'true' and i.hostMongo == 'true' %}
+                                                                        <option value ="{{ i.hostIp }}">{{ i.hostIdentifier }}</option>
+                                                                    {% endif %}
+                                                              {% endif %}
+                                                            {% endfor %}  
+                                                </select></td>
+                                                        
+
+                                           
+                                        	
+                                           
+                                        	
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
 
 
                     {% for statusentry in allstatus %}
@@ -408,193 +483,52 @@
                                         </tr>
                                     </tbody>    
                                 </table>
+                                
+                                <table class="table table-hover" >
+                                        <thead>    
+                                            <th>Container Details</th>
+                                            <th>Container Status</th>
+                                            <th>Container Name</th>
+                                            <th>Container ID</th>
+                                        </thead>
+                                        <tr>
+                                            <td>MySql Details</td>
+                                            <td>{{ statusentry.mysqlst }} </td>
+                                            <td>{{ statusentry.mysqlname }} </td>
+                                            <td>{{ statusentry.mysqlid }} </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>MongoDB Details</td>
+                                            <td>{{ statusentry.mongost }} </td>
+                                            <td>{{ statusentry.mongoname }} </td>
+                                            <td>{{ statusentry.mongoid }} </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Nginx-PHP Details</td>
+                                            <td>{{ statusentry.nginxst }} </td>
+                                            <td>{{ statusentry.nginxname }} </td>
+                                            <td>{{ statusentry.nginxid }} </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Varnish Details</td>
+                                            <td>{{ statusentry.varnishst }} </td>
+                                            <td>{{ statusentry.varnishname }} </td>
+                                            <td>{{ statusentry.varnishid }} </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Redis Details</td>
+                                            <td>{{ statusentry.redisst }} </td>
+                                            <td>{{ statusentry.redisname }} </td>
+                                            <td>{{ statusentry.redisid }} </td>
+                                        </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
-
-                    {% if posts.status == 'Approved' %}
-
-
-                    <div class="col-md-12">
-                            <div class="card">
-                                <div class="header">
-                                    <p class="category">Current Status</p>
-                                </div>
-                                <div class="content table-responsive table-full-width">
-                                    <table class="table table-hover">
-
-
-
-                                        <thead>
-                                                <center></center>
-                                                <div class="col-md-1">
-                                                    
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <button class="btn btn-default btn-block" onclick="mymysql()">Mysql</button>
-
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <button class="btn btn-default btn-block" onclick="mymymongo()">MongoDB</button>
-                                                </div><div class="col-md-2">
-                                                    <button class="btn btn-default btn-block" onclick="mynginx()">Php-Nginx</button>
-                                                </div><div class="col-md-2">
-                                                    <button class="btn btn-default btn-block" onclick="myvarnish()">Varnish</button>
-                                                </div><div class="col-md-2">
-                                                    <button class="btn btn-default btn-block" onclick="myredis()">Redis</button>
-                                                </div>
-                                    </table>
-                            </div>
-                        </div>
-    
-        
-                {% endif %}
-
-
-
-                                <div class="col-md-12" id="mysql" style="display: none">
-                                        <div class="card">
-                                            <div class="header">
-                                                <p class="category">MySql Container Details</p>
-                                            </div>
-                                            <div class="content table-responsive table-full-width">
-                                                <table class="table table-hover">
-                                                    <thead>
-                                                        <th>Conatiner Status</th>
-                                                        <th>Container Name</th>
-                                                        <th> Container ID</th>
-                                
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>{{ statusentry.mysqlst }}</td>
-                                                            <td>{{ statusentry.mysqlname }}</td>
-                                                            <td> {{ statusentry.mysqlid }}</td>
-                                                            
-                                                        </tr>
-                                                        
-                                                    </tbody>
-                                                </table>
-                
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-12" id="mongo" style="display: none">
-                                            <div class="card">
-                                                <div class="header">
-                                                    <p class="category">MongoDB Container Details</p>
-                                                </div>
-                                                <div class="content table-responsive table-full-width">
-                                                    <table class="table table-hover">
-                                                        <thead>
-                                                            <th>Conatiner Status</th>
-                                                            <th>Container Name</th>
-                                                            <th> Container ID</th>
-                                                            
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>{{ statusentry.mongost }}</td>
-                                                                <td>{{ statusentry.mongoname }}</td>
-                                                                <td> {{ statusentry.mongoid }}</td>
-                                                                
-                                                            </tr>
-                                                            
-                                                        </tbody>
-                                                    </table>
-                    
-                                                </div>
-                                            </div>
-                                        </div>
-                
-                                        <div class="col-md-12" id="nginx" style="display: none">
-                                                <div class="card">
-                                                    <div class="header">
-                                                        <p class="category">Nginx-Php Container Details</p>
-                                                    </div>
-                                                    <div class="content table-responsive table-full-width">
-                                                        <table class="table table-hover">
-                                                            <thead>
-                                                                <th>Conatiner Status</th>
-                                                                <th>Container Name</th>
-                                                                <th> Container ID</th>
-                                                                
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>{{ statusentry.nginxst }}</td>
-                                                                    <td>{{ statusentry.nginxname }}</td>
-                                                                    <td> {{ statusentry.nginxid }}</td>
-                                                                    
-                                                                </tr>
-                                                                
-                                                            </tbody>
-                                                        </table>
-                        
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-12" id="varnish" style="display: none">
-                                                    <div class="card">
-                                                        <div class="header">
-                                                            <p class="category">Varnish Container Details</p>
-                                                        </div>
-                                                        <div class="content table-responsive table-full-width">
-                                                            <table class="table table-hover">
-                                                                <thead>
-                                                                    <th>Conatiner Status</th>
-                                                                    <th>Container Name</th>
-                                                                    <th> Container ID</th>
-                                                                    
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>{{ statusentry.varnishst }}</td>
-                                                                        <td>{{ statusentry.varnishname }}</td>
-                                                                        <td> {{ statusentry.varnishid }}</td>
-                                                                        
-                                                                    </tr>
-                                                                    
-                                                                </tbody>
-                                                            </table>
-                            
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div class="col-md-12" id="redis" style="display: none">
-                                                        <div class="card">
-                                                            <div class="header">
-                                                                <p class="category">Redis Container Details</p>
-                                                            </div>
-                                                            <div class="content table-responsive table-full-width">
-                                                                <table class="table table-hover">
-                                                                    <thead>
-                                                                        <th>Conatiner Status</th>
-                                                                        <th>Container Name</th>
-                                                                        <th> Container ID</th>
-                                                                        
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>{{ statusentry.redisst }}</td>
-                                                                            <td>{{ statusentry.redisname }}</td>
-                                                                            <td> {{ statusentry.redisid }}</td>
-                                                                            
-                                                                        </tr>
-                                                                        
-                                                                    </tbody>
-                                                                </table>
-                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                
-
-                                    
-                                       
                     {% endfor %}
                 </div>
             </div>                
@@ -607,17 +541,17 @@
 
                 {% if posts.status == 'Rejected' %}
                 <div class="col-md-2 col-md-offset-3">
-                    <button class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">Approve</button>
+                        <input type="submit" value="Approve" class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">
                 </div>
                 {% endif %}
                 {% if posts.status == 'Approved' %}
                 <div class="col-md-2">
-                    <button class="btn btn-default btn-block" onclick="window.location='{% url "deleteProject" posts.id %}';">Delete Project</button>
+                    <button class="btn btn-default btn-block">Delete</button>
                 </div>
                 {% endif %}
                 {% if posts.status == 'submitted' %}
                 <div class="col-md-2 col-md-offset-3">
-                        <button class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">Approve</button>
+                        <input type="submit" value="Approve" class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">
                 </div>
                 <div class="col-md-2">
                         <button class="btn btn-default btn-block" onclick="window.location='{% url "rejectedsuccessfully" posts.id %}';">Reject</button>
@@ -639,62 +573,12 @@
             </div>
         </div>
         </div>
+    </form>
 
 
         
     </div>
 </div>
-
-    <script>
-        function mymysql() {
-            var x = document.getElementById("mysql");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-        function mymymongo() {
-            var x = document.getElementById("mongo");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-
-    function mynginx() {
-            var x = document.getElementById("nginx");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-
-        function myvarnish() {
-            var x = document.getElementById("varnish");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-
-
-        function myredis() {
-            var x = document.getElementById("redis");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-
-
-
-        </script>
-        
 
 
 </body>
@@ -729,4 +613,3 @@
 {% else %}
       <a href="{% url 'login' %}">login</a> <br>
 {% endif %}
-
