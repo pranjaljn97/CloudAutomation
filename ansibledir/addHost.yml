@@ -8,6 +8,7 @@
     
 - name: New instances
   hosts: "{{ hostIp }}"
+  connection: local
   become_user: root
   vars:
     ansible_sudo_pass: "{{ hostPassword }}"

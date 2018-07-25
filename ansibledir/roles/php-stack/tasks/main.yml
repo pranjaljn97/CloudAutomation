@@ -67,7 +67,7 @@
 - name: Copy env file into remote  
   become: true
   copy: 
-    src:  '../{{ nginx_php.env_path }}'
+    src:  '{{ playbook_dir }}/../{{ nginx_php.env_path }}'
     dest: /home/{{ user.project_name }}/nginx-php.env  
     mode: 644  
   when: nginx_php.env_file == 'true'
