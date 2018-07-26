@@ -76,59 +76,61 @@ def makeenvfile(myid):
     obj = Ports.objects.all().filter(projectname=pname).filter(ptype='nginx')
     if len(obj) == 0:
                 print "in if"
-                statusn = True
-                randomport = random.randint(9000,10000)
-                allports = Ports.objects.all()
-                for oneport in allports:
-                    if(oneport.port == str(randomport)):
-                        statusn = False
+                
+                if (curr.PHP_VERSION != 'NA'):
+                        statusn = True
                         randomport = random.randint(9000,10000)
-                if(statusn == True):
-                    nginxport = randomport
-                    newport = Ports(port = nginxport, status = '0', projectname = pname, ptype = 'nginx')
-                    newport.save()
-                else:
-                    while(statusn != True):
+                        allports = Ports.objects.all()
                         for oneport in allports:
                             if(oneport.port == str(randomport)):
                                 statusn = False
                                 randomport = random.randint(9000,10000)
-                                break
-                            else:
-                                statusn = True
-                            
+                        if(statusn == True):
+                            nginxport = randomport
+                            newport = Ports(port = nginxport, status = '0', projectname = pname, ptype = 'nginx')
+                            newport.save()
+                        else:
+                            while(statusn != True):
+                                for oneport in allports:
+                                    if(oneport.port == str(randomport)):
+                                        statusn = False
+                                        randomport = random.randint(9000,10000)
+                                        break
+                                    else:
+                                        statusn = True
+                                    
 
-                    if(statusn == True):       
-                        nginxport = randomport
-                        newport = Ports(port = nginxport, status = '0', projectname = pname, ptype = 'nginx')
-                        newport.save()
+                            if(statusn == True):       
+                                nginxport = randomport
+                                newport = Ports(port = nginxport, status = '0', projectname = pname, ptype = 'nginx')
+                                newport.save()
 
-                sshn = True
-                randomport = random.randint(1,999)
-                allports = Ports.objects.all()
-                for oneport in allports:
-                    if(oneport.port == str(randomport) or str(randomport) == '22' or str(randomport) == '80'):
-                        sshn = False
+                        sshn = True
                         randomport = random.randint(1,999)
-                if(sshn == True):
-                    sshnginxport = randomport
-                    newport = Ports(port = sshnginxport, status = '0', projectname = pname, ptype = 'nginx ssh')
-                    newport.save()
-                else:
-                    while(sshn != True):
+                        allports = Ports.objects.all()
                         for oneport in allports:
                             if(oneport.port == str(randomport) or str(randomport) == '22' or str(randomport) == '80'):
                                 sshn = False
                                 randomport = random.randint(1,999)
-                                break
-                            else:
-                                sshn = True
-                            
+                        if(sshn == True):
+                            sshnginxport = randomport
+                            newport = Ports(port = sshnginxport, status = '0', projectname = pname, ptype = 'nginx ssh')
+                            newport.save()
+                        else:
+                            while(sshn != True):
+                                for oneport in allports:
+                                    if(oneport.port == str(randomport) or str(randomport) == '22' or str(randomport) == '80'):
+                                        sshn = False
+                                        randomport = random.randint(1,999)
+                                        break
+                                    else:
+                                        sshn = True
+                                    
 
-                    if(sshn == True):       
-                        sshnginxport = randomport
-                        newport = Ports(port = sshnginxport, status = '0', projectname = pname, ptype = 'nginx ssh')
-                        newport.save()
+                            if(sshn == True):       
+                                sshnginxport = randomport
+                                newport = Ports(port = sshnginxport, status = '0', projectname = pname, ptype = 'nginx ssh')
+                                newport.save()
 
 
 
@@ -148,228 +150,230 @@ def makeenvfile(myid):
                 #         newport.save()
                 #         break
 
-                statusv = True
-                randomport = random.randint(8000,8999)
-                allports = Ports.objects.all()
-                for oneport in allports:
-                    if(oneport.port == str(randomport) or str(randomport) == '8080'):
-                        statusv = False
+                if(curr.varnish_version != 'NA'):
+                        statusv = True
                         randomport = random.randint(8000,8999)
-                if(statusv == True):
-                    varnishport = randomport
-                    newport = Ports(port = varnishport, status = '0', projectname = pname, ptype = 'varnish')
-                    newport.save()
-                else:
-                    while(statusv != True):
+                        allports = Ports.objects.all()
                         for oneport in allports:
                             if(oneport.port == str(randomport) or str(randomport) == '8080'):
                                 statusv = False
                                 randomport = random.randint(8000,8999)
-                                break
-                            else:
-                                statusv = True
-                            
+                        if(statusv == True):
+                            varnishport = randomport
+                            newport = Ports(port = varnishport, status = '0', projectname = pname, ptype = 'varnish')
+                            newport.save()
+                        else:
+                            while(statusv != True):
+                                for oneport in allports:
+                                    if(oneport.port == str(randomport) or str(randomport) == '8080'):
+                                        statusv = False
+                                        randomport = random.randint(8000,8999)
+                                        break
+                                    else:
+                                        statusv = True
+                                    
 
-                    if(statusv == True):       
-                        varnishport = randomport
-                        newport = Ports(port = varnishport, status = '0', projectname = pname, ptype = 'varnish')
-                        newport.save()
+                            if(statusv == True):       
+                                varnishport = randomport
+                                newport = Ports(port = varnishport, status = '0', projectname = pname, ptype = 'varnish')
+                                newport.save()
 
-                sshv = True
-                randomport = random.randint(1000,1999)
-                allports = Ports.objects.all()
-                for oneport in allports:
-                    if(oneport.port == str(randomport)):
-                        sshv = False
+                        sshv = True
                         randomport = random.randint(1000,1999)
-                if(sshv == True):
-                    sshvarnishport = randomport
-                    newport = Ports(port = sshvarnishport, status = '0', projectname = pname, ptype = 'varnish ssh')
-                    newport.save()
-                else:
-                    while(sshv != True):
+                        allports = Ports.objects.all()
                         for oneport in allports:
                             if(oneport.port == str(randomport)):
                                 sshv = False
                                 randomport = random.randint(1000,1999)
-                                break
-                            else:
-                                sshv = True
-                            
+                        if(sshv == True):
+                            sshvarnishport = randomport
+                            newport = Ports(port = sshvarnishport, status = '0', projectname = pname, ptype = 'varnish ssh')
+                            newport.save()
+                        else:
+                            while(sshv != True):
+                                for oneport in allports:
+                                    if(oneport.port == str(randomport)):
+                                        sshv = False
+                                        randomport = random.randint(1000,1999)
+                                        break
+                                    else:
+                                        sshv = True
+                                    
 
-                    if(sshv == True):       
-                        sshvarnishport = randomport
-                        newport = Ports(port = sshvarnishport, status = '0', projectname = pname, ptype = 'varnish ssh')
-                        newport.save()
+                            if(sshv == True):       
+                                sshvarnishport = randomport
+                                newport = Ports(port = sshvarnishport, status = '0', projectname = pname, ptype = 'varnish ssh')
+                                newport.save()
 
-                
+                        
 
-                
-            
-                statusmy = True
-                randomport = random.randint(7000,7999)
-                allports = Ports.objects.all()
-                for oneport in allports:
-                    if(oneport.port == str(randomport)):
-                        statusmy = False
+                        
+                if(curr.mysql_version != 'NA'):    
+                        statusmy = True
                         randomport = random.randint(7000,7999)
-                if(statusmy == True):
-                    sqlport = randomport
-                    newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'mysql')
-                    newport.save()
-                else:
-                    while(statusmy != True):
+                        allports = Ports.objects.all()
                         for oneport in allports:
                             if(oneport.port == str(randomport)):
                                 statusmy = False
                                 randomport = random.randint(7000,7999)
-                                break
-                            else:
-                                statusmy = True
-                            
+                        if(statusmy == True):
+                            sqlport = randomport
+                            newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'mysql')
+                            newport.save()
+                        else:
+                            while(statusmy != True):
+                                for oneport in allports:
+                                    if(oneport.port == str(randomport)):
+                                        statusmy = False
+                                        randomport = random.randint(7000,7999)
+                                        break
+                                    else:
+                                        statusmy = True
+                                    
 
-                    if(statusmy == True):       
-                        sqlport = randomport
-                        newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'mysql')
-                        newport.save()
-                
-                sshmy = True
-                randomport = random.randint(2000,2999)
-                allports = Ports.objects.all()
-                for oneport in allports:
-                    if(oneport.port == str(randomport) or str(randomport) == '2735'):
-                        sshmy = False
+                            if(statusmy == True):       
+                                sqlport = randomport
+                                newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'mysql')
+                                newport.save()
+                        
+                        sshmy = True
                         randomport = random.randint(2000,2999)
-                if(sshmy == True):
-                    sshsqlport = randomport
-                    newport = Ports(port = sshsqlport, status = '0', projectname = pname, ptype = 'mysql ssh')
-                    newport.save()
-                else:
-                    while(sshmy != True):
+                        allports = Ports.objects.all()
                         for oneport in allports:
                             if(oneport.port == str(randomport) or str(randomport) == '2735'):
                                 sshmy = False
                                 randomport = random.randint(2000,2999)
-                                break
-                            else:
-                                sshmy = True
-                            
+                        if(sshmy == True):
+                            sshsqlport = randomport
+                            newport = Ports(port = sshsqlport, status = '0', projectname = pname, ptype = 'mysql ssh')
+                            newport.save()
+                        else:
+                            while(sshmy != True):
+                                for oneport in allports:
+                                    if(oneport.port == str(randomport) or str(randomport) == '2735'):
+                                        sshmy = False
+                                        randomport = random.randint(2000,2999)
+                                        break
+                                    else:
+                                        sshmy = True
+                                    
 
-                    if(sshmy == True):       
-                        sshsqlport = randomport
-                        newport = Ports(port = sshsqlport, status = '0', projectname = pname, ptype = 'mysql ssh')
-                        newport.save()
+                            if(sshmy == True):       
+                                sshsqlport = randomport
+                                newport = Ports(port = sshsqlport, status = '0', projectname = pname, ptype = 'mysql ssh')
+                                newport.save()
 
 
                 
-
-                statusmo = True
-                randomport = random.randint(6000,6999)
-                allports = Ports.objects.all()
-                for oneport in allports:
-                    if(oneport.port == str(randomport) or str(randomport) == '6379'):
-                        statusmo = False
+                if (curr.mongo_version != 'NA'):
+                        statusmo = True
                         randomport = random.randint(6000,6999)
-                if(statusmo == True):
-                    mongoport = randomport
-                    newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongo db')
-                    newport.save()
-                else:
-                    while(statusmo != True):
+                        allports = Ports.objects.all()
                         for oneport in allports:
                             if(oneport.port == str(randomport) or str(randomport) == '6379'):
                                 statusmo = False
                                 randomport = random.randint(6000,6999)
-                                break
-                            else:
-                                statusmo = True
-                            
+                        if(statusmo == True):
+                            mongoport = randomport
+                            newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongo db')
+                            newport.save()
+                        else:
+                            while(statusmo != True):
+                                for oneport in allports:
+                                    if(oneport.port == str(randomport) or str(randomport) == '6379'):
+                                        statusmo = False
+                                        randomport = random.randint(6000,6999)
+                                        break
+                                    else:
+                                        statusmo = True
+                                    
 
-                    if(statusmo == True):       
-                        mongoport = randomport
-                        newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongo db')
-                        newport.save()
+                            if(statusmo == True):       
+                                mongoport = randomport
+                                newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongo db')
+                                newport.save()
 
-                sshmo = True
-                randomport = random.randint(3000,3999)
-                allports = Ports.objects.all()
-                for oneport in allports:
-                    if(oneport.port == str(randomport) or str(randomport) == '3306'):
-                        sshmo = False
+                        sshmo = True
                         randomport = random.randint(3000,3999)
-                if(sshmo == True):
-                    sshmongoport = randomport
-                    newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db ssh')
-                    newport.save()
-                else:
-                    while(sshmo != True):
+                        allports = Ports.objects.all()
                         for oneport in allports:
                             if(oneport.port == str(randomport) or str(randomport) == '3306'):
                                 sshmo = False
                                 randomport = random.randint(3000,3999)
-                                break
-                            else:
-                                sshmo = True
-                            
+                        if(sshmo == True):
+                            sshmongoport = randomport
+                            newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db ssh')
+                            newport.save()
+                        else:
+                            while(sshmo != True):
+                                for oneport in allports:
+                                    if(oneport.port == str(randomport) or str(randomport) == '3306'):
+                                        sshmo = False
+                                        randomport = random.randint(3000,3999)
+                                        break
+                                    else:
+                                        sshmo = True
+                                    
 
-                    if(sshmo == True):       
-                        sshmongoport = randomport
-                        newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db ssh')
-                        newport.save()
+                            if(sshmo == True):       
+                                sshmongoport = randomport
+                                newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db ssh')
+                                newport.save()
                 
-                statusr = True
-                randomport = random.randint(5000,5999)
-                allports = Ports.objects.all()
-                for oneport in allports:
-                    if(oneport.port == str(randomport)):
-                        statusr = False
+                if (curr.redis_version != 'NA'):
+                        statusr = True
                         randomport = random.randint(5000,5999)
-                if(statusr == True):
-                    redisport = randomport
-                    newport = Ports(port = redisport, status = '0', projectname = pname, ptype = 'redis')
-                    newport.save()
-                else:
-                    while(statusr != True):
+                        allports = Ports.objects.all()
                         for oneport in allports:
                             if(oneport.port == str(randomport)):
                                 statusr = False
                                 randomport = random.randint(5000,5999)
-                                break
-                            else:
-                                statusr = True
-                            
+                        if(statusr == True):
+                            redisport = randomport
+                            newport = Ports(port = redisport, status = '0', projectname = pname, ptype = 'redis')
+                            newport.save()
+                        else:
+                            while(statusr != True):
+                                for oneport in allports:
+                                    if(oneport.port == str(randomport)):
+                                        statusr = False
+                                        randomport = random.randint(5000,5999)
+                                        break
+                                    else:
+                                        statusr = True
+                                    
 
-                    if(statusr == True):       
-                        redisport = randomport
-                        newport = Ports(port = redisport, status = '0', projectname = pname, ptype = 'redis')
-                        newport.save()
-                
-                sshr = True
-                randomport = random.randint(4000,4999)
-                allports = Ports.objects.all()
-                for oneport in allports:
-                    if(oneport.port == str(randomport)):
-                        sshr = False
+                            if(statusr == True):       
+                                redisport = randomport
+                                newport = Ports(port = redisport, status = '0', projectname = pname, ptype = 'redis')
+                                newport.save()
+                        
+                        sshr = True
                         randomport = random.randint(4000,4999)
-                if(sshr == True):
-                    sshredisport = randomport
-                    newport = Ports(port = sshredisport, status = '0', projectname = pname, ptype = 'redis ssh')
-                    newport.save()
-                else:
-                    while(sshr != True):
+                        allports = Ports.objects.all()
                         for oneport in allports:
                             if(oneport.port == str(randomport)):
                                 sshr = False
                                 randomport = random.randint(4000,4999)
-                                break
-                            else:
-                                sshr = True
-                            
+                        if(sshr == True):
+                            sshredisport = randomport
+                            newport = Ports(port = sshredisport, status = '0', projectname = pname, ptype = 'redis ssh')
+                            newport.save()
+                        else:
+                            while(sshr != True):
+                                for oneport in allports:
+                                    if(oneport.port == str(randomport)):
+                                        sshr = False
+                                        randomport = random.randint(4000,4999)
+                                        break
+                                    else:
+                                        sshr = True
+                                    
 
-                    if(sshr == True):       
-                        sshredisport = randomport
-                        newport = Ports(port = sshredisport, status = '0', projectname = pname, ptype = 'redis ssh')
-                        newport.save()
+                            if(sshr == True):       
+                                sshredisport = randomport
+                                newport = Ports(port = sshredisport, status = '0', projectname = pname, ptype = 'redis ssh')
+                                newport.save()
 
 
                 
