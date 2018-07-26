@@ -543,22 +543,23 @@ def makeenvfile(myid):
                 env_path = 'false'
 
     gitUrl = post.git_url
-    gitToken = post.git_branch
+    gitBranch = post.git_branch
 
     if gitUrl == "":
         gitUrl = "github.com/pranjaljn97/AChecker"
-    if gitToken == "":
-        gitToken = "master"
+	print("hi admin")
+    if gitBranch == "":
+        gitBranch = "master"
 
     data = {'user': {'id': post.id,
                         'USERNAME': post.requester,
                         'project_name': post.project_name,
                         'application_name': post.application_name,
                         'repo_type': post.repo_type,
-                        'GITHUB_URL': post.git_url,
+                        'GITHUB_URL': gitUrl,
                         'GITHUB_USERNAME': post.git_username,
                         'GITHUB_TOKEN': post.git_token,
-                        'GITHUB_BRANCH': post.git_branch,
+                        'GITHUB_BRANCH': gitBranch,
                         'envtype': post.envtype,
                         'platform': post.platform,
 			'datetime': datetime.datetime.now().strftime("%Y%m%d-%H%M%S"),
