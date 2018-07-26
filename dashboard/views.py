@@ -768,7 +768,7 @@ def mysqlform(request):
         print "hi"
         form = mysqlForm(request.POST)
         if form.is_valid():
-            # dbname = form.cleaned_data[' MYSQL_DATABASE_NAME_VALUE']
+            form.cleaned_data[' MYSQL_DATABASE_NAME_VALUE'] = 'newtestdb'
             form.save()
 
             sendmail(request,form,'mysqlsubmit')
