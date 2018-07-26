@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import sys
-sys.path.insert(0, '/home/mudit1804/djangoprojects/')
+sys.path.insert(0, '/home/dipesh/repos3/')
 import extravariables
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

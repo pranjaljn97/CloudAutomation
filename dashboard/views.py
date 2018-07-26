@@ -450,9 +450,14 @@ def drupalform(request):
                 to_unicode = str
             destpath = settings.ENVFILE_PATH + 'documents/' + proj + '/'
             p1 = newpath1 + '/extraenv.json'
+            p2 = newpath1 + '/extraenvJson.json'
             with open(p1,'wb') as f:
                     f.close()
+            with open(p2,'wb') as f:
+                    f.close()
             with open(destpath+'extraenv.json','wb') as f:
+                    f.close()
+            with open(destpath+'extraenvJson.json','wb') as f:
                     f.close()
 
             for x in range(1,maxkey):
@@ -467,6 +472,18 @@ def drupalform(request):
                 p1 = newpath1 + '/extraenv.json'
                 with open(p1,'ab') as f:
                     f.write(a+"="+b+"\n")
+
+                d[a]=b
+
+            lst.append(d)
+                        
+            final = json.dumps(lst)
+            p3 = destpath+'extraenvJson.json'
+            with io.open(p3, 'w', encoding='utf8') as outfile:
+                str_ = json.dumps(d,
+                            indent=4, sort_keys=True,
+                            separators=(',', ':'), ensure_ascii=False)
+                outfile.write(to_unicode(str_))
 
             filecurrpath = newpath1 + '/extraenv.json'
             filename = 'extraenv.json'
@@ -733,7 +750,7 @@ def rerun(request,id):
         form = Myform()
     proj = posts.project_name
     newpath = settings.ENVFILE_PATH + 'documents/' + proj + '/'
-    p1 = newpath + '/extraenv.json'
+    p1 = newpath + '/extraenvJson.json'
     with open(p1) as data_file:
         jsondata = json.load(data_file)
        
