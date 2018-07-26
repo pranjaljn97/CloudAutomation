@@ -337,13 +337,12 @@ def approvedsuccessfully(request, id):
             currpost.save()
     
             fmail(request,id,currpost,jsonfile)
-        return HttpResponseRedirect('/dashboard/detailform1.html')
+        return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
 
     else:
         print "in else"
         form = HostdeployForm()
-    return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
-
+    return render(request, "dashboard/approvedetailform.html", {'posts': currpost, 'hostInfo': hostInfo })
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def rejectedsuccessfully(request, id):
     
