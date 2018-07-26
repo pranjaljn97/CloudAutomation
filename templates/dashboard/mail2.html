@@ -315,7 +315,7 @@
                                                                             <td width="3%"></td>
                                                                             <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Nginx-Php</td>
                                                                             <td width="3%"></td>
-                                                                            <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ nginxport }}</td>
+                                                                            <td width="51%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ nginxport }}</td>
                                                                             <tr>
                                                                             <td colspan="4" height="10px"></td>
                                                                         </tr>
@@ -327,7 +327,7 @@
                                                                             <td width="3%"></td>
                                                                             <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">MySql</td>
                                                                             <td width="3%"></td>
-                                                                            <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ mysqlport }}</td>
+                                                                            <td width="51%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ mysqlport }}</td>
                                                                             <tr>
                                                                             <td colspan="4" height="10px"></td>
                                                                         </tr>
@@ -338,7 +338,7 @@
                                                                             <td width="3%"></td>
                                                                             <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Mongo</td>
                                                                             <td width="3%"></td>
-                                                                            <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ mongoport }}</td>
+                                                                            <td width="51%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ mongoport }}</td>
                                                                             <tr>
                                                                             <td colspan="4" height="10px"></td>
                                                                         </tr>
@@ -349,7 +349,7 @@
                                                                             <td width="3%"></td>
                                                                             <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Varnish</td>
                                                                             <td width="3%"></td>
-                                                                            <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ varnishport }}</td>
+                                                                            <td width="51%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ varnishport }}</td>
                                                                             <tr>
                                                                             <td colspan="4" height="10px"></td>
                                                                         </tr>
@@ -361,7 +361,7 @@
                                                                             <td width="3%"></td>
                                                                             <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Redis</td>
                                                                             <td width="3%"></td>
-                                                                            <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ redisport }}</td>
+                                                                            <td width="51%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ redisport }}</td>
                                                                             <tr>
                                                                             <td colspan="4" height="10px"></td>
                                                                         </tr>
@@ -518,10 +518,10 @@
                                 <b>Note:</b>
                                 <ul>
                                     <li>
-                                        Use-> mysql -u {{ mysqluname}} -h {{hostIp}} -P 3308 -p {{ mysqlupwd }} for connecting to mysql.
+                                        Use-> mysql -u {{ mysqluname}} -h {{hostIp}} -P {{ mysqlport }} -p {{ mysqlupwd }} for connecting to mysql.
                                     </li>
                                     <li>
-                                        Use-> mongo --username {{ mongouname }} --password {{ mongoupwd }} --host {{ hostIp }} --port 27019 for connecting to mongo.
+                                        Use-> mongo --username {{ mongouname }} --password {{ mongoupwd }} --host {{ hostIp }} --port {{ mongoport }} for connecting to mongo.
                                     </li>
                                     <li>
                                         Visit S2P Portal for the complete details.

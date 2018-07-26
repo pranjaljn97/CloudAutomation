@@ -338,7 +338,7 @@
                         </div>
                     </div>
 
-                
+        {% if perms.login.view_content %}                
 		{% if posts.status == 'Approved' %}    
 		<div class="col-md-12">
                         <div class="card">
@@ -367,7 +367,8 @@
                             </div>
                         </div>
                     </div>
-		{% endif %}
+        {% endif %}
+        {% endif %}
 
                     {% for statusentry in allstatus %}
                     <div class="col-md-12">
