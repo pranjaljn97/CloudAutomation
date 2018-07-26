@@ -37,6 +37,7 @@
     login_user: root
     login_password: "{{ mysqlPassword }}"
     name: root
+    host: "%"
     append_privs: true
     priv: '*.*:ALL,GRANT'
     state: present               
