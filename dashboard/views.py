@@ -72,8 +72,8 @@ def cprovider(request):
             form.save()
             return HttpResponseRedirect('dashboard/cloud-provider.html')
     else:
-        form = HostForm()
-        hosts = Host.objects.all()
+      	form = HostForm()
+    hosts = Host.objects.all()
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
 
 
@@ -342,7 +342,7 @@ def approvedsuccessfully(request, id):
     else:
         print "in else"
         form = HostdeployForm()
-    return render(request, "dashboard/approvedetailform.html", {'posts': currpost, 'hostInfo': hostInfo })
+    return render(request, "dashboard/detailform1"+".html", {'posts': posts, 'hostInfo': hostInfo })
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
 def rejectedsuccessfully(request, id):
