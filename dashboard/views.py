@@ -218,6 +218,21 @@ def rejected(request):
 def approvedsuccessfully(request, id):
     print "in approved"
     currpost = Project.objects.get(id=id)
+    mysqlu = currpost.MYSQL_USER_NAME_VALUE
+    mysqld = currpost.MYSQL_DATABASE_NAME_VALUE
+    mongou = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
+    mongod = currpost.MONGO_INITDB_DATABASE_VALUE
+    mysqlu = mysqlu + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
+    mysqld = mysqld + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
+    mongou = mongou + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
+    mongod = mongod + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
+    currpost.MYSQL_USER_NAME_VALUE = mysqlu
+    currpost.MYSQL_DATABASE_NAME_VALUE = mysqld
+    currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongou
+    currpost.MONGO_INITDB_DATABASE_VALUE = mongod
+    currpost.save()
+
+
     
     posts = Project.objects.all()
     hostInfo = Host.objects.all()
@@ -749,8 +764,9 @@ def mysqlform(request):
         print "hi"
         form = mysqlForm(request.POST)
         if form.is_valid():
-
+            # dbname = form.cleaned_data[' MYSQL_DATABASE_NAME_VALUE']
             form.save()
+
             sendmail(request,form,'mysqlsubmit')
          
             return HttpResponseRedirect('/dashboard/')  # does nothing, just trigger the validation
@@ -797,6 +813,13 @@ def rejectedmysql(request):
 def approvedsuccessfullymysql(request, id):
     
     currpost = mysqluser.objects.get(id=id)
+    dbname = currpost.MYSQL_DATABASE_NAME_VALUE
+    username = currpost.MYSQL_USER_NAME_VALUE
+    dbname = dbname + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
+    username = username + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
+    currpost.MYSQL_DATABASE_NAME_VALUE = dbname
+    currpost.MYSQL_USER_NAME_VALUE = username
+    currpost.save()
     ip = currpost.hostIp
     posts = Host.objects.all().filter(hostIp=ip)
 
@@ -819,7 +842,7 @@ def approvedsuccessfullymysql(request, id):
         posts2 = mysqluser.objects.all()
         sendmail(request,id,'approvedmysql')
     else:
-         msg = "Error in approving, May be username already exists!"
+         msg = "Error in approving."
          return render(request, "dashboard/error2.html", {'msg': msg })
 
     posts2 = mysqluser.objects.all()
@@ -874,6 +897,13 @@ def rejectedmongo(request):
 def approvedsuccessfullymongo(request, id):
     
     currpost = mongoform.objects.get(id=id)
+    mongodb = currpost.MONGO_INITDB_DATABASE_VALUE
+    mongouser = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
+    mongodb = mongodb + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
+    mongouser = mongouser + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
+    currpost.MONGO_INITDB_DATABASE_VALUE = mongodb
+    currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongouser
+    currpost.save()
     ip = currpost.hostip
     posts = Host.objects.all().filter(hostIp=ip)
 
