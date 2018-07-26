@@ -732,7 +732,7 @@ def rerun(request,id):
     else:
         form = Myform()
     proj = posts.project_name
-    newpath = r'./documents/' + proj 
+    newpath = settings.ENVFILE_PATH + 'documents/' + proj + '/'
     p1 = newpath + '/extraenv.json'
     with open(p1) as data_file:
         jsondata = json.load(data_file)
