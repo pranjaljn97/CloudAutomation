@@ -1,7 +1,6 @@
 {
     "mongodb": {
         "version": {
-            "latest": "pranjaljn97/mongodb-ssh",
             "3.2": "pranjaljn97/mongodb-ssh",
             "3.4": "pranjaljn97/mongodb-ssh:3.4",
             "3.6": "pranjaljn97/mongodb-ssh:3.6",
@@ -11,7 +10,6 @@
     },
     "mysql": {
         "version": {
-            "latest": "pranjaljn97/mysql-ssh",
             "5.5": "pranjaljn97/mysql-ssh:5.5",
             "5.6": "pranjaljn97/mysql-ssh:5.6",
             "5.7": "pranjaljn97/mysql-ssh:5.7",
@@ -21,7 +19,6 @@
     },
     "nginx_php": {
         "version": {
-            "latest": "pranjaljn97/php-nginx-ssh",
             "5.6": "pranjaljn97/php-nginx-ssh:5.6",
             "7.0": "pranjaljn97/php-nginx-ssh:7.0",
             "7.1": "pranjaljn97/php-nginx-ssh:7.1",
@@ -31,7 +28,6 @@
     },
     "redis": {
         "version": {
-            "latest": "pranjaljn97/redis-ssh",
             "3.2": "pranjaljn97/redis-ssh:3.2",
             "4.0": "pranjaljn97/redis-ssh:4.0",
             "NA": "NA"
@@ -40,8 +36,9 @@
     
     "varnish": {
         "version": {
-            "latest": "pranjaljn97/varnish-ssh",
-            "NA": "NA"
+            "NA": "NA",
+            "4.0": "pranjaljn97/varnish-ssh"
+      
 
         }
     }
