@@ -817,13 +817,13 @@ def rejectedmysql(request):
 def approvedsuccessfullymysql(request, id):
     
     currpost = mysqluser.objects.get(id=id)
-    # dbname = currpost.MYSQL_DATABASE_NAME_VALUE
-    # username = currpost.MYSQL_USER_NAME_VALUE
-    # dbname = dbname + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    # username = username + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    # currpost.MYSQL_DATABASE_NAME_VALUE = dbname
-    # currpost.MYSQL_USER_NAME_VALUE = username
-    # currpost.save()
+    dbname = currpost.MYSQL_DATABASE_NAME_VALUE
+    username = currpost.MYSQL_USER_NAME_VALUE
+    dbname = dbname + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    username = username + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    currpost.MYSQL_DATABASE_NAME_VALUE = dbname
+    currpost.MYSQL_USER_NAME_VALUE = username
+    currpost.save()
     ip = currpost.hostIp
     posts = Host.objects.all().filter(hostIp=ip)
 
@@ -843,13 +843,13 @@ def approvedsuccessfullymysql(request, id):
 
         currpost.status = 'Approved'
         currpost.save()
-        dbname = currpost.MYSQL_DATABASE_NAME_VALUE
-        username = currpost.MYSQL_USER_NAME_VALUE
-        dbname = dbname + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-        username = username + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-        currpost.MYSQL_DATABASE_NAME_VALUE = dbname
-        currpost.MYSQL_USER_NAME_VALUE = username
-        currpost.save()
+        # dbname = currpost.MYSQL_DATABASE_NAME_VALUE
+        # username = currpost.MYSQL_USER_NAME_VALUE
+        # dbname = dbname + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+        # username = username + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+        # currpost.MYSQL_DATABASE_NAME_VALUE = dbname
+        # currpost.MYSQL_USER_NAME_VALUE = username
+        # currpost.save()
         posts2 = mysqluser.objects.all()
         sendmail(request,id,'approvedmysql')
     else:
