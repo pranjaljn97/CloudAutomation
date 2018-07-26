@@ -237,6 +237,7 @@
                                         <th>Host Username</th>
                                         <th>Host Password</th>
                                         <th>Host Status</th>
+                                        <th>Docker</th>
                                     </thead>
                                     <tbody>
                                         <tr>
@@ -246,28 +247,32 @@
                                             <td>{{ posts.hostUsername }}</td>
                                             <td>{{ posts.hostPassword }}</td>
                                             <td>{{ posts.status }}</td>
-                                            
+                                            <td>{{ posts.hostDocker }}</td>
                                       
                                         </tr>
                                        
                                     </tbody>
                                     <thead>
                                     
-                                            <th>Docker</th>
+
                                             <th>Nginx</th>
                                             <th>Mysql</th>
                                             <th>Mysql Username</th>
                                             <th>Mysql Password</th>
                                             <th>Mongo</th>
+                                            <th>Mongo Username</th>
+                                            <th>Mongo Password</th>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{{ posts.hostDocker }}</td>
+
                                                 <td>{{ posts.hostNginx }}</td>
                                                 <td>{{ posts.hostMysql }}</td>
                                                 <td>{{ posts.mysqlUsername }}</td>
                                                 <td>{{ posts.mysqlPassword }}</td>
                                                 <td>{{ posts.hostMongo }}</td>
+                                                <td>{{ posts.mongoPassword }}</td>
+                                                <td>{{ posts.mongoUsername}}</td>
 
                                             </tr>
                                            
