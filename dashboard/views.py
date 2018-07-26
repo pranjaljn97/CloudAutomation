@@ -222,10 +222,10 @@ def approvedsuccessfully(request, id):
     mysqld = currpost.MYSQL_DATABASE_NAME_VALUE
     mongou = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
     mongod = currpost.MONGO_INITDB_DATABASE_VALUE
-    mysqlu = mysqlu + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
-    mysqld = mysqld + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
-    mongou = mongou + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
-    mongod = mongod + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
+    mysqlu = mysqlu + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    mysqld = mysqld + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    mongou = mongou + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    mongod = mongod + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
     currpost.MYSQL_USER_NAME_VALUE = mysqlu
     currpost.MYSQL_DATABASE_NAME_VALUE = mysqld
     currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongou
@@ -803,8 +803,8 @@ def approvedsuccessfullymysql(request, id):
     currpost = mysqluser.objects.get(id=id)
     dbname = currpost.MYSQL_DATABASE_NAME_VALUE
     username = currpost.MYSQL_USER_NAME_VALUE
-    dbname = dbname + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
-    username = username + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
+    dbname = dbname + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    username = username + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
     currpost.MYSQL_DATABASE_NAME_VALUE = dbname
     currpost.MYSQL_USER_NAME_VALUE = username
     currpost.save()
@@ -887,8 +887,8 @@ def approvedsuccessfullymongo(request, id):
     currpost = mongoform.objects.get(id=id)
     mongodb = currpost.MONGO_INITDB_DATABASE_VALUE
     mongouser = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
-    mongodb = mongodb + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
-    mongouser = mongouser + str(datetime.datetime.now().time().hour) + '-'  + str(datetime.datetime.now().time().minute)
+    mongodb = mongodb + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    mongouser = mongouser + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
     currpost.MONGO_INITDB_DATABASE_VALUE = mongodb
     currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongouser
     currpost.save()
