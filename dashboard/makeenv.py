@@ -77,7 +77,7 @@ def makeenvfile(myid):
     if len(obj) == 0:
                 print "in if"
                 
-                if (curr.PHP_VERSION != 'NA'):
+                if curr.PHP_VERSION != 'NA':
                         statusn = True
                         randomport = random.randint(9000,10000)
                         allports = Ports.objects.all()
@@ -150,7 +150,7 @@ def makeenvfile(myid):
                 #         newport.save()
                 #         break
 
-                if(curr.varnish_version != 'NA'):
+                if curr.varnish_version != 'NA':
                         statusv = True
                         randomport = random.randint(8000,8999)
                         allports = Ports.objects.all()
@@ -208,7 +208,7 @@ def makeenvfile(myid):
                         
 
                         
-                if(curr.mysql_version != 'NA'):    
+                if curr.mysql_version != 'NA' and curr.legacy1 == 'No':    
                         statusmy = True
                         randomport = random.randint(7000,7999)
                         allports = Ports.objects.all()
@@ -265,7 +265,7 @@ def makeenvfile(myid):
 
 
                 
-                if (curr.mongo_version != 'NA'):
+                if curr.mongo_version != 'NA':
                         statusmo = True
                         randomport = random.randint(6000,6999)
                         allports = Ports.objects.all()
@@ -320,7 +320,7 @@ def makeenvfile(myid):
                                 newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db ssh')
                                 newport.save()
                 
-                if (curr.redis_version != 'NA'):
+                if curr.redis_version != 'NA':
                         statusr = True
                         randomport = random.randint(5000,5999)
                         allports = Ports.objects.all()
@@ -448,7 +448,7 @@ def makeenvfile(myid):
         sshnginxport = 'false'
         newport = Ports(port = nginxport, status = '0', projectname = pname, ptype = 'nginx')
         newport.save()
-        newport1 = Ports(port = sshnginxport, status = '0', projectname = pname, ptype = 'nginx')
+        newport1 = Ports(port = sshnginxport, status = '0', projectname = pname, ptype = 'nginx ssh')
         newport1.save()
 
     else:
@@ -460,7 +460,7 @@ def makeenvfile(myid):
         sshvarnishport = 'false'
         newport = Ports(port = varnishport, status = '0', projectname = pname, ptype = 'varnish')
         newport.save()
-        newport1 = Ports(port = sshvarnishport, status = '0', projectname = pname, ptype = 'varnish')
+        newport1 = Ports(port = sshvarnishport, status = '0', projectname = pname, ptype = 'varnish ssh')
         newport1.save()
     else:
         varnishflag = True
@@ -479,7 +479,7 @@ def makeenvfile(myid):
             sshsqlport = 'false'
             newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'mysql')
             newport.save()
-            newport1 = Ports(port = sshsqlport, status = '0', projectname = pname, ptype = 'mysql')
+            newport1 = Ports(port = sshsqlport, status = '0', projectname = pname, ptype = 'mysql ssh')
             newport1.save()
         else:
             mysqlflag = True
@@ -500,7 +500,7 @@ def makeenvfile(myid):
             sshmongoport = 'false'
             newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongo db')
             newport.save()
-            newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db')
+            newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db ssh')
             newport.save()
         else:
             mongoflag = True
@@ -513,7 +513,7 @@ def makeenvfile(myid):
         sshredisport = 'false'
         newport = Ports(port = redisport, status = '0', projectname = pname, ptype = 'redis')
         newport.save()
-        newport = Ports(port = sshredisport, status = '0', projectname = pname, ptype = 'redis')
+        newport = Ports(port = sshredisport, status = '0', projectname = pname, ptype = 'redis ssh')
         newport.save()
     else:
         redisflag = True
