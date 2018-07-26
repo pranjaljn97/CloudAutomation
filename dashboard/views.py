@@ -245,6 +245,7 @@ def approvedsuccessfully(request, id):
             mongou = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
             mongod = currpost.MONGO_INITDB_DATABASE_VALUE
             mysqlu = mysqlu + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+	    print mysqlu
             mysqld = mysqld + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
             mongou = mongou + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
             mongod = mongod + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
