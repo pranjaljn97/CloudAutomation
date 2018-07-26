@@ -40,28 +40,54 @@ def fmail(request,id,posts,jsonfile):
     requestermail =  post.requester
     from_email = 'S2P Team <'+settings.EMAIL_HOST_USER+'>'
     to_list = [settings.ADMIN_MAIL,request.user.email, requestermail]
-    c = {'uname':posts.requester,
-                'projectname':posts.project_name,
-                'appname':posts.application_name,
-                'git_url' :posts.git_url,
-                'git_token' :posts.git_token,
-                'hostIp':posts.hostIp,
-                'LegacyHost':posts.hostIp_mysql, 
-                'mysqluname':posts.MYSQL_USER_NAME_VALUE,
-                'mysqlupwd':posts.MYSQL_PASSWORD_VALUE,
-                'mongouname':posts.MONGO_INITDB_ROOT_USERNAME_VALUE,
-                'mongoupwd':posts.MONGO_INITDB_ROOT_PASSWORD_VALUE,
-                'nginxport':nginxport,
-                'varnishport':varnishport,
-                'mysqlport':mysqlport,
-                'mongoport':mongoport,
-                'redisport':redisport,
-                'dns':settings.DNS,}               
-    html_content = render_to_string('dashboard/mail2.html', c)
-    text_msg = "Final Status"
-    subject = "Your requested Stack status"
-    send_mail(subject, text_msg, from_email, to_list, fail_silently=False, html_message=html_content
-                )
+
+    legacy = posts.legacy1
+    if legacy == 'No':
+        c = {'uname':posts.requester,
+                    'projectname':posts.project_name,
+                    'appname':posts.application_name,
+                    'git_url' :posts.git_url,
+                    'git_token' :posts.git_token,
+                    'hostIp':posts.hostIp,
+                    'LegacyHost':posts.hostIp_mysql, 
+                    'mysqluname':posts.MYSQL_USER_NAME_VALUE,
+                    'mysqlupwd':posts.MYSQL_PASSWORD_VALUE,
+                    'mongouname':posts.MONGO_INITDB_ROOT_USERNAME_VALUE,
+                    'mongoupwd':posts.MONGO_INITDB_ROOT_PASSWORD_VALUE,
+                    'nginxport':nginxport,
+                    'varnishport':varnishport,
+                    'mysqlport':mysqlport,
+                    'mongoport':mongoport,
+                    'redisport':redisport,
+                    'dns':settings.DNS,}               
+        html_content = render_to_string('dashboard/mail2.html', c)
+        text_msg = "Final Status"
+        subject = "Your requested Stack status"
+        send_mail(subject, text_msg, from_email, to_list, fail_silently=False, html_message=html_content
+                    )
+    if legacy == 'Yes':
+        c = {'uname':posts.requester,
+                    'projectname':posts.project_name,
+                    'appname':posts.application_name,
+                    'git_url' :posts.git_url,
+                    'git_token' :posts.git_token,
+                    'hostIp':posts.hostIp,
+                    'LegacyHost':posts.hostIp_mysql, 
+                    'mysqlDb':posts.MYSQL_DATABASE_NAME_VALUE,
+                    'mysqluname':posts.MYSQL_USER_NAME_VALUE,
+                    'mysqlupwd':posts.MYSQL_PASSWORD_VALUE,
+                    'mongoDb':posts.MONGO_INITDB_DATABASE_VALUE,
+                    'mongouname':posts.MONGO_INITDB_ROOT_USERNAME_VALUE,
+                    'mongoupwd':posts.MONGO_INITDB_ROOT_PASSWORD_VALUE,
+                    'nginxport':nginxport,
+                    'varnishport':varnishport,
+                    'redisport':redisport,
+                    'dns':settings.DNS,}               
+        html_content = render_to_string('dashboard/mail3.html', c)
+        text_msg = "Final Status"
+        subject = "Your requested Stack status"
+        send_mail(subject, text_msg, from_email, to_list, fail_silently=False, html_message=html_content
+                    )
 
 
 
