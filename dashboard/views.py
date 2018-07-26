@@ -72,8 +72,8 @@ def cprovider(request):
             form.save()
             return HttpResponseRedirect('dashboard/cloud-provider.html')
     else:
-        form = HostForm()
-        hosts = Host.objects.all()
+      	form = HostForm()
+    hosts = Host.objects.all()
     return render(request, "dashboard/cloud-provider.html", {'hosts': hosts })
 
 
