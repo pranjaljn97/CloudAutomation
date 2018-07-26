@@ -24,7 +24,7 @@
           <label>Choose Host</label>
           <select name=hostIp>
 
-            {% for i in hostInfo %} {% if i.status == 'Added Successfully' %}
+            {% for i in hostInfo %} {% if i.status == 'Deployed Successfully' %}
             <option value="{{ i.hostIp }}">{{ i.hostIdentifier }}</option>
             {% endif %} {% endfor %}
           </select>
