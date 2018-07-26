@@ -12,6 +12,11 @@
     src: yoursite.conf.tpl
     dest: /etc/nginx/sites-enabled/{{ user.project_name }}.conf
   notify: ["restart nginx"]
-        
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+  become: yes
 
   
