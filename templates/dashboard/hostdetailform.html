@@ -237,6 +237,7 @@
                                         <th>Host Username</th>
                                         <th>Host Password</th>
                                         <th>Host Status</th>
+                                        <th>Docker</th>
                                     </thead>
                                     <tbody>
                                         <tr>
@@ -246,14 +247,14 @@
                                             <td>{{ posts.hostUsername }}</td>
                                             <td>{{ posts.hostPassword }}</td>
                                             <td>{{ posts.status }}</td>
-                                            
+                                            <td>{{ posts.hostDocker }}</td>
                                       
                                         </tr>
                                        
                                     </tbody>
                                     <thead>
                                     
-                                            <th>Docker</th>
+
                                             <th>Nginx</th>
                                             <th>Mysql</th>
                                             <th>Mysql Username</th>
@@ -264,7 +265,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{{ posts.hostDocker }}</td>
+
                                                 <td>{{ posts.hostNginx }}</td>
                                                 <td>{{ posts.hostMysql }}</td>
                                                 <td>{{ posts.mysqlUsername }}</td>
