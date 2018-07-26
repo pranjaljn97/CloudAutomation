@@ -218,18 +218,18 @@ def rejected(request):
 def approvedsuccessfully(request, id):
     print "in approved"
     currpost = Project.objects.get(id=id)
-    mysqlu = currpost.MYSQL_USER_NAME_VALUE
-    mysqld = currpost.MYSQL_DATABASE_NAME_VALUE
-    mongou = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
-    mongod = currpost.MONGO_INITDB_DATABASE_VALUE
-    mysqlu = mysqlu + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    mysqld = mysqld + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    mongou = mongou + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    mongod = mongod + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    currpost.MYSQL_USER_NAME_VALUE = mysqlu
-    currpost.MYSQL_DATABASE_NAME_VALUE = mysqld
-    currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongou
-    currpost.MONGO_INITDB_DATABASE_VALUE = mongod
+    # mysqlu = currpost.MYSQL_USER_NAME_VALUE
+    # mysqld = currpost.MYSQL_DATABASE_NAME_VALUE
+    # mongou = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
+    # mongod = currpost.MONGO_INITDB_DATABASE_VALUE
+    # mysqlu = mysqlu + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # mysqld = mysqld + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # mongou = mongou + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # mongod = mongod + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # currpost.MYSQL_USER_NAME_VALUE = mysqlu
+    # currpost.MYSQL_DATABASE_NAME_VALUE = mysqld
+    # currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongou
+    # currpost.MONGO_INITDB_DATABASE_VALUE = mongod
     currpost.save()
 
 
@@ -240,6 +240,19 @@ def approvedsuccessfully(request, id):
         form = HostdeployForm(request.POST)
         if form.is_valid():
             print "inpost"
+            mysqlu = currpost.MYSQL_USER_NAME_VALUE
+            mysqld = currpost.MYSQL_DATABASE_NAME_VALUE
+            mongou = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
+            mongod = currpost.MONGO_INITDB_DATABASE_VALUE
+            mysqlu = mysqlu + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+            mysqld = mysqld + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+            mongou = mongou + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+            mongod = mongod + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+            currpost.MYSQL_USER_NAME_VALUE = mysqlu
+            currpost.MYSQL_DATABASE_NAME_VALUE = mysqld
+            currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongou
+            currpost.MONGO_INITDB_DATABASE_VALUE = mongod
+            currpost.save()
             
             ip = form.cleaned_data['hostipdeploy']
             print ip
@@ -413,6 +426,8 @@ def drupalform(request):
     if request.method == 'POST':
         form = RequestForm(request.POST, request.FILES)
         if form.is_valid():
+            
+
             maxkey  = 0
             maxkey = int(form.cleaned_data['total'])
             tot = 0
