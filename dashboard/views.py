@@ -245,7 +245,6 @@ def approvedsuccessfully(request, id):
             mongou = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
             mongod = currpost.MONGO_INITDB_DATABASE_VALUE
             mysqlu = mysqlu + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-	    print mysqlu
             mysqld = mysqld + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
             mongou = mongou + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
             mongod = mongod + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
@@ -279,6 +278,8 @@ def approvedsuccessfully(request, id):
                 for post in hosts:
                     user = post.mysqlUsername
                     passwd = post.mysqlPassword
+                    sqlflag = post.hostMysql
+                    mongoflag = post.hostMongo
                 
                 uname = currpost.MYSQL_USER_NAME_VALUE
                 upwd = currpost.MYSQL_PASSWORD_VALUE
@@ -290,11 +291,12 @@ def approvedsuccessfully(request, id):
                 print upwd
                 print udb 
                 
-                try:
-                    buildMysql(ip,user,passwd,uname,upwd,udb)
-                except:
-                     msg = "Unable to make mysql request"
-                     return render(request, "dashboard/error.html", {'msg': msg })
+                if sqlflag == 'true':
+                    try:
+                        buildMysql(ip,user,passwd,uname,upwd,udb)
+                    except:
+                        msg = "Unable to make mysql request"
+                        return render(request, "dashboard/error.html", {'msg': msg })
 
 
                 uname = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
@@ -306,12 +308,13 @@ def approvedsuccessfully(request, id):
                     rootpass = post.mongoPassword
                
                 rootdb = 'admin'
-                
-                try:
-                    buildMongo(rootuser, rootpass, rootdb,uname,upwd,udb,ip)
-                except:
-                     msg = "Unable to make mongo request"
-                     return render(request, "dashboard/error.html", {'msg': msg })
+
+                if mongoflag == 'true':
+                    try:
+                        buildMongo(rootuser, rootpass, rootdb,uname,upwd,udb,ip)
+                    except:
+                        msg = "Unable to make mongo request"
+                        return render(request, "dashboard/error.html", {'msg': msg })
 
 
             
@@ -768,7 +771,7 @@ def mysqlform(request):
         print "hi"
         form = mysqlForm(request.POST)
         if form.is_valid():
-            form.cleaned_data[' MYSQL_DATABASE_NAME_VALUE'] = 'newtestdb'
+            # dbname = form.cleaned_data[' MYSQL_DATABASE_NAME_VALUE']
             form.save()
 
             sendmail(request,form,'mysqlsubmit')
@@ -832,6 +835,7 @@ def approvedsuccessfullymysql(request, id):
         passwd = post.mysqlPassword
     host = currpost.hostIp
     uname = currpost.MYSQL_USER_NAME_VALUE
+    
     upwd = currpost.MYSQL_PASSWORD_VALUE
     udb = currpost.MYSQL_DATABASE_NAME_VALUE
 

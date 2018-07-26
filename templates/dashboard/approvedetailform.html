@@ -418,8 +418,10 @@
                                                
                                                             {% for i in hostInfo %}
                                                               {% if posts.legacy1 == 'Yes' %}
-                                                                    {% if i.status == 'Deployed Successfully' and i.hostMysql == 'true' and i.hostMongo == 'true' %}
-                                                                        <option value ="{{ i.hostIp }}">{{ i.hostIdentifier }}</option>
+                                                                    {% if i.status == 'Deployed Successfully' %}
+                                                                        {% if i.hostMysql == 'true' or i.hostMongo == 'true' %}
+                                                                            <option value ="{{ i.hostIp }}">{{ i.hostIdentifier }}</option>
+                                                                        {% endif %}
                                                                     {% endif %}
                                                               {% endif %}
                                                             {% endfor %}  

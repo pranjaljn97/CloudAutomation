@@ -30,6 +30,8 @@ global varnishflag
 global redisflag
 global mysqlflag
 global mongoflag
+global mysqlhostcheck
+global mongohostcheck
 
 
 def makeenvfile(myid):
@@ -460,26 +462,44 @@ def makeenvfile(myid):
         varnishflag = True
     #mysql
     if curr.mysql_version == 'NA' or curr.hostIp_mysql != 'NA':
-        print "no sql"
-        mysqlflag = False
-        sqlport = 'false'
-        sshsqlport = 'false'
-        newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'mysql')
-        newport.save()
-        newport1 = Ports(port = sshsqlport, status = '0', projectname = pname, ptype = 'mysql')
-        newport1.save()
+        newip = curr.hostIp_mysql
+        hosts = Host.objects.all()
+        for host in hosts:
+            if host.hostIp == newip:
+                mysqlhostcheck = host.hostMysql
+                break
+        if mysqlhostcheck == 'true':
+            print "no sql"
+            mysqlflag = False
+            sqlport = 'false'
+            sshsqlport = 'false'
+            newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'mysql')
+            newport.save()
+            newport1 = Ports(port = sshsqlport, status = '0', projectname = pname, ptype = 'mysql')
+            newport1.save()
+        else:
+            mysqlflag = True
     else:
         mysqlflag = True
     #mongo db
     if curr.mongo_version == 'NA' or curr.hostIp_mysql != 'NA':
-        print "no mongo"
-        mongoflag = False
-        mongoport = 'false'
-        sshmongoport = 'false'
-        newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongo db')
-        newport.save()
-        newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db')
-        newport.save()
+        newip = curr.hostIp_mysql
+        hosts = Host.objects.all()
+        for host in hosts:
+            if host.hostIp == newip:
+                mongohostcheck = host.hostMongo
+                break
+        if mongohostcheck == 'true':
+            print "no mongo"
+            mongoflag = False
+            mongoport = 'false'
+            sshmongoport = 'false'
+            newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongo db')
+            newport.save()
+            newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db')
+            newport.save()
+        else:
+            mongoflag = True
     else:
         mongoflag = True
     #redis
