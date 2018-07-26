@@ -559,8 +559,8 @@ def makeenvfile(myid):
 
     pathdir = "documents/" + post.project_name 
     env_path = 'false'
-    destpath = settings.ENVFILE_PATH + 'documents/' + post.project_name + '/'
-    env_path = destpath + 'extraenv.json'
+    destpath1 = settings.ENVFILE_PATH + 'documents/' + post.project_name + '/'
+    env_path = destpath1 + 'extraenv.json'
 
     gitUrl = post.git_url
     gitBranch = post.git_branch
