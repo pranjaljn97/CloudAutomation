@@ -542,6 +542,14 @@ def makeenvfile(myid):
             else:
                 env_path = 'false'
 
+    gitUrl = post.git_url
+    gitToken = post.git_branch
+
+    if gitUrl == "":
+        gitUrl = "github.com/pranjaljn97/AChecker"
+    if gitToken == "":
+        gitToken = "master"
+
     data = {'user': {'id': post.id,
                         'USERNAME': post.requester,
                         'project_name': post.project_name,

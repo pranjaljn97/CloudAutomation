@@ -433,7 +433,7 @@ def drupalform(request):
             with io.open(p1, 'w', encoding='utf8') as outfile:
                 str_ = json.dumps(d,
                             indent=4, sort_keys=True,
-                            separators=(',', ': '), ensure_ascii=False)
+                            separators=(',', ':'), ensure_ascii=False)
                 outfile.write(to_unicode(str_))
                 filecurrpath = "./" + 'extravar.json'
                 
