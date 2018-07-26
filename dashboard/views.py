@@ -420,6 +420,15 @@ def drupalform(request):
             maxkey += 1
             lst = []
             d = {}
+            proj = form.cleaned_data['project_name']
+            newpath = r'./documents/' + proj 
+            if not os.path.exists(newpath):
+                os.makedirs(newpath)
+            try:
+                to_unicode = unicode
+            except NameError:
+                to_unicode = str
+
             for x in range(1,maxkey):
                 y = x
                 tot += 1
@@ -429,31 +438,11 @@ def drupalform(request):
                 print(form.cleaned_data[name])
                 a = form.cleaned_data[name]
                 b = form.cleaned_data[name2]
+                p1 = newpath + '/extraenv.json'
+                with open(p1,'ab') as f:
+                    f.write(a+"="+b+"\n")
 
-                d[a]=b
-            lst.append(d)
-                        
-            final = json.dumps(lst)
-            
-            proj = form.cleaned_data['project_name']
-            newpath = r'./documents/' + proj 
-            if not os.path.exists(newpath):
-                os.makedirs(newpath)
-            try:
-                to_unicode = unicode
-            except NameError:
-                to_unicode = str
-            
-            p1 = newpath + '/extraenv.json'
-            with io.open(p1, 'w', encoding='utf8') as outfile:
-                str_ = json.dumps(d,
-                            indent=4, sort_keys=True,
-                            separators=(',', ':'), ensure_ascii=False)
-                outfile.write(to_unicode(str_))
-                filecurrpath = "./" + 'extravar.json'
-                
-                
-
+               
 
             form.save()
             sendmail(request,form,'submit')
