@@ -304,8 +304,7 @@ def approvedsuccessfully(request, id):
                 for post in hosts:
                     rootuser = post.mongoUsername
                     rootpass = post.mongoPassword
-                # rootuser = 'tom'
-                # rootpass = 'jerry'
+               
                 rootdb = 'admin'
                 
                 try:
@@ -316,28 +315,28 @@ def approvedsuccessfully(request, id):
 
 
             
-            # try:
-            makeenvfile(id)
-            # except:
-            #     msg = "Error in making Env File"
-            #     return render(request, "dashboard/error.html", {'msg': msg })
+            try:
+                makeenvfile(id)
+            except:
+                 msg = "Error in making Env File"
+                 return render(request, "dashboard/error.html", {'msg': msg })
 
             print("hi")
-            # try:
-            execplaybook(id)
-            # except:
-            #         msg = "Error in executing  Ansible Playbook"
-            #       return render(request, "dashboard/error.html", {'msg': msg })
-    
+            try:
+                execplaybook(id)
+            except:
+                msg = "Error in executing  Ansible Playbook"
+                return render(request, "dashboard/error.html", {'msg': msg })
+
         
             jsonfile = currpost.project_name
             appname = currpost.application_name
             hostip = currpost.hostIp
-            # try:
-            buildinfo(request,id,jsonfile,hostip)
-            # except:
-            #     msg = "Error in fetching final status"
-            #     return render(request, "dashboard/error.html", {'msg': msg })
+            try:
+                buildinfo(request,id,jsonfile,hostip)
+            except:
+                msg = "Error in fetching final status"
+                return render(request, "dashboard/error.html", {'msg': msg })
     
             try:
                 add_cname_record(request,id,jsonfile,appname,hostip)
@@ -436,13 +435,22 @@ def drupalform(request):
             lst = []
             d = {}
             proj = form.cleaned_data['project_name']
-            newpath = r'./documents/' + proj 
+            newpath = settings.ENVFILE_PATH + 'documents/' + proj + '/'
+            newpath1 = r'./documents/' 
+            if not os.path.exists(newpath1):
+                os.makedirs(newpath1)
             if not os.path.exists(newpath):
                 os.makedirs(newpath)
             try:
                 to_unicode = unicode
             except NameError:
                 to_unicode = str
+            destpath = settings.ENVFILE_PATH + 'documents/' + proj + '/'
+            p1 = newpath1 + '/extraenv.json'
+            with open(p1,'wb') as f:
+                    f.close()
+            with open(destpath+'extraenv.json','wb') as f:
+                    f.close()
 
             for x in range(1,maxkey):
                 y = x
@@ -453,9 +461,14 @@ def drupalform(request):
                 print(form.cleaned_data[name])
                 a = form.cleaned_data[name]
                 b = form.cleaned_data[name2]
-                p1 = newpath + '/extraenv.json'
+                p1 = newpath1 + '/extraenv.json'
                 with open(p1,'ab') as f:
                     f.write(a+"="+b+"\n")
+
+            filecurrpath = newpath1 + '/extraenv.json'
+            filename = 'extraenv.json'
+            print destpath + filename
+            os.rename(filecurrpath, destpath + filename)
 
                
 
@@ -667,13 +680,13 @@ def rerun(request,id):
             print newbranch
             posts.git_branch = newbranch
             posts.save()
-
             maxkey  = 0
             maxkey = int(form.cleaned_data['total'])
             tot = 0
             maxkey += 1
             lst = []
             d = {}
+            destpath = settings.ENVFILE_PATH + 'documents/' + proj + '/'
             for x in range(1,maxkey):
                 y = x
                 tot += 1
@@ -683,28 +696,15 @@ def rerun(request,id):
                 print(form.cleaned_data[name])
                 a = form.cleaned_data[name]
                 b = form.cleaned_data[name2]
+                newpath1 = r'./documents/'
+                p1 = newpath1 + '/extraenv.json'
+                with open(p1,'ab') as f:
+                    f.write(a+"="+b+"\n")
 
-                d[a]=b
-            lst.append(d)
-                        
-            final = json.dumps(lst)
-            
-            proj = form.cleaned_data['project_name']
-            newpath = r'./documents/' + proj 
-            if not os.path.exists(newpath):
-                os.makedirs(newpath)
-            try:
-                to_unicode = unicode
-            except NameError:
-                to_unicode = str
-            
-            p1 = newpath + '/extraenv.json'
-            with io.open(p1, 'w', encoding='utf8') as outfile:
-                str_ = json.dumps(d,
-                            indent=4, sort_keys=True,
-                            separators=(',', ': '), ensure_ascii=False)
-                outfile.write(to_unicode(str_))
-                filecurrpath = "./" + 'extravar.json'
+            filecurrpath = newpath1 + '/extraenv.json'
+            filename = 'extraenv.json'
+            print destpath + filename
+            os.rename(filecurrpath, destpath + filename)
 
 
             try:

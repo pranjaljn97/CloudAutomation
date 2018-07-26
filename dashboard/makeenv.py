@@ -535,12 +535,8 @@ def makeenvfile(myid):
 
     pathdir = "documents/" + post.project_name 
     env_path = 'false'
-    for root, dirs, files in os.walk(pathdir):
-        for file in files:
-            if file.endswith('.json'):
-                env_path = root + "/" + file
-            else:
-                env_path = 'false'
+    destpath = settings.ENVFILE_PATH + 'documents/' + post.project_name + '/'
+    env_path = destpath + 'extraenv.json'
 
     gitUrl = post.git_url
     gitBranch = post.git_branch
@@ -661,7 +657,7 @@ def makeenvfile(myid):
         filename = post.project_name + '_' + str(post.id) + '_latest.json'
         print destpath + filename
         os.rename(filecurrpath, destpath + filename)
-
+   
     a = destpath + filename
     b = destpath + post.project_name + '_' + str(post.id) +'_'+ datetime.datetime.now().strftime("%Y%m%d-%H%M%S") +'_.json'
     with open(a, 'rb') as src, open(b, 'wb') as dst:
