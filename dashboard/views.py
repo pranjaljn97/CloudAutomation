@@ -816,13 +816,13 @@ def rejectedmysql(request):
 def approvedsuccessfullymysql(request, id):
     
     currpost = mysqluser.objects.get(id=id)
-    dbname = currpost.MYSQL_DATABASE_NAME_VALUE
-    username = currpost.MYSQL_USER_NAME_VALUE
-    dbname = dbname + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    username = username + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    currpost.MYSQL_DATABASE_NAME_VALUE = dbname
-    currpost.MYSQL_USER_NAME_VALUE = username
-    currpost.save()
+    # dbname = currpost.MYSQL_DATABASE_NAME_VALUE
+    # username = currpost.MYSQL_USER_NAME_VALUE
+    # dbname = dbname + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # username = username + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # currpost.MYSQL_DATABASE_NAME_VALUE = dbname
+    # currpost.MYSQL_USER_NAME_VALUE = username
+    # currpost.save()
     ip = currpost.hostIp
     posts = Host.objects.all().filter(hostIp=ip)
 
@@ -841,6 +841,13 @@ def approvedsuccessfullymysql(request, id):
     if res == 't':
 
         currpost.status = 'Approved'
+        currpost.save()
+        dbname = currpost.MYSQL_DATABASE_NAME_VALUE
+        username = currpost.MYSQL_USER_NAME_VALUE
+        dbname = dbname + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+        username = username + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+        currpost.MYSQL_DATABASE_NAME_VALUE = dbname
+        currpost.MYSQL_USER_NAME_VALUE = username
         currpost.save()
         posts2 = mysqluser.objects.all()
         sendmail(request,id,'approvedmysql')
@@ -900,13 +907,13 @@ def rejectedmongo(request):
 def approvedsuccessfullymongo(request, id):
     
     currpost = mongoform.objects.get(id=id)
-    mongodb = currpost.MONGO_INITDB_DATABASE_VALUE
-    mongouser = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
-    mongodb = mongodb + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    mongouser = mongouser + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    currpost.MONGO_INITDB_DATABASE_VALUE = mongodb
-    currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongouser
-    currpost.save()
+    # mongodb = currpost.MONGO_INITDB_DATABASE_VALUE
+    # mongouser = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
+    # mongodb = mongodb + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # mongouser = mongouser + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # currpost.MONGO_INITDB_DATABASE_VALUE = mongodb
+    # currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongouser
+    # currpost.save()
     ip = currpost.hostip
     posts = Host.objects.all().filter(hostIp=ip)
 
@@ -935,6 +942,13 @@ def approvedsuccessfullymongo(request, id):
 
      #mail functionality
     sendmail(request,id,'approvedmongo')
+    mongodb = currpost.MONGO_INITDB_DATABASE_VALUE
+    mongouser = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
+    mongodb = mongodb + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    mongouser = mongouser + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    currpost.MONGO_INITDB_DATABASE_VALUE = mongodb
+    currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongouser
+    currpost.save()
     return render(request, "dashboard/forapprovalmongo.html", {'posts': posts2 })
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))
