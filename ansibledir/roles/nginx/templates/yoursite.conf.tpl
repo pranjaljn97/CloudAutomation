@@ -1,8 +1,8 @@
 #jinja2: lstrip_blocks: True
 server {
     server_name {{ user.project_name }}-{{ user.application_name }}.tothenew.tk;
-    access_log /var/log/nginx/{{ user.project_name }}/access.log;
-    error_log /var/log/nginx/{{ user.project_name }}/error.log warn;
+    access_log /var/log/nginx/{{ user.project_name }}_access.log;
+    error_log /var/log/nginx/{{ user.project_name }}_error.log warn;
     location / {
         proxy_set_header                Host  {{ user.project_name }}-{{ user.application_name }}.tothenew.tk;
         proxy_set_header                HTTP_Country-Code $geoip_country_code;
