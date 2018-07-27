@@ -554,9 +554,7 @@ def makeenvfile(myid):
 
 
     fileopp = 'true'
-    if post.total == '0':
-        fileopp = 'false'
-
+    
     pathdir = "documents/" + post.project_name 
     env_path = 'false'
     destpath1 = settings.ENVFILE_PATH + 'documents/' + post.project_name + '/'

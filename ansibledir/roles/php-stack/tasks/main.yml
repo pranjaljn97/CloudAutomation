@@ -22,6 +22,7 @@
     - { dest: '/home/{{ user.project_name }}/mongodb', mode: '0775'}
     - { dest: '/home/{{ user.project_name }}/code', mode: '0775'}
     - { dest: '/home/{{ user.project_name }}/redis', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/varnish', mode: '0775'}
     - { dest: '/home/{{ user.project_name }}/logs', mode: '0775'}
     - { dest: '/home/{{ user.project_name }}/logs/nginx', mode: '0775'} 
     - { dest: '/home/{{ user.project_name }}/logs/mysql', mode: '0775'} 
@@ -66,6 +67,13 @@
     owner: bin
     mode: 0644
 
+- name: creating varnish vcl file
+  become: true
+  template:
+    src: default.vcl
+    dest: '/home/{{ user.project_name }}/varnish/default.vcl'
+    owner: bin
+    mode: 0644
 
 - name: Copy env file into remote  
   become: true
