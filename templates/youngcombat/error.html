@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Error ! To The New </title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+	<br><br>
+<h1 style="text-align: center;">&nbsp;Oops! Something went wrong!&nbsp;</h1>
+
+<p style="text-align: center;"><a href="{% url 'login' %}" class="myButton" >Try Something Different</a> </p>
+<p style="text-align: center;"> You are not allowed to login <br> {{ today }} <p>
+
+
+<p>&nbsp;</p>
+</body>
+</html>
+

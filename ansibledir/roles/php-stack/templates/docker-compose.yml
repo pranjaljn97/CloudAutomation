@@ -1,0 +1,98 @@
+#jinja2: lstrip_blocks: True
+version: '3.0'
+services:
+  {% if mysql.enable==true %}
+   mysql:  
+     image: {{ mysql.image }}
+     volumes:
+       - ./mysql:/var/lib/mysql
+       - ./logs/mysql:/var/log/mysql
+     environment:
+       {% for key,value in mysql.envi.iteritems() %}
+       {{ key }} : {{ value }}
+       {% endfor %}
+     ports:
+       - "{{ mysql.ports }}:3306"
+       - "{{ mysql.sshport }}:22"
+
+       
+  {% endif %} 
+  
+  {% if mongodb.enable==true %}
+   mongodb:
+     image: {{ mongodb.image }}
+     environment:
+       {% for key,value in mongodb.envi.iteritems() %}
+       {{ key }} : {{ value }}
+       {% endfor %} 
+     volumes:
+       - ./mongodb:/data/db
+       - ./logs/mongodb:/var/log/mongodb
+     ports:
+       - "{{ mongodb.ports }}:27017"
+       - "{{ mongodb.sshport }}:22"
+  {% endif %}
+
+   
+
+  {% if redis.enable==true %}
+   redis:
+     image: {{ redis.image }}
+     volumes:
+       - ./logs/redis:/home 
+     environment:
+       {% for key,value in redis.envi.iteritems() %}
+       {{ key }} : {{ value }}
+       {% endfor %}
+     ports:
+       - "{{ redis.ports }}:6379"
+       - "{{ redis.sshport }}:22"
+     
+       
+  {% endif %}
+
+  
+  {% if nginx_php.enable==true %}
+   nginx_php:
+     image: pranjaljn97/php-nginx-ssh
+     {% if nginx_php.env_file=="true" %}
+     env_file:
+       - nginx-php.env
+     {% endif %}  
+     environment:
+       {% for key,value in nginx_php.envi.iteritems() %}
+       {{ key }} : {{ value }}
+       {% endfor %}
+     ports:
+       - "{{ nginx_php.ports }}:80"
+       - "{{ nginx_php.sshport }}:22"
+     volumes:
+      - ./code:/var/www/html
+  {% endif %}    
+  
+  {% if varnish.enable==true %} 
+   varnish:
+     image: {{ varnish.image }}
+     environment:
+       {% for key,value in varnish.envi.iteritems() %}
+       {{ key }} : {{ value }}
+       {% endfor %}
+     depends_on:
+       - nginx_php
+     ulimits:
+       nofile:
+        soft: 262144
+        hard: 262144
+       memlock:
+        soft: 819200000
+        hard: 819200000
+     ports:
+       - "{{ varnish.ports }}:80"
+       - "{{ varnish.sshport }}:22" 
+     volumes:
+       - ./varnish/default.vcl:/etc/varnish/default.vcl 
+
+
+  {% endif %}
+
+

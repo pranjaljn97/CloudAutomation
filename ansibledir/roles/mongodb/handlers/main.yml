@@ -1,0 +1,15 @@
+---
+- name: Start mongodb on boot
+  become: true
+  systemd:
+    name: mongod
+    state: started
+    enabled: yes
+
+
+- name: restart mongod
+  become: true
+  service:
+    name: mongod
+    state: restarted
+

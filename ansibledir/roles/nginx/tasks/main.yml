@@ -1,0 +1,22 @@
+---
+- name: Install Nginx
+  become: true
+  apt:
+    name: "nginx"
+    state: "present"
+  notify: ["restart nginx"]
+
+- name: Setup nginx vhost
+  become: true
+  template:
+    src: yoursite.conf.tpl
+    dest: /etc/nginx/sites-enabled/{{ user.project_name }}.conf
+  notify: ["restart nginx"]
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+  become: yes
+
+  

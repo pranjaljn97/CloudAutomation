@@ -1,0 +1,586 @@
+{% load static %}
+{% if user.is_authenticated %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Self Service Portal | To The New</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+
+    <!-- Bootstrap core CSS     -->
+    <link href="{% static "dashboard/assets/css/regForm.css" %}" rel="stylesheet"/>
+
+    <link href="{% static "dashboard/assets/css/bootstrap.min.css" %}" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="{% static "dashboard/assets/css/animate.min.css" %}" rel="stylesheet"/>
+     <!--  CSS for add more button     -->
+     <link href="{% static "dashboard/assets/css/addMore.css" %}" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="{% static "dashboard/assets/css/light-bootstrap-dashboard.css" %}" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="{% static "dashboard/assets/css/demo.css" %}" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="{% static "dashboard/assets/css/pe-icon-7-stroke.css" %}" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="{% static "dashboard/assets/img/sidebar-5.jpg" %}">
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+
+                    <center>
+                            <h4> Hello Developer</h4>
+                         </center>
+
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="{% url "dashboard" %}">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+		  <li>
+                    <a href="{% url "dashboard" %}">
+                        <i class="pe-7s-note2"></i>
+                        <p>Submitted</p>
+                    </a>
+                </li>
+		{% if perms.login.view_content %}
+		  <li>
+                    <a href="{% url "forapproval" %}">
+                        <i class="pe-7s-user"></i>
+                        <p>For Approval</p>
+                    </a>
+                </li>
+            <li>
+                        <a href="{% url "approved" %}">
+                            <i class="pe-7s-note2"></i>
+                            <p>Approved</p>
+                        </a>
+                    </li>
+           <li>
+                            <a href="{% url "rejected" %}">
+                                <i class="pe-7s-graph"></i>
+                                <p>Rejected</p>
+                            </a>
+                        </li>
+            <li>
+                                <a href="{% url "rstackview" %}">
+                                    <i class="pe-7s-graph"></i>
+                                    <p>Running Stacks</p>
+                                </a>
+                            </li>
+		{% endif %}
+
+                <li>
+
+                <li>
+                
+		{% if perms.login.view_content %}
+                <li>
+                    <a href="{% url "cprovider" %}">
+                        <i class="pe-7s-note2"></i>
+                        <p>Cloud Provider</p>
+                    </a>
+                </li>
+
+                {% endif %}
+
+
+            </ul>
+    	</div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Hi {{ user.username }} !</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-dashboard"></i>
+								<p class="hidden-lg hidden-md">Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-globe"></i>
+                                    <b class="caret hidden-sm hidden-xs"></b>
+                                    <span class="notification hidden-sm hidden-xs">5</span>
+									<p class="hidden-lg hidden-md">
+										1 Notifications
+										<b class="caret"></b>
+									</p>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Welcome</a></li>
+                                <!--<li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>-->
+                              </ul>
+                        </li>
+                        <li>
+                           <a href="">
+                                <i class="fa fa-search"></i>
+								<p class="hidden-lg hidden-md">Search</p>
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                           <a href="#">
+                               <p>FAQ</p>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <p>
+										Services
+										<b class="caret"></b>
+									</p>
+                              </a>
+                             <!-- <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                              </ul>-->
+                        </li>
+                        <li>
+                            <a href="{% url 'logout' %}">
+                                <p>Log out</p>
+                            </a>
+                        </li>
+						<li class="separator hidden-lg hidden-md"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title"></h4>
+                                <p class="category">Basic Details</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>Requester</th>
+                                        <th>Project Name</th>
+                                        <th>Application Name</th>
+                                        <th>Status</th>
+                                    	<th>Host Ip</th>
+                                        <th>Git Url</th>
+                                        <th>Git Branch</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        	<td>{{ posts.requester }}</td>
+                                            <td>{{ posts.project_name }}</td>
+                                            <td>{{ posts.application_name }}</td>
+                                            <td>{{ posts.status }}</td>
+                                        	<td>{{ posts.hostIp }}</td>
+                                            <td>{{ posts.git_url }}</td>
+                                            <td>{{ posts.git_branch }}</td>
+                                        </tr>
+                                       
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <p class="category">PHP-Nginx Details</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th>Php Version</th>
+                                    	<th>Nginx Server Root Value</th>
+                                    	<th>Static Content Log Value</th>
+                                    	<th>Static Content Expires Value</th>
+                                    	
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        	<td>{{ posts.PHP_VERSION }} </td>
+                                        	<td>{{ posts.NGINX_SERVER_ROOT_VALUE }}</td>
+                                        	<td>{{ posts.NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE }}</td>
+                                        	<td>{{ posts.NGINX_STATIC_CONTENT_EXPIRES_VALUE }}</td>
+                                        	
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <p class="category">MySql Details</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th>MySql Version</th>
+                                    	<th>Database Name Value</th>
+                                    	<th>Root Password Value</th>
+                                        <th> Mysql UserName</th>
+                                        <th> Mysql Password Value</th>
+                                        
+                                    	
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        	<td>{{ posts.mysql_version }}</td>
+                                        	<td>{{ posts.MYSQL_DATABASE_NAME_VALUE }}</td>
+                                        	<td> {{ posts.MYSQL_ROOT_PASSWORD_VALUE }}</td>
+                                            <td>{{ posts.MYSQL_USER_NAME_VALUE }}</td>
+                                            <td>{{ posts.MYSQL_PASSWORD_VALUE }}</td>
+                                            
+                                        	
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <p class="category">Varnish and Redis Details</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th>Varnish Version</th>
+                                    	<th>Backend Host Value</th>
+                                    	<th>Backend Port Value</th>
+                                        <th>Varnish Port Value</th>
+                                        <th> Redis Version</th>
+                                        <th> Redis Password Value</th>
+
+                                        
+                                    	
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        	<td>{{ posts.varnish_version }}</td>
+                                        	<td>{{ posts.VARNISH_BACKEND_HOST_VALUE }}</td>
+                                        	<td> {{ VARNISH_BACKEND_PORT_VALUE }}</td>
+                                            <td>{{ posts.VARNISH_PORT_VALUE }}</td>
+                                            <td>{{ posts.redis_version }}</td>
+                                            <td>{{ posts.REDIS_PASSWORD_VALUE }}</td>
+                                            
+                                        	
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <p class="category">Mongo DB Details</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th>Mongo DB Version</th>
+                                    	<th>Database Name</th>
+                                    	<th>Mongo DB Root UserName</th>
+                                        <th>Mongo DB Root Password</th>
+                                        
+                                        
+                                    	
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        	<td>{{ posts.mongo_version }}</td>
+                                        	<td>{{ posts.MONGO_INITDB_DATABASE_VALUE }}</td>
+                                        	<td>{{ posts.MONGO_INITDB_ROOT_USERNAME_VALUE }}</td>
+                                            <td>{{ posts.MONGO_INITDB_ROOT_PASSWORD_VALUE}} </td>
+                                           
+                                        	
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    {% for statusentry in allstatus %}
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <p class="category">Current Status</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <th>Project Name</th>
+                                    	<th>SSH Status</th>
+                                    	<th>Docker Status</th>
+                                        <th>URL Status</th>
+                                        <th>MySql Status</th>
+                                        <th>Mongo DB Status</th>
+                                        
+                                        
+                                    	
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        	<td>{{ statusentry.projectname }}</td>
+                                        	<td>{{ statusentry.sshstatus }}</td>
+                                        	<td>{{ statusentry.dockerstatus }}</td>
+                                            <td>{{ statusentry.urlstatus }} </td>
+                                            <td>{{ statusentry.mysqlstatus }} </td>
+                                            <td>{{ statusentry.mongostatus }} </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+            <div id="form" class="col-md-12">
+                    <div class="card">
+                        <div class = "col-md-12">
+                        <div class="header">
+                            <p class="category">Please Enter New Details</p>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <div class="col-md-12">
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    New Git Branch <input type="text" name="newbranch" placeholder= {{ posts.git_branch }}><br><br>
+                                    Existing Environment Variables:
+                                    <br>
+                                    {% for env_key, env_value in jsondata.items %}
+                                    <div class="row">
+                                                
+                                        <div class="col-md-6">
+                                            <span style="color: red">
+                                              </span>
+                                          <div class="form-group">
+                                            <label>Key
+                                            </label>
+                                            <input type="text" class="form-control"  disabled value= {{ env_key }} name= {{ env_key }}>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label>Value
+                                            </label>
+                                            <input type="text" class="form-control" disabled value= {{ env_value }}>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                    {% endfor %}
+                                    <div id="room_fields">                                              
+                                            <div class="content">
+                                              <div class="row">
+                            
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <label>New Extra key Value pair added</label>    
+                                                  <label>Please Note : Adding New Variables will override all previous ones</label>                                       
+                                                    <input type="text" class="form-control" id="total" name="total" value="0" readonly />                                  
+                                              </div>
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-md-3">
+                                              <div class="form-group">                                          
+                                                    <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add New" />                                  
+                                              </div>
+                                            </div>
+            
+                                            </div>
+                                    <br>
+                                    <input type="submit" value="Submit" onclick="window.location='{% url "rerun" posts.id %}';"/>
+                                    <br>
+                                    <br>
+                                </form>
+                                        
+                                        
+                          
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </div>
+            
+                
+               
+            </div>
+            
+            <div class="row">
+                <center>
+                {% if perms.login.view_content %}
+
+                {% if posts.status == 'Rejected' %}
+                <div class="col-md-2 col-md-offset-3">
+                    <button class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">Approve</button>
+                </div>
+                {% endif %}
+                {% if posts.status == 'Approved' %}
+                <div class="col-md-2">
+                    <button class="btn btn-default btn-block">Delete</button>
+                </div>
+                {% endif %}
+                {% if posts.status == 'submitted' %}
+                <div class="col-md-2 col-md-offset-3">
+                        <button class="btn btn-default btn-block" onclick="window.location='{% url "approvedsuccessfully" posts.id %}';">Approve</button>
+                </div>
+                <div class="col-md-2">
+                        <button class="btn btn-default btn-block" onclick="window.location='{% url "rejectedsuccessfully" posts.id %}';">Reject</button>
+                    </div>
+                {% endif %}
+
+                {% endif %}
+
+                {% if posts.status == 'Approved' %}
+                <div class="col-md-2">
+                    <button class="btn btn-default btn-block">Re-Run</button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-default btn-block" onclick="window.location='{% url "checkstatus" posts.id %}';">Check Status</button>
+                </div>
+
+                {% endif %}
+                </center>
+
+
+
+                <!-- <div class="col-md-2">
+                    <button class="btn btn-default btn-block">Re-Run</button>
+                </div> -->
+            </div>
+        </div>
+        </div>
+
+
+       
+    </div>
+</div>
+
+
+</body>
+
+    <!--   Core JS Files   -->
+    <script src="{% static "dashboard/assets/js/regForm.js" %}"></script>
+
+    <script src="{% static "dashboard/assets/js/jquery-1.10.2.js" %}" type="text/javascript"></script>
+	<script src="{% static "dashboard/assets/js/bootstrap.min.js" %}" type="text/javascript"></script>
+
+	<!--  Checkbox, Radio & Switch Plugins -->
+	<script src="{% static "dashboard/assets/js/bootstrap-checkbox-radio-switch.js" %}"></script>
+
+	<!--  Charts Plugin -->
+	<script src="{% static "dashboard/assets/js/chartist.min.js" %}"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="{% static "dashboard/assets/js/bootstrap-notify.js" %}"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+	<script src="{% static "dashboard/assets/js/light-bootstrap-dashboard.js" %}"></script>
+
+	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+    <script src="{% static "dashboard/assets/js/demo.js" %}"></script>
+    <!-- JS file for add more button -->
+    <script src="{% static "dashboard/assets/js/addMore.js" %}"></script>
+
+	
+
+</html>
+{% else %}
+      <a href="{% url 'login' %}">login</a> <br>
+{% endif %}

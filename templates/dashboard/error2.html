@@ -1,0 +1,92 @@
+
+{% extends "dashboard/mysqlside2.html" %}
+{% load static %}
+{% block content %}
+        
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="header">
+                                <center>
+                                <h4 class="title">OOPS! <br>
+                                    Something has Broken<br><br>
+                                    Error : {{ msg }}</h4></center>
+                                <br>
+                                <br>
+                            </div>
+                            </div>
+                            </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="image">
+                                <img src="http://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                     <a href="#">
+                                    <img class="avatar border-gray" src="{% static "dashboard/assets/img/faces/face-1.jpg" %}" halt="..."/>
+
+                                      <h4 class="title">{{ user.first_name }} {{ user.last_name }}<br />
+                                         <small>{{ user.username }}</small>
+                                      </h4>
+                                    </a>
+                                </div>
+                                <p class="description text-center"> {{ user.email }} <br>
+                                                    To The New <br>
+                                                    Noida, India <br><br>
+                                                    <b>Last Login </b> : {{ user.last_login }}  <br>
+                                                    <b> Joined On </b> : {{ user.date_joined }}
+
+                                </p>
+                            </div>
+                            <hr>
+                            <!--<div class="text-center">
+                                <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
+                                <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
+                                <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
+
+                            </div>-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+       
+
+        <!--<footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Company
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               Blog
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright pull-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                </p>
+            </div>
+        </footer>-->
+
+        {% endblock %}

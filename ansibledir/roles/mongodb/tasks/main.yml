@@ -1,0 +1,65 @@
+---
+- name: Add mongo ppa key
+  become: true
+  apt_key: 
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: 0C49F3730359A14518585931BC711F9BA15703C6
+    state: present
+
+- name: Add mongo sources list
+  become: true
+  apt_repository: 
+    repo: "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse"
+    state: present
+    
+
+- name: Install mongo
+  become: true
+  apt: 
+    name: mongodb-org 
+    state: present
+    update_cache: yes
+  notify: 
+    - Start mongodb on boot
+
+- name: export mongo config file
+  become: true
+  copy:
+    src: mongod.conf
+    dest: /etc/
+    owner: root
+    mode: 644
+   
+- name: restart mongod
+  become: true
+  systemd:
+    name: mongod
+    state: started
+
+
+
+- name: Install Pip
+  become: true
+  apt: name=python-pip state=present
+
+- name: Install pymongo
+  become: true
+  pip: name=pymongo state=present
+
+
+
+- mongodb_user:
+    database: admin
+    name: "{{ mongoUsername }}"
+    password: "{{ mongoPassword }}"
+    roles: root
+    state: present
+
+
+   
+- name: restart mongod
+  become: true
+  systemd:
+    name: mongod
+    state: started
+

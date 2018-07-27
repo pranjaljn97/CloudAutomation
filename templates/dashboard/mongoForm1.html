@@ -1,0 +1,103 @@
+{% extends "dashboard/mongoside.html" %}
+ {% load static %} 
+ {% block content %}
+<div class="content">
+
+  <form id="regForm" action="." method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- One "tab" for each step in the form: -->
+    <h2>Mongo User Creation</h2>
+    <!-- ================================STEP 1 BASIC DETAILS======================================= -->
+
+
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label>Requester
+          </label>
+          <input type="text" class="form-control" readonly placeholder="{{ user.email }}" value="{{ user.email }}" name="requester">
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Choose Host</label>
+          <select name=hostIp>
+
+            {% for i in hostInfo %} {% if i.status == 'Deployed Successfully' %}
+            <option value="{{ i.hostIp }}">{{ i.hostIdentifier }}</option>
+            {% endif %} {% endfor %}
+          </select>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================STEP 4 MONGO DETAILS================================== -->
+    <div class="tab">
+
+
+      <div class="row"></div>
+      <div class="row">
+        <hr />
+        <div class="header">
+          <h3 class="title">
+            Environment variables
+          </h3>
+        </div>
+      </div>
+      <div class="row">
+        <span style="color: red">{{form.project_name.errors}}</span>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Key #1</label>
+            <input type="text" class="form-control" disabled="disabled" value="MONGO_INITDB_DATABASE" name='mongodb'
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Value #1</label>
+            <input type="text" class="form-control" name='MONGO_INITDB_DATABASE_VALUE' value='mongodb' />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <span style="color: red">{{form.project_name.errors}}</span>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Key #2</label>
+            <input type="text" class="form-control" disabled="disabled" value="MONGO_INITDB_ROOT_USERNAME"
+              name='mongouser' />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Value #2</label>
+            <input type="text" class="form-control" name='MONGO_INITDB_ROOT_USERNAME_VALUE' value='user'
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <span style="color: red">{{form.project_name.errors}}</span>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Key #3</label>
+            <input type="text" class="form-control" disabled="disabled" value="MONGO_INITDB_ROOT_PASSWORD"
+              name="mongopassword" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Value #3</label>
+            <input type="text" class="form-control" name='MONGO_INITDB_ROOT_PASSWORD_VALUE' value='1234'
+            />
+          </div>
+        </div>
+      </div>
+      
+
+    </div>
+
+    {% endblock %}

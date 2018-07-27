@@ -1,0 +1,232 @@
+{% extends "dashboard/sidebar.html" %}
+{% load static %}
+{% block content %}
+ <script type="text/javascript">
+    function ShowHideDiv(chkBox) {
+        var chkValue = document.getElementById("chkValue");
+        chkValue.style.display = chkBox.checked ? "block" : "none";
+    }
+
+        function ShowHide(chkBox) {
+        var chkValue2 = document.getElementById("chkValue2");
+        chkValue2.style.display = chkBox.checked ? "block" : "none";
+    }
+</script>
+<style type="text/css">
+    .form-style-5{
+        max-width: 500px;
+        padding: 10px 20px;
+        background: #f4f7f8;
+        margin: 10px auto;
+        padding: 20px;
+        background: #f4f7f8;
+        border-radius: 8px;
+        font-family: Georgia, "Times New Roman", Times, serif;
+    }
+    .form-style-5 fieldset{
+        border: none;
+    }
+    .form-style-5 legend {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+    }
+    .form-style-5 legend2 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    .form-style-5 label {
+        display: block;
+        margin-bottom: 8px;
+    }
+    .form-style-5 input[type="text"],
+    .form-style-5 input[type="date"],
+    .form-style-5 input[type="datetime"],
+    .form-style-5 input[type="email"],
+    .form-style-5 input[type="number"],
+    .form-style-5 input[type="search"],
+    .form-style-5 input[type="time"],
+    .form-style-5 input[type="url"],
+    .form-style-5 textarea,
+    .form-style-5 select {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        background: rgba(255,255,255,.1);
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        margin: 0;
+        outline: 0;
+        padding: 7px;
+        width: 100%;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        background-color: #e8eeef;
+        color:#8a97a0;
+        -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+        margin-bottom: 30px;
+       
+    }
+    .form-style-5 input[type="text"]:focus,
+    .form-style-5 input[type="date"]:focus,
+    .form-style-5 input[type="datetime"]:focus,
+    .form-style-5 input[type="email"]:focus,
+    .form-style-5 input[type="number"]:focus,
+    .form-style-5 input[type="search"]:focus,
+    .form-style-5 input[type="time"]:focus,
+    .form-style-5 input[type="url"]:focus,
+    .form-style-5 textarea:focus,
+    .form-style-5 select:focus{
+        background: #d2d9dd;
+    }
+    .form-style-5 select{
+        -webkit-appearance: menulist-button;
+        height:35px;
+    }
+    .form-style-5 .number {
+        background: #9c7fb6;
+        color: #fff;
+        height: 30px;
+        width: 30px;
+        display: inline-block;
+        font-size: 0.8em;
+        margin-right: 4px;
+        line-height: 30px;
+        text-align: center;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+        border-radius: 15px 15px 15px 0px;
+    }
+    
+    .form-style-5 input[type="submit"],
+    .form-style-5 input[type="button"]
+    {
+        position: relative;
+        display: block;
+        padding: 19px 39px 18px 39px;
+        color: #FFF;
+        margin: 0 auto;
+        background: #ffffff;
+        font-size: 18px;
+        text-align: center;
+        font-style: normal;
+        width: 100%;
+        border: 1px solid #ffffff;
+        border-width: 1px 1px 3px;
+        margin-bottom: 10px;
+    }
+    .form-style-5 input[type="submit"]:hover,
+    .form-style-5 input[type="button"]:hover
+    {
+        background: #ffffff;
+    }
+    </style>
+
+        <div class="content">
+                <div class="form-style-5">
+                        <form action="" method="POST" id="HostForm">
+                        {% csrf_token %}
+                        <fieldset>
+                        <legend><span class="number">1</span>Host Information</legend>
+                        <input type="text" name="hostIdentifier" placeholder="Host Identifier" required>
+                        <input type="text" name="hostIp" placeholder="Host IP Address"required>
+           
+                        </fieldset>
+                        <fieldset>
+                        <legend><span class="number">2</span>SSH Info</legend>
+                        <input type="text" name="hostUsername" placeholder="Host's Username" required>
+                        <input type="text" name="hostPassword" placeholder="Host's Password" required>
+                        </fieldset>
+                        <fieldset>
+                            <legend><span class="number">3</span>Configurations</legend>
+                            <input type="checkbox" name="hostDocker" value="true"> <legend2>Docker</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="hostNginx" value="true"> <legend2>Nginx</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="hostMysql" value="true" id="chkBox" onclick="ShowHideDiv(this)" /> <legend2>Mysql</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" name="hostMongo" value="true" id="chkBox" onclick="ShowHide(this)"> <legend2>Mongo</legend2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                        </fieldset>
+                        <br>
+                        <fieldset id="chkValue" style="display: none">
+                                <legend><span class="number">4</span>Mysql Info</legend>
+                                <input type="text" name="mysqlUsername" value="root" readonlys>
+                                <input type="text" name="mysqlPassword" placeholder="Mysql Password">
+                        </fieldset>
+                        <fieldset id="chkValue2" style="display: none">
+                                    <legend><span class="number">5</span>Mongo Info</legend>
+                                    <input type="text" name="mongoUsername"placeholder="Mongo Username">
+                                    <input type="text" name="mongoPassword" placeholder="Mongo Password">
+                        </fieldset>
+                        
+                        <input type="submit" value="Add Host" style="background-image: url(/static/dashboard/assets/img/sidebar-10.png) "/>
+                        </form>
+                        </div>
+                <div class="container-fluid">
+                    <div class="row">
+    
+                        <!--Add host card-->                                
+                    {% for host in hosts %}
+                    <div class="col-md-4" style="cursor: pointer" onclick="window.location='{% url "hostdetailform" host.id %}';">
+                        <div class="card">
+                            <div class="header">
+                                    <br>
+                                    <h5 class="title"><b>Host Identifier: {{ host.hostIdentifier }}</b></h5>
+                                        <br>
+                                        
+    
+                                
+                                    <p class="category"></p>
+                                    
+                                    <br>
+                                    
+                                    <i class="fa fa-circle text-info"></i> Host IP address : {{ host.hostIp }} <br>
+                                    <i class="fa fa-circle text-info"></i> Host Username : {{ host.hostUsername }}<br>
+                                    <i class="fa fa-circle text-info"></i> Host Password : {{ host.hostPassword }}<br>
+                                    <i class="fa fa-circle text-info"></i> Status : {{ host.status }}<br>
+                                    <br>  
+                                   
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                                </div>
+                            </div> 
+                            </div>
+                            
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--<footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Company
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                               Blog
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright pull-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                </p>
+            </div>
+        </footer>-->
+
+{% endblock %}

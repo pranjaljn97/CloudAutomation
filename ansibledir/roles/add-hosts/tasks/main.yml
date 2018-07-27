@@ -1,0 +1,6 @@
+---
+- name: add newly created instances to newly_created group
+  add_host:
+    name: "{{ hostIp }}"
+    group: new
+  

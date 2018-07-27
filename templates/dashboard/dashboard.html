@@ -1,0 +1,53 @@
+{% extends "dashboard/sidebardash.html" %}
+{% load static %}
+
+
+{% block content %}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-4" style="cursor: pointer;" onclick="window.location='{% url "drupalform" %}';">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title"><b>PHP Stack</b></h4>
+                                    <br>
+                                    <p class="category">Template for deploying Drupal Application</p>
+                                    <br>
+                                    <i class="fa fa-circle text-info"></i> Build Tool: Drupal <br>
+                                    <i class="fa fa-circle text-info"></i> Database: MySQL<br>
+                                    <br><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="cursor: pointer;" onclick="window.location='{% url "mysqlform" %}';">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title"><b>Mysql  Access</b></h4>
+                                    <br>
+                                    <p class="category">Template for creating Mysql user</p>
+                                    <br>
+                                    <i class="fa fa-circle text-info"></i> Access Mysql on required host <br>
+                                    <i class="fa fa-circle text-info"></i> Unlimited Access<br>
+                                    <br><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="cursor: pointer;" onclick="window.location='{% url "mongoformpage" %}';">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title"><b>Mongo Access</b></h4>
+                                    <br>
+                                    <p class="category">Template for creating Mongo user </p>
+                                    <br>
+                                    <i class="fa fa-circle text-info"></i> NoSql Database <br>
+                                    <i class="fa fa-circle text-info"></i> Free & Secured <br>
+                                    <br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endblock %}

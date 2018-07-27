@@ -1,0 +1,101 @@
+{% extends "dashboard/mysqlside.html" %}
+{% load static %}
+{% block content %}
+<div class="content">
+                  
+    <form id="regForm" action="." method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+        <!-- One "tab" for each step in the form: -->
+        <h2>Mysql User Creation</h2>
+        <div class="row">
+            <div class="col-md-5">
+              <div class="form-group">
+                <label>Requester
+                </label>
+                <input type="text" class="form-control" readonly placeholder="{{ user.email }}" value="{{ user.email }}" name="requester">
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-group">
+                <label>Choose Host &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select name=hostIp>
+                 
+                  {% for i in hostInfo %}
+                    {% if i.status == 'Deployed Successfully' %}
+                  <option value ="{{ i.hostIp }}">{{ i.hostIdentifier }}</option>
+                    {% endif %}
+                  {% endfor %}  
+                </select>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="tab">
+                              
+             <div class="row">                                     
+            </div>
+            <div class="row">
+              <hr>
+            <div class="header">
+                <h3 class="title"> Environment variables 
+                </h3>
+              </div>
+            </div>
+            <div class="row">
+                <span style="color: red">{{form.project_name.errors}}</span>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Key #1</label>
+                        <input type="text" class="form-control" disabled  value="MYSQL_DATABASE_NAME" name='MYSQL_DATABASE_NAME_VALUE'>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Value #1</label>
+                        <input type="text"  class="form-control" required name='MYSQL_DATABASE_NAME_VALUE' value='db'>
+                    </div>
+                </div>
+                
+            </div>
+             <div class="row">
+                <span style="color: red">{{form.project_name.errors}}</span>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Key #2</label>
+                        <input type="text" class="form-control"   disabled value="MYSQL_USER_NAME" name="MYSQL_USER_NAME_VALUE">
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Value #2</label>
+                        <input type="text" class="form-control" required name='MYSQL_USER_NAME_VALUE' value= {{ user.username }}>
+
+                    </div>
+                </div>
+
+                
+            </div>
+             <div class="row">
+                <span style="color: red">{{form.project_name.errors}}</span>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Key #3</label>
+                        <input type="text" class="form-control" disabled value="MYSQL_PASSWORD" name='MYSQL_PASSWORD_VALUE'>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Value #3</label>
+                        <input type="text" class="form-control" required name='MYSQL_PASSWORD_VALUE' value= {{ user.username }}1234>
+                    </div>
+                </div>
+                
+            </div>
+                                        
+      </div>
+      {% endblock %}

@@ -1,0 +1,21 @@
+---
+- name: Initial Task
+  hosts: localhost
+  connection: local
+  sudo: yes
+  roles: 
+    - add-hosts
+    
+- name: New instances
+  hosts: "{{ hostIp }}"
+  become_user: root
+  vars:
+    ansible_sudo_pass: "{{ hostPassword }}"
+    ansible_ssh_user: "{{ hostUsername }}"
+    ansible_ssh_pass: "{{ hostPassword }}"
+  roles:
+    - { role: docker-install, when: hostDocker == 'true' }
+    - { role: mongodb, when: hostMongo == 'true' }
+    - { role: mysql, when: hostMysql == 'true' }
+
+

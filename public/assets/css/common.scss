@@ -1,0 +1,29 @@
+* {
+	box-sizing: border-box;
+}
+
+a {
+	cursor: pointer;
+
+	&:hover {
+		outline: none;
+	}
+}
+
+.pdr10 {
+    padding-right: 10px;
+}
+
+.mgt10 {
+    margin-top: 10px;
+}
+
+textarea {
+	resize: none;
+	width: 100%;
+	height: 110px;
+}
+
+.item-content {
+	min-height: auto;
+}

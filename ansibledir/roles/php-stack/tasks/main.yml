@@ -1,0 +1,113 @@
+---
+- name: Create a login user
+  become: true
+  user:
+    name: "{{ user.project_name }}"
+    password: '$6$CNGueoGzOWDd$vWhGXjGIJKUEID2g7IxiFijBVWssNS6xjqo39LdMMmS6rBpvDvjVYVq.z2R30iGt5AsniDew.3Ro7laKkzC860'
+    groups: docker 
+    state: present
+    shell: /bin/bash       
+    system: no             
+    createhome: yes        
+    home: /home/{{ user.project_name }} 
+
+- name: Create directories for mongodb and Mysql
+  become: true
+  file:
+    path: "{{ item.dest }}"
+    mode: "{{item.mode}}"
+    state: directory
+  with_items:
+    - { dest: '/home/{{ user.project_name }}/mysql', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/mongodb', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/code', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/redis', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/varnish', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/logs', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/logs/nginx', mode: '0775'} 
+    - { dest: '/home/{{ user.project_name }}/logs/mysql', mode: '0775'} 
+    - { dest: '/home/{{ user.project_name }}/logs/mongodb', mode: '0775'}  
+    - { dest: '/home/{{ user.project_name }}/logs/redis', mode: '0775'}
+    - { dest: '/home/{{ user.project_name }}/nginx-conf', mode: '0775'}  
+
+- name: touch redis log file
+  become: true
+  file:
+    path: "/home/{{ user.project_name }}/logs/redis/redis.log"
+    owner: 100
+    group: 100
+    mode: 0775
+    state: touch    
+
+- name: Copying Template into remote
+  become: true
+  template:
+    src: docker-compose.yml
+    dest: '/home/{{ user.project_name }}'
+    owner: bin
+    mode: 0644
+
+- name: Copying Template into local
+  become: true
+  delegate_to: 127.0.0.1
+  template:
+    src: docker-compose.yml
+    dest: '/tmp/{{ user.project_name }}_{{ user.application_name }}/docker-compose.yml'
+    owner: bin
+    mode: 0644
+
+
+
+
+- name: Copying compose file with datetime
+  become: true
+  template:
+    src: docker-compose.yml
+    dest: '/home/{{ user.project_name }}/docker-compose-{{ user.datetime }}.yml'
+    owner: bin
+    mode: 0644
+
+- name: creating varnish vcl file
+  become: true
+  template:
+    src: default.vcl
+    dest: '/home/{{ user.project_name }}/varnish/default.vcl'
+    owner: bin
+    mode: 0644
+
+- name: Copy env file into remote  
+  become: true
+  copy: 
+    src:  "{{ nginx_php.env_path }}"
+    dest: /home/{{ user.project_name }}/nginx-php.env  
+    mode: 644  
+  when: nginx_php.env_file == 'true'
+
+
+
+- name: Docker
+  become: true
+  shell: |
+    cd /home/"{{ user.project_name }}" 
+    sudo docker stack deploy -c docker-compose.yml "{{ user.project_name }}"
+    docker stack ps "{{ user.project_name }}"
+  register: result 
+
+- name: clone a private repository
+  become: true
+  git:
+    repo: 'https://{{ user.GITHUB_USERNAME }}:{{ user.GITHUB_TOKEN }}@{{ user.GITHUB_URL }}'
+    dest: '/home/{{ user.project_name }}/code'
+    version: "{{ user.GITHUB_BRANCH }}"
+  when: user.repo_type == "private" 
+
+
+- name: clone a public repository
+  become: true
+  git:
+    repo: 'https://{{ user.GITHUB_URL }}'
+    dest: '/home/{{ user.project_name }}/code'
+    version: "{{ user.GITHUB_BRANCH }}"
+  when: user.repo_type == "public"   
+
+

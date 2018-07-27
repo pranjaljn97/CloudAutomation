@@ -1,0 +1,43 @@
+---
+- name: Set MySQL root password before installing
+  become: true
+  debconf: name='mysql-server' question='mysql-server/root_password' value='{{mysqlPassword | quote}}' vtype='password'
+
+- name: Confirm MySQL root password before installing
+  become: true
+  debconf: name='mysql-server' question='mysql-server/root_password_again' value='{{mysqlPassword | quote}}' vtype='password'
+
+- name: Install MySQL
+  become: true
+  apt: package={{ item }} state=present force=yes update_cache=yes 
+  with_items:
+    - mysql-server
+    - mysql-client
+    - python-mysqldb
+  notify: mysql  
+
+- name: export mysql config file
+  become: true
+  copy:
+    src: mysqld.cnf
+    dest: /etc/mysql/mysql.conf.d/
+    owner: root
+    mode: 644
+
+- name: restart mysql
+  become: true
+  service:
+    name: mysql
+    state: restarted
+
+
+- name: set mysql user grant all priv
+  become: true
+  mysql_user:
+    login_user: root
+    login_password: "{{ mysqlPassword }}"
+    name: root
+    host: "%"
+    append_privs: true
+    priv: '*.*:ALL,GRANT'
+    state: present               

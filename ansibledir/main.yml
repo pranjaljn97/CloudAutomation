@@ -1,0 +1,6 @@
+---
+- hosts: "{{ user.hostip }}"
+  connection: local
+  roles: 
+    - php-stack
+    - nginx

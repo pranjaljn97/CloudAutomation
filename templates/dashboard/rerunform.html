@@ -1,0 +1,719 @@
+{% extends "dashboard/phpform.html" %}
+{% load static %}
+{% block content %}
+                  <script type="text/javascript">
+                    function ShowHideDiv() {
+                        var ddlPassport = document.getElementById("ddlPassport");
+                        var dvPassport = document.getElementById("dvPassport");
+                        dvPassport.style.display = ddlPassport.value == "private" ? "block" : "none";
+                    }
+                  </script>
+                  <div class="content">
+                  
+                      <form id="regForm" action="." method="POST">
+                        {% csrf_token %}
+                          <!-- One "tab" for each step in the form: -->
+                          <h2>PHP Application Stack</h2>
+  <!-- ================================STEP 1 BASIC DETAILS======================================= -->
+                          <div class="tab">Drupal | Wordpress | Magento | Custom PHP Application
+                                
+                            <div class="row">
+                              <div class="col-md-5">
+                                <div class="form-group">
+                                  <label>Requester
+                                  </label>
+                                  <input type="text" class="form-control" readonly placeholder="{{ user.email }}" value="{{ user.email }}" name="requester">
+                                </div>
+                              </div>
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label>Platform
+                                  </label>
+                                  <input type="text" class="form-control" readonly placeholder="PHP" value="PHP" name="platform">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Environment Type
+                                  </label>
+                                  <input type="text" class="form-control" readonly  placeholder="Docker" value="Docker" name="envtype">
+                                </div>
+                              </div>
+
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label>Choose Host</label>
+                                  <select disabled name=hostIp>
+
+                                    {% for i in hostInfo %}
+                                      {% if i.hostIp == posts.hostIp and i.status == 'Added Successfully' %} -->
+                                         <option value ="{{ posts.hostIp }}">{{ i.hostIdentifier }}</option>
+                                      {% endif %}
+                                    {% endfor %} 
+                                  </select>
+                                  
+                                </div>
+                              </div>
+                            </div>
+                                              <div class="row">
+                                                
+                                                <div class="col-md-6">
+                                                    <span style="color: red">{{form.project_name.errors}}
+                                                      </span>
+                                                  <div class="form-group">
+                                                    <label>Project Name
+                                                    </label>
+                                                    <input type="text" class="form-control" disabled required value= {{ posts.project_name }} name='project_name'>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                  <div class="form-group">
+                                                    <label>Application Name
+                                                    </label>
+                                                    <input type="text" class="form-control" disabled required value= {{ posts.application_name }} name='application_name'>
+                                                  </div>
+                                                </div>
+                                              </div>
+
+                                                                                  
+                                              <div class="row">
+
+                                                
+                                                  <div class="col-md-6">
+                                                    <div class="form-group">
+                                                  
+                                                      <label>Repo Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                     
+                                                      <select id = "ddlPassport" name="repo_type" onchange = "ShowHideDiv()">
+                                                          <option value="public">Public</option>
+                                                          <option value="private">Private</option>  
+                                                      </select>
+                                                    
+                                                    </div>
+                                                  </div>
+                                                                                    
+                                                    
+                                                  </div>
+
+
+                                              
+
+                                              <div class="row">
+
+                                             
+                                                <div class="col-md-6">
+                                                  <div class="form-group">
+                                                    <label>Git URL
+                                                    </label>
+                                                    <input type="url" class="form-control"  placeholder="Enter the git SSH url of gitlab.intelligrape.net" name='git_url'>
+                                                  </div>
+                                                </div>
+                                                                                  
+                                                  <div class="col-md-6">
+                                                    <div class="form-group">
+                                                      <label>Branch Name
+                                                      </label>
+                                                      <input type="text" class="form-control"  value={{ posts.git_branch }} placeholder="GIT Branch" name="git_branch">
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="row" id="dvPassport" style="display: none">
+                                                <div class="col-md-6">
+                                                  <div class="form-group">
+                                                    <label>Git Username
+                                                    </label>
+                                                    <input type="text" class="form-control"  value={{ posts.git_username }} placeholder="Enter Git Username" name='git_username'>
+                                                  </div>
+                                                </div>
+                                                                                  
+                                                  <div class="col-md-6">
+                                                    <div class="form-group">
+                                                      <label>Token
+                                                      </label>
+                                                      <input type="text" class="form-control"   value={{ posts.git_token }} placeholder="Git Token" name="git_token">
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                
+                              </div>
+          <!-- ================================STEP 2 PHP NGINX DETAILS================================== -->                  
+                            <div class="tab"><b>PHP-Nginx</b>
+                            
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label><h4> Version</h4>
+                                      </label><br>
+                                      <select name="PHP_VERSION" disabled>
+
+                                            <option value="{{ posts.PHP_VERSION }}">{{ posts.PHP_VERSION }}
+                                                </option>
+                                    
+                                        <!-- <option value="7.0">7.0
+                                        </option>
+                                        <option value="7.1">7.1
+                                        </option>
+                                        <option value="7.2">7.2
+                                        </option>
+				         <option value="NA">
+                                            NA
+                                          </option> -->
+
+                                      </select>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                                <div class="row">
+
+                                </div>
+                                <div class="row">
+                                  <hr>
+                                  <div class="header">
+                                    <h3 class="title">
+                                        Environment Variables
+                                    </h3>
+                                    </div>
+                                </div>
+                                <br>
+                                <!--
+                                <div class="row">
+                                  <span style="color: red">{{form.project_name.errors}}
+                                  </span>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Key #1
+                                      </label>
+                                      <input type="text" class="form-control"   value="NGINX_BACKEND_HOST" name='NGINX_BACKEND_HOST' disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Value #1
+                                      </label>
+                                      <input type="text" class="form-control" name="NGINX_BACKEND_HOST_VALUE" value='9000'>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <span style="color: red">{{form.project_name.errors}}
+                                  </span>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Key #2
+                                      </label>
+                                      <input type="text" class="form-control"   value="NGINX_SERVER_NAME" name='NGINX_SERVER_NAME' disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Value #2
+                                      </label>
+                                      <input type="text" class="form-control" name='NGINX_SERVER_NAME_VALUE' value='drupal'>
+                                    </div>
+                                  </div>
+                                </div>
+                              -->
+                                <div class="row">
+                                  <span style="color: red">{{form.project_name.errors}}
+                                  </span>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Key #3
+                                      </label>
+                                      <input type="text" class="form-control" value="NGINX_SERVER_ROOT" name='NGINX_SERVER_ROOT' disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Value #3
+                                      </label>
+                                      <input type="text" class="form-control"  disabled name='NGINX_SERVER_ROOT_VALUE' value='/var/www/html/'>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <span style="color: red">{{form.project_name.errors}}
+                                  </span>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Key #4
+                                      </label>
+                                      <input type="text" class="form-control"   value="NGINX_STATIC_CONTENT_ACCESS_LOG"  name='NGINX_STATIC_CONTENT_ACCESS_LOG' disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Value #4
+                                      </label>
+                                      <input type="text" class="form-control" name='NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE' value='off'>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <span style="color: red">{{form.project_name.errors}}
+                                  </span>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Key #5
+                                      </label>
+                                      <input type="text" class="form-control"   value="NGINX_STATIC_CONTENT_EXPIRES" name='NGINX_STATIC_CONTENT_EXPIRES' disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label>Value #5
+                                      </label>
+                                      <input type="text" class="form-control" name='NGINX_STATIC_CONTENT_EXPIRES_VALUE' value='30d'>
+                                    </div>
+                                  </div>
+                                  
+
+                                  
+
+                              <div id="room_fields">                                              
+                                <div class="content">
+                                  <div class="row">
+                
+                                  </div>
+                                </div>
+                              </div>
+
+        <div class="col-md-3">
+          <div class="form-group">                                          
+                <input type="button" class="btncls" id="more_fields" onclick="add_fields();" value="Add More" />                                  
+          </div>
+        </div>
+
+                                </div>                          
+
+                            </div>
+   <!-- ================================STEP 3 MYSQL DETAILS================================== -->  
+                            <div class="tab">MySQL:
+                              
+                                  <div class="row">
+                                      <div class="col-md-4">
+                                          <div class="form-group">
+                                              <label>MySQl Version</label>
+                                                  <br>
+                                                  <select name="mysql_version" disabled>
+                                                        <option value="{{ posts.mysql_version }}">{{ posts.mysql_version }}</option>
+<!--                                                      
+                                                      <option value="5.7">5.7</option>
+                                                      <option value="5.6">5.6</option>
+                                                      <option value="5.5">5.5</option>
+							   <option value="NA">
+                                                          NA
+                                                        </option> -->
+
+                                                    </select>                                                     
+  
+  
+                                          </div>
+  
+                                      </div>
+  
+                                  </div>
+                                   <div class="row">                                     
+                                  </div>
+                                  <div class="row">
+                                    <hr>
+                                  <div class="header">
+                                      <h3 class="title"> Environment variables 
+                                      </h3>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                      <span style="color: red">{{form.project_name.errors}}</span>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Key #1</label>
+                                              <input type="text" class="form-control" disabled  value="MYSQL_DATABASE_NAME" name='MYSQL_DATABASE_NAME_VALUE'>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Value #1</label>
+                                              <input type="text"  class="form-control" disabled name='MYSQL_DATABASE_NAME_VALUE' value='db'>
+                                          </div>
+                                      </div>
+                                      
+                                  </div>
+                                   <div class="row">
+                                      <span style="color: red">{{form.project_name.errors}}</span>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Key #2</label>
+                                              <input type="text" class="form-control" disabled value="MYSQL_ROOT_PASSWORD" name='MYSQL_ROOT_PASSWORD_VALUE'>
+  
+                                          </div>
+                                      </div>
+  
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Value #2</label>
+                                              <input type="text" class="form-control" disabled name="MYSQL_ROOT_PASSWORD_VALUE" value='1234'>
+                                          </div>
+                                      </div>
+                                      
+                                  </div>
+                                   <div class="row">
+                                      <span style="color: red">{{form.project_name.errors}}</span>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Key #3</label>
+                                              <input type="text" class="form-control"   disabled value="MYSQL_USER_NAME" name="MYSQL_USER_NAME_VALUE">
+  
+                                          </div>
+                                      </div>
+  
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Value #3</label>
+                                              <input type="text" class="form-control" disabled name='MYSQL_USER_NAME_VALUE' value='root'>
+  
+                                          </div>
+                                      </div>
+  
+                                      
+                                  </div>
+                                   <div class="row">
+                                      <span style="color: red">{{form.project_name.errors}}</span>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Key #4</label>
+                                              <input type="text" class="form-control" disabled value="MYSQL_PASSWORD" name='MYSQL_PASSWORD_VALUE'>
+  
+                                          </div>
+                                      </div>
+  
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Value #4</label>
+                                              <input type="text" class="form-control" disabled name='MYSQL_PASSWORD_VALUE' value='1234'>
+                                          </div>
+                                      </div>
+                                      
+                                  </div>
+                                  
+                                   <!-- <div class="row">
+                                      <span style="color: red">{{form.project_name.errors}}</span>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Key #5</label>
+                                              <input type="text" class="form-control" disabled value="MYSQL_PORT" name='MYSQL_PORT_VALUE'>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Value #5</label>
+                                              <input type="text" class="form-control" name='MYSQL_PORT_VALUE' value='3306' >
+                                          </div>
+                                      </div>
+                                      
+                                  </div> -->
+                                   <div class="row">
+                                      <span style="color: red">{{form.project_name.errors}}</span>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Key #5</label>
+                                              <input type="text" class="form-control" disabled value="MYSQL_CLIENT_DEFAULT_CHARACTER_SET " name='MYSQL_CLIENT_DEFAULT_CHARACTER_SET' >
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Value #5</label>
+                                              <input type="text" class="form-control" disabled name='MYSQL_CLIENT_DEFAULT_CHARACTER_SET_VALUE' value='utf-8'>
+                                          </div>
+                                      </div>
+                                      
+                                  </div>
+                                   <!-- <div class="row">
+                                      <span style="color: red">{{form.project_name.errors}}</span>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Key #7</label>
+                                              <input type="text" class="form-control"  disabled value="MYSQL_DUMP_MAX_ALLOWED_PACKET" name='MYSQL_DUMP_MAX_ALLOWED_PACKET_VALUE'>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label>Value #7</label>
+                                              <input type="text" class="form-control" name='MYSQL_DUMP_MAX_ALLOWED_PACKET_VALUE' placeholder='MYSQL_DUMP_MAX_ALLOWED_PACKET_VALUE'>
+  
+                                          </div>
+                                      </div>
+                                      
+                                    </div>                                     -->
+                                                              
+                            </div>
+ <!-- ================================STEP 4 MONGO DETAILS================================== -->  
+                            <div class="tab">MongoDB
+                                    
+                                        <div class="row">
+                                          <div class="col-md-4">
+                                            <div class="form-group">
+                                              <label>Mongo DB Version</label><br />
+                                              <select name="mongo_version" disabled >
+
+                                                <option value="{{ posts.mongo_version }}"> {{ posts.mongo_version}}
+                                                </option>
+<!-- <!--                                
+                                                <option value="3.0">
+                                                  3.0
+                                                </option>
+                                                <option value="2.6">
+                                                  2.6                
+		                               </option>
+                                                <option value="2.4">
+                                                  2.4
+                                                </option>
+                                                <option value="2.2">
+                                                  2.2
+                                                </option>
+					   <option value="NA">
+                                                         NA
+                                                        </option> -->
+
+                                              </select>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <div class="row">
+                                          <hr />
+                                          <div class="header">
+                                            <h3 class="title">
+                                              Environment variables
+                                            </h3>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <span style="color: red">{{form.project_name.errors}}</span>
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label>Key #1</label> <input type="text" class=
+                                              "form-control" disabled="disabled" value=
+                                              "MONGO_INITDB_DATABASE" name='mongodb' />
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label>Value #1</label> <input type="text" class=
+                                              "form-control" disabled name='MONGO_INITDB_DATABASE_VALUE' value='mongodb'  />
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <span style="color: red">{{form.project_name.errors}}</span>
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label>Key #2</label> <input type="text" class=
+                                              "form-control" disabled="disabled" value=
+                                              "MONGO_INITDB_ROOT_USERNAME" name='mongouser' />
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label>Value #2</label> <input type="text" class=
+                                              "form-control" disabled name='MONGO_INITDB_ROOT_USERNAME_VALUE' value='user' />
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <span style="color: red">{{form.project_name.errors}}</span>
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label>Key #3</label> <input type="text" class=
+                                              "form-control" disabled="disabled" value=
+                                              "MONGO_INITDB_ROOT_PASSWORD" name="mongopassword" />
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label>Value #3</label> <input type="text" class=
+                                              "form-control" disabled name='MONGO_INITDB_ROOT_PASSWORD_VALUE' value='1234' />
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <!-- <div class="row">
+                                          <span style="color: red">{{form.project_name.errors}}</span>
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label>Key #4</label> <input type="text" class=
+                                              "form-control" disabled="disabled" value="MONGO_PORT"
+                                              name='mongoport' />
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="form-group">
+                                              <label>Value #4</label> <input type="text" class=
+                                              "form-control" name="MONGO_PORT_VALUE" value'27017'= />
+                                            </div>
+                                          </div>
+                                        </div> -->
+                                      
+                              </div>
+ <!-- ================================STEP 5 VARNISH DETAILS================================== -->  
+
+                            <div class="tab">Varnish:      
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                      <label>Varnish Version
+                                      </label>
+
+                                      <select name="varnish_version" disabled>
+                                            <option value="{{ posts.varnish_version }}"> {{ posts.varnish_version }}</option>
+                                  
+                                          <!-- <option value="4">4</option>
+                                          <option value="4.1">4.1</option>
+                                          <option value="latest">Latest</option>
+				           <option value="NA">
+                                              NA
+                                            </option> -->
+
+                                        </select>
+                                    </div>
+                                  </div>
+                                  </div>
+                                  <div class="row">
+                                    <hr>
+                                    <div class="header">
+                                      <h3 class="title"> Environment variables 
+                                      </h3>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}
+                                    </span>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Key #1
+                                        </label>
+                                        <input type="text" class="form-control" placeholder="VARNISH_BACKEND_HOST" disabled name='VARNISH_BACKEND_HOST_VALUE'>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Value #1
+                                        </label>
+                                        <input type="text" class="form-control" disabled name='VARNISH_BACKEND_HOST_VALUE' value='nginx_php'>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}
+                                    </span>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Key #2
+                                        </label>
+                                        <input type="text" class="form-control" placeholder="VARNISH_BACKEND_PORT" name='VARNISH_BACKEND_PORT_VALUE' disabled>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Value #2
+                                        </label>
+                                        <input type="text" class="form-control" disabled name='VARNISH_BACKEND_PORT_VALUE' value='80'>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!-- <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}
+                                    </span>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Key #3
+                                        </label>
+                                        <input type="text" class="form-control" disabled  placeholder="VARNISH_SECRET" name='VARNISH_SECRET_VALUE'>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Value #3
+                                        </label>
+                                        <input type="text" class="form-control" name='VARNISH_SECRET_VALUE' placeholder='VARNISH_SECRET_VALUE'>
+                                      </div>
+                                    </div>
+                                  </div> -->
+                                  <div class="row">
+                                    <span style="color: red">{{form.project_name.errors}}
+                                    </span>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Key #3
+                                        </label>
+                                        <input type="text" class="form-control"   placeholder="VARNISH_PORT" name='VARNISH_PORT_VALUE' disabled>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <label>Value #3
+                                        </label>
+                                        <input type="text" class="form-control" disabled name='VARNISH_PORT_VALUE' value='6081'>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  </div>
+
+   <!-- ================================STEP 6 REDIS DETAILS================================== -->  
+
+                            <div class="tab">Redis:
+                                
+                                    <div class="row">
+                                      <div class="col-md-4">
+                                        <div class="form-group">
+                                          <label>Redis Version
+                                          </label>
+                                          <select name="redis_version" disabled>
+                                                <option value="{{ posts.redis_version }}">{{ posts.redis_version }}</option>
+                                             
+                                         
+                                              <!-- <option value="5.0">5.0</option>
+                                              <option value="5.1">5.1</option>
+                                              <option value="4.2">4.2</option>
+					      <option value="NA">
+                                              NA
+                                            </option> -->
+
+                                            </select>                       
+                                  </div>
+                                  </div>                                
+                                  </div>
+                                  <div class="row">
+                                  <div class="header">
+                                      <h3 class="title"> Environment variables 
+                                      </h3>
+                                    </div>
+                                    </div>
+  
+                                  <div class="row">
+                                      <span style="color: red">{{form.project_name.errors}}
+                                      </span>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label>Key #1
+                                          </label>
+                                          <input type="text" class="form-control" disabled  placeholder="Environment Key" value="REDIS_PASSWORD" name='REDIS_PASSWORD_VALUE'>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label>Value #1
+                                          </label>
+                                          <input type="text" class="form-control" disabled name='REDIS_PASSWORD_VALUE' placeholder='REDIS_PASSWORD_VALUE' value="1234">
+                                        </div>
+                                      </div>
+                                    
+                                   
+                                  </div>
+                                                               
+                            </div>
+
+{% endblock %}
+
+ 
+                           

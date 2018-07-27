@@ -1,0 +1,12 @@
+---
+
+- name: New instances
+  hosts: localhost
+  connection: local
+  become_user: root
+  vars:
+    "mysqlPassword": "dipesh@123"
+  roles:
+    - mysql
+
+
