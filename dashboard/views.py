@@ -708,6 +708,9 @@ def rerun(request,id):
             d = {}
             proj = posts.project_name
             destpath = settings.ENVFILE_PATH + 'documents/' + proj + '/'
+            with open(destpath+'extraenv.json','wb') as f:
+                    f.flush()
+                    f.close()
             for x in range(1,maxkey):
                 y = x
                 tot += 1
