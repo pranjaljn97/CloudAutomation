@@ -48,7 +48,7 @@ def fmail(request,id,posts,jsonfile):
                 obj3 = Ports.objects.all().filter(projectname=pname).filter(ptype='mysql')
                 for o3 in obj3:
                     mysqlport1 = o3.port
-                obj4 = Ports.objects.all().filter(projectname=pname).filter(ptype='mongo')
+                obj4 = Ports.objects.all().filter(projectname=pname).filter(ptype='mongo db')
                 for o4 in obj4:
                     mongoport1 = o4.port
                 obj5 = Ports.objects.all().filter(projectname=pname).filter(ptype='redis')
