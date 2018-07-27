@@ -310,7 +310,7 @@
                                                                         <tr>
                                                                             <td colspan="4" height="10px"></td>
                                                                         </tr>
-                                                                      
+{% if nginxport != 'false' %}                                                                     
 <tr>
                                                                             <td width="3%"></td>
                                                                             <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Nginx-Php</td>
@@ -321,7 +321,8 @@
                                                                         </tr>
 
                                                                         </tr>
-
+                                                                        {% endif %}
+{% if varnishport != 'false' %}                                                                         
 <tr>
                                                                             <td width="3%"></td>
                                                                             <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Varnish</td>
@@ -332,8 +333,9 @@
                                                                         </tr>
 
                                                                         </tr>
+                                                                        {% endif %}
 
-
+{% if redisport != 'false' %}
 <tr>
                                                                             <td width="3%"></td>
                                                                             <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Redis</td>
@@ -344,6 +346,32 @@
                                                                         </tr>
 
                                                                         </tr>
+                                                                        {% endif %}
+
+{% if mysqlport != 'false' and mysqlflag != 'true' %}
+<tr>
+                                                                            <td width="3%"></td>
+                                                                            <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">MySQl</td>
+                                                                            <td width="3%"></td>
+                                                                            <td width="51%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ mysqlport }}</td>
+                                                                            <tr>
+                                                                            <td colspan="4" height="10px"></td>
+                                                                        </tr>
+
+                                                                        </tr>
+                                                                        {% endif %}
+{% if mongoport != 'false' and mongoflag != 'true' %}
+<tr>
+                                                                            <td width="3%"></td>
+                                                                            <td width="31%" style="color:#686c6d;font-family:open sans;font-size:14px;font-weight:bold">Mongo DB</td>
+                                                                            <td width="3%"></td>
+                                                                            <td width="51%" style="color:#686c6d;font-family:open sans;font-size:14px">ssh root@{{ hostIp }} -p {{ mongoport }}</td>
+                                                                            <tr>
+                                                                            <td colspan="4" height="10px"></td>
+                                                                        </tr>
+
+                                                                        </tr>
+                                                                        {% endif %}
 
                                                         <tr>
                                                             <td colspan="12" style="height:1px;background:#e7eaec"></td>
@@ -413,6 +441,7 @@
                                                                         <tr>
                                                                             <td width="3%"></td>
                                                                             <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px"> {{ LegacyHost }}</td>
+                                                                            
                                                                             <td width="3%"></td>
                                                                             <td width="14%" style="color:#686c6d;font-family:open sans;font-size:13px">{{ mysqlDb }}</td>
 
@@ -575,10 +604,10 @@
                                 <b>Note:</b>
                                 <ul>
                                     <li>
-                                        Use-><b> mysql -u {{ mysqluname}} -h {{hostIp}} -P {{ mysqlport }} -p {{ mysqlupwd }}</b> for connecting to mysql.
+                                        Use-><b> mysql -u {{ mysqluname}} -h {{LegacyHost}} -P {{ mysqlport1 }} -p {{ mysqlupwd }}</b> for connecting to mysql.
                                     </li>
                                     <li>
-                                        Use-><b> mongo admin --username {{ mongouname }} --password {{ mongoupwd }} --host {{ hostIp }} --port {{ mongoport }} </b>for connecting to mongo.
+                                        Use-><b> mongo admin --username {{ mongouname }} --password {{ mongoupwd }} --host {{ LegacyHost }} --port {{ mongoport1 }} </b>for connecting to mongo.
                                     </li>
                                     <li>
                                         Visit S2P Portal for the complete details.
