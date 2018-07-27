@@ -75,7 +75,7 @@ def fmail(request,id,posts,jsonfile):
                     'hostIp':posts.hostIp,
                     'LegacyHost':posts.hostIp_mysql, 
                     'mysqluname':posts.MYSQL_USER_NAME_VALUE,
-                    'mysqlupwd':posts.MYSQL_PASSWORD_VALUE,
+                    'mysqlupwd':posts.MYSQL_ROOT_PASSWORD_VALUE,
                     'mongouname':posts.MONGO_INITDB_ROOT_USERNAME_VALUE,
                     'mongoupwd':posts.MONGO_INITDB_ROOT_PASSWORD_VALUE,
                     'nginxport':nginxport,
