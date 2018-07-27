@@ -706,6 +706,7 @@ def rerun(request,id):
             maxkey += 1
             lst = []
             d = {}
+            proj = posts.project_name
             destpath = settings.ENVFILE_PATH + 'documents/' + proj + '/'
             for x in range(1,maxkey):
                 y = x
@@ -717,15 +718,13 @@ def rerun(request,id):
                 a = form.cleaned_data[name]
                 b = form.cleaned_data[name2]
                 newpath1 = r'./documents/'
-                p1 = newpath1 + '/extraenv.json'
+		if not os.path.exists(newpath1):
+                  os.makedirs(newpath1)
+                filename = 'extraenv.json'
+                p1 = destpath + filename
+
                 with open(p1,'ab') as f:
                     f.write(a+"="+b+"\n")
-
-            filecurrpath = newpath1 + '/extraenv.json'
-            filename = 'extraenv.json'
-            print destpath + filename
-            os.rename(filecurrpath, destpath + filename)
-
 
             try:
                makeenvfile(id)
@@ -746,11 +745,13 @@ def rerun(request,id):
                 msg = "Error in fetching final status"
                 return render(request, "dashboard/error.html", {'msg': msg })
             return HttpResponseRedirect('/dashboard/detailform' + id + '.html')
+	else:
+            print(form.errors)  
     else:
         form = Myform()
     proj = posts.project_name
     newpath = settings.ENVFILE_PATH + 'documents/' + proj + '/'
-    p1 = newpath + '/extraenvJson.json'
+    p1 = newpath + 'extraenvJson.json'
     with open(p1) as data_file:
         jsondata = json.load(data_file)
        
