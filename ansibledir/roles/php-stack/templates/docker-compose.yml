@@ -24,8 +24,7 @@ services:
      environment:
        {% for key,value in mongodb.envi.iteritems() %}
        {{ key }} : {{ value }}
-       {% endfor %}
-       
+       {% endfor %} 
      volumes:
        - ./mongodb:/data/db
        - ./logs/mongodb:/var/log/mongodb
@@ -79,9 +78,15 @@ services:
        {% for key,value in varnish.envi.iteritems() %}
        {{ key }} : {{ value }}
        {% endfor %}
-       
      depends_on:
        - nginx_php
+     ulimits:
+       nofile:
+        soft: 262144
+        hard: 262144
+       memlock:
+        soft: 819200000
+        hard: 819200000
      ports:
        - "{{ varnish.ports }}:6081"
        - "{{ varnish.sshport }}:22"  
