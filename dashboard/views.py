@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+    # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
@@ -717,9 +717,9 @@ def rerun(request,id):
                 print(form.cleaned_data[name])
                 a = form.cleaned_data[name]
                 b = form.cleaned_data[name2]
-                newpath1 = r'./documents/'
-		if not os.path.exists(newpath1):
-                  os.makedirs(newpath1)
+                #newpath1 = r'./documents/'
+		        #if not os.path.exists(newpath1):
+                #os.makedirs(newpath1)
                 filename = 'extraenv.json'
                 p1 = destpath + filename
 
