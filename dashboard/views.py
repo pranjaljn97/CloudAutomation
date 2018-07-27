@@ -240,19 +240,19 @@ def approvedsuccessfully(request, id):
         form = HostdeployForm(request.POST)
         if form.is_valid():
             print "inpost"
-            mysqlu = currpost.MYSQL_USER_NAME_VALUE
-            mysqld = currpost.MYSQL_DATABASE_NAME_VALUE
-            mongou = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
-            mongod = currpost.MONGO_INITDB_DATABASE_VALUE
-            mysqlu = mysqlu + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-            mysqld = mysqld + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-            mongou = mongou + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-            mongod = mongod + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-            currpost.MYSQL_USER_NAME_VALUE = mysqlu
-            currpost.MYSQL_DATABASE_NAME_VALUE = mysqld
-            currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongou
-            currpost.MONGO_INITDB_DATABASE_VALUE = mongod
-            currpost.save()
+            # mysqlu = currpost.MYSQL_USER_NAME_VALUE
+            # mysqld = currpost.MYSQL_DATABASE_NAME_VALUE
+            # mongou = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
+            # mongod = currpost.MONGO_INITDB_DATABASE_VALUE
+            # mysqlu = mysqlu + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+            # mysqld = mysqld + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+            # mongou = mongou + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+            # mongod = mongod + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+            # currpost.MYSQL_USER_NAME_VALUE = mysqlu
+            # currpost.MYSQL_DATABASE_NAME_VALUE = mysqld
+            # currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongou
+            # currpost.MONGO_INITDB_DATABASE_VALUE = mongod
+            # currpost.save()
             
             ip = form.cleaned_data['hostipdeploy']
             print ip
@@ -318,11 +318,11 @@ def approvedsuccessfully(request, id):
 
 
             
-            try:
-                makeenvfile(id)
-            except:
-                 msg = "Error in making Env File"
-                 return render(request, "dashboard/error.html", {'msg': msg })
+            # try:
+            makeenvfile(id)
+            # except:
+            #      msg = "Error in making Env File"
+            #      return render(request, "dashboard/error.html", {'msg': msg })
 
             print("hi")
             try:
@@ -838,13 +838,13 @@ def rejectedmysql(request):
 def approvedsuccessfullymysql(request, id):
     
     currpost = mysqluser.objects.get(id=id)
-    dbname = currpost.MYSQL_DATABASE_NAME_VALUE
-    username = currpost.MYSQL_USER_NAME_VALUE
-    dbname = dbname + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    username = username + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    currpost.MYSQL_DATABASE_NAME_VALUE = dbname
-    currpost.MYSQL_USER_NAME_VALUE = username
-    currpost.save()
+    # dbname = currpost.MYSQL_DATABASE_NAME_VALUE
+    # username = currpost.MYSQL_USER_NAME_VALUE
+    # dbname = dbname + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # username = username + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # currpost.MYSQL_DATABASE_NAME_VALUE = dbname
+    # currpost.MYSQL_USER_NAME_VALUE = username
+    # currpost.save()
     ip = currpost.hostIp
     posts = Host.objects.all().filter(hostIp=ip)
 
@@ -965,13 +965,13 @@ def approvedsuccessfullymongo(request, id):
 
      #mail functionality
     sendmail(request,id,'approvedmongo')
-    mongodb = currpost.MONGO_INITDB_DATABASE_VALUE
-    mongouser = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
-    mongodb = mongodb + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    mongouser = mongouser + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
-    currpost.MONGO_INITDB_DATABASE_VALUE = mongodb
-    currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongouser
-    currpost.save()
+    # mongodb = currpost.MONGO_INITDB_DATABASE_VALUE
+    # mongouser = currpost.MONGO_INITDB_ROOT_USERNAME_VALUE
+    # mongodb = mongodb + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # mongouser = mongouser + str(datetime.datetime.now().time().hour) + '_'  + str(datetime.datetime.now().time().minute)
+    # currpost.MONGO_INITDB_DATABASE_VALUE = mongodb
+    # currpost.MONGO_INITDB_ROOT_USERNAME_VALUE = mongouser
+    # currpost.save()
     return render(request, "dashboard/forapprovalmongo.html", {'posts': posts2 })
 
 @user_passes_test(lambda u: u.has_perm('dashboard.permission_code'))

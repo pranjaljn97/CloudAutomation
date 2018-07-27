@@ -468,42 +468,32 @@ def makeenvfile(myid):
     if curr.mysql_version == 'NA' or curr.hostIp_mysql != 'NA':
         newip = curr.hostIp_mysql
         hosts = Host.objects.all()
-        for host in hosts:
-            if host.hostIp == newip:
-                mysqlhostcheck = host.hostMysql
-                break
-        if mysqlhostcheck == 'true':
-            print "no sql"
-            mysqlflag = False
-            sqlport = 'false'
-            sshsqlport = 'false'
-            newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'mysql')
-            newport.save()
-            newport1 = Ports(port = sshsqlport, status = '0', projectname = pname, ptype = 'mysql ssh')
-            newport1.save()
-        else:
-            mysqlflag = True
+        mysqlflag = False
+       
+            
+        sqlport = 'false'
+        sshsqlport = 'false'
+        newport = Ports(port = sqlport, status = '0', projectname = pname, ptype = 'mysql')
+        newport.save()
+        newport1 = Ports(port = sshsqlport, status = '0', projectname = pname, ptype = 'mysql ssh')
+        newport1.save()
+        
     else:
         mysqlflag = True
     #mongo db
     if curr.mongo_version == 'NA' or curr.hostIp_mysql != 'NA':
         newip = curr.hostIp_mysql
         hosts = Host.objects.all()
-        for host in hosts:
-            if host.hostIp == newip:
-                mongohostcheck = host.hostMongo
-                break
-        if mongohostcheck == 'true':
-            print "no mongo"
-            mongoflag = False
-            mongoport = 'false'
-            sshmongoport = 'false'
-            newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongo db')
-            newport.save()
-            newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db ssh')
-            newport.save()
-        else:
-            mongoflag = True
+        mongoflag = False
+        
+        mongoport = 'false'
+        sshmongoport = 'false'
+        newport = Ports(port = mongoport, status = '0', projectname = pname, ptype = 'mongo db')
+        newport.save()
+        newport = Ports(port = sshmongoport, status = '0', projectname = pname, ptype = 'mongo db ssh')
+        newport.save()
+        # else:
+        #     mongoflag = True
     else:
         mongoflag = True
     #redis
@@ -554,7 +544,9 @@ def makeenvfile(myid):
 
 
     fileopp = 'true'
-    
+    if post.total == '0':
+        fileopp = 'false'
+
     pathdir = "documents/" + post.project_name 
     env_path = 'false'
     destpath1 = settings.ENVFILE_PATH + 'documents/' + post.project_name + '/'
